@@ -11,7 +11,7 @@ export default function ContactBar() {
           Mohammadpur, Dhaka
         </div>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4 md:gap-8">
           <div className="flex items-center gap-2.5">
             <BiPhoneCall className="text-xl" />
             <span className="hidden md:block">01318214398</span>

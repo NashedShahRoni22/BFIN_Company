@@ -17,7 +17,7 @@ export default function HomeLanding() {
           and soho hosting services.
         </p>
         <div className="flex items-center justify-center gap-2">
-          <input className="py-1.5 px-4 border border-primary outline-none rounded shadow-xl" />
+          <input placeholder="Enter you email" className="py-1.5 px-4 border border-primary outline-none rounded shadow-xl" />
           <button className="py-1.5 px-4 bg-primary rounded text-white">
             Subscribe
           </button>
