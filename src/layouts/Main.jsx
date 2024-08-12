@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Topbar from "../shared/Topbar";
 import ContactBar from "../shared/ContactBar";
+import Bottombar from "../shared/Bottombar";
 
 export default function Main() {
   return (
@@ -9,6 +10,7 @@ export default function Main() {
       <ContactBar />
       <Topbar />
       <Outlet />
+      <Bottombar/>
     </main>
   );
 }

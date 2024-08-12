@@ -40,7 +40,7 @@ export default function OurServices() {
       </h5>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-20">
         {items.map((item) => (
-          <div className="flex flex-col gap-2.5 p-5 rounded-xl shadow-xl md:hover:-translate-y-5 ease-linear duration-300">
+          <div className="flex flex-col gap-2.5 p-8 rounded-xl shadow-xl md:hover:-translate-y-5 ease-linear duration-300">
             <img src={item.image} className="h-[80px] w-[80px]" alt="" />
             <h5 className="text-[20px] md:text-[26px] font-semibold text-primary">{item.title}</h5>
             <p className="text-[12px] md:text-[16px]">{item.desc}</p>

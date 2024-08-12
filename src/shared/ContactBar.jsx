@@ -1,5 +1,6 @@
 import React from "react";
-import { BiLocationPlus, BiPhoneCall } from "react-icons/bi";
+import { BiPhoneCall } from "react-icons/bi";
+import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 export default function ContactBar() {
@@ -7,19 +8,23 @@ export default function ContactBar() {
     <section className="py-2.5 bg-primary text-white">
       <div className="mx-5 md:container md:mx-auto flex justify-between">
         <div className="flex items-center gap-2.5">
-          <BiLocationPlus className="text-xl" />
-          Mohammadpur, Dhaka
+          <FaLocationDot className="text-xl" />8 rue de Dublin, 34200, Sète,
+          France.
         </div>
 
         <div className="flex items-center gap-4 md:gap-8">
-          <div className="flex items-center gap-2.5">
+          <a href="tel:+33666100010" className="flex items-center gap-2.5">
             <BiPhoneCall className="text-xl" />
-            <span className="hidden md:block">01318214398</span>
-          </div>
-          <div className="flex items-center gap-2.5">
+            <span className="hidden md:block">+ 33 6 66 10 00 10</span>
+          </a>
+
+          <a
+            href="mailto:support@bobosohomail.com"
+            className="flex items-center gap-2.5"
+          >
             <MdEmail className="text-xl" />
-            <span className="hidden md:block">contact@bfin.com</span>
-          </div>
+            <span className="hidden md:block">support@bobosohomail.com</span>
+          </a>
         </div>
       </div>
     </section>

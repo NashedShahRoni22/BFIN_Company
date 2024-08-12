@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-import {
-  BiChevronDown,
-  BiChevronRight,
-  BiChevronRightCircle,
-  BiChevronUp,
-} from "react-icons/bi";
-import { BsArrow90DegRight } from "react-icons/bs";
+import { BiChevronDown, BiChevronRight, BiChevronUp } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { MdArrowOutward } from "react-icons/md";
 
 export default function Topbar() {
   const [showNav, setShowNav] = useState(false);
@@ -67,7 +62,7 @@ export default function Topbar() {
           link: "/",
         },
         {
-          name: "Bitss Wrap",
+          name: "Bitss Cyber Security",
           link: "/",
         },
       ],
@@ -122,10 +117,6 @@ export default function Topbar() {
       name: "Career",
       link: "/",
     },
-    {
-      name: "Contact Us",
-      link: "/",
-    },
   ];
   return (
     <nav className="py-2.5 mx-5 md:container md:mx-auto flex justify-between">
@@ -142,11 +133,7 @@ export default function Topbar() {
                 </span>
                 <div className="absolute bg-white left-5 p-5 shadow rounded min-w-[350px] hidden group-hover:flex flex-col gap-2">
                   {mi.child.map((mc, i) => (
-                    <Link
-                      to={mc.link}
-                      key={i}
-                      className="flex gap-1.5"
-                    >
+                    <Link to={mc.link} key={i} className="flex gap-1.5">
                       <BiChevronRight className="text-2xl" />
                       <span className="flex-1">{mc.name}</span>
                     </Link>
@@ -154,8 +141,13 @@ export default function Topbar() {
                 </div>
               </div>
             ) : (
-              <Link to={mi.link} key={i} className="text-[20px] font-semibold">
+              <Link
+                to={mi.link}
+                key={i}
+                className="text-[20px] font-semibold flex items-center gap-2.5"
+              >
                 {mi.name}
+                <MdArrowOutward />
               </Link>
             )}
           </>
@@ -210,6 +202,9 @@ export default function Topbar() {
                           {mc.name}
                         </Link>
                       ))}
+                      <Link to={mi.link} key={i} className="text-[20px]">
+                        {mi.name}
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -222,6 +217,10 @@ export default function Topbar() {
           ))}
         </div>
       )}
+
+      <Link className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center">
+        Contact <MdArrowOutward />
+      </Link>
     </nav>
   );
 }
