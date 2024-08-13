@@ -119,108 +119,111 @@ export default function Topbar() {
     },
   ];
   return (
-    <nav className="py-2.5 mx-5 md:container md:mx-auto flex justify-between">
-      <p className="text-[20px] text-primary font-semibold">BFIN IT</p>
-      {/* desktop view  */}
-      <div className="hidden lg:flex lg:gap-8">
-        {MenuItems.map((mi, i) => (
-          <>
-            {mi.child ? (
-              <div key={i} className="relative group text-[20px]">
-                <span className="flex items-center gap-1 cursor-pointer font-semibold">
-                  {mi.name}
-                  <BiChevronDown />
-                </span>
-                <div className="absolute bg-white left-5 p-5 shadow rounded min-w-[350px] hidden group-hover:flex flex-col gap-2">
-                  {mi.child.map((mc, i) => (
-                    <Link to={mc.link} key={i} className="flex gap-1.5">
-                      <BiChevronRight className="text-2xl" />
-                      <span className="flex-1">{mc.name}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <Link
-                to={mi.link}
-                key={i}
-                className="text-[20px] font-semibold flex items-center gap-2.5"
-              >
-                {mi.name}
-                <MdArrowOutward />
-              </Link>
-            )}
-          </>
-        ))}
-      </div>
-      {/* mobile view  */}
-      {showNav ? (
-        <button className="lg:hidden" onClick={() => setShowNav(!showNav)}>
-          <CgClose className="text-2xl" />
-        </button>
-      ) : (
-        <button className="lg:hidden" onClick={() => setShowNav(!showNav)}>
-          <FaBars className="text-xl" />
-        </button>
-      )}
-
-      {showNav && (
-        <div className="lg:hidden p-5 flex flex-col gap-4 absolute top-20 left-0 bg-white min-w-full min-h-screen">
+    <nav className="sticky top-0 bg-white z-50">
+      <section className="py-2.5 mx-5 md:container md:mx-auto flex justify-between">
+        <p className="text-[20px] text-primary font-semibold">BFIN IT</p>
+        {/* desktop view  */}
+        <div className="hidden lg:flex lg:gap-8 lg:items-center">
           {MenuItems.map((mi, i) => (
             <>
               {mi.child ? (
-                <div key={i}>
-                  <div className="text-[20px] flex justify-between items-center">
+                <div key={i} className="relative group text-[20px]">
+                  <span className="flex items-center gap-1 cursor-pointer font-semibold">
                     {mi.name}
-
-                    {showChild !== i ? (
-                      <button
-                        onClick={() => setShowChild(i)}
-                        className="flex items-center gap-1 cursor-pointer"
-                      >
-                        <BiChevronDown className="text-3xl" />
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => setShowChild("")}
-                        className="flex items-center gap-1 cursor-pointer"
-                      >
-                        <BiChevronUp className="text-3xl" />
-                      </button>
-                    )}
-                  </div>
-
-                  {showChild === i && (
-                    <div className="ml-4 mt-4 flex flex-col gap-4">
-                      {mi.child.map((mc, i) => (
-                        <Link
-                          to={mc.link}
-                          key={i}
-                          className="text-[20px] flex gap-1.5"
-                        >
-                          <BiChevronRight className="text-2xl" />
-                          {mc.name}
-                        </Link>
-                      ))}
-                      <Link to={mi.link} key={i} className="text-[20px]">
-                        {mi.name}
+                    <BiChevronDown />
+                  </span>
+                  <div className="absolute bg-white left-5 p-5 shadow rounded min-w-[350px] hidden group-hover:flex flex-col gap-2">
+                    {mi.child.map((mc, i) => (
+                      <Link to={mc.link} key={i} className="flex gap-1.5">
+                        <BiChevronRight className="text-2xl" />
+                        <span className="flex-1">{mc.name}</span>
                       </Link>
-                    </div>
-                  )}
+                    ))}
+                  </div>
                 </div>
               ) : (
-                <Link to={mi.link} key={i} className="text-[20px]">
+                <Link
+                  to={mi.link}
+                  key={i}
+                  className="text-[20px] font-semibold flex items-center gap-2.5"
+                >
                   {mi.name}
+                  <MdArrowOutward />
                 </Link>
               )}
             </>
           ))}
         </div>
-      )}
+        {/* mobile view  */}
+        {showNav ? (
+          <button className="lg:hidden" onClick={() => setShowNav(!showNav)}>
+            <CgClose className="text-2xl" />
+          </button>
+        ) : (
+          <button className="lg:hidden" onClick={() => setShowNav(!showNav)}>
+            <FaBars className="text-xl" />
+          </button>
+        )}
 
-      <Link className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center">
-        Contact <MdArrowOutward />
-      </Link>
+        {showNav && (
+          <div className="lg:hidden p-5 flex flex-col gap-4 absolute top-10 left-0 bg-white min-w-full min-h-screen">
+            {MenuItems.map((mi, i) => (
+              <>
+                {mi.child ? (
+                  <div key={i}>
+                    <div className="text-[20px] flex justify-between items-center">
+                      {mi.name}
+
+                      {showChild !== i ? (
+                        <button
+                          onClick={() => setShowChild(i)}
+                          className="flex items-center gap-1 cursor-pointer"
+                        >
+                          <BiChevronDown className="text-3xl" />
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => setShowChild("")}
+                          className="flex items-center gap-1 cursor-pointer"
+                        >
+                          <BiChevronUp className="text-3xl" />
+                        </button>
+                      )}
+                    </div>
+
+                    {showChild === i && (
+                      <div className="ml-4 mt-4 flex flex-col gap-4">
+                        {mi.child.map((mc, i) => (
+                          <Link
+                            to={mc.link}
+                            key={i}
+                            className="text-[20px] flex gap-1.5"
+                          >
+                            <BiChevronRight className="text-2xl" />
+                            {mc.name}
+                          </Link>
+                        ))}
+                        <Link to={mi.link} key={i} className="text-[20px]">
+                          {mi.name}
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link to={mi.link} key={i} className="text-[20px]">
+                    {mi.name}
+                  </Link>
+                )}
+              </>
+            ))}
+          </div>
+        )}
+
+        <Link className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center group">
+          Contact <MdArrowOutward className="group-hover:rotate-45 duration-300 ease-linear" />
+        </Link>
+      </section>
+      <div className="bg-primary w-full h-0.5"></div>
     </nav>
   );
 }

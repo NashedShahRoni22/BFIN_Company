@@ -5,3 +5,8 @@
 *{
     font-family: "Urbanist", sans-serif;
 }
+.banner{
+    background: url("../src/assets/bg-banner.png");
+    background-position: center;
+    background-size: cover;
+}

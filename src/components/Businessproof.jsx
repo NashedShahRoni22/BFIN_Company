@@ -40,7 +40,7 @@ export default function Businessproof() {
     },
   ];
   return (
-    <section className="mx-5 md:container md:mx-auto p-5 md:p-10 bg-gray-200 grid md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-xl">
+    <section className="mx-5 md:container md:mx-auto p-5 md:p-10 bg-black/80 grid md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-xl">
       {items.map((item, i) => (
         <div key={i} className="flex flex-col items-start gap-2.5 bg-white p-5 rounded-xl shadow-xl group hover:bg-primary hover:text-white ease-linear duration-300">
           <img src={item.image} alt="" />

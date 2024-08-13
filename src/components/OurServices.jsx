@@ -10,27 +10,32 @@ export default function OurServices() {
     {
       image: hosting,
       title: "Web Hosting & Server",
-      desc: "Bobosoho has vast experience in WordPress website development, management, maintenance, woo commerce and more. Alongside, WordPress Maintenance Services.We are experienced in WordPress website development, management, maintenance, woo commerce and more. Alongside, WordPress Maintenance Services.",
+      desc: "Bobosoho offers comprehensive WordPress website services, including development, management, and maintenance, with expertise in WooCommerce and other related platforms. We provide reliable WordPress maintenance services, ensuring your website runs smoothly, efficiently, and securely.",
     },
     {
       image: wp,
       title: "Wordpress Development",
-      desc: "Bobosoho SaaS team is experienced in WordPress website development, management, maintenance, woo commerce and more. Alongside, WordPress Maintenance Services.",
+      desc: "Our SaaS team specializes in WordPress development, offering full-service management and maintenance. We provide tailored solutions for WooCommerce and other plugins, ensuring your WordPress site meets your specific needs with robust support and consistent performance.",
     },
     {
       image: web,
-      title: "Website Development",
-      desc: "Bobosoho provides flexible, and affordable web design and development services for you. You can choose your dream framework/language with us for the development.",
+      title: "Custom Website Development",
+      desc: "Bobosoho delivers customized web design and development services, offering flexibility in framework or language selection. We build websites that are tailored to your vision, ensuring they are both functional and affordable.",
+    },
+    {
+      image: web,
+      title: "Cyber Security",
+      desc: "Protect your website with Bobosoho's cybersecurity plugin, offering real-time monitoring, automated threat detection, and comprehensive protection against malware, DDoS attacks, and data breaches. Our easy-to-deploy solution includes firewall integration, secure login systems, and vulnerability assessments.",
     },
     {
       image: white,
       title: "SaaS White Label",
-      desc: "Bobosoho provides flexible, and affordable SaaS design and development services for you. Try the Bobosoho white label products a cost effective way of starting your IT SaaS business online from anywhere. You can choose your own branded SaaS business dream and build your own branded business.",
+      desc: "Bobosoho offers affordable white-label SaaS design and development services, allowing you to start your own branded IT SaaS business. We provide the tools and support needed to build and launch your unique SaaS platform.",
     },
     {
       image: retail,
       title: "BFIN Retail",
-      desc: "For 3 D manufacturing Contact us or send us your prototype we will under strict confidentiality contract, scan, produce it until it is exactly what your require, we will then manufacture under licence and manage all IT distribution, this is website creation, maintenance, secured hosting with bfin firewall and cyber verification system, and provide online sales management and client and product support. Includes shipping to your clients. Visit Bfin retail for our cameleasy products, saddles for droamdaires, camels, lama, cow etc. Our retail brands kcorral and cameleasy.",
+      desc: "For confidential 3D manufacturing, send us your prototype. We manage the entire process, including scanning, production, licensing, IT distribution, secure hosting, online sales management, and product support. Explore our retail brands, Kcorral and Cameleasy, for specialized products like saddles for camels and more.",
     },
   ];
   return (
@@ -42,7 +47,9 @@ export default function OurServices() {
         {items.map((item) => (
           <div className="flex flex-col gap-2.5 p-8 rounded-xl shadow-xl md:hover:-translate-y-5 ease-linear duration-300">
             <img src={item.image} className="h-[80px] w-[80px]" alt="" />
-            <h5 className="text-[20px] md:text-[26px] font-semibold text-primary">{item.title}</h5>
+            <h5 className="text-[20px] md:text-[26px] font-semibold text-primary">
+              {item.title}
+            </h5>
             <p className="text-[12px] md:text-[16px]">{item.desc}</p>
           </div>
         ))}

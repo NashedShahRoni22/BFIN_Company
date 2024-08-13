@@ -1,0 +1,28 @@
+import React from "react";
+import Marquee from "react-fast-marquee";
+
+export default function KeywordsMerque() {
+  return (
+    <div className="py-5 md:py-10 flex flex-col gap-5 md:gap-10">
+      <Marquee
+        speed={100}
+        pauseOnHover
+        direction="right"
+        className="text-2xl md:text-4xl lg:text-6xl uppercase font-extrabold overflow-hidden"
+      >
+        IT research . Software Development . IT Security . Hosting Provider .
+        Wordpress Development . Custom Website Development . Software Quality
+        Assurance .
+      </Marquee>
+      <Marquee
+        speed={100}
+        pauseOnHover
+        className="text-2xl md:text-4xl lg:text-6xl uppercase font-extrabold text-primary overflow-hidden"
+      >
+        IT research . Software Development . IT Security . Hosting Provider .
+        Wordpress Development . Custom Website Development . Software Quality
+        Assurance .
+      </Marquee>
+    </div>
+  );
+}

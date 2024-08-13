@@ -5,7 +5,7 @@ export default function DigitalEconomy() {
   return (
     <section className="mx-5 md:container md:mx-auto py-10 md:py-20 flex flex-col gap-8 md:flex-row md:items-center md:gap-16">
       <div className="md:w-1/2">
-        <img src={digitaleconomyImg} alt="" />
+        <img src={digitaleconomyImg} alt="" className="" />
       </div>
       <div className="md:w-1/2 flex flex-col gap-8 md:gap-16">
         <h5 className="text-3xl md:text-5xl text-primary font-extrabold">
