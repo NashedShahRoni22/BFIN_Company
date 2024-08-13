@@ -15,56 +15,56 @@ export default function Testimonials() {
   const testimonials = [
     {
       reviewText:
-        "NSR Dev exceeded our expectations with their outstanding web development services. The team was professional, efficient, and delivered a flawless product.",
+        "BFIN IT Company exceeded our expectations with their outstanding web development services. The team was professional, efficient, and delivered a flawless product.",
       reviewerName: "Emily Clark",
       reviewProfession: "Project Manager, Tech Innovators",
       reviewerImage: "https://randomuser.me/api/portraits/women/50.jpg",
     },
     {
       reviewText:
-        "The custom software solutions provided by NSR Dev have streamlined our operations significantly. Their attention to detail and client needs is unmatched.",
+        "The custom software solutions provided by BFIN IT Company have streamlined our operations significantly. Their attention to detail and client needs is unmatched.",
       reviewerName: "John Davis",
       reviewProfession: "Operations Director, Global Logistics",
       reviewerImage: "https://randomuser.me/api/portraits/men/51.jpg",
     },
     {
       reviewText:
-        "Working with NSR Dev was a pleasure. Their expertise in UI/UX design transformed our application, making it more user-friendly and visually appealing.",
+        "Working with BFIN IT Company was a pleasure. Their expertise in UI/UX design transformed our application, making it more user-friendly and visually appealing.",
       reviewerName: "Sarah Thompson",
       reviewProfession: "Product Manager, FinTech Solutions",
       reviewerImage: "https://randomuser.me/api/portraits/women/52.jpg",
     },
     {
       reviewText:
-        "The team at NSR Dev was incredibly responsive and delivered our project on time. Their backend development skills are top-notch, ensuring a robust and secure system.",
+        "The team at BFIN IT Company was incredibly responsive and delivered our project on time. Their backend development skills are top-notch, ensuring a robust and secure system.",
       reviewerName: "Michael Lee",
       reviewProfession: "CTO, E-Commerce Inc.",
       reviewerImage: "https://randomuser.me/api/portraits/men/53.jpg",
     },
     {
       reviewText:
-        "NSR Dev's cybersecurity solutions have greatly enhanced our website's protection. They offer real-time monitoring and proactive threat detection, which is invaluable to us.",
+        "BFIN IT Company's cybersecurity solutions have greatly enhanced our website's protection. They offer real-time monitoring and proactive threat detection, which is invaluable to us.",
       reviewerName: "Olivia Martinez",
       reviewProfession: "IT Security Manager, SafeNet Corp",
       reviewerImage: "https://randomuser.me/api/portraits/women/54.jpg",
     },
     {
       reviewText:
-        "We’re thrilled with the custom e-commerce platform developed by NSR Dev. Their team created a seamless and intuitive shopping experience for our customers.",
+        "We’re thrilled with the custom e-commerce platform developed by BFIN IT Company. Their team created a seamless and intuitive shopping experience for our customers.",
       reviewerName: "Daniel Green",
       reviewProfession: "CEO, Fashion Hub",
       reviewerImage: "https://randomuser.me/api/portraits/men/55.jpg",
     },
     {
       reviewText:
-        "The SaaS product NSR Dev built for us has been a game-changer. It’s reliable, scalable, and perfectly tailored to our business needs.",
+        "The SaaS product BFIN IT Company built for us has been a game-changer. It’s reliable, scalable, and perfectly tailored to our business needs.",
       reviewerName: "Laura Wilson",
       reviewProfession: "Founder, HealthTech Startup",
       reviewerImage: "https://randomuser.me/api/portraits/women/56.jpg",
     },
     {
       reviewText:
-        "NSR Dev provided exceptional support and maintenance for our website. Their proactive approach ensures our site is always up-to-date and secure.",
+        "BFIN IT Company provided exceptional support and maintenance for our website. Their proactive approach ensures our site is always up-to-date and secure.",
       reviewerName: "James Brown",
       reviewProfession: "Marketing Director, Retail Ventures",
       reviewerImage: "https://randomuser.me/api/portraits/men/57.jpg",
