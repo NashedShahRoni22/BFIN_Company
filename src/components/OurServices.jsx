@@ -1,9 +1,10 @@
 import React from "react";
-import hosting from "../assets/hosting-server.png";
+import hosting from "../assets/hosting.png";
 import retail from "../assets/retail.png";
 import white from "../assets/white-label.png";
-import wp from "../assets/wp.png";
-import web from "../assets/web.png";
+import wp from "../assets/wordpress-development.png";
+import web from "../assets/web-development.png";
+import security from "../assets/Cyber-Security.png";
 
 export default function OurServices() {
   const items = [
@@ -14,7 +15,7 @@ export default function OurServices() {
     },
     {
       image: wp,
-      title: "Wordpress Development",
+      title: "Wordpress Security & Development",
       desc: "Our SaaS team specializes in WordPress development, offering full-service management and maintenance. We provide tailored solutions for WooCommerce and other plugins, ensuring your WordPress site meets your specific needs with robust support and consistent performance.",
     },
     {
@@ -23,13 +24,13 @@ export default function OurServices() {
       desc: "Bobosoho delivers customized web design and development services, offering flexibility in framework or language selection. We build websites that are tailored to your vision, ensuring they are both functional and affordable.",
     },
     {
-      image: web,
-      title: "Cyber Security",
+      image: security,
+      title: "Bitss Cyber Security",
       desc: "Protect your website with Bobosoho's cybersecurity plugin, offering real-time monitoring, automated threat detection, and comprehensive protection against malware, DDoS attacks, and data breaches. Our easy-to-deploy solution includes firewall integration, secure login systems, and vulnerability assessments.",
     },
     {
       image: white,
-      title: "SaaS White Label",
+      title: "BFINIT SaaS White Label",
       desc: "Bobosoho offers affordable white-label SaaS design and development services, allowing you to start your own branded IT SaaS business. We provide the tools and support needed to build and launch your unique SaaS platform.",
     },
     {
@@ -44,8 +45,8 @@ export default function OurServices() {
         Our Services
       </h5>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-20">
-        {items.map((item) => (
-          <div className="flex flex-col gap-2.5 p-8 rounded-xl shadow-xl md:hover:-translate-y-5 ease-linear duration-300">
+        {items.map((item, i) => (
+          <div key={i} className="flex flex-col gap-2.5 p-8 rounded-xl shadow-xl md:hover:-translate-y-5 ease-linear duration-300">
             <img src={item.image} className="h-[80px] w-[80px]" alt="" />
             <h5 className="text-[20px] md:text-[26px] font-semibold text-primary">
               {item.title}

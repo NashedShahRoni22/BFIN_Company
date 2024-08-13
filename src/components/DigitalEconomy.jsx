@@ -23,7 +23,7 @@ export default function DigitalEconomy() {
             <p className="text-xl md:text-3xl mt-2.5 text-primary font-semibold">Customers</p>
           </div>
           <div>
-            <p className="text-3xl md:text-5xl text-primary font-extrabold">8+</p>
+            <p className="text-3xl md:text-5xl text-primary font-extrabold">5+</p>
             <p className="text-xl md:text-3xl mt-2.5 text-primary font-semibold">Products</p>
           </div>
         </div>

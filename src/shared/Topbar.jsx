@@ -4,6 +4,7 @@ import { CgClose } from "react-icons/cg";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
+import logo from "../assets/bfin.png";
 
 export default function Topbar() {
   const [showNav, setShowNav] = useState(false);
@@ -120,14 +121,18 @@ export default function Topbar() {
   ];
   return (
     <nav className="sticky top-0 bg-white z-50">
-      <section className="py-2.5 mx-5 md:container md:mx-auto flex justify-between">
-        <p className="text-[20px] text-primary font-semibold">BFIN IT</p>
+      <section className="py-2.5 mx-5 md:container md:mx-auto flex justify-between items-center">
+        {/* logo here  */}
+        <Link to={"/"} className="flex items-center">
+          <img src={logo} className="h-[40px] md:h-[80px]" alt="" />
+          <span className="text-xl font-extrabold text-primary">BFINIT</span>
+        </Link>
         {/* desktop view  */}
         <div className="hidden lg:flex lg:gap-8 lg:items-center">
           {MenuItems.map((mi, i) => (
-            <>
+            <div key={i}>
               {mi.child ? (
-                <div key={i} className="relative group text-[20px]">
+                <div className="relative group text-[20px]">
                   <span className="flex items-center gap-1 cursor-pointer font-semibold">
                     {mi.name}
                     <BiChevronDown />
@@ -151,7 +156,7 @@ export default function Topbar() {
                   <MdArrowOutward />
                 </Link>
               )}
-            </>
+            </div>
           ))}
         </div>
         {/* mobile view  */}
@@ -166,11 +171,11 @@ export default function Topbar() {
         )}
 
         {showNav && (
-          <div className="lg:hidden p-5 flex flex-col gap-4 absolute top-10 left-0 bg-white min-w-full min-h-screen">
+          <div className="lg:hidden p-5 md:px-14 flex flex-col gap-4 absolute top-16 md:top-28 left-0 bg-white min-w-full min-h-screen">
             {MenuItems.map((mi, i) => (
-              <>
+              <div key={i}>
                 {mi.child ? (
-                  <div key={i}>
+                  <div>
                     <div className="text-[20px] flex justify-between items-center">
                       {mi.name}
 
@@ -214,13 +219,14 @@ export default function Topbar() {
                     {mi.name}
                   </Link>
                 )}
-              </>
+              </div>
             ))}
           </div>
         )}
 
-        <Link className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center group">
-          Contact <MdArrowOutward className="group-hover:rotate-45 duration-300 ease-linear" />
+        <Link className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center group h-fit">
+          Contact{" "}
+          <MdArrowOutward className="group-hover:rotate-45 duration-300 ease-linear" />
         </Link>
       </section>
       <div className="bg-primary w-full h-0.5"></div>

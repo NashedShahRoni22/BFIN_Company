@@ -12,7 +12,9 @@ export default function KeywordsMerque() {
       >
         IT research . Software Development . IT Security . Hosting Provider .
         Wordpress Development . Custom Website Development . Software Quality
-        Assurance .
+        Assurance . OMADA HR PAYROLL . CLASICO PAYSLIPS . PENSAKI VAULT HOSTING .
+        BITSS CYBER SECURITY . PENSAKI DOC WRITER . PDF CONVERTOR SOHO SERVER
+        HOSTING
       </Marquee>
       <Marquee
         speed={100}
@@ -21,7 +23,9 @@ export default function KeywordsMerque() {
       >
         IT research . Software Development . IT Security . Hosting Provider .
         Wordpress Development . Custom Website Development . Software Quality
-        Assurance .
+        Assurance . OMADA HR PAYROLL . CLASICO PAYSLIPS . PENSAKI VAULT HOSTING .
+        BITSS CYBER SECURITY . PENSAKI DOC WRITER . PDF CONVERTOR SOHO SERVER
+        HOSTING
       </Marquee>
     </div>
   );

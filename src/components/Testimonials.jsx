@@ -106,8 +106,8 @@ export default function Testimonials() {
           modules={[EffectCoverflow, Pagination, Autoplay]}
           className="mySwiper"
         >
-          {testimonials.map((testimonial) => (
-            <SwiperSlide>
+          {testimonials.map((testimonial,i) => (
+            <SwiperSlide key={i}>
               <div className="flex flex-col gap-5 border-2 border-primary p-8 rounded-xl shadow-xl">
                 <div className="flex gap-1.5">
                   <BsStarFill className="text-orange-600" />

@@ -4,6 +4,7 @@ import { BsSkype, BsYoutube } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaLocationArrow } from "react-icons/fa";
+import logo from "../assets/bfin.png";
 
 export default function Bottombar() {
   const hostingProducts = [
@@ -79,11 +80,18 @@ export default function Bottombar() {
     <footer className="bg-primary text-white p-10 md:p-20">
       <section className="grid lg:grid-cols-2 gap-4 lg:gap-8">
         <div>
-          <h5 className="text-2xl md:text-4xl font-extrabold">BFIN IT</h5>
+          <Link to={"/"} className="flex items-center bg-white w-fit pr-2 rounded-xl">
+            <img src={logo} className="h-[40px] md:h-[80px]" alt="" />
+            <span className="text-xl font-extrabold text-primary">BFINIT</span>
+          </Link>
           <p className="mt-5">
             BFIN IT to fuel your growth goals. We build world-class digital
             products, software and branding.
           </p>
+          <form className="mt-5 flex items-center">
+            <input className="px-4 py-2 outline-none text-primary border border-white rounded-l-xl" placeholder="Enter your email" type="email" required/>
+            <button type="submit" className="px-4 py-2 border border-white rounded-r-xl">Subscribe</button>
+          </form>
         </div>
         <div className="grid md:grid-cols-3 gap-4 md:gap-8">
           <div>
@@ -91,7 +99,7 @@ export default function Bottombar() {
             <div className="flex flex-col gap-2 ml-2 mt-2">
               {hostingProducts.map((product, i) => (
                 <Link to={product.link} key={i} className="flex gap-2.5">
-                  <FaLocationArrow/> {product.name}
+                  <FaLocationArrow /> {product.name}
                 </Link>
               ))}
             </div>
@@ -102,7 +110,7 @@ export default function Bottombar() {
             <div className="flex flex-col gap-2 ml-2 mt-2">
               {Products.map((product, i) => (
                 <Link to={product.link} key={i} className="flex gap-2.5">
-                  <FaLocationArrow/> {product.name}
+                  <FaLocationArrow /> {product.name}
                 </Link>
               ))}
             </div>
@@ -113,7 +121,7 @@ export default function Bottombar() {
             <div className="flex flex-col gap-2 ml-2 mt-2">
               {Pages.map((product, i) => (
                 <Link to={product.link} key={i} className="flex gap-2.5">
-                  <FaLocationArrow/> {product.name}
+                  <FaLocationArrow /> {product.name}
                 </Link>
               ))}
             </div>
