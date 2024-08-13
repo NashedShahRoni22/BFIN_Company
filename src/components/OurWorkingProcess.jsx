@@ -33,10 +33,10 @@ export default function OurWorkingProcess() {
         {works.map((work, i) => (
           <div
             key={i}
-            className="p-8 border border-primary rounded-xl flex flex-col gap-2.5 group hover:bg-primary hover:text-white ease-linear duration-300"
+            className={`p-8 border border-primary rounded-xl flex flex-col gap-2.5 group hover:bg-primary hover:text-white ease-linear duration-300`}
           >
             <h5 className="text-2xl md:text-4xl bg-primary group-hover:bg-white w-12 h-12 rounded-full flex justify-center items-center text-white group-hover:text-primary ease-linear duration-300">
-              {i+1}
+              {i + 1}
             </h5>
             <h2 className="text-xl md:text-2xl font-extrabold">{work.title}</h2>
             <p>{work.desc}</p>
