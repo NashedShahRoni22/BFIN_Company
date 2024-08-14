@@ -58,12 +58,14 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-2 md:gap-16 mt-20 md:mt-40">
-        <form action="" className="flex flex-col gap-8">
-          <h5 className="md:text-2xl font-semibold">Send Messsage</h5>
-          <p className="text-xl md:text-3xl text-primary font-semibold">
-            Get in touch
-          </p>
+      <h5 className="md:text-2xl font-semibold text-end mt-10 md:mt-20">Send Messsage</h5>
+      <p className="text-xl md:text-3xl text-primary font-semibold text-end mt-4 md:mt-8">
+        Get in touch
+      </p>
+
+      <div className="grid gap-8 lg:grid-cols-2 md:gap-16 mt-10 md:mt-20">
+
+        <form action="" className="flex flex-col gap-8 shadow rounded p-8">
           <Input
             variant="static"
             label="Enter Name"

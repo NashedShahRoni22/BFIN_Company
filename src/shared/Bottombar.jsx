@@ -65,7 +65,7 @@ export default function Bottombar() {
     },
     {
       name: "About Us",
-      link: "/",
+      link: "/about",
     },
     {
       name: "Career",
@@ -73,7 +73,7 @@ export default function Bottombar() {
     },
     {
       name: "Contact Us",
-      link: "/",
+      link: "/contact",
     },
   ];
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiChevronDown, BiChevronRight, BiChevronUp } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { FaBars } from "react-icons/fa";
@@ -9,6 +9,17 @@ import logo from "../assets/bfin.png";
 export default function Topbar() {
   const [showNav, setShowNav] = useState(false);
   const [showChild, setShowChild] = useState("");
+  // Function to handle scroll event
+  const handleScroll = () => {
+    setShowNav(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const MenuItems = [
     {
       name: "Home",
@@ -112,7 +123,7 @@ export default function Topbar() {
     // },
     {
       name: "About Us",
-      link: "/",
+      link: "/about",
     },
     {
       name: "Career",
@@ -169,7 +180,6 @@ export default function Topbar() {
             <FaBars className="text-xl" />
           </button>
         )}
-
         {showNav && (
           <div className="lg:hidden p-5 md:px-14 flex flex-col gap-4 absolute top-16 md:top-28 left-0 bg-white min-w-full min-h-screen">
             {MenuItems.map((mi, i) => (
@@ -212,17 +222,33 @@ export default function Topbar() {
                     )}
                   </div>
                 ) : (
-                  <Link to={mi.link} key={i} className="text-[20px] flex justify-between items-center">
+                  <Link
+                    to={mi.link}
+                    key={i}
+                    onClick={() => setShowNav(!showNav)}
+                    className="text-[20px] flex justify-between items-center"
+                  >
                     {mi.name}
                     <MdArrowOutward />
                   </Link>
                 )}
               </div>
             ))}
+            <Link
+              to={"/contact"}
+              onClick={() => setShowNav(!showNav)}
+              className="text-[20px] flex justify-between items-center"
+            >
+              Contact Us
+              <MdArrowOutward />
+            </Link>
           </div>
         )}
-
-        <Link to={"/contact"} className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center group h-fit">
+        {/* desktop mode contact bbutton */}
+        <Link
+          to={"/contact"}
+          className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center group h-fit"
+        >
           Contact{" "}
           <MdArrowOutward className="group-hover:rotate-45 duration-300 ease-linear" />
         </Link>

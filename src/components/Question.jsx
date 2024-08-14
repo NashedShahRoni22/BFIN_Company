@@ -2,6 +2,7 @@ import React from "react";
 import question from "../assets/question.png";
 import arrow from "../assets/arrow.png";
 import { MdArrowOutward } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export default function Question() {
   return (
@@ -12,10 +13,10 @@ export default function Question() {
           If you still can’t find the answer you’re looking for, let we help
           you.
         </p>
-        <button className="px-6 py-3 bg-secondary font-semibold rounded shadow w-fit flex items-center gap-4 group md:hover:scale-110 duration-300 ease-linear">
+        <Link to={"/contact"} className="px-6 py-3 bg-secondary font-semibold rounded shadow w-fit flex items-center gap-4 group md:hover:scale-110 duration-300 ease-linear">
           <span className="md:text-xl">Contact</span>
           <MdArrowOutward className="md:text-xl group-hover:rotate-45 duration-300 ease-linear" />
-        </button>
+        </Link>
       </div>
       <div className="">
         <img src={question} alt="" />
