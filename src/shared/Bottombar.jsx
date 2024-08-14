@@ -1,6 +1,7 @@
 import React from "react";
-import { BiCopyright } from "react-icons/bi";
-import { BsSkype, BsYoutube } from "react-icons/bs";
+import { BiCopyright, BiX } from "react-icons/bi";
+import { BsInstagram, BsLinkedin, BsYoutube } from "react-icons/bs";
+import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaLocationArrow } from "react-icons/fa";
@@ -79,16 +80,17 @@ export default function Bottombar() {
   return (
     <footer className="bg-primary text-white p-10 md:p-20">
       <section className="grid lg:grid-cols-2 gap-4 lg:gap-8">
-        <div>
+        <div className="flex flex-col gap-4 md:gap-8">
           <Link to={"/"} className="flex items-center bg-white w-fit pr-2 rounded-xl">
             <img src={logo} className="h-[40px] md:h-[80px]" alt="" />
             <span className="text-xl font-extrabold text-primary">BFINIT</span>
           </Link>
-          <p className="mt-5">
+          <p>
             BFIN IT to fuel your growth goals. We build world-class digital
             products, software and branding.
           </p>
-          <form className="mt-5 flex items-center">
+          <h5 className="font-semibold">Join BFINIT Cosmopolitan </h5>
+          <form className="flex items-center">
             <input className="px-4 py-2 outline-none text-primary border border-white rounded-l-xl" placeholder="Enter your email" type="email" required/>
             <button type="submit" className="px-4 py-2 border border-white rounded-r-xl">Subscribe</button>
           </form>
@@ -137,7 +139,9 @@ export default function Bottombar() {
         </p>
         <div className="flex justify-center gap-4">
           <FaFacebook className="lg:text-xl" />
-          <BsSkype className="lg:text-xl" />
+          <FaSquareXTwitter  className="lg:text-xl"/>
+          <BsLinkedin className="lg:text-xl"/>
+          <BsInstagram className="lg:text-xl" />
           <BsYoutube className="lg:text-xl" />
         </div>
       </div>

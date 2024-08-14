@@ -8,7 +8,7 @@ export default function KeywordsMerque() {
         speed={100}
         pauseOnHover
         direction="right"
-        className="text-2xl md:text-4xl lg:text-6xl uppercase overflow-hidden"
+        className="text-2xl md:text-4xl lg:text-6xl uppercase overflow-hidden font-semibold"
       >
         IT research . Software Development . IT Security . Hosting Provider .
         Wordpress Development . Custom Website Development . Software Quality
@@ -19,7 +19,7 @@ export default function KeywordsMerque() {
       <Marquee
         speed={100}
         pauseOnHover
-        className="text-2xl md:text-4xl lg:text-6xl uppercase text-primary overflow-hidden"
+        className="text-2xl md:text-4xl lg:text-6xl uppercase text-primary overflow-hidden font-semibold"
       >
         IT research . Software Development . IT Security . Hosting Provider .
         Wordpress Development . Custom Website Development . Software Quality

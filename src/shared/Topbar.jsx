@@ -135,7 +135,7 @@ export default function Topbar() {
                 <div className="relative group text-[20px]">
                   <span className="flex items-center gap-1 cursor-pointer font-semibold">
                     {mi.name}
-                    <BiChevronDown />
+                    <BiChevronDown className="text-2xl" />
                   </span>
                   <div className="absolute bg-white left-5 p-5 shadow rounded min-w-[350px] hidden group-hover:flex flex-col gap-2">
                     {mi.child.map((mc, i) => (
@@ -208,15 +208,13 @@ export default function Topbar() {
                             {mc.name}
                           </Link>
                         ))}
-                        <Link to={mi.link} key={i} className="text-[20px]">
-                          {mi.name}
-                        </Link>
                       </div>
                     )}
                   </div>
                 ) : (
-                  <Link to={mi.link} key={i} className="text-[20px]">
+                  <Link to={mi.link} key={i} className="text-[20px] flex justify-between items-center">
                     {mi.name}
+                    <MdArrowOutward />
                   </Link>
                 )}
               </div>
@@ -224,7 +222,7 @@ export default function Topbar() {
           </div>
         )}
 
-        <Link className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center group h-fit">
+        <Link to={"/contact"} className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center group h-fit">
           Contact{" "}
           <MdArrowOutward className="group-hover:rotate-45 duration-300 ease-linear" />
         </Link>

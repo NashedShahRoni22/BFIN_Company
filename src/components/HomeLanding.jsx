@@ -7,7 +7,7 @@ export default function HomeLanding() {
     <section className="banner">
       <div className="mx-5 md:container md:mx-auto py-10 md:py-20 flex flex-col items-center gap-8 md:gap-16">
         <h1 className="text-4xl md:text-6xl text-center">
-          Welcome to BFIN IT GROUP - Pioneers in IT Security and Development.
+          Welcome to <span className="font-semibold text-primary">BFINIT GROUP</span> - Pioneers in IT Security and Development.
         </h1>
         <p className="text-center md:text-xl">
           Delivering cutting-edge cybersecurity, SaaS hosting, and research
