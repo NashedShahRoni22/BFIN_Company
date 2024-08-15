@@ -72,7 +72,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="mx-5 md:container md:mx-auto py-10 md:py-20">
+    <section className="mx-5 md:container md:mx-auto py-10 md:py-20 lg:min-h-[80vh]">
       <h2 className="text-2xl md:text-4xl text-primary font-extrabold text-center">
         Hear what our users have to say about us.
       </h2>
@@ -117,16 +117,17 @@ export default function Testimonials() {
                   <BsStarHalf className="text-orange-600" />
                 </div>
                 <p className="md:text-xl">{testimonial.reviewText}</p>
-                <div className="flex justify-between">
+                <div className="flex flex-col gap-2.5">
+                <img
+                    className="h-16 w-16 rounded-full"
+                    src={testimonial.reviewerImage}
+                    alt=""
+                  />
                   <div>
                     <h5 className="text-xl font-semibold">{testimonial.reviewerName}</h5>
                     <h5>{testimonial.reviewProfession}</h5>
                   </div>
-                  <img
-                    className="h-16 rounded-full"
-                    src={testimonial.reviewerImage}
-                    alt=""
-                  />
+                  
                 </div>
               </div>
             </SwiperSlide>
