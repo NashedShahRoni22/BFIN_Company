@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import philosopy from "../assets/philosopy.png";
 import vision from "../assets/vision.png";
 import mission from "../assets/mission.png";
+import OurOffices from "../components/OurOffices";
 
 export default function About() {
   const items = [
@@ -26,14 +27,15 @@ export default function About() {
   ];
 
   return (
-    <section className="mx-5 md:container md:mx-auto py-10 md:py-20">
-      <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 place-items-center">
+    <section className="pt-10 md:pt-20">
+      {/* about us content  */}
+      <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 place-items-center mx-5 md:container md:mx-auto">
         <div className="flex flex-col gap-4 md:gap-8">
           <h5 className="md:text-2xl font-semibold">About Us</h5>
           <p className="text-2xl md:text-4xl text-primary font-semibold">
             This is Who We Are
           </p>
-          <p className="md:text-xl">
+          <p>
             BFIN SASU, a French research company in IT security, with Bitss
             providing ultimate cyber security for networks, dedicated servers,
             WP database protection including the Bitss secured client contact
@@ -67,28 +69,36 @@ export default function About() {
           />
         </div>
       </div>
-      <div className="mt-20 md:mt-40 flex flex-col gap-4 md:gap-8">
-        <h5 className="md:text-2xl font-semibold">
+      {/* mission & vision  */}
+      <div className="my-20 lg:my-40 flex flex-col gap-4 md:gap-8 mx-5 md:container md:mx-auto">
+        <h5 className="md:text-2xl font-semibold text-primary">
           When you are more prepared, your future will be brighter
         </h5>
         <p>
           Since 2018 we’ve been working with amazing organisations to create
           meaningful impact and compelling experiences.
         </p>
-        <div className="grid md:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {items.map((item, i) => (
             <div key={i}>
-              <div className="p-4 shadow roundex-xl w-fit bg-secondary">
+              <div
+                className={`p-4 shadow roundex-xl w-fit bg-gray-100 ${
+                  i == 0 && "bg-secondary"
+                }`}
+              >
                 <img src={item.image} className="" alt="" />
               </div>
               <div className="mt-5">
-                <h5 className="font-semibold text-primary text-xl">{item.title}</h5>
+                <h5 className="font-semibold text-primary text-xl">
+                  {item.title}
+                </h5>
                 <p className="mt-2.5">{item.desc}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
+      <OurOffices/>
     </section>
   );
 }

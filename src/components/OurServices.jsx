@@ -1,10 +1,10 @@
 import React from "react";
-import hosting from "../assets/hosting.png";
+import hosting from "../assets/hosting-N2.png";
 import retail from "../assets/retail.png";
 import white from "../assets/white-label.png";
 import wp from "../assets/wordpress-development.png";
 import web from "../assets/web-development.png";
-import security from "../assets/Cyber-Security.png";
+import security from "../assets/Cyber-Security-N2.png";
 
 export default function OurServices() {
   const items = [
