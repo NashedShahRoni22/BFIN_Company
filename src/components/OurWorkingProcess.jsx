@@ -3,7 +3,7 @@ import React from "react";
 export default function OurWorkingProcess() {
   const works = [
     {
-      title: "Requirement Analysis",
+      title: "R&D an Intensive research",
       desc: "Pellentesque at posuere tellus. Ut sed dui justo. Phasellus is scelerisque turpis arcu, ut pulvinar lectus tristique non. Nam laoreet, risus vel laoreet laoreet, mauris risus porta velitn platform.",
     },
     {
@@ -11,11 +11,11 @@ export default function OurWorkingProcess() {
       desc: "Pellentesque at posuere tellus. Ut sed dui justo. Phasellus is scelerisque turpis arcu, ut pulvinar lectus tristique non. Nam laoreet, risus vel laoreet laoreet, mauris risus porta velitn platform.",
     },
     {
-      title: "Implementation or Test Execution",
+      title: "Implementation or Test execution",
       desc: "Pellentesque at posuere tellus. Ut sed dui justo. Phasellus is scelerisque turpis arcu, ut pulvinar lectus tristique non. Nam laoreet, risus vel laoreet laoreet, mauris risus porta velitn platform.",
     },
     {
-      title: "Product Launch and customer support",
+      title: "Product launch and customer support",
       desc: "Pellentesque at posuere tellus. Ut sed dui justo. Phasellus is scelerisque turpis arcu, ut pulvinar lectus tristique non. Nam laoreet, risus vel laoreet laoreet, mauris risus porta velitn platform.",
     },
   ];

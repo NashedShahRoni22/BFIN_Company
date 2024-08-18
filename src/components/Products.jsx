@@ -29,7 +29,7 @@ export default function Products() {
     {
       image: kcorral,
       title: "Kcorral",
-      desc: "Ecommerce Website: Kcorral specializes in building ecommerce platforms that are secure, user-friendly, and tailored to meet your specific business needs, enhancing your online sales experience.",
+      desc: "Ecommerce Website: Kcorral specializes in building ecommerce platforms that are secure, user-friendly, and tailored to meet your specific business needs, enhancing your online sales experience  33 6 66 10 00 10 call this one Kcorral Market - where all sellers, retailers, suppliers manufactures in deluxe fashion retail, and equestrian and polo suppliers get together to sell their brands direct on Kcorral Market, join Kcorral market ",
     },
     {
       image: pensaki,

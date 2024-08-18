@@ -6,6 +6,7 @@ import philosopy from "../assets/philosopy.png";
 import vision from "../assets/vision.png";
 import mission from "../assets/mission.png";
 import OurOffices from "../components/OurOffices";
+import Contact from "./Contact";
 
 export default function About() {
   const items = [
@@ -99,6 +100,7 @@ export default function About() {
         </div>
       </div>
       <OurOffices/>
+      <Contact/>
     </section>
   );
 }

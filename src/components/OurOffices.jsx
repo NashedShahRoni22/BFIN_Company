@@ -1,7 +1,7 @@
 import React from "react";
 import HagiaSophia from "../assets/Hagia-sophia.png";
 import SangsadBhaban from "../assets/Sangsad-Bhaban.png";
-import Ifel from "../assets/Ifel.png";
+import Ifel from "../assets/ifel.png";
 import India from "../assets/india.png";
 import OfficeBanner from "../assets/office-banner.png";
 import { MdArrowOutward } from "react-icons/md";
