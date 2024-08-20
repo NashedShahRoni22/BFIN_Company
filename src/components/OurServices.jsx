@@ -1,6 +1,6 @@
 import React from "react";
 import hosting from "../assets/hosting-N2.png";
-import retail from "../assets/retail.png";
+import retail from "../assets/retail-n.png";
 import white from "../assets/white-label.png";
 import wp from "../assets/wordpress-development.png";
 import web from "../assets/web-development.png";
@@ -10,7 +10,7 @@ export default function OurServices() {
   const items = [
     {
       image: hosting,
-      title: "Web Hosting & Server",
+      title: "Soho Hosting & Server",
       desc: "BFINIT offers Soho server hosting with comprehensive security, including Bitss protection against natural disasters, data theft, and hackers. Our fully managed hosting services ensure 100% uptime, with backups to another data center and Bitss cloud protection, safeguarding your websites from unforeseen threats.",
     },
     {
@@ -35,15 +35,15 @@ export default function OurServices() {
     },
     {
       image: retail,
-      title: "BFIN Retail",
-      desc: "For confidential 3D manufacturing, partner with BFINIT. We manage everything from scanning to production, licensing, IT distribution, secure hosting, online sales management, and product support. Explore our brands, Kcorral and Cameleasy, offering specialized products like saddles for camels and more.",
+      title: "BFINIT Retail",
+      desc: "Kcorral Market is a secure eCommerce platform for deluxe fashion, retail, and equestrian sectors. It connects sellers and buyers directly, offering tools for product management and order tracking, ensuring a seamless, profitable online business experience.",
     },
   ];
 
   return (
     <section className="mx-5 md:container md:mx-auto py-10 md:py-20">
       <h5 className="text-2xl md:text-4xl text-primary font-extrabold">
-        Our Services
+        Our Software & Services
       </h5>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-20">
         {items.map((item, i) => (

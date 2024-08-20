@@ -1,47 +1,47 @@
 import React from "react";
-import bitss from "../assets/Bitss-N.png";
-import omada from "../assets/Omada.jpg";
-import ifgaap from "../assets/IFGaap-app.png";
-import kcorral from "../assets/Kcorral.png";
-import pensaki from "../assets/Pensaki-Vault-storage.png";
-import sosay from "../assets/Sasay.jpg";
+import bitss from "../assets/Bitss-cyber-security.png";
+import omada from "../assets/Omada.png";
+import ifgaap from "../assets/Ifgaap.png";
+import kcorral from "../assets/kcorral.png";
+import pensaki from "../assets/Pensaki-Blackboard.png";
+import sosay from "../assets/Sosay.png";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
-import { Card } from "@material-tailwind/react";
 
 export default function Products() {
   const products = [
     {
-      image: bitss,
-      title: "Bitss",
-      desc: "Database website protection: Bitss secures your website, admin site, and video content with real-time protection against data theft and unauthorized access. Safeguard your digital assets effectively.",
-    },
-    {
       image: omada,
-      title: "Omada",
-      desc: "Payroll management system: Omada offers comprehensive solutions for payroll management, payslip generation, project management, and holiday tracking, streamlining your business operations.",
+      title: "Omada HR Payroll",
+      desc: "Omada simplifies HR tasks with comprehensive payroll management, payslip generation, project management, and holiday tracking. Its user-friendly interface ensures accurate payroll processing, reducing errors and boosting efficiency, making it an essential tool for businesses aiming to automate HR processes.",
     },
-    {
-      image: ifgaap,
-      title: "IFGAAP",
-      desc: "Accounting Software: IFGAAP provides robust accounting features, including multi-user access, multi-currency support, tax management, reporting, and real-time processing, ensuring your financials are efficiently managed.",
-    },
-    {
-      image: kcorral,
-      title: "Kcorral",
-      desc: "Ecommerce Website: Kcorral specializes in building ecommerce platforms that are secure, user-friendly, and tailored to meet your specific business needs, enhancing your online sales experience  33 6 66 10 00 10 call this one Kcorral Market - where all sellers, retailers, suppliers manufactures in deluxe fashion retail, and equestrian and polo suppliers get together to sell their brands direct on Kcorral Market, join Kcorral market ",
-    },
+    // {
+    //   image: kcorral,
+    //   title: "Kcorral Deluxe Asian Fashion",
+    //   desc: "Kcorral Market is a secure eCommerce platform for deluxe fashion, retail, and equestrian sectors. It connects sellers and buyers directly, offering tools for product management and order tracking, ensuring a seamless, profitable online business experience.",
+    // },
     {
       image: pensaki,
-      title: "Pensaki",
-      desc: "Document Solutions: Pensaki offers a doc writer, PDF converter, agenda management, and secure email services without advertisements, ensuring your communication and documentation needs are met securely.",
+      title: "Pensaki Blackboard",
+      desc: "Pensaki Blackboard offers secure document solutions, including a doc writer, PDF converter, and agenda management. It provides a private, ad-free environment, ensuring your communication and documentation are handled efficiently and securely.",
     },
     {
       image: sosay,
       title: "Sosay",
-      desc: "Social Media Platform: Sosay provides a real-time communication platform with features like audio/video calls, photo/video sharing, and social media posts, keeping you connected and engaged.",
+      desc: "Sosay is a social media platform that enables real-time communication through audio/video calls, photo/video sharing, and social posts. It keeps you connected and engaged, making it ideal for personal or professional interaction.",
+    },
+    {
+      image: bitss,
+      title: "Bitss",
+      desc: "Bitss provides robust website protection with real-time monitoring against data theft and unauthorized access. It secures websites, admin panels, and video content, ensuring a safe digital environment for businesses of all sizes.",
+    },
+    {
+      image: ifgaap,
+      title: "IFGAAP Accounting and Invoicing",
+      desc: "IFGAAP offers advanced accounting features like multi-user access, tax management, and real-time processing. It streamlines invoicing, financial reporting, and compliance, making it essential for efficient financial management.",
     },
   ];
+
   return (
     <section className="mx-5 md:container md:mx-auto py-10 md:py-20">
       <h5 className="text-2xl md:text-4xl text-primary font-extrabold">
@@ -49,7 +49,10 @@ export default function Products() {
       </h5>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 mt-10 md:mt-20">
         {products.map((product, i) => (
-          <div key={i} className="flex flex-col gap-2.5 p-4 h-fit md:hover:-translate-y-5 duration-300 ease-linear rounded-xl shadow-xl">
+          <div
+            key={i}
+            className="flex flex-col gap-2.5 p-4 h-fit md:hover:-translate-y-5 duration-300 ease-linear rounded-xl shadow-xl"
+          >
             <img src={product.image} className="" alt="" />
             <h5 className="text-xl md:text-2xl text-primary font-extrabold">
               {product.title}

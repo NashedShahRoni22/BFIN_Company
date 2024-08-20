@@ -37,23 +37,24 @@ export default function Bottombar() {
 
   const Products = [
     {
-      name: "Kcoral",
-      link: "/",
-    },
-    {
-      name: "Omada",
-      link: "/",
-    },
-    {
-      name: "Ifgaap",
-      link: "/",
-    },
-    {
-      name: "Pensaki",
-      link: "/",
-    },
-    {
       name: "Bitss Cyber Security",
+      link: "/",
+    },
+    {
+      name: "Pensaki Blackboard",
+      link: "/",
+    },
+    {
+      name: "Omada HR Payroll",
+      link: "/",
+    },
+    {
+      name: "Ifgaap Acounting & Invoicing",
+      link: "/",
+    },
+    
+    {
+      name: "Sosay Social Media",
       link: "/",
     },
   ];

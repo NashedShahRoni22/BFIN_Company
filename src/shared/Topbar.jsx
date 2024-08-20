@@ -48,79 +48,39 @@ export default function Topbar() {
           name: "Self Managed Pure Website Hosting",
           link: "/",
         },
-        {
-          name: "Vault Cloud Storage",
-          link: "/",
-        },
+        // {
+        //   name: "Vault Cloud Storage",
+        //   link: "/",
+        // },
       ],
     },
     {
       name: "Products",
       child: [
         {
-          name: "Kcoral",
-          link: "/",
-        },
-        {
-          name: "Omada",
-          link: "/",
-        },
-        {
-          name: "Ifgaap",
-          link: "/",
-        },
-        {
-          name: "Pensaki",
-          link: "/",
-        },
-        {
           name: "Bitss Cyber Security",
           link: "/",
         },
+        {
+          name: "Pensaki Blackboard",
+          link: "/",
+        },
+        {
+          name: "Omada HR Payroll",
+          link: "/",
+        },
+        {
+          name: "Ifgaap Acounting & Invoicing",
+          link: "/",
+        },
+        
+        {
+          name: "Sosay Social Media",
+          link: "/",
+        },
+        
       ],
     },
-    // {
-    //   name: "Pensaki Office Apps",
-    //   child: [
-    //     {
-    //       name: "Advance Business Pack",
-    //       link: "/",
-    //     },
-    //     {
-    //       name: "Fixed Business Pack",
-    //       link: "/",
-    //     },
-    //     {
-    //       name: "Family Pack",
-    //       link: "/",
-    //     },
-    //     {
-    //       name: "Email Pack",
-    //       link: "/",
-    //     },
-    //   ],
-    // },
-    // {
-    //   name: "Other Sollutions",
-    //   child: [
-    //     {
-    //       name: "Bobosoho SaaS Software",
-    //       link: "/",
-    //     },
-    //     {
-    //       name: "Bobosoho White Label",
-    //       link: "/",
-    //     },
-    //     {
-    //       name: "Bobosoho Website Hosting",
-    //       link: "/",
-    //     },
-    //   ],
-    // },
-    // {
-    //   name: "Retail",
-    //   link: "/",
-    // },
     {
       name: "About Us",
       link: "/about",
