@@ -1,6 +1,6 @@
 import React from "react";
 import hosting from "../assets/hosting-N2.png";
-import retail from "../assets/retail-n.png";
+import retail from "../assets/retail.png";
 import white from "../assets/white-label.png";
 import wp from "../assets/wordpress-development.png";
 import web from "../assets/web-development.png";

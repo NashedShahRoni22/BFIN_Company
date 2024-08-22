@@ -70,7 +70,7 @@ export default function Bottombar() {
     },
     {
       name: "Career",
-      link: "/",
+      link: "/career",
     },
     {
       name: "Contact Us",

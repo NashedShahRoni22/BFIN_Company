@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 export default function Question() {
   return (
     <section className="relative mx-5 md:container md:mx-auto mb-10 md:mb-20 pt-10 md:pt-20 grid gap-8 md:grid-cols-2 md:gap-16 md:items-center border-2 border-primary rounded-xl shadow-xl">
-      <div className="flex flex-col gap-4 items-center p-4">
-        <h5 className="text-2xl md:text-4xl font-semibold text-primary">Have more questions</h5>
+      <div className="flex flex-col gap-4 items-center p-8">
+        <h5 className="text-2xl md:text-4xl font-semibold text-primary text-center">Have more questions</h5>
         <p className="text-center">
           If you still can’t find the answer you’re looking for, let we help
           you.

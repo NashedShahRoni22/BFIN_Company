@@ -87,7 +87,7 @@ export default function Topbar() {
     },
     {
       name: "Career",
-      link: "/",
+      link: "/career",
     },
   ];
   return (
@@ -111,7 +111,7 @@ export default function Topbar() {
                   <div className="absolute bg-white left-5 p-5 shadow rounded min-w-[350px] hidden group-hover:flex flex-col gap-2">
                     {mi.child.map((mc, i) => (
                       <Link to={mc.link} key={i} className="flex gap-1.5">
-                        <BiChevronRight className="text-2xl" />
+                        {/* <BiChevronRight className="text-2xl" /> */}
                         <span className="flex-1">{mc.name}</span>
                       </Link>
                     ))}
