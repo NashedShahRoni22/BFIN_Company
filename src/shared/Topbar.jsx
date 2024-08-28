@@ -30,28 +30,24 @@ export default function Topbar() {
       child: [
         {
           name: "Fully Managed Dedicated Server",
-          link: "/",
+          link: "/coming_soon",
         },
         {
           name: "Fully Managed Virtual Dedicated Server",
-          link: "/",
+          link: "/coming_soon",
         },
         {
           name: "Self Managed Dedicated Server",
-          link: "/",
+          link: "/coming_soon",
         },
         {
           name: "Fully Managed Pure Website Hosting",
-          link: "/",
+          link: "/coming_soon",
         },
         {
           name: "Self Managed Pure Website Hosting",
-          link: "/",
+          link: "/coming_soon",
         },
-        // {
-        //   name: "Vault Cloud Storage",
-        //   link: "/",
-        // },
       ],
     },
     {
@@ -59,19 +55,19 @@ export default function Topbar() {
       child: [
         {
           name: "Bitss Cyber Security",
-          link: "/coming_soon",
+          link: "https://bitss.fr/",
         },
         {
           name: "Pensaki Blackboard",
-          link: "/coming_soon",
+          link: "https://pensaki.org/",
         },
         {
           name: "Omada HR Payroll",
-          link: "/coming_soon",
+          link: "https://omada-clasico.org/",
         },
         {
           name: "Ifgaap Acounting & Invoicing",
-          link: "/coming_soon",
+          link: "https://ifgaap.org/",
         },
         
         {
@@ -95,7 +91,7 @@ export default function Topbar() {
       <section className="py-2.5 mx-5 md:container md:mx-auto flex justify-between items-center">
         {/* logo here  */}
         <Link to={"/"} className="flex items-center">
-          <img src={logo} className="h-[40px] md:h-[80px]" alt="" />
+          <img src={logo} className="h-[40px] md:h-[60px]" alt="" />
           <span className="text-xl font-extrabold text-primary">BFINIT</span>
         </Link>
         {/* desktop view  */}
@@ -108,9 +104,9 @@ export default function Topbar() {
                     {mi.name}
                     <BiChevronDown className="text-2xl" />
                   </span>
-                  <div className="absolute bg-white left-5 p-5 shadow rounded min-w-[350px] hidden group-hover:flex flex-col gap-2">
+                  <div className="absolute bg-white left-5 p-5 shadow rounded min-w-[400px] hidden group-hover:flex flex-col gap-2">
                     {mi.child.map((mc, i) => (
-                      <Link to={mc.link} key={i} className="flex gap-1.5">
+                      <Link to={mc.link} key={i} className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear" target="_blank">
                         {/* <BiChevronRight className="text-2xl" /> */}
                         <span className="flex-1">{mc.name}</span>
                       </Link>
