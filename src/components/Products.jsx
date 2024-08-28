@@ -47,11 +47,11 @@ export default function Products() {
       <h5 className="text-2xl md:text-4xl text-primary font-extrabold">
         Our Products
       </h5>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 mt-10 md:mt-20">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-20">
         {products.map((product, i) => (
           <div
             key={i}
-            className="flex flex-col gap-2.5 p-4 h-fit md:hover:-translate-y-5 duration-300 ease-linear rounded-xl shadow-xl"
+            className="flex flex-col gap-2.5 md:gap-5 p-4 h-fit md:hover:-translate-y-5 duration-300 ease-linear rounded-xl shadow-xl"
           >
             <img src={product.image} className="" alt="" />
             <h5 className="text-xl md:text-2xl text-primary font-extrabold">

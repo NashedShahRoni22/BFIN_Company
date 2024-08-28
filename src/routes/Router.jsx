@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
 import Career from "../pages/Career";
+import ComingSoon from "../components/ComingSoon";
+import Notfound from "../components/Notfound";
 
 export const router = createBrowserRouter([
     {
@@ -27,5 +29,13 @@ export const router = createBrowserRouter([
                 element: <Career/>
             },
         ]
-    }
+    },
+    {
+        path:"/coming_soon",
+        element: <ComingSoon/>
+    },
+    {
+        path:"*",
+        element: <Notfound/>
+    },
 ])

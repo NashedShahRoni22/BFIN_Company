@@ -59,24 +59,24 @@ export default function Topbar() {
       child: [
         {
           name: "Bitss Cyber Security",
-          link: "/",
+          link: "/coming_soon",
         },
         {
           name: "Pensaki Blackboard",
-          link: "/",
+          link: "/coming_soon",
         },
         {
           name: "Omada HR Payroll",
-          link: "/",
+          link: "/coming_soon",
         },
         {
           name: "Ifgaap Acounting & Invoicing",
-          link: "/",
+          link: "/coming_soon",
         },
         
         {
           name: "Sosay Social Media",
-          link: "/",
+          link: "/coming_soon",
         },
         
       ],

@@ -1,5 +1,4 @@
 import React from "react";
-import { BsStarFill, BsStarHalf } from "react-icons/bs";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,7 +8,18 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 // import required modules
-import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
+import {
+  Autoplay,
+  EffectCoverflow,
+  Pagination,
+  Navigation,
+} from "swiper/modules";
+import {
+  BsArrowLeft,
+  BsArrowRight,
+  BsStarFill,
+  BsStarHalf,
+} from "react-icons/bs";
 
 export default function Testimonials() {
   const testimonials = [
@@ -72,13 +82,14 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="mx-5 md:container md:mx-auto py-10 md:py-20 lg:min-h-[80vh]">
+    <section className="mx-5 md:container md:mx-auto py-10 md:py-20 min-h-screen">
       <h2 className="text-2xl md:text-4xl text-primary font-extrabold text-center">
         Hear what our users have to say about us.
       </h2>
 
       <div className="mt-10 md:mt-20">
         <Swiper
+          id="categorySwiper"
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
@@ -94,6 +105,10 @@ export default function Testimonials() {
             delay: 2500,
             disableOnInteraction: false,
           }}
+          navigation={{
+            nextEl: "#categorySwiper-next",
+            prevEl: "#categorySwiper-prev",
+          }}
           breakpoints={{
             768: {
               slidesPerView: 1,
@@ -102,11 +117,10 @@ export default function Testimonials() {
               slidesPerView: 2,
             },
           }}
-        //   pagination={true}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
+          modules={[EffectCoverflow, Pagination, Autoplay, Navigation]}
           className="mySwiper"
         >
-          {testimonials.map((testimonial,i) => (
+          {testimonials.map((testimonial, i) => (
             <SwiperSlide key={i}>
               <div className="flex flex-col gap-5 border-2 border-primary p-8 rounded-xl shadow-xl">
                 <div className="flex gap-1.5">
@@ -118,21 +132,38 @@ export default function Testimonials() {
                 </div>
                 <p className="md:text-xl">{testimonial.reviewText}</p>
                 <div className="flex flex-col gap-2.5">
-                <img
+                  <img
                     className="h-16 w-16 rounded-full"
                     src={testimonial.reviewerImage}
                     alt=""
                   />
                   <div>
-                    <h5 className="text-xl font-semibold">{testimonial.reviewerName}</h5>
+                    <h5 className="text-xl font-semibold">
+                      {testimonial.reviewerName}
+                    </h5>
                     <h5>{testimonial.reviewProfession}</h5>
                   </div>
-                  
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* Custom navigation buttons */}
+        <div className="flex justify-center gap-2 mt-10 md:mt-20">
+          <button
+            id="categorySwiper-prev"
+            className="swiper-button-prev-custom p-2 border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary duration-300 ease-linear shadow-xl rounded-full"
+          >
+            <BsArrowLeft className="text-xl md:text-3xl" />
+          </button>
+          <button
+            id="categorySwiper-next"
+            className="swiper-button-next-custom p-2 border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary duration-300 ease-linear shadow-xl rounded-full"
+          >
+            <BsArrowRight className="text-xl md:text-3xl" />
+          </button>
+        </div>
       </div>
     </section>
   );
