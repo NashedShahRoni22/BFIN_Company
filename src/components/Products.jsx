@@ -2,7 +2,7 @@ import React from "react";
 import bitss from "../assets/Bitss-cyber-security.png";
 import omada from "../assets/Omada.png";
 import ifgaap from "../assets/Ifgaap.png";
-import kcorral from "../assets/kcorral.png";
+// import kcorral from "../assets/kcorral.png";
 import pensaki from "../assets/Pensaki-Blackboard.png";
 import sosay from "../assets/Sosay.png";
 import { Link } from "react-router-dom";
