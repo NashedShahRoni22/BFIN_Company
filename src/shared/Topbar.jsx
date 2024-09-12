@@ -30,7 +30,7 @@ export default function Topbar() {
       child: [
         {
           name: "Fully Managed Dedicated Server",
-          link: "/coming_soon",
+          link: "/managed_server",
         },
         {
           name: "Fully Managed Virtual Dedicated Server",
@@ -72,7 +72,7 @@ export default function Topbar() {
         
         {
           name: "Sosay Social Media",
-          link: "/coming_soon",
+          link: "https://sosay.org/",
         },
         
       ],

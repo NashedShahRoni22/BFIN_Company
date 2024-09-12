@@ -11,51 +11,47 @@ export default function Bottombar() {
   const hostingProducts = [
     {
       name: "Fully Managed Dedicated Server",
-      link: "/",
+      link: "/coming_soon",
     },
     {
       name: "Fully Managed Virtual Dedicated Server",
-      link: "/",
+      link: "/coming_soon",
     },
     {
       name: "Self Managed Dedicated Server",
-      link: "/",
+      link: "/coming_soon",
     },
     {
       name: "Fully Managed Pure Website Hosting",
-      link: "/",
+      link: "/coming_soon",
     },
     {
       name: "Self Managed Pure Website Hosting",
-      link: "/",
-    },
-    {
-      name: "Vault Cloud Storage",
-      link: "/",
+      link: "/coming_soon",
     },
   ];
 
   const Products = [
     {
       name: "Bitss Cyber Security",
-      link: "/",
+      link: "https://bitss.fr/",
     },
     {
       name: "Pensaki Blackboard",
-      link: "/",
+      link: "https://pensaki.org/",
     },
     {
       name: "Omada HR Payroll",
-      link: "/",
+      link: "https://omada-clasico.org/",
     },
     {
       name: "Ifgaap Acounting & Invoicing",
-      link: "/",
+      link: "https://ifgaap.org/",
     },
     
     {
       name: "Sosay Social Media",
-      link: "/",
+      link: "https://sosay.org/",
     },
   ];
 
@@ -102,7 +98,7 @@ export default function Bottombar() {
             <div className="flex flex-col gap-2 ml-2 mt-2">
               {hostingProducts.map((product, i) => (
                 <Link to={product.link} key={i} className="flex gap-2.5">
-                  <FaLocationArrow /> {product.name}
+                  {product.name}
                 </Link>
               ))}
             </div>
@@ -112,8 +108,8 @@ export default function Bottombar() {
             <h5 className="font-semibold">Products</h5>
             <div className="flex flex-col gap-2 ml-2 mt-2">
               {Products.map((product, i) => (
-                <Link to={product.link} key={i} className="flex gap-2.5">
-                  <FaLocationArrow /> {product.name}
+                <Link to={product.link} target="_blank" key={i} className="flex gap-2.5">
+                  {product.name}
                 </Link>
               ))}
             </div>
@@ -124,7 +120,7 @@ export default function Bottombar() {
             <div className="flex flex-col gap-2 ml-2 mt-2">
               {Pages.map((product, i) => (
                 <Link to={product.link} key={i} className="flex gap-2.5">
-                  <FaLocationArrow /> {product.name}
+                  {product.name}
                 </Link>
               ))}
             </div>

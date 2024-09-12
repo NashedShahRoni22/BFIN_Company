@@ -1,6 +1,7 @@
 import React from "react";
 import Businessproof from "./Businessproof";
 import { MdArrowOutward } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export default function HomeLanding() {
   return (
@@ -14,10 +15,10 @@ export default function HomeLanding() {
           services with Bitss and Bobosoho for unparalleled network, server, and
           database protection.
         </p>
-        <button className="px-6 py-3 bg-secondary font-semibold rounded shadow w-fit flex items-center gap-4 group md:hover:scale-110 duration-300 ease-linear">
+        <Link to={"our_products"} className="px-6 py-3 bg-secondary font-semibold rounded shadow w-fit flex items-center gap-4 group md:hover:scale-110 duration-300 ease-linear">
           <span className="md:text-xl">Explore</span>
           <MdArrowOutward className="md:text-xl group-hover:rotate-45 duration-300 ease-linear" />
-        </button>
+        </Link>
       </div>
       <Businessproof />
     </section>

@@ -15,7 +15,7 @@ export default function ContactBar() {
         <div className="flex items-center gap-4 md:gap-8">
           <a href="tel:+33666100010" className="flex items-center gap-2.5">
             <BiPhoneCall className="text-xl" />
-            <span className="hidden md:block">+ 33 6 66 10 00 10</span>
+            <span className="hidden lg:block">+ 33 6 66 10 00 10</span>
           </a>
 
           <a
@@ -23,7 +23,7 @@ export default function ContactBar() {
             className="flex items-center gap-2.5"
           >
             <MdEmail className="text-xl" />
-            <span className="hidden md:block">support@bobosohomail.com</span>
+            <span className="hidden lg:block">support@bobosohomail.com</span>
           </a>
         </div>
       </div>

@@ -6,6 +6,8 @@ import About from "../pages/About";
 import Career from "../pages/Career";
 import ComingSoon from "../components/ComingSoon";
 import Notfound from "../components/Notfound";
+import Products from "../components/Products";
+import ManagedServer from "../pages/Hosting/ManagedServer";
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +29,14 @@ export const router = createBrowserRouter([
             {
                 path:"/career",
                 element: <Career/>
+            },
+            {
+                path:"/our_products",
+                element: <Products/>
+            },
+            {
+                path:"/managed_server",
+                element: <ManagedServer/>
             },
         ]
     },

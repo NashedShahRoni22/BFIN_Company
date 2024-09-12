@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BiHome, BiPhone } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
 import animData from "../assets/contact-anim.json";
@@ -12,6 +12,79 @@ export default function Contact() {
     autoplay: true,
     animationData: animData,
   };
+  const [countries, setCountries] = useState([]);
+  
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    country: "",
+    skypeId: "",
+    subject: "",
+    message: "",
+    captchaInput: "",
+  });
+  const [captcha, setCaptcha] = useState({ question: "", answer: null });
+  const [invalidCaptcha, setInvalidCaptcha] = useState(false);
+  const [invalidMessage, setInvalidMessage] = useState(false);
+  const [invalidKey, setInvalidKey] = useState(false);
+
+  useEffect(() => {
+    fetch("/country.json")
+      .then((response) => response.json())
+      .then((data) => setCountries(data))
+      .catch((error) => console.error("Error loading country data:", error));
+
+    generateCaptcha();
+  }, []);
+
+  // Function to handle input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Function to generate a random number for captcha
+  const getRandomNumber = () => Math.floor(Math.random() * 26) + 6;
+
+  // Function to generate and set captcha
+  const generateCaptcha = () => {
+    const num1 = getRandomNumber();
+    const num2 = getRandomNumber();
+    setCaptcha({
+      question: `${num1} + ${num2} =`,
+      answer: num1 + num2,
+    });
+  };
+
+  // Function to handle form submission
+  const submitForm = async (event) => {
+    event.preventDefault();
+
+    // Captcha validation
+    if (parseInt(formData.captchaInput, 10) !== captcha.answer) {
+      setInvalidCaptcha(true);
+      return;
+    }
+
+    // Add your forbidden words and API validation logic here...
+
+    // Reset form and captcha after submission
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      country: "",
+      skypeId: "",
+      subject: "",
+      message: "",
+      captchaInput: "",
+    });
+    setInvalidCaptcha(false);
+    setInvalidMessage(false);
+    setInvalidKey(false);
+    generateCaptcha();
+  };
+
   return (
     <section className="mx-5 md:container md:mx-auto py-10 md:py-20">
       <div className="grid gap-8 lg:grid-cols-2 md:gap-16">
@@ -58,56 +131,123 @@ export default function Contact() {
         </div>
       </div>
 
-      <h5 className="md:text-2xl font-semibold text-end mt-10 md:mt-20">Send Messsage</h5>
+      <h5 className="md:text-2xl font-semibold text-end mt-10 md:mt-20">
+        Send Messsage
+      </h5>
       <p className="text-xl md:text-3xl text-primary font-semibold text-end mt-4 md:mt-8">
         Get in touch
       </p>
 
       <div className="grid gap-8 lg:grid-cols-2 md:gap-16 mt-10 md:mt-20">
-
-        <form action="" className="flex flex-col gap-8 shadow rounded p-8">
+        <form
+          onSubmit={submitForm}
+          className="flex flex-col gap-5 shadow rounded p-8"
+        >
           <Input
-            variant="static"
+            variant="outlined"
             label="Enter Name"
-            placeholder="Enter Name"
             type="text"
+            name="name"
+            color="indigo"
+            value={formData.name}
+            onChange={handleChange}
             required
           />
           <Input
-            variant="static"
+            variant="outlined"
             label="Enter Email"
-            placeholder="Enter Email"
             type="email"
+            name="email"
+            color="indigo"
+            value={formData.email}
+            onChange={handleChange}
             required
           />
           <Input
-            variant="static"
+            variant="outlined"
             label="Enter Phone"
-            placeholder="Enter Phone"
             type="number"
+            name="phone"
+            color="indigo"
+            value={formData.phone}
+            onChange={handleChange}
             required
           />
-          <Select variant="static" label="How do you hear about us?" required>
-            <Option>Search engine (Google, Bing etc) </Option>
-            <Option>Social media (Facebook, Twitter etc)</Option>
-            <Option>Reccommend by others</Option>
-            <Option>Others</Option>
+          <Select
+            variant="outlined"
+            label="Select Country"
+            name="country"
+            color="indigo"
+            value={formData.country}
+            onChange={(e) => setFormData({ ...formData, country: e })}
+            required
+          >
+            {countries.map((country) => (
+              <Option key={country.name} value={country.dialing_code}>
+                {country.name}
+              </Option>
+            ))}
           </Select>
-          <Input variant="static" label="Skype Id" placeholder="Skype Id" />
           <Input
-            variant="static"
-            label="Subject/Querey for"
-            placeholder="Subject/Querey for"
+            variant="outlined"
+            label="Skype ID"
             type="text"
+            name="skypeId"
+            color="indigo"
+            value={formData.skypeId}
+            onChange={handleChange}
+          />
+          <Input
+            variant="outlined"
+            label="Subject/Query"
+            type="text"
+            name="subject"
+            color="indigo"
+            value={formData.subject}
+            onChange={handleChange}
             required
           />
           <Textarea
-            variant="static"
+            variant="outlined"
             label="Enter Message"
-            placeholder="Enter Message"
-            type="text"
+            name="message"
+            color="indigo"
+            value={formData.message}
+            onChange={handleChange}
             required
           />
+
+          {/* Captcha Section */}
+          <div id="captchaDisplay">
+            <p>{captcha.question}</p>
+          </div>
+          <Input
+            variant="outlined"
+            label="Enter Captcha"
+            type="text"
+            name="captchaInput"
+            color="indigo"
+            className=""
+            value={formData.captchaInput}
+            onChange={handleChange}
+            required
+          />
+          {invalidCaptcha && (
+            <p id="invalidCaptcha" className="text-red-500">
+              Invalid Captcha! Please try again.
+            </p>
+          )}
+          {invalidMessage && (
+            <p id="invalidMessage" className="text-red-500">
+              Your message contains forbidden words.
+            </p>
+          )}
+          {invalidKey && (
+            <p id="invalidKey" className="text-red-500">
+              Invalid API Key.
+            </p>
+          )}
+
           <button
             type="submit"
             className="px-8 py-2 rounded border border-primary hover:bg-primary text-primary hover:text-white font-semibold w-fit flex items-center gap-4 duration-300 ease-linear group"

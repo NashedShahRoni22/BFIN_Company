@@ -42,12 +42,12 @@ export default function Businessproof() {
   return (
     <section className="mx-5 md:container md:mx-auto p-5 md:p-10 bg-black/80 grid md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-xl">
       {items.map((item, i) => (
-        <div key={i} className="flex flex-col items-start gap-2.5 bg-white p-5 rounded-xl shadow-xl group hover:bg-primary hover:text-white ease-linear duration-300">
+        <div key={i} className="bg-white p-5 rounded-xl shadow-xl group hover:bg-primary hover:text-white ease-linear duration-300">
           <img src={item.image} alt="" />
-          <h5 className="text-[20px] md:text-[26px] font-semibold text-primary group-hover:text-white ease-linear duration-300">
+          <h5 className="mt-5 text-[20px] md:text-[26px] font-semibold text-primary group-hover:text-white ease-linear duration-300">
             {item.title}
           </h5>
-          <p className="text-[12px] md:text-[16px]">{item.desc}</p>
+          <p className="mt-2.5 text-[12px] md:text-[16px]">{item.desc}</p>
         </div>
       ))}
     </section>

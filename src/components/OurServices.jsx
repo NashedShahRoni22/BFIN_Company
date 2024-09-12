@@ -32,6 +32,7 @@ export default function OurServices() {
       image: white,
       title: "BFINIT SaaS White Label",
       desc: "BFINIT offers cost-effective SaaS white-label solutions, encouraging business development and supporting startups. Launch your branded SaaS platform with our expert design and development services, providing all the tools and support needed for successful business growth.",
+      link: "https://bfin.company/software/white_label/",
     },
     {
       image: retail,
@@ -49,13 +50,13 @@ export default function OurServices() {
         {items.map((item, i) => (
           <div
             key={i}
-            className="flex flex-col gap-2.5 p-8 rounded-xl shadow-xl md:hover:-translate-y-5 ease-linear duration-300"
+            className="p-5 rounded-xl shadow-xl md:hover:-translate-y-5 ease-linear duration-300"
           >
             <img src={item.image} className="h-[80px] w-[80px]" alt="" />
-            <h5 className="text-[20px] md:text-[26px] font-semibold text-primary">
+            <h5 className="mt-5 text-[20px] md:text-[26px] font-semibold text-primary">
               {item.title}
             </h5>
-            <p className="text-[12px] md:text-[16px]">{item.desc}</p>
+            <p className="mt-2.5 text-[12px] md:text-[16px]">{item.desc}</p>
           </div>
         ))}
       </div>

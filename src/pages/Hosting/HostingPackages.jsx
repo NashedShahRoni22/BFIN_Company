@@ -1,0 +1,212 @@
+import React, { useEffect, useState } from "react";
+import { GrStorage } from "react-icons/gr";
+import { Link } from "react-router-dom";
+import { Option, Select } from "@material-tailwind/react";
+import { BiCheckShield } from "react-icons/bi";
+
+export default function HostingPackages({ s }) {
+  const [storages, setStorages] = useState([]);
+  const [exchangeRates, setExchangeRates] = useState([]);
+  const [exchangeRate, setExchangeRate] = useState(1);
+  const [currencyCode, setCurrencyCode] = useState("USD");
+  //   console.log(s);
+
+  // manage data
+  const [serverId, setServerId] = useState(s.id);
+  const [ramId, setRamId] = useState(s.defaultStorage.ram);
+  const [storageId, setStorageId] = useState(s.defaultStorage.storage);
+  const [contract, setContract] = useState("3");
+
+  console.log(serverId, ramId, storageId);
+
+  // prices data
+  const [updatedPrice, setUpdatedPrice] = useState("");
+  const [standardPrice, setStandardPrice] = useState("");
+  const [discountedPrice, setDiscountedPrice] = useState("");
+
+  // Get storage options based on the serverId and RAM
+  useEffect(() => {
+    if (serverId && ramId) {
+      let url = `https://hpanel.bfinit.com/api/product/storages/${serverId}/${ramId}`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          setStorages(data);
+        });
+    }
+  }, [serverId, ramId]);
+
+  // Get price based on the selected RAM and storage
+  useEffect(() => {
+    if (serverId && ramId && storageId) {
+      let priceurl = `https://hpanel.bfinit.com/api/product/price/${serverId}/${ramId}/${storageId}`;
+      fetch(priceurl)
+        .then((res) => res.json())
+        .then((data) => setUpdatedPrice(data?.price));
+    }
+  }, [serverId, ramId, storageId]);
+
+  useEffect(() => {
+    const basePrice = parseFloat(updatedPrice || s?.defaultStorage?.price);
+
+    // Apply discount based on contract
+    let discountPercentage = 15;
+    let month = 3;
+    if (contract === "3") {
+      discountPercentage = 15;
+      month = 3;
+    } else if (contract === "6") {
+      discountPercentage = 19;
+      month = 6;
+    } else if (contract === "12") {
+      discountPercentage = 28;
+      month = 12;
+    }
+    const calculatedStandardPrice = basePrice * month;
+    setStandardPrice((calculatedStandardPrice * exchangeRate).toFixed(2));
+
+    const calculatedDiscountedPrice =
+      calculatedStandardPrice * ((100 - discountPercentage) / 100);
+    setDiscountedPrice((calculatedDiscountedPrice * exchangeRate).toFixed(2));
+  }, [contract, updatedPrice, exchangeRate]);
+
+  // Get exchange rates
+  useEffect(() => {
+    fetch("https://api.exchangerate-api.com/v4/latest/USD")
+      .then((res) => res.json())
+      .then((data) => setExchangeRates(Object.entries(data?.rates)));
+  }, []);
+
+  // Handle the currency and rate change
+  const handleCurrencyChange = (rate, currency) => {
+    setExchangeRate(rate);
+    setCurrencyCode(currency);
+  };
+
+  return (
+    <div className="flex flex-col justify-between gap-4 p-5 shadow shadow-primary rounded-xl">
+      <GrStorage className="text-5xl text-primary" />
+      <h5 className="font-bold text-xl text-primary">{s?.name}</h5>
+      <h5 className="font-semibold">{s?.core}</h5>
+      <Select
+        onChange={(value) => setRamId(value)}
+        label="Choose Ram"
+        color="indigo"
+      >
+        {s?.uniqueRams?.map((ur, index) => (
+          <Option key={index} value={ur}>
+            {ur}
+          </Option>
+        ))}
+      </Select>
+
+      {storages?.length > 0 ? (
+        <Select
+          onChange={(value) => setStorageId(value)}
+          label="Choose Storage"
+          color="indigo"
+        >
+          {storages?.map((us, index) => (
+            <Option key={index} value={us?.storage}>
+              {us?.storage}
+            </Option>
+          ))}
+        </Select>
+      ) : (
+        <Select
+          onChange={(value) => setStorageId(value)}
+          label="Choose Storage"
+          color="indigo"
+        >
+          {s?.storages?.map((us, index) => (
+            <Option key={index} value={us}>
+              {us}
+            </Option>
+          ))}
+        </Select>
+      )}
+
+      <Select
+        onChange={(value) => setContract(value)}
+        label="Select Contract"
+        color="indigo"
+      >
+        <Option value="3">3 Month (15% Discount)</Option>
+        <Option value="6">6 Month (19% Discount)</Option>
+        <Option value="12">12 Month (28% Discount)</Option>
+      </Select>
+
+      {/* Currency Select Box */}
+      <Select
+        onChange={(value) => {
+          const selectedRate = exchangeRates.find(
+            ([currencyCode, rate]) => rate === value
+          );
+          handleCurrencyChange(selectedRate[1], selectedRate[0]); // Set rate and currencyCode
+        }}
+        label="Select Currency"
+        color="indigo"
+      >
+        {exchangeRates.map(([currencyCode, rate], i) => (
+          <Option key={i} value={rate}>
+            {currencyCode}
+          </Option>
+        ))}
+      </Select>
+
+      <p className="flex gap-2">
+        <BiCheckShield className="text-3xl text-primary" />
+        <span className="flex-1">{s?.description1}</span>
+      </p>
+      <p className="flex gap-2">
+        <BiCheckShield className="text-3xl text-primary" />
+        <span className="flex-1">{s?.description2}</span>
+      </p>
+      <p className="flex gap-2">
+        <BiCheckShield className="text-3xl text-primary" />
+        <span className="flex-1">{s?.description3}</span>
+      </p>
+
+      {/* Display Standard and Discounted Prices */}
+      <p className="text-sm font-semibold text-primary">Per month</p>
+      <p className="text-xl md:text-2xl font-semibold text-primary">
+        {updatedPrice !== "" ? (
+          (updatedPrice * exchangeRate).toFixed(2)
+        ) : (
+          <>{(s?.defaultStorage?.price * exchangeRate).toFixed(2)}</>
+        )}{" "}
+        {currencyCode}
+      </p>
+
+      {/* Standard regular price */}
+      {standardPrice !== "" && (
+        <>
+          <p className="text-sm font-semibold text-primary">
+            Standard regular price for {contract} month
+          </p>
+          <p className="text-xl md:text-2xl font-semibold text-primary line-through">
+            {standardPrice} {currencyCode}
+          </p>
+        </>
+      )}
+
+      {/* Discounted price */}
+      {discountedPrice !== "" && (
+        <>
+          <p className="text-sm font-semibold text-primary">You are paying</p>
+          <p className="text-xl md:text-2xl font-semibold text-primary">
+            {discountedPrice} {currencyCode}
+          </p>
+        </>
+      )}
+
+      <Link
+        to={`https://hpanel.bfinit.com/checkout?productId=${serverId}&packageType=server&ram=${ramId}&storage=${storageId}&timePeriod=${contract}&currency=${currencyCode}&currencyRate=${exchangeRate}&storageVariantId=`}
+        target="_blank"
+        className="px-4 py-2 rounded-xl bg-primary text-white text-center mt-10"
+      >
+        Order Now
+      </Link>
+    </div>
+  );
+}
