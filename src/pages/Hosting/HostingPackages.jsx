@@ -88,7 +88,7 @@ export default function HostingPackages({ s }) {
   };
 
   return (
-    <div className="flex flex-col justify-between gap-4 p-8 shadow-xl rounded-xl">
+    <div className="flex flex-col justify-between gap-4 p-4 shadow-xl rounded-xl">
       <GrStorage className="text-5xl text-primary" />
       <h5 className="font-bold text-xl text-primary">{s?.name}</h5>
       <h5 className="font-semibold">{s?.core}</h5>
@@ -97,7 +97,7 @@ export default function HostingPackages({ s }) {
       <select
         value={ramId}
         onChange={(e) => setRamId(e.target.value)}
-        className="px-4 py-2 border rounded focus:outline-none border-primary "
+        className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
       >
         {s?.uniqueRams?.map((ur, index) => (
           <option key={index} value={ur}>
@@ -111,7 +111,7 @@ export default function HostingPackages({ s }) {
         <select
           value={storageId}
           onChange={(e) => setStorageId(e.target.value)}
-          className="px-4 py-2 border rounded focus:outline-none border-primary "
+          className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
         >
           {storages?.map((us, index) => (
             <option key={index} value={us?.storage}>
@@ -123,7 +123,7 @@ export default function HostingPackages({ s }) {
         <select
           value={storageId}
           onChange={(e) => setStorageId(e.target.value)}
-          className="px-4 py-2 border rounded focus:outline-none border-primary "
+          className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
         >
           {s?.storages?.map((us, index) => (
             <option key={index} value={us}>
@@ -137,7 +137,7 @@ export default function HostingPackages({ s }) {
       <select
         value={contract}
         onChange={(e) => setContract(e.target.value)}
-        className="px-4 py-2 border rounded focus:outline-none border-primary "
+        className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
       >
         <option value="3">3 Month (15% Discount)</option>
         <option value="6">6 Month (19% Discount)</option>
@@ -148,7 +148,7 @@ export default function HostingPackages({ s }) {
       <select
         value={currencyCode}
         onChange={handleCurrencyChange}
-        className="px-4 py-2 border rounded focus:outline-none border-primary "
+        className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
       >
         {exchangeRates.map(([currencyCode], i) => (
           <option key={i} value={currencyCode}>

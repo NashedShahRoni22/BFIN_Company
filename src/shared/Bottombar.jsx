@@ -11,25 +11,29 @@ export default function Bottombar() {
   const hostingProducts = [
     {
       name: "Fully Managed Dedicated Server",
-      link: "/coming_soon",
+      link: "/fully-managed-dedicated-server",
     },
     {
       name: "Fully Managed Virtual Dedicated Server",
-      link: "/coming_soon",
+      link: "/fully-managed-virtual-dedicated-server",
     },
     {
       name: "Self Managed Dedicated Server",
-      link: "/coming_soon",
+      link: "/self-managed-dedicated-server",
     },
     {
       name: "Fully Managed Pure Website Hosting",
-      link: "/coming_soon",
+      link: "fully-managed-pure-web-hosting",
     },
     {
       name: "Self Managed Pure Website Hosting",
-      link: "/coming_soon",
+      link: "/self-managed-pure-web-hosting",
     },
-  ];
+    {
+      name: "Vault Cloud Storage",
+      link: "/vault-cloud-storage",
+    },
+  ]
 
   const Products = [
     {

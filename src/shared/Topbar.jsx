@@ -34,23 +34,23 @@ export default function Topbar() {
         },
         {
           name: "Fully Managed Virtual Dedicated Server",
-          link: "/managed_server/2",
+          link: "/fully-managed-virtual-dedicated-server",
         },
         {
           name: "Self Managed Dedicated Server",
-          link: "/managed_server/3",
+          link: "/self-managed-dedicated-server",
         },
         {
           name: "Fully Managed Pure Website Hosting",
-          link: "/managed_server/4",
+          link: "fully-managed-pure-web-hosting",
         },
         {
           name: "Self Managed Pure Website Hosting",
-          link: "/managed_server/5",
+          link: "/self-managed-pure-web-hosting",
         },
         {
           name: "Vault Cloud Storage",
-          link: "/managed_server/6",
+          link: "/vault-cloud-storage",
         },
       ],
     },

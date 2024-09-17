@@ -8,6 +8,11 @@ import ComingSoon from "../components/ComingSoon";
 import Notfound from "../components/Notfound";
 import Products from "../components/Products";
 import ManagedServer from "../pages/Hosting/ManagedServer";
+import VirtualServer from "../pages/Hosting/VirtualServer";
+import SelfManagedServer from "../pages/Hosting/SelfManagedServer";
+import PureHosting from "../pages/Hosting/PureHosting";
+import SelftPureHosting from "../pages/Hosting/SelftPureHosting";
+import VaultStorage from "../pages/Hosting/VaultStorage";
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +42,26 @@ export const router = createBrowserRouter([
             {
                 path:"/fully-managed-dedicated-server",
                 element: <ManagedServer/>
+            },
+            {
+                path:"/fully-managed-virtual-dedicated-server",
+                element: <VirtualServer/>
+            },
+            {
+                path:"/self-managed-dedicated-server",
+                element: <SelfManagedServer/>
+            },
+            {
+                path:"/fully-managed-pure-web-hosting",
+                element: <PureHosting/>
+            },
+            {
+                path:"/self-managed-pure-web-hosting",
+                element: <SelftPureHosting/>
+            },
+            {
+                path:"/vault-cloud-storage",
+                element: <VaultStorage/>
             },
         ]
     },
