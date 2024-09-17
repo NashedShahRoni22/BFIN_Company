@@ -1,25 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { GrStorage } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import { Option, Select } from "@material-tailwind/react";
 import { BiCheckShield } from "react-icons/bi";
 
 export default function HostingPackages({ s }) {
   const [storages, setStorages] = useState([]);
   const [exchangeRates, setExchangeRates] = useState([]);
-  const [exchangeRate, setExchangeRate] = useState(1);
-  const [currencyCode, setCurrencyCode] = useState("USD");
-  //   console.log(s);
+  const [exchangeRate, setExchangeRate] = useState(1); // Default exchange rate of 1
+  const [currencyCode, setCurrencyCode] = useState("USD"); // Default currency as USD
 
-  // manage data
+  // Initialize with default values
   const [serverId, setServerId] = useState(s.id);
-  const [ramId, setRamId] = useState(s.defaultStorage.ram);
-  const [storageId, setStorageId] = useState(s.defaultStorage.storage);
-  const [contract, setContract] = useState("3");
+  const [ramId, setRamId] = useState(s.uniqueRams[0]); // First RAM element selected by default
+  const [storageId, setStorageId] = useState(s.storages[0]); // First Storage element selected by default
+  const [contract, setContract] = useState("3"); // Default to 3 months
 
-  console.log(serverId, ramId, storageId);
-
-  // prices data
+  // Prices data
   const [updatedPrice, setUpdatedPrice] = useState("");
   const [standardPrice, setStandardPrice] = useState("");
   const [discountedPrice, setDiscountedPrice] = useState("");
@@ -32,6 +28,7 @@ export default function HostingPackages({ s }) {
         .then((res) => res.json())
         .then((data) => {
           setStorages(data);
+          setStorageId(data[0]?.storage); // Select the first storage by default
         });
     }
   }, [serverId, ramId]);
@@ -74,85 +71,91 @@ export default function HostingPackages({ s }) {
   useEffect(() => {
     fetch("https://api.exchangerate-api.com/v4/latest/USD")
       .then((res) => res.json())
-      .then((data) => setExchangeRates(Object.entries(data?.rates)));
+      .then((data) => {
+        setExchangeRates(Object.entries(data?.rates));
+      });
   }, []);
 
   // Handle the currency and rate change
-  const handleCurrencyChange = (rate, currency) => {
-    setExchangeRate(rate);
-    setCurrencyCode(currency);
+  const handleCurrencyChange = (e) => {
+    const selectedCurrencyCode = e.target.value;
+    const selectedCurrencyRate = exchangeRates.find(
+      ([currency, rate]) => currency === selectedCurrencyCode
+    )[1];
+
+    setCurrencyCode(selectedCurrencyCode);
+    setExchangeRate(selectedCurrencyRate);
   };
 
   return (
-    <div className="flex flex-col justify-between gap-4 p-5 shadow shadow-primary rounded-xl">
+    <div className="flex flex-col justify-between gap-4 p-8 shadow-xl rounded-xl">
       <GrStorage className="text-5xl text-primary" />
       <h5 className="font-bold text-xl text-primary">{s?.name}</h5>
       <h5 className="font-semibold">{s?.core}</h5>
-      <Select
-        onChange={(value) => setRamId(value)}
-        label="Choose Ram"
-        color="indigo"
+
+      {/* Select RAM with default value */}
+      <select
+        value={ramId}
+        onChange={(e) => setRamId(e.target.value)}
+        className="px-4 py-2 border rounded focus:outline-none border-primary "
       >
         {s?.uniqueRams?.map((ur, index) => (
-          <Option key={index} value={ur}>
+          <option key={index} value={ur}>
             {ur}
-          </Option>
+          </option>
         ))}
-      </Select>
+      </select>
 
+      {/* Select Storage with default value */}
       {storages?.length > 0 ? (
-        <Select
-          onChange={(value) => setStorageId(value)}
-          label="Choose Storage"
-          color="indigo"
+        <select
+          value={storageId}
+          onChange={(e) => setStorageId(e.target.value)}
+          className="px-4 py-2 border rounded focus:outline-none border-primary "
         >
           {storages?.map((us, index) => (
-            <Option key={index} value={us?.storage}>
+            <option key={index} value={us?.storage}>
               {us?.storage}
-            </Option>
+            </option>
           ))}
-        </Select>
+        </select>
       ) : (
-        <Select
-          onChange={(value) => setStorageId(value)}
-          label="Choose Storage"
-          color="indigo"
+        <select
+          value={storageId}
+          onChange={(e) => setStorageId(e.target.value)}
+          className="px-4 py-2 border rounded focus:outline-none border-primary "
         >
           {s?.storages?.map((us, index) => (
-            <Option key={index} value={us}>
+            <option key={index} value={us}>
               {us}
-            </Option>
+            </option>
           ))}
-        </Select>
+        </select>
       )}
 
-      <Select
-        onChange={(value) => setContract(value)}
-        label="Select Contract"
-        color="indigo"
+      {/* Select Contract with default value */}
+      <select
+        value={contract}
+        onChange={(e) => setContract(e.target.value)}
+        className="px-4 py-2 border rounded focus:outline-none border-primary "
       >
-        <Option value="3">3 Month (15% Discount)</Option>
-        <Option value="6">6 Month (19% Discount)</Option>
-        <Option value="12">12 Month (28% Discount)</Option>
-      </Select>
+        <option value="3">3 Month (15% Discount)</option>
+        <option value="6">6 Month (19% Discount)</option>
+        <option value="12">12 Month (28% Discount)</option>
+      </select>
 
       {/* Currency Select Box */}
-      <Select
-        onChange={(value) => {
-          const selectedRate = exchangeRates.find(
-            ([currencyCode, rate]) => rate === value
-          );
-          handleCurrencyChange(selectedRate[1], selectedRate[0]); // Set rate and currencyCode
-        }}
-        label="Select Currency"
-        color="indigo"
+      <select
+        value={currencyCode}
+        onChange={handleCurrencyChange}
+        className="px-4 py-2 border rounded focus:outline-none border-primary "
       >
-        {exchangeRates.map(([currencyCode, rate], i) => (
-          <Option key={i} value={rate}>
+        {exchangeRates.map(([currencyCode], i) => (
+          <option key={i} value={currencyCode}>
             {currencyCode}
-          </Option>
+          </option>
         ))}
-      </Select>
+      </select>
 
       <p className="flex gap-2">
         <BiCheckShield className="text-3xl text-primary" />
@@ -166,36 +169,35 @@ export default function HostingPackages({ s }) {
         <BiCheckShield className="text-3xl text-primary" />
         <span className="flex-1">{s?.description3}</span>
       </p>
-
+      <hr />
       {/* Display Standard and Discounted Prices */}
-      <p className="text-sm font-semibold text-primary">Per month</p>
-      <p className="text-xl md:text-2xl font-semibold text-primary">
+      <p className=" text-center">
         {updatedPrice !== "" ? (
           (updatedPrice * exchangeRate).toFixed(2)
         ) : (
           <>{(s?.defaultStorage?.price * exchangeRate).toFixed(2)}</>
         )}{" "}
-        {currencyCode}
+        {currencyCode} / <span className="text-sm">Per month</span>
       </p>
-
-      {/* Standard regular price */}
-      {standardPrice !== "" && (
-        <>
-          <p className="text-sm font-semibold text-primary">
-            Standard regular price for {contract} month
-          </p>
-          <p className="text-xl md:text-2xl font-semibold text-primary line-through">
-            {standardPrice} {currencyCode}
-          </p>
-        </>
-      )}
 
       {/* Discounted price */}
       {discountedPrice !== "" && (
         <>
-          <p className="text-sm font-semibold text-primary">You are paying</p>
-          <p className="text-xl md:text-2xl font-semibold text-primary">
+          <p className="text-sm font-semibold text-center">You are paying</p>
+          <p className="text-2xl md:text-3xl font-semibold text-primary text-center">
             {discountedPrice} {currencyCode}
+          </p>
+        </>
+      )}
+
+      {/* Standard regular price */}
+      {standardPrice !== "" && (
+        <>
+          <p className="text-sm text-center">
+            Standard regular price for {contract} month
+          </p>
+          <p className="font-semibold text-red-400 line-through text-center">
+            {standardPrice} {currencyCode}
           </p>
         </>
       )}

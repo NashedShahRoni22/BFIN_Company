@@ -31,11 +31,11 @@ export const router = createBrowserRouter([
                 element: <Career/>
             },
             {
-                path:"/our_products",
+                path:"/our-products",
                 element: <Products/>
             },
             {
-                path:"/managed_server",
+                path:"/fully-managed-dedicated-server",
                 element: <ManagedServer/>
             },
         ]

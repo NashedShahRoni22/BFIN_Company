@@ -30,23 +30,27 @@ export default function Topbar() {
       child: [
         {
           name: "Fully Managed Dedicated Server",
-          link: "/managed_server",
+          link: "/fully-managed-dedicated-server",
         },
         {
           name: "Fully Managed Virtual Dedicated Server",
-          link: "/coming_soon",
+          link: "/managed_server/2",
         },
         {
           name: "Self Managed Dedicated Server",
-          link: "/coming_soon",
+          link: "/managed_server/3",
         },
         {
           name: "Fully Managed Pure Website Hosting",
-          link: "/coming_soon",
+          link: "/managed_server/4",
         },
         {
           name: "Self Managed Pure Website Hosting",
-          link: "/coming_soon",
+          link: "/managed_server/5",
+        },
+        {
+          name: "Vault Cloud Storage",
+          link: "/managed_server/6",
         },
       ],
     },
@@ -99,14 +103,14 @@ export default function Topbar() {
           {MenuItems.map((mi, i) => (
             <div key={i}>
               {mi.child ? (
-                <div className="relative group text-[20px]">
+                <div className="relative group text-[18px]">
                   <span className="flex items-center gap-1 cursor-pointer font-semibold">
                     {mi.name}
                     <BiChevronDown className="text-2xl" />
                   </span>
-                  <div className="absolute bg-white left-5 p-5 shadow rounded min-w-[400px] hidden group-hover:flex flex-col gap-2">
+                  <div className="absolute bg-white left-5 p-5 shadow rounded min-w-[420px] hidden group-hover:flex flex-col gap-2">
                     {mi.child.map((mc, i) => (
-                      <Link to={mc.link} key={i} className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear" target="_blank">
+                      <Link to={mc.link} key={i} className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear">
                         {/* <BiChevronRight className="text-2xl" /> */}
                         <span className="flex-1">{mc.name}</span>
                       </Link>
@@ -117,10 +121,10 @@ export default function Topbar() {
                 <Link
                   to={mi.link}
                   key={i}
-                  className="text-[20px] font-semibold flex items-center gap-2.5"
+                  className="text-[18px] font-semibold flex items-center gap-2.5"
                 >
                   {mi.name}
-                  <MdArrowOutward />
+                  {/* <MdArrowOutward /> */}
                 </Link>
               )}
             </div>
@@ -142,7 +146,7 @@ export default function Topbar() {
               <div key={i}>
                 {mi.child ? (
                   <div>
-                    <div className="text-[20px] flex justify-between items-center">
+                    <div className="text-[18px] flex justify-between items-center">
                       {mi.name}
 
                       {showChild !== i ? (
@@ -168,7 +172,8 @@ export default function Topbar() {
                           <Link
                             to={mc.link}
                             key={i}
-                            className="text-[20px] flex gap-1.5"
+                            onClick={() => setShowNav(!showNav)}
+                            className="text-[18px] flex gap-1.5"
                           >
                             <BiChevronRight className="text-2xl" />
                             {mc.name}
@@ -182,10 +187,10 @@ export default function Topbar() {
                     to={mi.link}
                     key={i}
                     onClick={() => setShowNav(!showNav)}
-                    className="text-[20px] flex justify-between items-center"
+                    className="text-[18px] flex justify-between items-center"
                   >
                     {mi.name}
-                    <MdArrowOutward />
+                    {/* <MdArrowOutward /> */}
                   </Link>
                 )}
               </div>
@@ -193,10 +198,10 @@ export default function Topbar() {
             <Link
               to={"/contact"}
               onClick={() => setShowNav(!showNav)}
-              className="text-[20px] flex justify-between items-center"
+              className="text-[18px] flex justify-between items-center"
             >
               Contact Us
-              <MdArrowOutward />
+              {/* <MdArrowOutward /> */}
             </Link>
           </div>
         )}

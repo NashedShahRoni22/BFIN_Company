@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { BiCheckDouble } from "react-icons/bi";
 import image from "../../assets/managed-server.png";
 import HostingPackages from "./HostingPackages";
+import Loader from "../../shared/Loader";
+import { useParams } from "react-router-dom";
 
 export default function ManagedServer() {
+  const {id} = useParams();
   const [loader, setLoader] = useState(false);
   const [servers, setServers] = useState([]);
 
@@ -16,16 +19,14 @@ export default function ManagedServer() {
         setServers(data);
         setLoader(false);
       });
-  }, []);
+  }, [id]);
 
   return (
     <section className="mx-5 md:container md:mx-auto py-5 md:py-10">
-      <h5 className="text-xl font-semibold text-primary">Managed Server</h5>
-
       <div className="mt-5 md:mt-10 grid gap-8 lg:grid-cols-2">
         <div className="flex flex-col gap-5">
           <h5 className="text-xl md:text-2xl">
-            Fully Managed Dedicated Server Hosting including BITSS WAP.
+            Fully Managed Dedicated Server Hosting including BITSS WAP
           </h5>
           <p className="text-2xl md:text-4xl text-primary font-semibold">
             Get Fully Managed Dedicated Server Hosting.
@@ -58,9 +59,9 @@ export default function ManagedServer() {
       </div>
 
       {loader ? (
-        "Loading..."
+        <Loader/>
       ) : (
-        <div className="mt-10 md:mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-5 md:mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {servers?.map((s, i) => {
             return <HostingPackages key={i} s={s} />;
           })}
