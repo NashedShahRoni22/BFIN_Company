@@ -16,7 +16,7 @@ export default function SelfManagedServer() {
     fetch(`https://hpanel.bfinit.com/api/product/list/3`)
       .then((res) => res.json())
       .then((data) => {
-        setServers(data);
+        setServers(data?.data);
         setLoader(false);
       });
   }, [id]);

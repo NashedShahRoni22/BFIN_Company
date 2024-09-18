@@ -16,7 +16,7 @@ export default function ManagedServer() {
     fetch(`https://hpanel.bfinit.com/api/product/list/1`)
       .then((res) => res.json())
       .then((data) => {
-        setServers(data);
+        setServers(data?.data);
         setLoader(false);
       });
   }, [id]);

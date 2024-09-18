@@ -16,7 +16,7 @@ export default function VaultStorage() {
     fetch(`https://hpanel.bfinit.com/api/product/list/6`)
       .then((res) => res.json())
       .then((data) => {
-        setServers(data);
+        setServers(data?.data);
         setLoader(false);
       });
   }, [id]);

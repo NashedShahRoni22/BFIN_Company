@@ -16,7 +16,7 @@ export default function VirtualServer() {
     fetch(`https://hpanel.bfinit.com/api/product/list/2`)
       .then((res) => res.json())
       .then((data) => {
-        setServers(data);
+        setServers(data?.data);
         setLoader(false);
       });
   }, [id]);

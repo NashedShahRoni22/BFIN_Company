@@ -27,8 +27,8 @@ export default function HostingPackages({ s }) {
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
-          setStorages(data);
-          setStorageId(data[0]?.storage); // Select the first storage by default
+          setStorages(data?.data);
+          setStorageId(data?.data[0]?.storage); // Select the first storage by default
         });
     }
   }, [serverId, ramId]);
@@ -39,7 +39,7 @@ export default function HostingPackages({ s }) {
       let priceurl = `https://hpanel.bfinit.com/api/product/price/${serverId}/${ramId}/${storageId}`;
       fetch(priceurl)
         .then((res) => res.json())
-        .then((data) => setUpdatedPrice(data?.price));
+        .then((data) => setUpdatedPrice(data?.data?.price));
     }
   }, [serverId, ramId, storageId]);
 
@@ -58,6 +58,9 @@ export default function HostingPackages({ s }) {
     } else if (contract === "12") {
       discountPercentage = 28;
       month = 12;
+    }else if (contract === "24") {
+      discountPercentage = 34;
+      month = 24;
     }
     const calculatedStandardPrice = basePrice * month;
     setStandardPrice((calculatedStandardPrice * exchangeRate).toFixed(2));
@@ -88,12 +91,13 @@ export default function HostingPackages({ s }) {
   };
 
   return (
-    <div className="flex flex-col justify-between gap-4 p-4 shadow-xl rounded-xl">
+    <div className="flex flex-col justify-between gap-2.5 p-4 shadow-xl rounded-xl">
       <GrStorage className="text-5xl text-primary" />
       <h5 className="font-bold text-xl text-primary">{s?.name}</h5>
       <h5 className="font-semibold">{s?.core}</h5>
 
       {/* Select RAM with default value */}
+      <label htmlFor="" className="text-sm font-semibold text-primary">Choose Ram</label>
       <select
         value={ramId}
         onChange={(e) => setRamId(e.target.value)}
@@ -107,6 +111,7 @@ export default function HostingPackages({ s }) {
       </select>
 
       {/* Select Storage with default value */}
+      <label htmlFor="" className="text-sm font-semibold text-primary">Choose Storage</label>
       {storages?.length > 0 ? (
         <select
           value={storageId}
@@ -134,17 +139,20 @@ export default function HostingPackages({ s }) {
       )}
 
       {/* Select Contract with default value */}
+      <label htmlFor="" className="text-sm font-semibold text-primary">Choose Contract</label>
       <select
         value={contract}
         onChange={(e) => setContract(e.target.value)}
         className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
       >
-        <option value="3">3 Month (15% Discount)</option>
-        <option value="6">6 Month (19% Discount)</option>
-        <option value="12">12 Month (28% Discount)</option>
+        <option value="3">3 Months (15% Discount)</option>
+        <option value="6">6 Months (19% Discount)</option>
+        <option value="12">12 Months (28% Discount)</option>
+        <option value="24">24 Months (34% Discount)</option>
       </select>
 
       {/* Currency Select Box */}
+      <label htmlFor="" className="text-sm font-semibold text-primary">Choose Currencey</label>
       <select
         value={currencyCode}
         onChange={handleCurrencyChange}
@@ -171,7 +179,7 @@ export default function HostingPackages({ s }) {
       </p>
       <hr />
       {/* Display Standard and Discounted Prices */}
-      <p className=" text-center">
+      <p className="text-primary text-center">
         {updatedPrice !== "" ? (
           (updatedPrice * exchangeRate).toFixed(2)
         ) : (
