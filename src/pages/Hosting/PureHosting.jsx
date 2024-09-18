@@ -45,11 +45,18 @@ export default function PureHosting() {
           <p className="flex gap-2">
             <BiCheckDouble className="text-xl text-primary" />
             <span className="flex-1">
-              All servers include free upload of WP (word press web site) Free
-              bobosoho office suits software including wordsxtra, notesxtra,
-              worksheets, hosting vault for documents videos photos storage and
-              email – all for up to 100 users and each user with own dedicated
-              secured dashboard.
+              All servers include free Pensaki Blackboard Account, giving direct
+              access to clients hosting panel, also give acces to clients office
+              tools doc writer, pdf convertor, anti spam email and other related
+              products in a secured enviiroment.
+            </span>
+          </p>
+          <p className="flex gap-2">
+            <BiCheckDouble className="text-xl text-primary" />
+            <span className="flex-1">
+              Includes hosting vault for documents videos photos storage and
+              email – all for 1 or up to 100 users and each user depending on
+              hosting subsription all with own dedicated secured dashboard.
             </span>
           </p>
         </div>
