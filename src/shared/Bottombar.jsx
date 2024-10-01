@@ -29,10 +29,6 @@ export default function Bottombar() {
       name: "Self Managed Pure Website Hosting",
       link: "/self-managed-pure-web-hosting",
     },
-    {
-      name: "Vault Cloud Storage",
-      link: "/vault-cloud-storage",
-    },
   ]
 
   const Products = [

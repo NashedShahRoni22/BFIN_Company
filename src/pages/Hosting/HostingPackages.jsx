@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { GrStorage } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import { BiCheckShield } from "react-icons/bi";
+import { FaCheck } from "react-icons/fa";
 
 export default function HostingPackages({ s }) {
   const [storages, setStorages] = useState([]);
-  console.log(s);
-
   const [exchangeRates, setExchangeRates] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(1); // Default exchange rate of 1
   const [currencyCode, setCurrencyCode] = useState("USD"); // Default currency as USD
@@ -49,9 +46,12 @@ export default function HostingPackages({ s }) {
     const basePrice = parseFloat(updatedPrice || s?.defaultStorage?.price);
 
     // Apply discount based on contract
-    let discountPercentage = 15;
-    let month = 3;
-    if (contract === "3") {
+    let discountPercentage = 0;
+    let month = 1;
+    if (contract === "1") {
+      discountPercentage = 0;
+      month = 1;
+    } else if (contract === "3") {
       discountPercentage = 15;
       month = 3;
     } else if (contract === "6") {
@@ -93,20 +93,55 @@ export default function HostingPackages({ s }) {
   };
 
   return (
-    <div className="flex flex-col justify-between gap-5 p-6 shadow-xl rounded-xl">
-      <GrStorage className="text-5xl text-primary" />
-      <h5 className="font-bold text-xl text-primary">{s?.name}</h5>
-      <h5 className="font-semibold">{s?.core}</h5>
+    <div className="flex flex-col justify-between gap-2.5 p-6 shadow-xl rounded-xl">
+      <h5 className="font-bold text-primary">{s?.name}</h5>
+      <div className="flex items-center gap-2">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Intel_Inside_Logo_%282020%29.svg"
+          alt=""
+          className="h-[60px]"
+        />
+        <div>
+          <p className="text-sm">{s?.processor}</p>
+          <hr />
+          <h5 className="font-semibold text-sm">{s?.core}</h5>
+        </div>
+      </div>
+
+      {s?.ips !== null && (
+        <p className="flex gap-2">
+          <FaCheck className="text-primary" />
+          <span className="flex-1 text-sm">{s?.ips}</span>
+        </p>
+      )}
+      {s?.description1 !== null && (
+        <p className="flex gap-2">
+          <FaCheck className="text-primary" />
+          <span className="flex-1 text-sm">{s?.description1}</span>
+        </p>
+      )}
+      {s?.description2 !== null && (
+        <p className="flex gap-2">
+          <FaCheck className="text-primary" />
+          <span className="flex-1 text-sm">{s?.description2}</span>
+        </p>
+      )}
+      {s?.description3 !== null && (
+        <p className="flex gap-2">
+          <FaCheck className="text-primary" />
+          <span className="flex-1 text-sm">{s?.description3}</span>
+        </p>
+      )}
 
       {/* Select RAM with default value */}
       <div className="flex flex-col gap-2.5">
         <label htmlFor="" className="text-sm font-semibold text-primary">
-          Choose Ram
+          Ram
         </label>
         <select
           value={ramId}
           onChange={(e) => setRamId(e.target.value)}
-          className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
+          className="px-4 py-1 border rounded focus:outline-none border-primary "
         >
           {s?.uniqueRams?.map((ur, index) => (
             <option key={index} value={ur}>
@@ -119,13 +154,13 @@ export default function HostingPackages({ s }) {
       {/* Select Storage with default value */}
       <div className="flex flex-col gap-2.5">
         <label htmlFor="" className="text-sm font-semibold text-primary">
-          Choose Storage
+          Storage
         </label>
         {storages?.length > 0 ? (
           <select
             value={storageId}
             onChange={(e) => setStorageId(e.target.value)}
-            className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
+            className="px-4 py-1 border rounded focus:outline-none border-primary "
           >
             {storages?.map((us, index) => (
               <option key={index} value={us?.storage}>
@@ -137,7 +172,7 @@ export default function HostingPackages({ s }) {
           <select
             value={storageId}
             onChange={(e) => setStorageId(e.target.value)}
-            className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
+            className="px-4 py-1 border rounded focus:outline-none border-primary "
           >
             {s?.storages?.map((us, index) => (
               <option key={index} value={us}>
@@ -151,13 +186,14 @@ export default function HostingPackages({ s }) {
       {/* Select Contract with default value */}
       <div className="flex flex-col gap-2.5">
         <label htmlFor="" className="text-sm font-semibold text-primary">
-          Choose Contract
+          Contract
         </label>
         <select
           value={contract}
           onChange={(e) => setContract(e.target.value)}
-          className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
+          className="px-4 py-1 border rounded focus:outline-none border-primary "
         >
+          <option value="1">1 Months</option>
           <option value="3">3 Months (15% Discount)</option>
           <option value="6">6 Months (19% Discount)</option>
           <option value="12">12 Months (28% Discount)</option>
@@ -168,12 +204,12 @@ export default function HostingPackages({ s }) {
       {/* Currency Select Box */}
       <div className="flex flex-col gap-2.5">
         <label htmlFor="" className="text-sm font-semibold text-primary">
-          Choose Currencey
+          Currencey
         </label>
         <select
           value={currencyCode}
           onChange={handleCurrencyChange}
-          className="px-4 py-2 border-2 rounded focus:outline-none border-primary "
+          className="px-4 py-1 border rounded focus:outline-none border-primary "
         >
           {exchangeRates.map(([currencyCode], i) => (
             <option key={i} value={currencyCode}>
@@ -182,25 +218,30 @@ export default function HostingPackages({ s }) {
           ))}
         </select>
       </div>
-      {s?.description1 !== null && (
-        <p className="flex gap-2">
-          <BiCheckShield className="text-3xl text-primary" />
-          <span className="flex-1">{s?.description1}</span>
-        </p>
-      )}
-      {s?.description2 !== null && (
-        <p className="flex gap-2">
-          <BiCheckShield className="text-3xl text-primary" />
-          <span className="flex-1">{s?.description2}</span>
-        </p>
-      )}
-      {s?.description3 !== null && (
-        <p className="flex gap-2">
-          <BiCheckShield className="text-3xl text-primary" />
-          <span className="flex-1">{s?.description3}</span>
-        </p>
-      )}
-      <hr />
+
+      <div className="flex flex-col gap-2.5">
+        <label htmlFor="" className="text-sm font-semibold text-primary">
+          Server Location
+        </label>
+        {JSON.parse(s?.data_center).map((dc) => (
+          <div>
+            {dc === "usa" && (
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/330/330426.png"
+                alt=""
+                className="h-[40px]"
+              />
+            )}
+            {dc === "europe" && (
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/555/555526.png"
+                alt=""
+                className="h-[40px]"
+              />
+            )}
+          </div>
+        ))}
+      </div>
       {/* Display Standard and Discounted Prices */}
       <p className="text-primary text-center">
         {updatedPrice !== "" ? (
@@ -215,21 +256,25 @@ export default function HostingPackages({ s }) {
       {discountedPrice !== "" && (
         <>
           <p className="text-sm font-semibold text-center">You are paying</p>
-          <p className="text-2xl md:text-3xl font-semibold text-primary text-center">
+          <p className="text-xl md:text-2xl font-semibold text-primary text-center">
             {discountedPrice} {currencyCode}
           </p>
         </>
       )}
 
       {/* Standard regular price */}
-      {standardPrice !== "" && (
+      {contract !== "1" && (
         <>
-          <p className="text-sm text-center">
-            Standard regular price for {contract} month
-          </p>
-          <p className="font-semibold text-red-400 line-through text-center">
-            {standardPrice} {currencyCode}
-          </p>
+          {standardPrice !== "" && (
+            <>
+              <p className="text-sm text-center">
+                Standard regular price for {contract} month
+              </p>
+              <p className="font-semibold text-red-400 line-through text-center">
+                {standardPrice} {currencyCode}
+              </p>
+            </>
+          )}
         </>
       )}
 

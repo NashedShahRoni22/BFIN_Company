@@ -48,10 +48,6 @@ export default function Topbar() {
           name: "Self Managed Pure Website Hosting",
           link: "/self-managed-pure-web-hosting",
         },
-        {
-          name: "Vault Cloud Storage",
-          link: "/vault-cloud-storage",
-        },
       ],
     },
     {
