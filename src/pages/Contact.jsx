@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { BiHome, BiPhone } from "react-icons/bi";
+import React, { useEffect, useRef, useState } from "react";
+import { BiCopyright, BiHome, BiPhone } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
 import animData from "../assets/contact-anim.json";
 import Lottie from "react-lottie";
 import { Input, Option, Select, Textarea } from "@material-tailwind/react";
 import { MdArrowOutward } from "react-icons/md";
+import logo from "../../src/assets/bitss_icon.png";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  const form = useRef();
   const defaultOptions = {
     loop: true,
     autoplay: true,
     animationData: animData,
   };
   const [countries, setCountries] = useState([]);
-  
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -79,10 +82,22 @@ export default function Contact() {
       message: "",
       captchaInput: "",
     });
-    setInvalidCaptcha(false);
-    setInvalidMessage(false);
-    setInvalidKey(false);
-    generateCaptcha();
+    emailjs
+      .sendForm("service_hso0pk8", "template_su4af57", form.current, {
+        publicKey: "RFUpv7wM6UgVIbvet",
+      })
+      .then(
+        () => {
+          window.alert("Contact message sent!")
+          setInvalidCaptcha(false);
+          setInvalidMessage(false);
+          setInvalidKey(false);
+          generateCaptcha();
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
   };
 
   return (
@@ -140,6 +155,7 @@ export default function Contact() {
 
       <div className="grid gap-8 lg:grid-cols-2 md:gap-16 mt-10 md:mt-20">
         <form
+          ref={form}
           onSubmit={submitForm}
           className="flex flex-col gap-5 shadow rounded p-8"
         >
@@ -176,18 +192,24 @@ export default function Contact() {
           <Select
             variant="outlined"
             label="Select Country"
-            name="country"
+            // name="country"
             color="indigo"
-            value={formData.country}
-            onChange={(e) => setFormData({ ...formData, country: e })}
+            // value={formData.country}
+            onChange={(value) => setFormData({ ...formData, country: value })}
             required
           >
             {countries.map((country) => (
-              <Option key={country.name} value={country.dialing_code}>
+              <Option key={country.name} value={country.name}>
                 {country.name}
               </Option>
             ))}
           </Select>
+          <input
+            type="text"
+            name="country"
+            value={formData.country}
+            className="hidden"
+          />
           <Input
             variant="outlined"
             label="Skype ID"
@@ -218,20 +240,18 @@ export default function Contact() {
           />
 
           {/* Captcha Section */}
-          <div id="captchaDisplay">
-            <p>{captcha.question}</p>
-          </div>
+          <p className="">{captcha.question}</p>
           <Input
             variant="outlined"
             label="Enter Captcha"
             type="text"
             name="captchaInput"
             color="indigo"
-            className=""
             value={formData.captchaInput}
             onChange={handleChange}
             required
           />
+
           {invalidCaptcha && (
             <p id="invalidCaptcha" className="text-red-500">
               Invalid Captcha! Please try again.
@@ -250,11 +270,23 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="px-8 py-2 rounded border border-primary hover:bg-primary text-primary hover:text-white font-semibold w-fit flex items-center gap-4 duration-300 ease-linear group"
+            className="px-8 py-2 rounded border border-primary hover:bg-primary text-primary hover:text-white font-semibold md:w-fit flex items-center justify-center gap-4 duration-300 ease-linear group"
           >
             <span>Send Message</span>
             <MdArrowOutward className="text-xl group-hover:rotate-45 duration-300 ease-linear" />
           </button>
+          <div className="mt-5">
+            <p className="flex gap-1 items-center justify-center text-xs">
+              {" "}
+              <BiCopyright /> 2024 BFIN. BITSS by BFIN. All rights reserved.
+            </p>
+            <div className="flex flex-col justify-center items-center gap-2.5 mt-2.5">
+              <img src={logo} alt="" />
+              <p className="text-xs">
+                This form is powered by bitss cyber security
+              </p>
+            </div>
+          </div>
         </form>
 
         <div>
