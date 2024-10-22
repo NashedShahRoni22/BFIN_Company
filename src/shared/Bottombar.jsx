@@ -48,7 +48,14 @@ export default function Bottombar() {
       name: "Ifgaap Acounting & Invoicing",
       link: "https://ifgaap.org/",
     },
-    
+    {
+      name: "BFINIT Sass Software",
+      link: "https://officetools.bobosoho.com/special-software/",
+    },
+    {
+      name: "BFINIT White Label",
+      link: "https://bfin.company/software/white_label/",
+    },
     {
       name: "Sosay Social Media",
       link: "https://sosay.org/",
