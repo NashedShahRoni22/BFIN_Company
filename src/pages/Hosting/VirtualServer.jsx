@@ -22,8 +22,8 @@ export default function VirtualServer() {
   }, [id]);
 
   return (
-    <section className="mx-5 md:container md:mx-auto py-5 md:py-10">
-      <div className="mt-5 md:mt-10 grid gap-8 lg:grid-cols-2">
+    <section className="mx-5 md:container md:mx-auto">
+      <div className="py-10 md:py-20 grid gap-8 lg:grid-cols-2">
         <div className="flex flex-col gap-5">
           <h5 className="text-xl md:text-2xl">
             Fully Managed Virtual Dedicated Server Hosting including BITSS WAP
@@ -68,7 +68,7 @@ export default function VirtualServer() {
       {loader ? (
         <Loader/>
       ) : (
-        <div className="mt-5 md:mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="py-10 md:py-20 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {servers?.map((s, i) => {
             return <HostingPackages key={i} s={s} />;
           })}

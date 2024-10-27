@@ -15,8 +15,8 @@ export default function Contact() {
     autoplay: true,
     animationData: animData,
   };
+  
   const [countries, setCountries] = useState([]);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,29 +27,29 @@ export default function Contact() {
     message: "",
     captchaInput: "",
   });
+  
   const [captcha, setCaptcha] = useState({ question: "", answer: null });
   const [invalidCaptcha, setInvalidCaptcha] = useState(false);
   const [invalidMessage, setInvalidMessage] = useState(false);
   const [invalidKey, setInvalidKey] = useState(false);
+  const [forbiddenWords, setForbiddenWords] = useState([]);
 
   useEffect(() => {
     fetch("/country.json")
       .then((response) => response.json())
       .then((data) => setCountries(data))
       .catch((error) => console.error("Error loading country data:", error));
-
+    
+    fetchForbiddenWords();
     generateCaptcha();
   }, []);
 
-  // Function to handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Function to generate a random number for captcha
   const getRandomNumber = () => Math.floor(Math.random() * 26) + 6;
 
-  // Function to generate and set captcha
   const generateCaptcha = () => {
     const num1 = getRandomNumber();
     const num2 = getRandomNumber();
@@ -59,19 +59,62 @@ export default function Contact() {
     });
   };
 
-  // Function to handle form submission
+  const fetchForbiddenWords = async () => {
+    const apiUrl = "https://bitts.fr/api.php";
+    
+    try {
+      const credential = await fetch("/credential.json");
+      const credentialsData = await credential.json();
+      if (!credentialsData || !credentialsData.username || !credentialsData.password) {
+        return;
+      }
+      
+      const servername = window.location.hostname;
+      const data = { ...credentialsData, servername };
+      
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      
+      if (response.ok) {
+        const result = await response.json();
+        setForbiddenWords(result ?? []);
+      } else {
+        setInvalidKey(true);
+      }
+    } catch (error) {
+      console.error("Error fetching forbidden words:", error);
+      setInvalidKey(true);
+    }
+  };
+
+  const checkForbiddenWords = (message) => {
+    for (const word of forbiddenWords) {
+      if (message.toLowerCase().includes(word.toLowerCase())) {
+        return false;
+      }
+    }
+    return true;
+  };
+
   const submitForm = async (event) => {
     event.preventDefault();
 
-    // Captcha validation
     if (parseInt(formData.captchaInput, 10) !== captcha.answer) {
       setInvalidCaptcha(true);
       return;
     }
 
-    // Add your forbidden words and API validation logic here...
+    if (!checkForbiddenWords(formData.message)) {
+      setInvalidMessage(true);
+      return;
+    }
 
-    // Reset form and captcha after submission
+    // Reset form data
     setFormData({
       name: "",
       email: "",
@@ -82,13 +125,14 @@ export default function Contact() {
       message: "",
       captchaInput: "",
     });
+
     emailjs
       .sendForm("service_hso0pk8", "template_su4af57", form.current, {
         publicKey: "RFUpv7wM6UgVIbvet",
       })
       .then(
         () => {
-          window.alert("Contact message sent!")
+          window.alert("Contact message sent!");
           setInvalidCaptcha(false);
           setInvalidMessage(false);
           setInvalidKey(false);
@@ -106,10 +150,8 @@ export default function Contact() {
         <div className="flex flex-col gap-4 md:gap-8">
           <h5 className="md:text-2xl font-semibold">Contact Us</h5>
           <p className="text-xl md:text-3xl text-primary font-semibold">
-            To make requests for further information, contact us via our social
-            channels.{" "}
+            To make requests for further information, contact us via our social channels.{" "}
           </p>
-
           <div className="flex gap-5">
             <div className="p-4 shadow text-primary bg-gray-100 rounded-xl h-fit w-fit flex justify-center items-center">
               <BiHome className="text-xl md:text-2xl" />
@@ -119,7 +161,6 @@ export default function Contact() {
               <p>8 rue de Dublin, 34200, Sète, France</p>
             </div>
           </div>
-
           <div className="flex gap-5">
             <div className="p-4 shadow text-primary bg-gray-100 rounded-xl h-fit w-fit flex justify-center items-center">
               <BiPhone className="text-xl md:text-2xl" />
@@ -129,7 +170,6 @@ export default function Contact() {
               <p>+0033666100010</p>
             </div>
           </div>
-
           <div className="flex gap-5">
             <div className="p-4 shadow text-primary bg-gray-100 rounded-xl h-fit w-fit flex justify-center items-center">
               <MdEmail className="text-xl md:text-2xl" />
@@ -147,7 +187,7 @@ export default function Contact() {
       </div>
 
       <h5 className="md:text-2xl font-semibold text-end mt-10 md:mt-20">
-        Send Messsage
+        Send Message
       </h5>
       <p className="text-xl md:text-3xl text-primary font-semibold text-end mt-4 md:mt-8">
         Get in touch
@@ -192,9 +232,7 @@ export default function Contact() {
           <Select
             variant="outlined"
             label="Select Country"
-            // name="country"
             color="indigo"
-            // value={formData.country}
             onChange={(value) => setFormData({ ...formData, country: value })}
             required
           >
@@ -204,12 +242,6 @@ export default function Contact() {
               </Option>
             ))}
           </Select>
-          <input
-            type="text"
-            name="country"
-            value={formData.country}
-            className="hidden"
-          />
           <Input
             variant="outlined"
             label="Skype ID"
@@ -239,7 +271,6 @@ export default function Contact() {
             required
           />
 
-          {/* Captcha Section */}
           <p className="">{captcha.question}</p>
           <Input
             variant="outlined"
@@ -253,19 +284,13 @@ export default function Contact() {
           />
 
           {invalidCaptcha && (
-            <p id="invalidCaptcha" className="text-red-500">
-              Invalid Captcha! Please try again.
-            </p>
+            <p className="text-red-500">Invalid Captcha! Please try again.</p>
           )}
           {invalidMessage && (
-            <p id="invalidMessage" className="text-red-500">
-              Your message contains forbidden words.
-            </p>
+            <p className="text-red-500">Your message contains forbidden words.</p>
           )}
           {invalidKey && (
-            <p id="invalidKey" className="text-red-500">
-              Invalid API Key.
-            </p>
+            <p className="text-red-500">Invalid API Key.</p>
           )}
 
           <button
@@ -277,7 +302,6 @@ export default function Contact() {
           </button>
           <div className="mt-5">
             <p className="flex gap-1 items-center justify-center text-xs">
-              {" "}
               <BiCopyright /> 2024 BFIN. BITSS by BFIN. All rights reserved.
             </p>
             <div className="flex flex-col justify-center items-center gap-2.5 mt-2.5">
@@ -294,9 +318,9 @@ export default function Contact() {
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5795.795980198256!2d3.708454!3d43.420958!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b1357c2efa6fbb%3A0xddfc93666aef9f37!2s8%20Rue%20de%20Dublin%2C%2034200%20S%C3%A8te%2C%20France!5e0!3m2!1sen!2sbd!4v1723619506631!5m2!1sen!2sbd"
             width="100%"
             height="100%"
-            allowfullscreen=""
+            allowFullScreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>

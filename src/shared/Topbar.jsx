@@ -51,7 +51,7 @@ export default function Topbar() {
       ],
     },
     {
-      name: "Products",
+      name: "Other Products",
       child: [
         {
           name: "Bitss Cyber Security",

@@ -93,7 +93,7 @@ export default function HostingPackages({ s }) {
   };
 
   return (
-    <div className="flex flex-col justify-between gap-2.5 p-6 shadow-xl rounded-xl">
+    <div className="flex flex-col justify-between gap-2.5 p-6 shadow rounded">
       <h5 className="font-bold text-primary">{s?.name}</h5>
       <div className="flex items-center gap-2">
         <img

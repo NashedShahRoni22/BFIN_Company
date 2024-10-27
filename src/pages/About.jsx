@@ -6,7 +6,6 @@ import philosopy from "../assets/philosopy.png";
 import vision from "../assets/vision.png";
 import mission from "../assets/mission.png";
 import OurOffices from "../components/OurOffices";
-import Contact from "./Contact";
 
 export default function About() {
   const items = [
@@ -28,9 +27,9 @@ export default function About() {
   ];
 
   return (
-    <section className="pt-10 md:pt-20">
+    <section className="">
       {/* about us content  */}
-      <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 place-items-center mx-5 md:container md:mx-auto">
+      <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 place-items-center mx-5 md:container md:mx-auto my-10 lg:my-20">
         <div className="flex flex-col gap-4 md:gap-8">
           <h5 className="md:text-2xl font-semibold">About Us</h5>
           <p className="text-2xl md:text-4xl text-primary font-semibold">
@@ -70,8 +69,9 @@ export default function About() {
           />
         </div>
       </div>
+      <OurOffices />
       {/* mission & vision  */}
-      <div className="my-20 lg:my-40 flex flex-col gap-4 md:gap-8 mx-5 md:container md:mx-auto">
+      <div className="my-10 lg:my-20 flex flex-col gap-4 md:gap-8 mx-5 md:container md:mx-auto">
         <h5 className="md:text-2xl font-semibold text-primary">
           When you are more prepared, your future will be brighter
         </h5>
@@ -99,8 +99,6 @@ export default function About() {
           ))}
         </div>
       </div>
-      <OurOffices/>
-      <Contact/>
     </section>
   );
 }

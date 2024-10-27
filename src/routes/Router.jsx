@@ -13,6 +13,7 @@ import SelfManagedServer from "../pages/Hosting/SelfManagedServer";
 import PureHosting from "../pages/Hosting/PureHosting";
 import SelftPureHosting from "../pages/Hosting/SelftPureHosting";
 import VaultStorage from "../pages/Hosting/VaultStorage";
+import Blogs from "../pages/Blog/Blogs";
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path:"/career",
                 element: <Career/>
+            },
+            {
+                path:"/blogs",
+                element: <Blogs/>
             },
             {
                 path:"/our-products",

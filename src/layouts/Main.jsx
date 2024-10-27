@@ -10,6 +10,7 @@ export default function Main() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+  
   return (
     <main>
       <ContactBar />

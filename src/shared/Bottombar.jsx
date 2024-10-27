@@ -68,7 +68,7 @@ export default function Bottombar() {
       link: "/",
     },
     {
-      name: "About Us",
+      name: "About us",
       link: "/about",
     },
     {
@@ -78,6 +78,10 @@ export default function Bottombar() {
     {
       name: "Contact Us",
       link: "/contact",
+    },
+    {
+      name: "Our blogs",
+      link: "/blogs",
     },
   ];
 
