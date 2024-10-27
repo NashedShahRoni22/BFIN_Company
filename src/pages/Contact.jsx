@@ -7,6 +7,7 @@ import { Input, Option, Select, Textarea } from "@material-tailwind/react";
 import { MdArrowOutward } from "react-icons/md";
 import logo from "../../src/assets/bitss_icon.png";
 import emailjs from "@emailjs/browser";
+import Captcha from "./Captcha";
 
 export default function Contact() {
   const form = useRef();
@@ -15,7 +16,7 @@ export default function Contact() {
     autoplay: true,
     animationData: animData,
   };
-  
+
   const [countries, setCountries] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -27,8 +28,8 @@ export default function Contact() {
     message: "",
     captchaInput: "",
   });
-  
-  const [captcha, setCaptcha] = useState({ question: "", answer: null });
+
+  const [captchaAnswer, setCaptchaAnswer] = useState(null);
   const [invalidCaptcha, setInvalidCaptcha] = useState(false);
   const [invalidMessage, setInvalidMessage] = useState(false);
   const [invalidKey, setInvalidKey] = useState(false);
@@ -39,36 +40,28 @@ export default function Contact() {
       .then((response) => response.json())
       .then((data) => setCountries(data))
       .catch((error) => console.error("Error loading country data:", error));
-    
+
     fetchForbiddenWords();
-    generateCaptcha();
   }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const getRandomNumber = () => Math.floor(Math.random() * 26) + 6;
-
-  const generateCaptcha = () => {
-    const num1 = getRandomNumber();
-    const num2 = getRandomNumber();
-    setCaptcha({
-      question: `${num1} + ${num2} =`,
-      answer: num1 + num2,
-    });
-  };
-
   const fetchForbiddenWords = async () => {
     const apiUrl = "https://bitts.fr/api.php";
-    
+
     try {
       const credential = await fetch("/credential.json");
       const credentialsData = await credential.json();
-      if (!credentialsData || !credentialsData.username || !credentialsData.password) {
+      if (
+        !credentialsData ||
+        !credentialsData.username ||
+        !credentialsData.password
+      ) {
         return;
       }
-      
+
       const servername = window.location.hostname;
       const data = { ...credentialsData, servername };
       
@@ -79,7 +72,7 @@ export default function Contact() {
         },
         body: JSON.stringify(data),
       });
-      
+
       if (response.ok) {
         const result = await response.json();
         setForbiddenWords(result ?? []);
@@ -104,7 +97,7 @@ export default function Contact() {
   const submitForm = async (event) => {
     event.preventDefault();
 
-    if (parseInt(formData.captchaInput, 10) !== captcha.answer) {
+    if (parseInt(formData.captchaInput, 10) !== captchaAnswer) {
       setInvalidCaptcha(true);
       return;
     }
@@ -136,7 +129,6 @@ export default function Contact() {
           setInvalidCaptcha(false);
           setInvalidMessage(false);
           setInvalidKey(false);
-          generateCaptcha();
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -150,7 +142,8 @@ export default function Contact() {
         <div className="flex flex-col gap-4 md:gap-8">
           <h5 className="md:text-2xl font-semibold">Contact Us</h5>
           <p className="text-xl md:text-3xl text-primary font-semibold">
-            To make requests for further information, contact us via our social channels.{" "}
+            To make requests for further information, contact us via our social
+            channels.{" "}
           </p>
           <div className="flex gap-5">
             <div className="p-4 shadow text-primary bg-gray-100 rounded-xl h-fit w-fit flex justify-center items-center">
@@ -271,7 +264,9 @@ export default function Contact() {
             required
           />
 
-          <p className="">{captcha.question}</p>
+          {/* Captcha Component */}
+          <Captcha onCaptchaGenerated={setCaptchaAnswer} />
+
           <Input
             variant="outlined"
             label="Enter Captcha"
@@ -287,11 +282,11 @@ export default function Contact() {
             <p className="text-red-500">Invalid Captcha! Please try again.</p>
           )}
           {invalidMessage && (
-            <p className="text-red-500">Your message contains forbidden words.</p>
+            <p className="text-red-500">
+              Your message contains forbidden words.
+            </p>
           )}
-          {invalidKey && (
-            <p className="text-red-500">Invalid API Key.</p>
-          )}
+          {invalidKey && <p className="text-red-500">Invalid API Key.</p>}
 
           <button
             type="submit"
