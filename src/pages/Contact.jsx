@@ -107,12 +107,18 @@ export default function Contact() {
     setLoader(true);
     if (parseInt(formData.captchaInput, 10) !== captchaAnswer) {
       setInvalidCaptcha(true);
+      setLoader(false);
       return;
+    }else{
+      setInvalidCaptcha(false);
     }
 
     if (!checkForbiddenWords(formData.message)) {
       setInvalidMessage(true);
+      setLoader(false);
       return;
+    }else{
+      setInvalidMessage(false);
     }
     try {
       // Create a formatted message to send
@@ -121,13 +127,13 @@ export default function Contact() {
           <br />
           Email: ${formData.email}
           <br />
+          Subject: ${formData.subject}
+          <br />
           Phone: ${formData.phone}
           <br />
           Country: ${formData.country}
           <br />
-          Skype ID: ${formData.skypeId}
-          <br />
-          Subject: ${formData.subject}
+          Skype ID: ${formData.skypeId}          
           <br />
           Message: ${formData.message}
       `;
