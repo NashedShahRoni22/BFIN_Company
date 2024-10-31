@@ -13,7 +13,7 @@ export default function Question() {
           If you still can’t find the answer you’re looking for, let we help
           you.
         </p>
-        <Link to={"/contact"} className="px-6 py-3 bg-secondary font-semibold rounded shadow w-fit flex items-center gap-4 group md:hover:scale-110 duration-300 ease-linear">
+        <Link to={"/contact"} className="px-6 py-3 bg-primary text-white font-semibold rounded shadow w-fit flex items-center gap-4 group md:hover:scale-110 duration-300 ease-linear">
           <span className="md:text-xl">Contact</span>
           <MdArrowOutward className="md:text-xl group-hover:rotate-45 duration-300 ease-linear" />
         </Link>

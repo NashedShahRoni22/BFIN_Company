@@ -4,7 +4,7 @@ import { CgClose } from "react-icons/cg";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
-import logo from "../assets/bfin.png";
+import logo from "../assets/logo.png";
 
 export default function Topbar() {
   const [showNav, setShowNav] = useState(false);
@@ -95,11 +95,10 @@ export default function Topbar() {
   ];
   return (
     <nav className="sticky top-0 bg-white z-50">
-      <section className="py-2.5 mx-5 md:container md:mx-auto flex justify-between items-center">
+      <section className="py-5 mx-5 md:container md:mx-auto flex justify-between items-center">
         {/* logo here  */}
         <Link to={"/"} className="flex items-center">
-          <img src={logo} className="h-[40px] md:h-[60px]" alt="" />
-          <span className="text-xl font-extrabold text-primary">BFINIT</span>
+          <img src={logo} className="h-[40px]" alt="" />
         </Link>
         {/* desktop view  */}
         <div className="hidden lg:flex lg:gap-8 lg:items-center">

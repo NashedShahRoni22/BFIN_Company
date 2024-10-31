@@ -1,16 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiCopyright, BiHome, BiPhone } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
 import animData from "../assets/contact-anim.json";
 import Lottie from "react-lottie";
-import { Input, Option, Select, Textarea } from "@material-tailwind/react";
+import {
+  Input,
+  Option,
+  Select,
+  Spinner,
+  Textarea,
+} from "@material-tailwind/react";
 import { MdArrowOutward } from "react-icons/md";
 import logo from "../../src/assets/bitss_icon.png";
-import emailjs from "@emailjs/browser";
 import Captcha from "./Captcha";
+import { smtpexpressClient } from "./smtp";
+import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
-  const form = useRef();
+  const navigate = useNavigate();
+  const [loader, setLoader] = useState(false);
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -64,7 +72,7 @@ export default function Contact() {
 
       const servername = window.location.hostname;
       const data = { ...credentialsData, servername };
-      
+
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
@@ -94,9 +102,9 @@ export default function Contact() {
     return true;
   };
 
-  const submitForm = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoader(true);
     if (parseInt(formData.captchaInput, 10) !== captchaAnswer) {
       setInvalidCaptcha(true);
       return;
@@ -106,34 +114,55 @@ export default function Contact() {
       setInvalidMessage(true);
       return;
     }
-
-    // Reset form data
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      country: "",
-      skypeId: "",
-      subject: "",
-      message: "",
-      captchaInput: "",
-    });
-
-    emailjs
-      .sendForm("service_hso0pk8", "template_su4af57", form.current, {
-        publicKey: "RFUpv7wM6UgVIbvet",
-      })
-      .then(
-        () => {
-          window.alert("Contact message sent!");
-          setInvalidCaptcha(false);
-          setInvalidMessage(false);
-          setInvalidKey(false);
+    try {
+      // Create a formatted message to send
+      const formattedMessage = `
+          Name: ${formData.name}
+          <br />
+          Email: ${formData.email}
+          <br />
+          Phone: ${formData.phone}
+          <br />
+          Country: ${formData.country}
+          <br />
+          Skype ID: ${formData.skypeId}
+          <br />
+          Subject: ${formData.subject}
+          <br />
+          Message: ${formData.message}
+      `;
+      // Sending an email using SMTP
+      await smtpexpressClient.sendApi.sendMail({
+        // Subject of the email
+        subject: `BFINIT Contact Form Submission from ${formData.name}`,
+        // Body of the email
+        message: `${formattedMessage}`,
+        // Sender's details
+        sender: {
+          // Sender's name
+          name: "BFINIT",
+          // Sender's email address
+          email: "bfinit-9b2b98@projects.smtpexpress.com",
         },
-        (error) => {
-          console.log("FAILED...", error.text);
-        }
-      );
+        // Recipient's details
+        recipients: {
+          // Recipient's email address (obtained from the form)
+          // email: `${formData.email}`,
+          email: `support@bobosohomail.com`,
+        },
+      });
+
+      // Notify user of successful submission
+      alert("Contact message sent. Our support team will reach you soon.");
+      navigate("/");
+      setLoader(false);
+    } catch (error) {
+      // Notify user if an error occurs during submission
+      alert("Oops! Something went wrong. Please try again later.");
+      // You can console.log the error to know what went wrong
+      setLoader(false);
+      console.log(error);
+    }
   };
 
   return (
@@ -188,8 +217,7 @@ export default function Contact() {
 
       <div className="grid gap-8 lg:grid-cols-2 md:gap-16 mt-10 md:mt-20">
         <form
-          ref={form}
-          onSubmit={submitForm}
+          onSubmit={handleSubmit}
           className="flex flex-col gap-5 shadow rounded p-8"
         >
           <Input
@@ -292,8 +320,14 @@ export default function Contact() {
             type="submit"
             className="px-8 py-2 rounded border border-primary hover:bg-primary text-primary hover:text-white font-semibold md:w-fit flex items-center justify-center gap-4 duration-300 ease-linear group"
           >
-            <span>Send Message</span>
-            <MdArrowOutward className="text-xl group-hover:rotate-45 duration-300 ease-linear" />
+            {loader ? (
+              <Spinner className="h-5 w-5" />
+            ) : (
+              <>
+                <span>Send Message</span>
+                <MdArrowOutward className="text-xl group-hover:rotate-45 duration-300 ease-linear" />
+              </>
+            )}
           </button>
           <div className="mt-5">
             <p className="flex gap-1 items-center justify-center text-xs">
