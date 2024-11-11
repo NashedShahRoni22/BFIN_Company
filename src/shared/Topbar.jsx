@@ -66,16 +66,20 @@ export default function Topbar() {
           link: "https://omada-clasico.org/",
         },
         {
+          name: "Bobosoho Private Secured Email, Chat Share",
+          link: "https://bobosoho.com/",
+        },
+        {
           name: "Ifgaap Acounting & Invoicing",
           link: "https://ifgaap.org/",
         },
         {
           name: "BFINIT Sass Software",
-          link: "https://officetools.bobosoho.com/special-software/",
+          link: "https://bfinit.com/special-software/",
         },
         {
           name: "BFINIT White Label",
-          link: "https://bfin.company/software/white_label/",
+          link: "https://bfinit.com/software/white_label/",
         },
         {
           name: "Sosay Social Media",
