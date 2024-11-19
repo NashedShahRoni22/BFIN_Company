@@ -52,7 +52,7 @@ export default function Topbar() {
       ],
     },
     {
-      name: "Other Technologies",
+      name: "Our Technologies",
       child: [
         {
           header: "IT Cyber Security",
@@ -95,6 +95,10 @@ export default function Topbar() {
             {
               name: "Pensaki Blackboard",
               link: "https://pensaki.org/",
+            },
+            {
+              name: "hPanel Hosting Manager",
+              link: "/fully-managed-dedicated-server",
             },
             {
               name: "Omada HR Payroll",
@@ -156,6 +160,7 @@ export default function Topbar() {
                               {mc.subChild.map((mcc, i) => (
                                 <Link
                                   key={i}
+                                  to={mcc.link}
                                   className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
                                 >
                                   <BiChevronRight className="text-2xl" />
