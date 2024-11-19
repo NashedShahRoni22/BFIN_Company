@@ -20,6 +20,7 @@ export default function Topbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const MenuItems = [
     {
       name: "Home",
@@ -51,41 +52,72 @@ export default function Topbar() {
       ],
     },
     {
-      name: "Other Products",
+      name: "Other Technologies",
       child: [
         {
-          name: "Bitss Cyber Security",
-          link: "https://bitss.fr/",
+          header: "IT Cyber Security",
+          subChild: [
+            {
+              name: "Bitss Cyber Security",
+              link: "https://bitss.fr/",
+            },
+          ],
         },
         {
-          name: "Pensaki Blackboard",
-          link: "https://pensaki.org/",
+          header: "Build Business",
+          subChild: [
+            {
+              name: "SaaS Software",
+              link: "/software",
+            },
+            {
+              name: "White Label",
+              link: "/white-label",
+            },
+          ],
         },
         {
-          name: "Omada HR Payroll",
-          link: "https://omada-clasico.org/",
+          header: "Social Communication",
+          subChild: [
+            {
+              name: "Sosay Social Media",
+              link: "https://sosay.org/",
+            },
+            {
+              name: "Bobosoho",
+              link: "https://bobosoho.com/",
+            },
+          ],
         },
         {
-          name: "Bobosoho Private Secured Email, Chat Share",
-          link: "https://bobosoho.com/",
+          header: "Expand Business",
+          subChild: [
+            {
+              name: "Pensaki Blackboard",
+              link: "https://pensaki.org/",
+            },
+            {
+              name: "Omada HR Payroll",
+              link: "https://omada-clasico.org/omada-hr-payroll",
+            },
+            {
+              name: "Omada Project Management",
+              link: "https://omada-clasico.org/project-management",
+            },
+            {
+              name: "Clasico Payslips",
+              link: "https://omada-clasico.org/clasico-payslip",
+            },
+            {
+              name: "Ifgaap Mobile Invoicing",
+              link: "https://ifgaap.org/",
+            },
+            {
+              name: "Ifgaap GL Accounting",
+              link: "https://ifgaap.org/",
+            },
+          ],
         },
-        {
-          name: "Ifgaap Acounting & Invoicing",
-          link: "https://ifgaap.org/",
-        },
-        {
-          name: "BFINIT Sass Software",
-          link: "https://bfinit.com/special-software/",
-        },
-        {
-          name: "BFINIT White Label",
-          link: "https://bfinit.com/software/white_label/",
-        },
-        {
-          name: "Sosay Social Media",
-          link: "https://sosay.org/",
-        },
-        
       ],
     },
     {
@@ -99,7 +131,7 @@ export default function Topbar() {
   ];
   return (
     <nav className="sticky top-0 bg-white z-50">
-      <section className="py-5 mx-5 md:container md:mx-auto flex justify-between items-center">
+      <section className="py-5 mx-5 md:container md:mx-auto flex justify-between items-center relative">
         {/* logo here  */}
         <Link to={"/"} className="flex items-center">
           <img src={logo} className="h-[40px]" alt="" />
@@ -109,17 +141,40 @@ export default function Topbar() {
           {MenuItems.map((mi, i) => (
             <div key={i}>
               {mi.child ? (
-                <div className="relative group text-[18px]">
+                <div className="group text-[18px]">
                   <span className="flex items-center gap-1 cursor-pointer font-semibold">
                     {mi.name}
                     <BiChevronDown className="text-2xl" />
                   </span>
-                  <div className="absolute bg-white left-5 p-5 shadow rounded min-w-[420px] hidden group-hover:flex flex-col gap-2">
+                  <div className="flex-1 absolute bg-white left-0 p-5 shadow rounded min-w-full hidden group-hover:grid grid-cols-3 gap-2">
                     {mi.child.map((mc, i) => (
-                      <Link to={mc.link} key={i} className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear">
-                        {/* <BiChevronRight className="text-2xl" /> */}
-                        <span className="flex-1">{mc.name}</span>
-                      </Link>
+                      <>
+                        {mc.header ? (
+                          <div>
+                            <span className="font-semibold">{mc.header}</span>
+                            <ul className="flex flex-col gap-2 ml-2 mt-2">
+                              {mc.subChild.map((mcc, i) => (
+                                <Link
+                                  key={i}
+                                  className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
+                                >
+                                  <BiChevronRight className="text-2xl" />
+                                  {mcc.name}
+                                </Link>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : (
+                          <Link
+                            to={mc.link}
+                            key={i}
+                            className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
+                          >
+                            <BiChevronRight className="text-2xl" />
+                            {mc.name}
+                          </Link>
+                        )}
+                      </>
                     ))}
                   </div>
                 </div>
@@ -146,72 +201,8 @@ export default function Topbar() {
             <FaBars className="text-xl" />
           </button>
         )}
-        {showNav && (
-          <div className="lg:hidden p-5 md:px-14 flex flex-col gap-4 absolute top-16 md:top-28 left-0 bg-white min-w-full min-h-screen">
-            {MenuItems.map((mi, i) => (
-              <div key={i}>
-                {mi.child ? (
-                  <div>
-                    <div className="text-[18px] flex justify-between items-center">
-                      {mi.name}
 
-                      {showChild !== i ? (
-                        <button
-                          onClick={() => setShowChild(i)}
-                          className="flex items-center gap-1 cursor-pointer"
-                        >
-                          <BiChevronDown className="text-3xl" />
-                        </button>
-                      ) : (
-                        <button
-                          onClick={() => setShowChild("")}
-                          className="flex items-center gap-1 cursor-pointer"
-                        >
-                          <BiChevronUp className="text-3xl" />
-                        </button>
-                      )}
-                    </div>
-
-                    {showChild === i && (
-                      <div className="ml-4 mt-4 flex flex-col gap-4">
-                        {mi.child.map((mc, i) => (
-                          <Link
-                            to={mc.link}
-                            key={i}
-                            onClick={() => setShowNav(!showNav)}
-                            className="text-[18px] flex gap-1.5"
-                          >
-                            <BiChevronRight className="text-2xl" />
-                            {mc.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    to={mi.link}
-                    key={i}
-                    onClick={() => setShowNav(!showNav)}
-                    className="text-[18px] flex justify-between items-center"
-                  >
-                    {mi.name}
-                    {/* <MdArrowOutward /> */}
-                  </Link>
-                )}
-              </div>
-            ))}
-            <Link
-              to={"/contact"}
-              onClick={() => setShowNav(!showNav)}
-              className="text-[18px] flex justify-between items-center"
-            >
-              Contact Us
-              {/* <MdArrowOutward /> */}
-            </Link>
-          </div>
-        )}
-        {/* desktop mode contact bbutton */}
+        {/* desktop mode contact button */}
         <Link
           to={"/contact"}
           className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center group h-fit"
@@ -220,6 +211,90 @@ export default function Topbar() {
           <MdArrowOutward className="group-hover:rotate-45 duration-300 ease-linear" />
         </Link>
       </section>
+      {showNav && (
+        <div className="lg:hidden p-5 md:px-14 flex flex-col gap-4 absolute top-18 md:top-28 left-0 bg-white min-w-full h-[80vh] overflow-y-scroll">
+          {MenuItems.map((mi, i) => (
+            <div key={i}>
+              {mi.child ? (
+                <div>
+                  <div className="text-[18px] flex justify-between items-center">
+                    {mi.name}
+
+                    {showChild !== i ? (
+                      <button
+                        onClick={() => setShowChild(i)}
+                        className="flex items-center gap-1 cursor-pointer"
+                      >
+                        <BiChevronDown className="text-3xl" />
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => setShowChild("")}
+                        className="flex items-center gap-1 cursor-pointer"
+                      >
+                        <BiChevronUp className="text-3xl" />
+                      </button>
+                    )}
+                  </div>
+
+                  {showChild === i && (
+                    <div className="ml-2 mt-2 flex flex-col gap-4">
+                      {mi.child.map((mc, i) => (
+                        <>
+                          {mc.header ? (
+                            <div>
+                              <span className="font-semibold text-primary">{mc.header}</span>
+                              <ul className="flex flex-col gap-2 ml-2 mt-2">
+                                {mc.subChild.map((mcc, i) => (
+                                  <Link
+                                    key={i}
+                                    to={mcc.link}
+                                    className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
+                                  >
+                                    <BiChevronRight className="text-2xl" />
+                                    {mcc.name}
+                                  </Link>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : (
+                            <Link
+                              to={mc.link}
+                              key={i}
+                              onClick={() => setShowNav(!showNav)}
+                              className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
+                            >
+                              <BiChevronRight className="text-2xl" />
+                              {mc.name}
+                            </Link>
+                          )}
+                        </>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  to={mi.link}
+                  key={i}
+                  onClick={() => setShowNav(!showNav)}
+                  className="text-[18px] flex justify-between items-center"
+                >
+                  {mi.name}
+                  {/* <MdArrowOutward /> */}
+                </Link>
+              )}
+            </div>
+          ))}
+          <Link
+            to={"/contact"}
+            onClick={() => setShowNav(!showNav)}
+            className="px-4 py-2 bg-primary rounded shadow text-white w-fit"
+          >
+            Contact Us
+          </Link>
+        </div>
+      )}
       <div className="bg-primary w-full h-0.5"></div>
     </nav>
   );

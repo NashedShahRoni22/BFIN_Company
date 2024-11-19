@@ -14,6 +14,8 @@ import PureHosting from "../pages/Hosting/PureHosting";
 import SelftPureHosting from "../pages/Hosting/SelftPureHosting";
 import VaultStorage from "../pages/Hosting/VaultStorage";
 import Blogs from "../pages/Blog/Blogs";
+import WhiteLabel from "../pages/WhiteLabel";
+import SpecialSoftware from "../pages/SpecialSoftware";
 
 export const router = createBrowserRouter([
     {
@@ -67,6 +69,14 @@ export const router = createBrowserRouter([
             {
                 path:"/vault-cloud-storage",
                 element: <VaultStorage/>
+            },
+            {
+                path:"/white-label",
+                element: <WhiteLabel/>
+            },
+            {
+                path:"/software",
+                element: <SpecialSoftware/>
             },
         ]
     },
