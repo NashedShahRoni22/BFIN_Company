@@ -1,4 +1,3 @@
-import React from "react";
 import globalImg from "../assets/global.png";
 import paymentImg from "../assets/payment.png";
 import plannerImg from "../assets/planner.png";
@@ -40,9 +39,12 @@ export default function Businessproof() {
     },
   ];
   return (
-    <section className="mx-5 md:container md:mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-xl">
+    <section className="mx-5 py-10 md:container md:mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-xl md:py-20">
       {items.map((item, i) => (
-        <div key={i} className="bg-white p-5 rounded-xl shadow-xl group hover:bg-primary hover:text-white ease-linear duration-300">
+        <div
+          key={i}
+          className="bg-white p-5 rounded-xl shadow-xl group hover:bg-primary hover:text-white ease-linear duration-300"
+        >
           <img src={item.image} alt="" />
           <h5 className="mt-5 text-[20px] md:text-[26px] font-semibold text-primary group-hover:text-white ease-linear duration-300">
             {item.title}

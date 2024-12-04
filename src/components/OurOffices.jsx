@@ -1,4 +1,3 @@
-import React from "react";
 import HagiaSophia from "../assets/Hagia-sophia.png";
 import SangsadBhaban from "../assets/Sangsad-Bhaban.png";
 import Ifel from "../assets/ifel.png";

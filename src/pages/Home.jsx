@@ -13,6 +13,8 @@ import { Dialog, DialogBody } from "@material-tailwind/react";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
+import Hero from "./Home/Hero/Hero";
+import Businessproof from "../components/Businessproof";
 
 export default function Home() {
   const [open, setOpen] = React.useState(true);
@@ -20,8 +22,10 @@ export default function Home() {
   const handleOpen = () => setOpen(!open);
   return (
     <main>
-      <HomeLanding />
-      <KeywordsMerque />
+      <Hero />
+      {/* <HomeLanding /> */}
+      {/* <KeywordsMerque /> */}
+      <Businessproof />
       <Products />
       <OurServices />
       <DigitalEconomy />

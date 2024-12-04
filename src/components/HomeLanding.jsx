@@ -1,4 +1,3 @@
-import React from "react";
 import Businessproof from "./Businessproof";
 import { MdArrowOutward } from "react-icons/md";
 import { Link } from "react-router-dom";
