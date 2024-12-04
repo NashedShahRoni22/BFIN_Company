@@ -74,13 +74,17 @@ export default function Topbar() {
               name: "White Label",
               link: "/white-label",
             },
+            {
+              name: "E Comerce",
+              link: "/",
+            },
           ],
         },
         {
           header: "Social Communication",
           subChild: [
             {
-              name: "Sosay Social Media",
+              name: "Sosay",
               link: "https://sosay.org/",
             },
             {
