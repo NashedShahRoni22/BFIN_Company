@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
 import Hero from "./Home/Hero/Hero";
 import Businessproof from "../components/Businessproof";
+import Ecommerce from "./Home/Ecommerce/Ecommerce";
 
 export default function Home() {
   const [open, setOpen] = React.useState(true);
@@ -26,6 +27,7 @@ export default function Home() {
       {/* <HomeLanding /> */}
       {/* <KeywordsMerque /> */}
       <Businessproof />
+      <Ecommerce />
       <Products />
       <OurServices />
       <DigitalEconomy />
