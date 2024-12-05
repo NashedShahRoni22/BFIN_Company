@@ -41,7 +41,7 @@
   .swiper-button-next {
     visibility: visible;
     opacity: 1;
-    z-index: 50;
+    z-index: 30;
   }
 
   #hero-container .swiper-button-prev {

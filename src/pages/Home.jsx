@@ -51,7 +51,7 @@ export default function Home() {
             <IoMdClose className="text-xl" />
           </button>
           <div className="text-center mt-12 flex flex-col items-center gap-8">
-            <p className="text-5xl md:text-7xl lg:text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#186BB5] via-white to-[#186BB5] animate-pulse">
+            <p className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#186BB5] via-white to-[#186BB5] animate-pulse">
               28% Off
             </p>
             <div className="flex items-center justify-center gap-4">
