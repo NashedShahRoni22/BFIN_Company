@@ -15,10 +15,10 @@ export default function Ecommerce() {
 
         <div className="w-full md:w-1/2">
           <h2 className="text-3xl text-primary text-balance font-extrabold md:text-5xl">
-            Bold Your Online Business with BFINIT E-commerce Platform
+            Bold Your Business with BFINIT Ecommerce
           </h2>
           <p className="my-8 md:text-xl">
-            Scale your business effortlessly with our flexible E-commerce
+            Scale your business effortlessly with our flexible Ecommerce
             solutions. From custom designs to seamless integrations, we provide
             everything you need for success.
           </p>

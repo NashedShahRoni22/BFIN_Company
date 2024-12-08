@@ -83,7 +83,7 @@ export default function Topbar() {
               link: "/white-label",
             },
             {
-              name: "E-Commerce",
+              name: "Ecommerce Platform",
               link: "/coming_soon",
             },
           ],
