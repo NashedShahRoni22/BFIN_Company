@@ -42,7 +42,7 @@ export default function Ecommerce() {
                       : "max-h-0 overflow-hidden"
                   }`}
                 >
-                  {data.details}
+                  {data.overview}
                 </p>
               </div>
             ))}

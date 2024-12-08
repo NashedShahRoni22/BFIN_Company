@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BiCheckDouble } from "react-icons/bi";
 import image from "../../assets/managed-server.png";
 import HostingPackages from "./HostingPackages";
@@ -6,7 +6,7 @@ import Loader from "../../shared/Loader";
 import { useParams } from "react-router-dom";
 
 export default function SelftPureHosting() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [loader, setLoader] = useState(false);
   const [servers, setServers] = useState([]);
 
@@ -66,7 +66,7 @@ export default function SelftPureHosting() {
       </div>
 
       {loader ? (
-        <Loader/>
+        <Loader />
       ) : (
         <div className="py-10 md:py-20 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {servers?.map((s, i) => {

@@ -16,76 +16,77 @@ import VaultStorage from "../pages/Hosting/VaultStorage";
 import Blogs from "../pages/Blog/Blogs";
 import WhiteLabel from "../pages/WhiteLabel";
 import SpecialSoftware from "../pages/SpecialSoftware";
+import ECommerceDetails from "../pages/ECommerceDetails/ECommerceDetails";
 
 export const router = createBrowserRouter([
-    {
-        path:"/",
-        element: <Main/>,
-        children:[
-            {
-                path:"/",
-                element: <Home/>
-            },
-            {
-                path:"/contact",
-                element: <Contact/>
-            },
-            {
-                path:"/about",
-                element: <About/>
-            },
-            {
-                path:"/career",
-                element: <Career/>
-            },
-            {
-                path:"/blogs",
-                element: <Blogs/>
-            },
-            {
-                path:"/our-products",
-                element: <Products/>
-            },
-            {
-                path:"/fully-managed-dedicated-server",
-                element: <ManagedServer/>
-            },
-            {
-                path:"/fully-managed-virtual-dedicated-server",
-                element: <VirtualServer/>
-            },
-            {
-                path:"/self-managed-dedicated-server",
-                element: <SelfManagedServer/>
-            },
-            {
-                path:"/fully-managed-pure-web-hosting",
-                element: <PureHosting/>
-            },
-            {
-                path:"/self-managed-pure-web-hosting",
-                element: <SelftPureHosting/>
-            },
-            {
-                path:"/vault-cloud-storage",
-                element: <VaultStorage/>
-            },
-            {
-                path:"/white-label",
-                element: <WhiteLabel/>
-            },
-            {
-                path:"/software",
-                element: <SpecialSoftware/>
-            },
-        ]
-    },
-    {
-        path:"/coming_soon",
-        element: <ComingSoon/>
-    },
-    {
-        path:"*",
-        element: <Notfound/>
-    },
-])
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/career",
+        element: <Career />,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
+      },
+      {
+        path: "/our-products",
+        element: <Products />,
+      },
+      {
+        path: "/fully-managed-dedicated-server",
+        element: <ManagedServer />,
+      },
+      {
+        path: "/fully-managed-virtual-dedicated-server",
+        element: <VirtualServer />,
+      },
+      {
+        path: "/self-managed-dedicated-server",
+        element: <SelfManagedServer />,
+      },
+      {
+        path: "/fully-managed-pure-web-hosting",
+        element: <PureHosting />,
+      },
+      {
+        path: "/self-managed-pure-web-hosting",
+        element: <SelftPureHosting />,
+      },
+      {
+        path: "/vault-cloud-storage",
+        element: <VaultStorage />,
+      },
+      {
+        path: "/white-label",
+        element: <WhiteLabel />,
+      },
+      {
+        path: "/software",
+        element: <SpecialSoftware />,
+      },
+      {
+        path: "/coming_soon",
+        element: <ECommerceDetails />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <Notfound />,
+  },
+]);

@@ -191,7 +191,7 @@ export default function HostingPackages({ s }) {
         <select
           value={contract}
           onChange={(e) => setContract(e.target.value)}
-          className="px-4 py-1 border rounded focus:outline-none border-primary "
+          className="px-4 py-1 border rounded focus:outline-none border-primary"
         >
           <option value="1">1 Months</option>
           <option value="3">3 Months (15% Discount)</option>
@@ -223,8 +223,8 @@ export default function HostingPackages({ s }) {
         <label htmlFor="" className="text-sm font-semibold text-primary">
           Server Location
         </label>
-        {JSON.parse(s?.data_center).map((dc) => (
-          <div>
+        {JSON.parse(s?.data_center).map((dc, i) => (
+          <div key={i}>
             {dc === "usa" && (
               <img
                 src="https://cdn-icons-png.flaticon.com/512/330/330426.png"
