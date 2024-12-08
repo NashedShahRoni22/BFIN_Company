@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BiChevronDown, BiChevronRight, BiChevronUp } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { FaBars } from "react-icons/fa";
@@ -9,9 +9,17 @@ import logo from "../assets/logo.png";
 export default function Topbar() {
   const [showNav, setShowNav] = useState(false);
   const [showChild, setShowChild] = useState("");
+  const [showSubMenu, setShowSubMenu] = useState(null);
+
   // Function to handle scroll event
   const handleScroll = () => {
     setShowNav(false);
+    setShowSubMenu(false);
+  };
+
+  // Toggle Submenu in Destop View
+  const toggleSubMenu = (index) => {
+    setShowSubMenu((prev) => (prev === index ? null : index));
   };
 
   useEffect(() => {
@@ -75,8 +83,8 @@ export default function Topbar() {
               link: "/white-label",
             },
             {
-              name: "E Comerce",
-              link: "/",
+              name: "E-Commerce",
+              link: "/coming_soon",
             },
           ],
         },
@@ -137,6 +145,7 @@ export default function Topbar() {
       link: "/career",
     },
   ];
+
   return (
     <nav className="sticky top-0 bg-white z-50">
       <section className="py-5 mx-5 md:container md:mx-auto flex justify-between items-center relative">
@@ -150,42 +159,49 @@ export default function Topbar() {
             <div key={i}>
               {mi.child ? (
                 <div className="group text-[18px]">
-                  <span className="flex items-center gap-1 cursor-pointer font-semibold">
+                  <span
+                    onClick={() => toggleSubMenu(i)}
+                    className="flex items-center gap-1 cursor-pointer font-semibold"
+                  >
                     {mi.name}
                     <BiChevronDown className="text-2xl" />
                   </span>
-                  <div className="flex-1 absolute bg-white left-0 p-5 shadow rounded min-w-full hidden group-hover:grid grid-cols-3 gap-2">
-                    {mi.child.map((mc, i) => (
-                      <>
-                        {mc.header ? (
-                          <div>
-                            <span className="font-semibold">{mc.header}</span>
-                            <ul className="flex flex-col gap-2 ml-2 mt-2">
-                              {mc.subChild.map((mcc, i) => (
-                                <Link
-                                  key={i}
-                                  to={mcc.link}
-                                  className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
-                                >
-                                  <BiChevronRight className="text-2xl" />
-                                  {mcc.name}
-                                </Link>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : (
-                          <Link
-                            to={mc.link}
-                            key={i}
-                            className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
-                          >
-                            <BiChevronRight className="text-2xl" />
-                            {mc.name}
-                          </Link>
-                        )}
-                      </>
-                    ))}
-                  </div>
+                  {showSubMenu === i && (
+                    <div className="top-full border w-7/12 h-auto max-h-[calc(100vh-80px)] overflow-y-auto border-primary flex-1 absolute bg-white left-1/2 -translate-x-1/2 p-5 shadow rounded grid grid-cols-3 gap-2">
+                      {mi.child.map((mc, i) => (
+                        <>
+                          {mc.header ? (
+                            <div>
+                              <span className="font-semibold">{mc.header}</span>
+                              <ul className="flex flex-col gap-2 ml-2 mt-2">
+                                {mc.subChild.map((mcc, i) => (
+                                  <Link
+                                    onClick={() => setShowSubMenu(null)}
+                                    key={i}
+                                    to={mcc.link}
+                                    className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
+                                  >
+                                    <BiChevronRight className="text-2xl" />
+                                    {mcc.name}
+                                  </Link>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : (
+                            <Link
+                              onClick={() => setShowSubMenu(null)}
+                              to={mc.link}
+                              key={i}
+                              className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
+                            >
+                              <BiChevronRight className="text-2xl" />
+                              {mc.name}
+                            </Link>
+                          )}
+                        </>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ) : (
                 <Link
@@ -200,6 +216,7 @@ export default function Topbar() {
             </div>
           ))}
         </div>
+
         {/* mobile view  */}
         {showNav ? (
           <button className="lg:hidden" onClick={() => setShowNav(!showNav)}>
@@ -221,7 +238,7 @@ export default function Topbar() {
         </Link>
       </section>
       {showNav && (
-        <div className="lg:hidden p-5 md:px-14 flex flex-col gap-4 absolute top-18 md:top-28 left-0 bg-white min-w-full h-[80vh] overflow-y-scroll">
+        <div className="p-5 h-[80vh] min-w-full bg-white flex flex-col gap-4 absolute top-18 left-0 overflow-y-scroll md:px-14 lg:hidden">
           {MenuItems.map((mi, i) => (
             <div key={i}>
               {mi.child ? (
@@ -252,7 +269,9 @@ export default function Topbar() {
                         <>
                           {mc.header ? (
                             <div>
-                              <span className="font-semibold text-primary">{mc.header}</span>
+                              <span className="font-semibold text-primary">
+                                {mc.header}
+                              </span>
                               <ul className="flex flex-col gap-2 ml-2 mt-2">
                                 {mc.subChild.map((mcc, i) => (
                                   <Link

@@ -1,5 +1,4 @@
 import React from "react";
-import HomeLanding from "../components/HomeLanding";
 import OurServices from "../components/OurServices";
 import DigitalEconomy from "../components/DigitalEconomy";
 import OurWorkingProcess from "../components/OurWorkingProcess";
@@ -16,6 +15,7 @@ import { MdArrowOutward } from "react-icons/md";
 import Hero from "./Home/Hero/Hero";
 import Businessproof from "../components/Businessproof";
 import Ecommerce from "./Home/Ecommerce/Ecommerce";
+import Blogs from "./Blog/Blogs";
 
 export default function Home() {
   const [open, setOpen] = React.useState(true);
@@ -24,15 +24,15 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      {/* <HomeLanding /> */}
       {/* <KeywordsMerque /> */}
-      <Businessproof />
       <Ecommerce />
+      <Businessproof />
       <Products />
       <OurServices />
       <DigitalEconomy />
       <OurWorkingProcess />
       <Testimonials />
+      <Blogs />
       <Question />
 
       <Dialog
