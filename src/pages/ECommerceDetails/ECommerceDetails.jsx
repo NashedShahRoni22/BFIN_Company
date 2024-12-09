@@ -15,8 +15,8 @@ export default function ECommerceDetails() {
   return (
     <main className="mx-5 md:container md:mx-auto">
       <Hero handleScrollToSection={handleScrollToSection} />
+      <Pricing />
       <Features sectionRef={sectionRef} />
-      {/* <Pricing /> */}
     </main>
   );
 }
