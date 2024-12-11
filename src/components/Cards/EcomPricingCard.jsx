@@ -20,7 +20,7 @@ export default function EcomPricingCard({ pack, exchangerates }) {
   };
 
   return (
-    <div className="border rounded-md shadow-xl">
+    <div className="border flex flex-col rounded-md shadow-xl">
       <div className="rounded-t-md py-6 bg-gradient-to-tl from-primary to-[#31c5f4] text-white">
         <p className="text-center text-lg font-semibold">{name}</p>
         <p className="mt-1.5 mb-6 text-3xl font-bold text-center">
@@ -43,7 +43,7 @@ export default function EcomPricingCard({ pack, exchangerates }) {
         </div>
       </div>
 
-      <ul className="mt-4 space-y-2.5">
+      <ul className="flex-1 mt-4 space-y-2.5">
         {features.map((feat, i) => (
           <li
             key={i}
@@ -58,7 +58,7 @@ export default function EcomPricingCard({ pack, exchangerates }) {
         to="/"
         className="mt-6 py-2 rounded-b-md w-full block bg-gradient-to-t from-primary to-[#31c5f4] text-white text-center font-semibold hover:from-[#155c99] hover:to-[#31c5f4]"
       >
-        Get Started Now
+        Start Ecommerce Store
       </Link>
     </div>
   );

@@ -5,8 +5,8 @@ export default function Hero({ handleScrollToSection }) {
   return (
     <section className="py-10 h-full w-full flex flex-col-reverse items-center justify-center gap-8 md:py-20 md:flex-row">
       <div className="w-full md:w-1/2">
-        <h1 className="text-3xl text-center text-balance text-primary font-bold md:text-5xl md:text-left">
-          Take your Business into Next Level with BFINIT E-Commerece
+        <h1 className="text-3xl text-center text-primary font-bold md:text-5xl md:text-left">
+          Bold Your Business with BFINIT Ecommerce
         </h1>
         <p className="mt-8 mb-12 leading-relaxed text-xl text-center md:text-left">
           Effortlessly Grow Your Business with pre-built templates or fully
