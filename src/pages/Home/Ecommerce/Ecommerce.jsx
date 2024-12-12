@@ -26,12 +26,10 @@ export default function Ecommerce() {
             {ecommerceFeat.map((data) => (
               <div
                 key={data.id}
+                onClick={() => setOpen(data.id)}
                 className="py-5 border-b rounded last:border-b-0"
               >
-                <p
-                  onClick={() => setOpen(data.id)}
-                  className="flex cursor-pointer items-center justify-between gap-2.5 text-xl text-primary font-medium"
-                >
+                <p className="flex cursor-pointer items-center justify-between gap-2.5 text-xl text-primary font-medium">
                   {data.name}
                   {data.id === open ? <LuMinus /> : <LuPlus />}
                 </p>
