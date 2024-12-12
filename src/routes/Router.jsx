@@ -80,7 +80,7 @@ export const router = createBrowserRouter([
         element: <SpecialSoftware />,
       },
       {
-        path: "/coming_soon",
+        path: "/bfinit-ecomerce-platform",
         element: <ECommerceDetails />,
       },
     ],
@@ -89,4 +89,8 @@ export const router = createBrowserRouter([
     path: "*",
     element: <Notfound />,
   },
+  {
+    path:"/coming_soon",
+    element: <ComingSoon/>
+  }
 ]);

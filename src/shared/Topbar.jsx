@@ -84,7 +84,7 @@ export default function Topbar() {
             },
             {
               name: "Ecommerce Platform",
-              link: "/coming_soon",
+              link: "/bfinit-ecomerce-platform",
             },
           ],
         },
