@@ -5,7 +5,7 @@ export const ecommercePackages = [
     price: 504,
     features: [
       "1 Website",
-      "3 Prebuilt E-commerce Templates to Get Started",
+      "Prebuilt E-commerce Templates to Get Started",
       "Fully Responsive Website for Any Device",
       "500 Products Add Option",
       "Blog Control Panel",
@@ -23,7 +23,7 @@ export const ecommercePackages = [
     price: 756,
     features: [
       "2 Websites",
-      "6 Prebuilt E-commerce Templates to Get Started",
+      "Prebuilt E-commerce Templates to Get Started",
       "Fully Responsive Website for Any Device",
       "2,000 Products Add Option",
       "Blog & Basic SEO Control Panel",
