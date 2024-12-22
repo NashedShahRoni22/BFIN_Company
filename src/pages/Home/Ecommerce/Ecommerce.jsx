@@ -15,7 +15,7 @@ export default function Ecommerce() {
 
         <div className="w-full md:w-1/2">
           <h2 className="text-3xl text-primary text-balance font-extrabold md:text-5xl">
-            Bold Your Business with BFINIT Ecommerce
+            Build Your Business with BFINIT Ecommerce
           </h2>
           <p className="my-8 md:text-xl">
             Scale your business effortlessly with our flexible Ecommerce

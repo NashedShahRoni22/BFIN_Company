@@ -7,6 +7,7 @@ export default function EcomPricingCard({ pack, exchangerates }) {
 
   const [currency, setCurrency] = useState("USD");
   const [packPrice, setPackPrice] = useState(price);
+  const [selectedDuration, setSelectedDuration] = useState("");
   const monthlyPrice = packPrice / 15 || 0;
 
   // Handle the currency and currencyRate on select tag change
@@ -19,6 +20,8 @@ export default function EcomPricingCard({ pack, exchangerates }) {
     setPackPrice(price * selectedCurrencyRate);
     setCurrency(selectedCurrency);
   };
+
+  console.log(selectedDuration);
 
   return (
     <div className="border rounded-md shadow-xl flex flex-col justify-between">
@@ -61,11 +64,37 @@ export default function EcomPricingCard({ pack, exchangerates }) {
               </span>
               /Month
             </p>
-            <p className="px-4 text-sm text-center">
-              Get 30% Discount with 2 Years Pack
-            </p>
           </div>
         </div>
+
+        <div className="flex items-center gap-1 text-sm justify-between px-4 mt-4">
+          <p className="w-1/2 font-semibold">Select Contract:</p>
+          <select
+            onChange={(e) => setSelectedDuration(e.target.value)}
+            className="w-fit border bg-gray-300 outline-none font-medium rounded px-1 py-0.5"
+          >
+            <option value="" className="bg-white">
+              Choose Duration
+            </option>
+            <option value="12" className="bg-white">
+              12 Months
+            </option>
+            <option value="24" className="bg-white">
+              24 Months
+            </option>
+          </select>
+        </div>
+        {(selectedDuration === "12" || selectedDuration === "24") && (
+          <p className="text-sm px-4 mt-4">
+            Get{" "}
+            <span className="text-primary font-semibold">
+              {selectedDuration === "12" ? "3 months free" : "6 months free"}
+            </span>{" "}
+            with a {selectedDuration} month plan —{" "}
+            {selectedDuration === "12" ? "15 " : "30 "}
+            Months Total!
+          </p>
+        )}
 
         <ul className="mt-4 space-y-2.5">
           {features.map((feat, i) => (
