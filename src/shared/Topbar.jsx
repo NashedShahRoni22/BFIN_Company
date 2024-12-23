@@ -86,6 +86,10 @@ export default function Topbar() {
               name: "Ecommerce Platform",
               link: "/bfinit-ecomerce-platform",
             },
+            {
+              name: "Become a Reseller",
+              link: "/reseller-program",
+            },
           ],
         },
         {

@@ -17,6 +17,7 @@ import Blogs from "../pages/Blog/Blogs";
 import WhiteLabel from "../pages/WhiteLabel";
 import SpecialSoftware from "../pages/SpecialSoftware";
 import ECommerceDetails from "../pages/ECommerceDetails/ECommerceDetails";
+import Reseller from "../pages/Reseller/Reseller";
 
 export const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ export const router = createBrowserRouter([
         path: "/bfinit-ecomerce-platform",
         element: <ECommerceDetails />,
       },
+      {
+        path: "/reseller-program",
+        element: <Reseller />,
+      },
     ],
   },
   {
@@ -90,7 +95,7 @@ export const router = createBrowserRouter([
     element: <Notfound />,
   },
   {
-    path:"/coming_soon",
-    element: <ComingSoon/>
-  }
+    path: "/coming_soon",
+    element: <ComingSoon />,
+  },
 ]);
