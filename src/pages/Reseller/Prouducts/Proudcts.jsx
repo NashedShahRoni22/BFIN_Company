@@ -10,10 +10,12 @@ export default function Proudcts() {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         {resslerProducts.map((product, i) => (
           <div key={i} className="p-4">
-            {/*  <p className="mb-2 font-medium text-sm text-primary">
-              {product.title}
-            </p> */}
-            <h3 className="mb-6 text-2xl font-semibold">{product.name}</h3>
+            <div className="">
+              <img src={product.logo} alt={product.name} className="h-16" />
+              <h3 className="mt-2 mb-6 text-2xl font-semibold">
+                {product.name}
+              </h3>
+            </div>
             <p>{product.description}</p>
           </div>
         ))}

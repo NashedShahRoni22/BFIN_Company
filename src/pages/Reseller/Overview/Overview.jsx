@@ -1,5 +1,5 @@
 import SectionContainer from "../../../shared/SectionContainer";
-import overviewImg from "../../../assets/reseller/overview.webp";
+import overviewImg from "../../../assets/reseller/overview.jpg";
 
 export default function Overview() {
   return (
@@ -8,7 +8,7 @@ export default function Overview() {
         <img
           src={overviewImg}
           alt=""
-          className="w-full h-fit  rounded-bl-[96px] rounded-tr-[96px] rounded-2xl"
+          className="w-full h-fit  rounded-bl-[116px] rounded-tr-[116px] rounded-xl"
         />
       </div>
       <div className="w-full md:w-1/2">

@@ -1,34 +1,22 @@
 export const resellerPricing = [
   {
-    name: "Basic Reseller",
-    description: "Best for up to 25 customers",
+    name: "Reseller Package",
     pricing: {
-      current: "€ 579.99",
-      payment: "You pay € 579.99 today",
-      renewal: "Renews Dec. 2025 for € 48.34/mo (€ 579.99 total)",
+      current: "€ 175.00",
+      renewal:
+        "Additional charges may apply for custom branding and special requests.",
     },
     features: [
       "White-label ecommerce storefront",
       "Credit card processing",
-      "24/7 support",
       "Sales and commission reports",
-      "Standard buy rates, up to 20% off retail",
-    ],
-  },
-  {
-    name: "Pro Reseller",
-    description: "Best for unlimited customers",
-    pricing: {
-      current: "€ 11,388.00",
-      payment: "You pay € 11,388.00 today",
-      renewal: "Renews Dec. 2025 for € 949.00/mo (€ 11,388.00 total)",
-    },
-    features: [
-      "White-label ecommerce storefront",
-      "Credit card processing",
+      "Get 20% Commission on Hosting Solutions",
+      "Receive 25% Commission on Premium Products",
       "24/7 support",
-      "Sales and commission reports",
-      "Standard buy rates, up to 40% off retail",
+      "Custom branding for your storefront",
+      "Access to marketing materials and tools",
+      "Comprehensive training and resources",
+      "Detailed sales analytics to track performance",
     ],
   },
 ];
