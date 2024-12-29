@@ -31,7 +31,8 @@ export default function Pricing({ sectionRef }) {
             {price.pricing.renewal}
           </p>
           <Link
-            to="/"
+            to="https://www.bobosohomail.com/email_ins/signUp_email.php"
+            target="_blank"
             className="my-6 text-sm font-semibold rounded block border-2 border-black py-3 w-full text-center transition-all duration-300 ease-in-out hover:bg-black hover:text-white"
           >
             Buy Now

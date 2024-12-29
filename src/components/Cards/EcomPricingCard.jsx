@@ -109,7 +109,8 @@ export default function EcomPricingCard({ pack, exchangerates }) {
       </div>
 
       <Link
-        to="/"
+        to="https://www.bobosohomail.com/email_ins/signUp_email.php"
+        target="_blank"
         className="mt-6 py-2 rounded-b-md w-full block bg-gradient-to-t from-primary to-[#31c5f4] text-white text-center font-semibold hover:from-[#155c99] hover:to-[#31c5f4]"
       >
         Get Started Now
