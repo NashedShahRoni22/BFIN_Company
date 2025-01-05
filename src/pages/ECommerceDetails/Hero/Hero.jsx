@@ -21,11 +21,11 @@ export default function Hero({ handleScrollToSection }) {
           <MdOutlineArrowDownward className="text-xl animate-bounce group-hover:animate-none" />
         </button>
       </div>
-      <div className="w-full md:w-1/2">
+      <div className="w-full h-[220px] md:h-auto md:w-1/2">
         <img
           src={ecommerce}
-          alt=""
-          className="w-full h-fit object-cover rounded-lg"
+          alt="bfinit reseller program"
+          className="w-auto max-w-auto mx-auto md:mx-0 max-h-full object-contain rounded-lg h-auto md:h-full md:w-full md:object-cover"
         />
       </div>
     </section>

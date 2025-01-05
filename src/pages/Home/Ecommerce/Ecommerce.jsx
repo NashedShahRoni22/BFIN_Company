@@ -9,8 +9,12 @@ export default function Ecommerce() {
   return (
     <>
       <section className="mx-5 py-10 flex flex-col items-center justify-between gap-8 md:container md:mx-auto md:py-20 md:flex-row md:gap-16">
-        <div className="w-full md:w-1/2">
-          <img src={ecommerceImg} alt="" className="h-fit w-full rounded-xl" />
+        <div className="w-full h-[390px] md:h-auto md:w-1/2">
+          <img
+            src={ecommerceImg}
+            alt=""
+            className="w-auto max-w-auto mx-auto md:mx-0 max-h-full object-contain rounded-xl h-auto md:h-full md:w-full md:object-cover"
+          />
         </div>
 
         <div className="w-full md:w-1/2">

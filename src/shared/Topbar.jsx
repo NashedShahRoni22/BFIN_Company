@@ -281,6 +281,7 @@ export default function Topbar() {
                                   <Link
                                     key={i}
                                     to={mcc.link}
+                                    onClick={() => setShowNav(!showNav)}
                                     className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
                                   >
                                     <BiChevronRight className="text-2xl" />
