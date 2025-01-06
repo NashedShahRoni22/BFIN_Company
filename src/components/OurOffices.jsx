@@ -20,12 +20,12 @@ export default function OurOffices() {
     {
       image: India,
       name: "India",
-      location: "Remote Office.",
+      location: "Chennai",
     },
     {
       image: HagiaSophia,
       name: "Turkey",
-      location: "Remote Office.",
+      location: "Istanbul",
     },
   ];
   return (
@@ -40,13 +40,13 @@ export default function OurOffices() {
             >
               <img src={office.image} alt="" className="w-[140px]" />
               <div>
-                <h5 className="font-semibold">{office.name}</h5>
-                {/* <p className="my-2.5">{office.location}</p> */}
-                <button className="px-4 py-2 border border-secondary mt-5 w-fit rounded flex items-center gap-2 group">
-                  <span>Contact Now</span>
-                  <MdArrowOutward className="text-xl group-hover:rotate-45 duration-300 ease-linear" />
-                </button>
+                <h5 className="font-semibold text-center">{office.name}</h5>
+                <p className="my-2.5 text-center">{office.location}</p>
               </div>
+              <button className="px-4 py-2 border border-secondary mt-5 w-fit rounded flex items-center gap-2 group">
+                <span>Contact Now</span>
+                <MdArrowOutward className="text-xl group-hover:rotate-45 duration-300 ease-linear" />
+              </button>
             </div>
           ))}
         </div>
