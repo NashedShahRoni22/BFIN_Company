@@ -48,6 +48,7 @@ export default function Hero() {
                 <img
                   src={data.img}
                   alt=""
+                  loading="lazy"
                   className="h-full w-full max-w-md object-cover rounded-lg"
                 />
               </div>

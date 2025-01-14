@@ -8,6 +8,7 @@ export default function Overview() {
         <img
           src={overviewImg}
           alt=""
+          loading="lazy"
           className="w-full h-fit  rounded-bl-[116px] rounded-tr-[116px] rounded-xl"
         />
       </div>

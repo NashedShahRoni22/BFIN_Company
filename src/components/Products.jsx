@@ -53,12 +53,16 @@ export default function Products() {
             key={i}
             className="flex flex-col justify-between p-5 h-full md:hover:-translate-y-5 duration-300 ease-linear rounded-xl shadow-xl"
           >
-            <img src={product.image} className="" alt="" />
+            <img src={product.image} alt="" loading="lazy" />
             <h5 className="text-xl mt-5 md:text-2xl text-primary font-extrabold">
               {product.title}
             </h5>
             <p className="my-2.5">{product.desc}</p>
-            <Link to={product.link} target="_blank" className="px-4 py-2 flex items-center gap-2 border rounded border-primary w-fit hover:bg-primary hover:text-white group duration-300 ease-linear">
+            <Link
+              to={product.link}
+              target="_blank"
+              className="px-4 py-2 flex items-center gap-2 border rounded border-primary w-fit hover:bg-primary hover:text-white group duration-300 ease-linear"
+            >
               <span>Learn more</span>
               <MdArrowOutward className="group-hover:rotate-45 duration-300 ease-linear text-xl" />
             </Link>

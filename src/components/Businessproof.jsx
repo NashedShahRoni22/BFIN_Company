@@ -45,7 +45,7 @@ export default function Businessproof() {
           key={i}
           className="bg-white p-5 rounded-xl shadow-xl group hover:bg-primary hover:text-white ease-linear duration-300"
         >
-          <img src={item.image} alt="" />
+          <img src={item.image} alt="" loading="lazy" />
           <h5 className="mt-5 text-[20px] md:text-[26px] font-semibold text-primary group-hover:text-white ease-linear duration-300">
             {item.title}
           </h5>

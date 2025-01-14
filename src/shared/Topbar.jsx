@@ -155,7 +155,7 @@ export default function Topbar() {
       <section className="py-5 mx-5 md:container md:mx-auto flex justify-between items-center relative">
         {/* logo here  */}
         <Link to={"/"} className="flex items-center">
-          <img src={logo} className="h-[40px]" alt="" />
+          <img src={logo} className="h-[40px]" alt="" loading="lazy" />
         </Link>
         {/* desktop view  */}
         <div className="hidden lg:flex lg:gap-8 lg:items-center">

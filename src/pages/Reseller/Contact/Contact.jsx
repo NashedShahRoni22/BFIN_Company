@@ -8,6 +8,7 @@ export default function Contact() {
       <img
         src={bg}
         alt=""
+        loading="lazy"
         className="absolute w-full h-full object-cover -z-10"
       />
       <div className="mx-5 py-10 md:container md:mx-auto md:py-20">

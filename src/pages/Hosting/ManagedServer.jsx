@@ -61,7 +61,7 @@ export default function ManagedServer() {
           </p>
         </div>
         <div>
-          <img src={image} alt="" />
+          <img src={image} alt="" loading="lazy" />
         </div>
       </div>
 

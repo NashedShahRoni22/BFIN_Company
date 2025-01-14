@@ -14,6 +14,7 @@ export default function Features() {
             <img
               src={feat.image}
               alt={feat.title}
+              loading="lazy"
               className="mb-7 size-16 md:size-20"
             />
             <h4 className="text-2xl font-semibold">{feat.title}</h4>

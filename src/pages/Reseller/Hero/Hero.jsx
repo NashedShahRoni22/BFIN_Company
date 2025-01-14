@@ -29,6 +29,7 @@ export default function Hero({ handleScrollToSection }) {
         <img
           src={heroImg}
           alt="bfinit reseller program"
+          loading="lazy"
           className="w-full h-fit  rounded-tl-[96px] rounded-br-[96px] rounded-2xl"
         />
       </div>

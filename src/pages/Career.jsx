@@ -70,7 +70,7 @@ export default function Career() {
           </div>
         </div>
         <div className="">
-          <img src={career} alt="career_banner_image" />
+          <img src={career} alt="career_banner_image" loading="lazy" />
         </div>
       </div>
 
@@ -94,7 +94,7 @@ export default function Career() {
                   i == 0 && "bg-secondary"
                 }`}
               >
-                <img src={item.image} className="" alt="" />
+                <img src={item.image} alt="" loading="lazy" />
               </div>
               <div className="mt-5">
                 <h5 className="font-semibold text-primary text-xl">
@@ -115,7 +115,9 @@ export default function Career() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 my-8 md:my-16">
           {works.map((w, i) => (
             <div className="p-8 shadow-xl rounded-xl">
-              <div className="bg-secondary rounded-full size-12 flex justify-center items-center text-2xl font-semibold">{i + 1}</div>
+              <div className="bg-secondary rounded-full size-12 flex justify-center items-center text-2xl font-semibold">
+                {i + 1}
+              </div>
               <h5 className="text-xl md:text-2xl font-semibold text-primary my-2.5">
                 {w.title}
               </h5>
@@ -124,7 +126,7 @@ export default function Career() {
           ))}
         </div>
       </div>
-      <Question/>
+      <Question />
     </section>
   );
 }

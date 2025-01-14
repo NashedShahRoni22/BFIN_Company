@@ -87,7 +87,7 @@ export default function About() {
                   i == 0 && "bg-secondary"
                 }`}
               >
-                <img src={item.image} className="" alt="" />
+                <img src={item.image} alt="" loading="lazy" />
               </div>
               <div className="mt-5">
                 <h5 className="font-semibold text-primary text-xl">

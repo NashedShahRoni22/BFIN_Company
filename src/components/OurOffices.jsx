@@ -38,7 +38,12 @@ export default function OurOffices() {
               key={i}
               className="shadow-xl rounded-xl flex flex-col justify-between items-center p-8 bg-black/90 text-white"
             >
-              <img src={office.image} alt="" className="w-[140px]" />
+              <img
+                src={office.image}
+                alt=""
+                loading="lazy"
+                className="w-[140px]"
+              />
               <div>
                 <h5 className="font-semibold text-center">{office.name}</h5>
                 <p className="my-2.5 text-center">{office.location}</p>
@@ -55,6 +60,7 @@ export default function OurOffices() {
           <img
             src={OfficeBanner}
             alt=""
+            loading="lazy"
             className="absolute right-0 bottom-0"
           />
         </div>

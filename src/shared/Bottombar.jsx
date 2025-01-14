@@ -29,7 +29,7 @@ export default function Bottombar() {
       name: "Self Managed Pure Website Hosting",
       link: "/self-managed-pure-web-hosting",
     },
-  ]
+  ];
 
   const Products = [
     {
@@ -89,8 +89,16 @@ export default function Bottombar() {
     <footer className="bg-primary text-white p-10 md:p-20">
       <section className="grid lg:grid-cols-2 gap-4 lg:gap-8">
         <div className="flex flex-col gap-4 md:gap-8">
-          <Link to={"/"} className="flex items-center bg-white w-fit pr-2 rounded-xl">
-            <img src={logo} className="h-[40px] md:h-[80px]" alt="" />
+          <Link
+            to={"/"}
+            className="flex items-center bg-white w-fit pr-2 rounded-xl"
+          >
+            <img
+              src={logo}
+              className="h-[40px] md:h-[80px]"
+              alt=""
+              loading="lazy"
+            />
             <span className="text-xl font-extrabold text-primary">BFINIT</span>
           </Link>
           <p>
@@ -99,8 +107,18 @@ export default function Bottombar() {
           </p>
           <h5 className="font-semibold">Join BFINIT Cosmopolitan </h5>
           <form className="flex items-center">
-            <input className="px-4 py-2 outline-none text-primary border border-white rounded-l-xl" placeholder="Enter your email" type="email" required/>
-            <button type="submit" className="px-4 py-2 border border-white rounded-r-xl">Subscribe</button>
+            <input
+              className="px-4 py-2 outline-none text-primary border border-white rounded-l-xl"
+              placeholder="Enter your email"
+              type="email"
+              required
+            />
+            <button
+              type="submit"
+              className="px-4 py-2 border border-white rounded-r-xl"
+            >
+              Subscribe
+            </button>
           </form>
         </div>
         <div className="grid md:grid-cols-3 gap-4 md:gap-8">
@@ -119,7 +137,12 @@ export default function Bottombar() {
             <h5 className="font-semibold">Products</h5>
             <div className="flex flex-col gap-2 ml-2 mt-2">
               {Products.map((product, i) => (
-                <Link to={product.link} target="_blank" key={i} className="flex gap-2.5">
+                <Link
+                  to={product.link}
+                  target="_blank"
+                  key={i}
+                  className="flex gap-2.5"
+                >
                   {product.name}
                 </Link>
               ))}
@@ -147,8 +170,8 @@ export default function Bottombar() {
         </p>
         <div className="flex justify-center gap-4">
           <FaFacebook className="lg:text-xl" />
-          <FaSquareXTwitter  className="lg:text-xl"/>
-          <BsLinkedin className="lg:text-xl"/>
+          <FaSquareXTwitter className="lg:text-xl" />
+          <BsLinkedin className="lg:text-xl" />
           <BsInstagram className="lg:text-xl" />
           <BsYoutube className="lg:text-xl" />
         </div>

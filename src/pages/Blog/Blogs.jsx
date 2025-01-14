@@ -64,7 +64,12 @@ export default function Blogs() {
         {blogsData.map((data, i) => (
           <div key={i} className="rounded border">
             <Link to="/">
-              <img src={data.image} alt="" className="rounded-t border-b" />
+              <img
+                src={data.image}
+                alt=""
+                loading="lazy"
+                className="rounded-t border-b"
+              />
             </Link>
             <div className="px-4 py-6">
               <Link to="/" className="text-xl font-semibold">

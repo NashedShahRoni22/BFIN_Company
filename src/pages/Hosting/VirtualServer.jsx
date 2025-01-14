@@ -6,7 +6,7 @@ import Loader from "../../shared/Loader";
 import { useParams } from "react-router-dom";
 
 export default function VirtualServer() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [loader, setLoader] = useState(false);
   const [servers, setServers] = useState([]);
 
@@ -61,12 +61,12 @@ export default function VirtualServer() {
           </p>
         </div>
         <div>
-          <img src={image} alt="" />
+          <img src={image} alt="" loading="lazy" />
         </div>
       </div>
 
       {loader ? (
-        <Loader/>
+        <Loader />
       ) : (
         <div className="py-10 md:py-20 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {servers?.map((s, i) => {

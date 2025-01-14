@@ -55,8 +55,18 @@ export default function Home() {
               28% Off
             </p>
             <div className="flex items-center justify-center gap-4">
-              <img className="h-[80px]" src={hostingImage} alt="" />
-              <img className="h-[80px]" src={hostingImage2} alt="" />
+              <img
+                className="h-[80px]"
+                src={hostingImage}
+                alt=""
+                loading="lazy"
+              />
+              <img
+                className="h-[80px]"
+                src={hostingImage2}
+                alt=""
+                loading="lazy"
+              />
             </div>
             <p className="text-2xl md:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#186BB5] via-white to-[#186BB5]">
               Enjoy on yearly hosting plan

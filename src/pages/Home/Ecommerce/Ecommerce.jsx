@@ -13,6 +13,7 @@ export default function Ecommerce() {
           <img
             src={ecommerceImg}
             alt=""
+            loading="lazy"
             className="w-auto max-w-auto mx-auto md:mx-0 max-h-full object-contain rounded-xl h-auto md:h-full md:w-full md:object-cover"
           />
         </div>

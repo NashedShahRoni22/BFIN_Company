@@ -136,6 +136,7 @@ export default function Testimonials() {
                     className="h-16 w-16 rounded-full"
                     src={testimonial.reviewerImage}
                     alt=""
+                    loading="lazy"
                   />
                   <div>
                     <h5 className="text-xl font-semibold">

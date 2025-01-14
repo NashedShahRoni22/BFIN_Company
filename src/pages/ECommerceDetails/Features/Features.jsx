@@ -13,7 +13,7 @@ export default function Features({ sectionRef }) {
             key={feat.id}
             className="bg-white p-5 rounded-xl shadow-xl group hover:bg-primary hover:text-white ease-linear duration-300"
           >
-            <img src={feat?.icon} alt="" className="w-12" />
+            <img src={feat?.icon} alt="" loading="lazy" className="w-12" />
             <h5 className="mt-5 text-[20px] md:text-[26px] font-semibold text-primary group-hover:text-white ease-linear duration-300">
               {feat.name}
             </h5>

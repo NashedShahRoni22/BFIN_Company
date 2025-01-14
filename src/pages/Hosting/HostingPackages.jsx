@@ -99,6 +99,7 @@ export default function HostingPackages({ s }) {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Intel_Inside_Logo_%282020%29.svg"
           alt=""
+          loading="lazy"
           className="h-[60px]"
         />
         <div>
@@ -229,6 +230,7 @@ export default function HostingPackages({ s }) {
               <img
                 src="https://cdn-icons-png.flaticon.com/512/330/330426.png"
                 alt=""
+                loading="lazy"
                 className="h-[40px]"
               />
             )}
@@ -236,6 +238,7 @@ export default function HostingPackages({ s }) {
               <img
                 src="https://cdn-icons-png.flaticon.com/512/555/555526.png"
                 alt=""
+                loading="lazy"
                 className="h-[40px]"
               />
             )}

@@ -52,7 +52,12 @@ export default function OurServices() {
             key={i}
             className="p-5 rounded-xl shadow-xl md:hover:-translate-y-5 ease-linear duration-300"
           >
-            <img src={item.image} className="h-[80px] w-[80px]" alt="" />
+            <img
+              src={item.image}
+              className="h-[80px] w-[80px]"
+              alt=""
+              loading="lazy"
+            />
             <h5 className="mt-5 text-[20px] md:text-[26px] font-semibold text-primary">
               {item.title}
             </h5>

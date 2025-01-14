@@ -109,7 +109,7 @@ export default function Contact() {
       setInvalidCaptcha(true);
       setLoader(false);
       return;
-    }else{
+    } else {
       setInvalidCaptcha(false);
     }
 
@@ -117,7 +117,7 @@ export default function Contact() {
       setInvalidMessage(true);
       setLoader(false);
       return;
-    }else{
+    } else {
       setInvalidMessage(false);
     }
     try {
@@ -340,7 +340,7 @@ export default function Contact() {
               <BiCopyright /> 2024 BFIN. BITSS by BFIN. All rights reserved.
             </p>
             <div className="flex flex-col justify-center items-center gap-2.5 mt-2.5">
-              <img src={logo} alt="" />
+              <img src={logo} alt="" loading="lazy" />
               <p className="text-xs">
                 This form is powered by bitss cyber security
               </p>
