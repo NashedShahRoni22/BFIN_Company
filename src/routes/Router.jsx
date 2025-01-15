@@ -18,6 +18,7 @@ import WhiteLabel from "../pages/WhiteLabel";
 import SpecialSoftware from "../pages/SpecialSoftware";
 import ECommerceDetails from "../pages/ECommerceDetails/ECommerceDetails";
 import Reseller from "../pages/Reseller/Reseller";
+import SalesAndMarketing from "../pages/SalesAndMarketing/SalesAndMarketing";
 
 export const router = createBrowserRouter([
   {
@@ -87,6 +88,10 @@ export const router = createBrowserRouter([
       {
         path: "/reseller-program",
         element: <Reseller />,
+      },
+      {
+        path: "/sales-marketing-guide",
+        element: <SalesAndMarketing />,
       },
     ],
   },

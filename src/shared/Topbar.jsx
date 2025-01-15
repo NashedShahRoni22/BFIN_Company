@@ -90,6 +90,10 @@ export default function Topbar() {
               name: "Become a Reseller",
               link: "/reseller-program",
             },
+            {
+              name: "Sales & Marketing",
+              link: "/sales-marketing-guide",
+            },
           ],
         },
         {
@@ -175,7 +179,7 @@ export default function Topbar() {
                       {mi.child.map((mc, i) => (
                         <>
                           {mc.header ? (
-                            <div>
+                            <div key={i}>
                               <span className="font-semibold">{mc.header}</span>
                               <ul className="flex flex-col gap-2 ml-2 mt-2">
                                 {mc.subChild.map((mcc, i) => (
