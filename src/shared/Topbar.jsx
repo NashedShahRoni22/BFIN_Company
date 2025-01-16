@@ -91,8 +91,8 @@ export default function Topbar() {
               link: "/reseller-program",
             },
             {
-              name: "Sales & Marketing",
-              link: "/sales-marketing-guide",
+              name: "E-commerce Guide",
+              link: "/ecommerce-guide",
             },
           ],
         },

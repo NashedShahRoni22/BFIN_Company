@@ -2,13 +2,15 @@ import { BsArrowDown } from "react-icons/bs";
 
 export default function Hero({ handleScrollToSection }) {
   return (
-    <section className="mx-5 md:container md:mx-auto py-20 md:py-20">
+    <section className="mx-5 md:container md:mx-auto py-10 md:py-20">
       <h1 className="text-3xl text-center text-balance font-bold md:text-5xl">
         Master the Steps to Build & Grow Your <br /> E-Commerce Business
       </h1>
       <p className="my-8 text-center leading-relaxed text-balance text-lg md:text-xl">
         From market analysis to customer support, discover actionable strategies
-        to <br /> elevate your E-Commerce success.
+        with our <br />{" "}
+        <span className="text-primary font-medium">BFINIT Guide</span> to
+        elevate your E-Commerce success.
       </p>
 
       <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-8">
@@ -24,7 +26,8 @@ export default function Hero({ handleScrollToSection }) {
           <BsArrowDown className="-ml-3 opacity-0 scale-0 group-hover:scale-125 transition-all duration-300 group-hover:opacity-100" />
         </button>
         <a
-          href="/"
+          href="/bfinit-ecommerce-guide.pdf"
+          download="bfinit e-commerce guide.pdf"
           className="px-6 py-3 group border hover:bg-[#135996] border-primary bg-primary text-white font-semibold rounded shadow w-fit transition-all duration-200 ease-linear"
         >
           Download Free Resources

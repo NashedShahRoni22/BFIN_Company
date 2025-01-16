@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import OurServices from "../components/OurServices";
 import DigitalEconomy from "../components/DigitalEconomy";
 import OurWorkingProcess from "../components/OurWorkingProcess";
@@ -18,9 +18,17 @@ import Ecommerce from "./Home/Ecommerce/Ecommerce";
 import Blogs from "./Blog/Blogs";
 
 export default function Home() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => setOpen(!open);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpen(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleClose = () => setOpen(false);
   return (
     <main>
       <Hero />
@@ -37,7 +45,7 @@ export default function Home() {
 
       <Dialog
         open={open}
-        handler={handleOpen}
+        handler={handleClose}
         animate={{
           mount: { scale: 1, y: 0 },
           unmount: { scale: 0.9, y: -100 },
@@ -45,7 +53,7 @@ export default function Home() {
       >
         <DialogBody className="relative p-8 rounded-lg bg-black text-white shadow-lg">
           <button
-            onClick={handleOpen}
+            onClick={handleClose}
             className="absolute top-2 right-2 p-1 rounded-full bg-red-100 text-red-600"
           >
             <IoMdClose className="text-xl" />
