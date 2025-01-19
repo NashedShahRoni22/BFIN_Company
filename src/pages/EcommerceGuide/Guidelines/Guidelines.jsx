@@ -102,11 +102,11 @@ export default function Guidelines({ sectionRef }) {
         store
       </p>
 
-      <div className="mt-32 space-y-8 md:space-y-24">
+      <div className="mt-10">
         {steps.map((step, i) => (
           <div
             key={i}
-            className={`flex flex-col gap-8 md:gap-16 ${
+            className={`flex flex-col py-12 md:py-24 gap-8 md:gap-16 ${
               i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >
