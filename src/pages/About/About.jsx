@@ -1,11 +1,10 @@
-import React from "react";
-import { MdArrowOutward } from "react-icons/md";
-import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
-import philosopy from "../assets/philosopy.png";
-import vision from "../assets/vision.png";
-import mission from "../assets/mission.png";
-import OurOffices from "../components/OurOffices";
+import ReactPlayer from "react-player";
+import { MdArrowOutward } from "react-icons/md";
+import philosopy from "../../assets/philosopy.png";
+import vision from "../../assets/vision.png";
+import mission from "../../assets/mission.png";
+import OurOffices from "./OurOffices/OurOffices";
 
 export default function About() {
   const items = [
@@ -29,10 +28,10 @@ export default function About() {
   return (
     <section className="">
       {/* about us content  */}
-      <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 place-items-center mx-5 md:container md:mx-auto my-10 lg:my-20">
+      <div className="mx-5 my-10 grid place-items-center gap-4 md:container md:mx-auto lg:my-20 lg:grid-cols-2 lg:gap-8">
         <div className="flex flex-col gap-4 md:gap-8">
-          <h5 className="md:text-2xl font-semibold">About Us</h5>
-          <p className="text-2xl md:text-4xl text-primary font-semibold">
+          <h5 className="font-semibold md:text-2xl">About Us</h5>
+          <p className="text-2xl font-semibold text-primary md:text-4xl">
             This is Who We Are
           </p>
           <p>
@@ -45,17 +44,17 @@ export default function About() {
           <div className="flex gap-4">
             <Link
               to={"/contact"}
-              className="px-4 py-2 bg-primary border border-primary hover:bg-transparent hover:text-primary text-white font-semibold rounded shadow w-fit flex items-center gap-4 group duration-300 ease-linear"
+              className="group flex w-fit items-center gap-4 rounded border border-primary bg-primary px-4 py-2 font-semibold text-white shadow duration-300 ease-linear hover:bg-transparent hover:text-primary"
             >
               <span className="md:text-xl">Explore</span>
-              <MdArrowOutward className="md:text-xl group-hover:rotate-45 duration-300 ease-linear" />
+              <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45 md:text-xl" />
             </Link>
             <Link
               to={"/contact"}
-              className="px-4 py-2 bg-primary border border-primary hover:bg-transparent hover:text-primary text-white font-semibold rounded shadow w-fit flex items-center gap-4 group duration-300 ease-linear"
+              className="group flex w-fit items-center gap-4 rounded border border-primary bg-primary px-4 py-2 font-semibold text-white shadow duration-300 ease-linear hover:bg-transparent hover:text-primary"
             >
               <span className="md:text-xl">Contact</span>
-              <MdArrowOutward className="md:text-xl group-hover:rotate-45 duration-300 ease-linear" />
+              <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45 md:text-xl" />
             </Link>
           </div>
         </div>
@@ -69,28 +68,23 @@ export default function About() {
           />
         </div>
       </div>
-      <OurOffices />
       {/* mission & vision  */}
-      <div className="my-10 lg:my-20 flex flex-col gap-4 md:gap-8 mx-5 md:container md:mx-auto">
-        <h5 className="md:text-2xl font-semibold text-primary">
+      <div className="mx-5 my-10 flex flex-col gap-4 md:container md:mx-auto md:gap-8 lg:my-20">
+        <h5 className="font-semibold text-primary md:text-2xl">
           When you are more prepared, your future will be brighter
         </h5>
         <p>
           Since 2018 we’ve been working with amazing organisations to create
           meaningful impact and compelling experiences.
         </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           {items.map((item, i) => (
             <div key={i}>
-              <div
-                className={`p-4 shadow roundex-xl w-fit bg-gray-100 ${
-                  i == 0 && "bg-secondary"
-                }`}
-              >
+              <div className="roundex-xl w-fit bg-gray-100 p-4 shadow">
                 <img src={item.image} alt="" loading="lazy" />
               </div>
               <div className="mt-5">
-                <h5 className="font-semibold text-primary text-xl">
+                <h5 className="text-xl font-semibold text-primary">
                   {item.title}
                 </h5>
                 <p className="mt-2.5">{item.desc}</p>
@@ -99,6 +93,7 @@ export default function About() {
           ))}
         </div>
       </div>
+      <OurOffices />
     </section>
   );
 }

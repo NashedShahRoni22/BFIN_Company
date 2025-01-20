@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
-import About from "../pages/About";
+import About from "../pages/About/About";
 import Career from "../pages/Career";
 import ComingSoon from "../components/ComingSoon";
 import Notfound from "../components/Notfound";
@@ -19,6 +19,7 @@ import SpecialSoftware from "../pages/SpecialSoftware";
 import ECommerceDetails from "../pages/ECommerceDetails/ECommerceDetails";
 import Reseller from "../pages/Reseller/Reseller";
 import EcommerceGuide from "../pages/EcommerceGuide/EcommerceGuide";
+import Services from "../pages/Services/Services";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/services",
+        element: <Services />,
       },
       {
         path: "/career",

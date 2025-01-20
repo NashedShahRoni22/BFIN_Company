@@ -83,12 +83,12 @@ export default function Topbar() {
               link: "/white-label",
             },
             {
-              name: "Ecommerce Platform",
-              link: "/bfinit-ecomerce-platform",
-            },
-            {
               name: "Become a Reseller",
               link: "/reseller-program",
+            },
+            {
+              name: "E-commerce Platform",
+              link: "/bfinit-ecomerce-platform",
             },
             {
               name: "E-commerce Guide",
@@ -145,8 +145,17 @@ export default function Topbar() {
       ],
     },
     {
-      name: "About Us",
-      link: "/about",
+      name: "Our Company",
+      child: [
+        {
+          name: "About Us",
+          link: "/about",
+        },
+        {
+          name: "Our Services",
+          link: "/services",
+        },
+      ],
     },
     {
       name: "Career",
@@ -155,39 +164,39 @@ export default function Topbar() {
   ];
 
   return (
-    <nav className="sticky top-0 bg-white z-50">
-      <section className="py-5 mx-5 md:container md:mx-auto flex justify-between items-center relative">
+    <nav className="sticky top-0 z-50 bg-white">
+      <section className="relative mx-5 flex items-center justify-between py-5 md:container md:mx-auto">
         {/* logo here  */}
         <Link to={"/"} className="flex items-center">
           <img src={logo} className="h-[40px]" alt="" loading="lazy" />
         </Link>
         {/* desktop view  */}
-        <div className="hidden lg:flex lg:gap-8 lg:items-center">
+        <div className="hidden lg:flex lg:items-center lg:gap-8">
           {MenuItems.map((mi, i) => (
             <div key={i}>
               {mi.child ? (
                 <div className="group text-[18px]">
                   <span
                     onClick={() => toggleSubMenu(i)}
-                    className="flex items-center gap-1 cursor-pointer font-semibold"
+                    className="flex cursor-pointer items-center gap-1 font-semibold"
                   >
                     {mi.name}
                     <BiChevronDown className="text-2xl" />
                   </span>
                   {showSubMenu === i && (
-                    <div className="top-full border w-7/12 h-auto max-h-[calc(100vh-80px)] overflow-y-auto border-primary flex-1 absolute bg-white left-1/2 -translate-x-1/2 p-5 shadow rounded grid grid-cols-3 gap-2">
+                    <div className="absolute left-1/2 top-full grid h-auto max-h-[calc(100vh-80px)] w-7/12 flex-1 -translate-x-1/2 grid-cols-3 gap-2 overflow-y-auto rounded border border-primary bg-white p-5 shadow">
                       {mi.child.map((mc, i) => (
                         <>
                           {mc.header ? (
                             <div key={i}>
                               <span className="font-semibold">{mc.header}</span>
-                              <ul className="flex flex-col gap-2 ml-2 mt-2">
+                              <ul className="ml-2 mt-2 flex flex-col gap-2">
                                 {mc.subChild.map((mcc, i) => (
                                   <Link
                                     onClick={() => setShowSubMenu(null)}
                                     key={i}
                                     to={mcc.link}
-                                    className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
+                                    className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3 hover:font-semibold hover:text-primary"
                                   >
                                     <BiChevronRight className="text-2xl" />
                                     {mcc.name}
@@ -200,7 +209,7 @@ export default function Topbar() {
                               onClick={() => setShowSubMenu(null)}
                               to={mc.link}
                               key={i}
-                              className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
+                              className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3 hover:font-semibold hover:text-primary"
                             >
                               <BiChevronRight className="text-2xl" />
                               {mc.name}
@@ -215,7 +224,7 @@ export default function Topbar() {
                 <Link
                   to={mi.link}
                   key={i}
-                  className="text-[18px] font-semibold flex items-center gap-2.5"
+                  className="flex items-center gap-2.5 text-[18px] font-semibold"
                 >
                   {mi.name}
                   {/* <MdArrowOutward /> */}
@@ -239,32 +248,32 @@ export default function Topbar() {
         {/* desktop mode contact button */}
         <Link
           to={"/contact"}
-          className="px-4 py-2 bg-primary rounded shadow text-white hidden lg:flex gap-2.5 items-center group h-fit"
+          className="group hidden h-fit items-center gap-2.5 rounded bg-primary px-4 py-2 text-white shadow lg:flex"
         >
           Contact{" "}
-          <MdArrowOutward className="group-hover:rotate-45 duration-300 ease-linear" />
+          <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45" />
         </Link>
       </section>
       {showNav && (
-        <div className="p-5 h-[80vh] min-w-full bg-white flex flex-col gap-4 absolute top-18 left-0 overflow-y-scroll md:px-14 lg:hidden">
+        <div className="top-18 absolute left-0 flex h-[80vh] min-w-full flex-col gap-4 overflow-y-scroll bg-white p-5 md:px-14 lg:hidden">
           {MenuItems.map((mi, i) => (
             <div key={i}>
               {mi.child ? (
                 <div>
-                  <div className="text-[18px] flex justify-between items-center">
+                  <div className="flex items-center justify-between text-[18px]">
                     {mi.name}
 
                     {showChild !== i ? (
                       <button
                         onClick={() => setShowChild(i)}
-                        className="flex items-center gap-1 cursor-pointer"
+                        className="flex cursor-pointer items-center gap-1"
                       >
                         <BiChevronDown className="text-3xl" />
                       </button>
                     ) : (
                       <button
                         onClick={() => setShowChild("")}
-                        className="flex items-center gap-1 cursor-pointer"
+                        className="flex cursor-pointer items-center gap-1"
                       >
                         <BiChevronUp className="text-3xl" />
                       </button>
@@ -280,13 +289,13 @@ export default function Topbar() {
                               <span className="font-semibold text-primary">
                                 {mc.header}
                               </span>
-                              <ul className="flex flex-col gap-2 ml-2 mt-2">
+                              <ul className="ml-2 mt-2 flex flex-col gap-2">
                                 {mc.subChild.map((mcc, i) => (
                                   <Link
                                     key={i}
                                     to={mcc.link}
                                     onClick={() => setShowNav(!showNav)}
-                                    className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
+                                    className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3 hover:font-semibold hover:text-primary"
                                   >
                                     <BiChevronRight className="text-2xl" />
                                     {mcc.name}
@@ -299,7 +308,7 @@ export default function Topbar() {
                               to={mc.link}
                               key={i}
                               onClick={() => setShowNav(!showNav)}
-                              className="flex gap-1.5 hover:font-semibold hover:translate-x-3 hover:text-primary duration-300 ease-linear"
+                              className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3 hover:font-semibold hover:text-primary"
                             >
                               <BiChevronRight className="text-2xl" />
                               {mc.name}
@@ -315,7 +324,7 @@ export default function Topbar() {
                   to={mi.link}
                   key={i}
                   onClick={() => setShowNav(!showNav)}
-                  className="text-[18px] flex justify-between items-center"
+                  className="flex items-center justify-between text-[18px]"
                 >
                   {mi.name}
                   {/* <MdArrowOutward /> */}
@@ -326,13 +335,13 @@ export default function Topbar() {
           <Link
             to={"/contact"}
             onClick={() => setShowNav(!showNav)}
-            className="px-4 py-2 bg-primary rounded shadow text-white w-fit"
+            className="w-fit rounded bg-primary px-4 py-2 text-white shadow"
           >
             Contact Us
           </Link>
         </div>
       )}
-      <div className="bg-primary w-full h-0.5"></div>
+      <div className="h-0.5 w-full bg-primary"></div>
     </nav>
   );
 }
