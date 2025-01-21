@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="mx-5 py-10 md:container md:mx-auto md:py-20">
       <h2 className="text-center text-3xl font-bold md:text-4xl">
-        Explore Our BFINIT Services
+        Explore Our Brands
       </h2>
       <p className="mt-6 text-balance text-center text-lg leading-relaxed">
         Discover solutions for security, payroll, accounting, social media and

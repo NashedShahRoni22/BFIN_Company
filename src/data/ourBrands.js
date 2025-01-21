@@ -9,22 +9,21 @@ import sosay from "../assets/Sosay.png";
 export const ourBrands = [
   {
     title: "Bitss WAP Protection",
-    details:
-      "Advanced protection against cyber threats for your business and website.",
+    details: "Secure login, blacklist IPs and prevent hacking or data theft.",
     url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
     icon: bitss,
   },
   {
     title: "Bitss C Contact Form",
     details:
-      "Advanced protection against cyber threats for your business and website.",
+      "Spam-free contact forms with real-time protection and user-friendly CAPTCHA.",
     url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
     icon: bitss,
   },
   {
     title: "Bitss VWAR frontline protection",
     details:
-      "Advanced protection against cyber threats for your business and website.",
+      "Real-time malware detection, neutralization and detailed modification tracking.",
     url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
     icon: bitss,
   },
