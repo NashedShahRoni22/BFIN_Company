@@ -31,13 +31,13 @@ export default function Hero() {
         </div>
 
         {/* Services Image Card Container */}
-        <div className="grid w-full grid-cols-2 place-items-center gap-8 rounded bg-gray-100 py-8 md:w-2/3 md:grid-cols-4">
+        <div className="w-full flex flex-wrap justify-center md:justify-normal gap-5 md:w-2/3">
           {ourBrands.map((service, i) => (
             <div key={i} className="group relative size-32 bg-white">
               <Link
                 to={service.url}
                 target="_blanck"
-                className="flex h-full items-center justify-center rounded border p-4 transition-all duration-200 ease-linear hover:border-primary"
+                className="flex h-full items-center justify-center p-4 rounded border shadow hover:border-primary transition-all duration-200 ease-linear"
               >
                 <img
                   src={service.icon}
