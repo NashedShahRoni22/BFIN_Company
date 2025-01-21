@@ -145,15 +145,15 @@ export default function Topbar() {
       ],
     },
     {
-      name: "Our Company",
+      name: "Company",
       child: [
         {
           name: "About Us",
           link: "/about",
         },
         {
-          name: "Our Services",
-          link: "/services",
+          name: "Our Brands",
+          link: "/our-brands",
         },
       ],
     },

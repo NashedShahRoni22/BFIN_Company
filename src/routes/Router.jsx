@@ -19,7 +19,7 @@ import SpecialSoftware from "../pages/SpecialSoftware";
 import ECommerceDetails from "../pages/ECommerceDetails/ECommerceDetails";
 import Reseller from "../pages/Reseller/Reseller";
 import EcommerceGuide from "../pages/EcommerceGuide/EcommerceGuide";
-import Services from "../pages/Services/Services";
+import OurBrands from "../pages/OurBrands/OurBrands";
 
 export const router = createBrowserRouter([
   {
@@ -39,8 +39,8 @@ export const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/services",
-        element: <Services />,
+        path: "/our-brands",
+        element: <OurBrands />,
       },
       {
         path: "/career",

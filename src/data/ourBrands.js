@@ -6,18 +6,32 @@ import bfinitSaas from "../assets/web-development.png";
 import whiteLabel from "../assets/white-label.png";
 import sosay from "../assets/Sosay.png";
 
-export const services = [
+export const ourBrands = [
   {
-    title: "Bitss Cyber Security",
+    title: "Bitss WAP Protection",
     details:
       "Advanced protection against cyber threats for your business and website.",
-    url: "https://bitss.fr/",
+    url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
+    icon: bitss,
+  },
+  {
+    title: "Bitss C Contact Form",
+    details:
+      "Advanced protection against cyber threats for your business and website.",
+    url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
+    icon: bitss,
+  },
+  {
+    title: "Bitss VWAR frontline protection",
+    details:
+      "Advanced protection against cyber threats for your business and website.",
+    url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
     icon: bitss,
   },
   {
     title: "Pensaki Blackboard",
     details: "The ultimate collaboration platform for teams and projects.",
-    url: "https://pensaki.org/",
+    url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANoJ3d_LCT_RZE_nOn43qeS",
     icon: pensaki,
   },
   {

@@ -51,15 +51,15 @@ export default function Home() {
           unmount: { scale: 0.9, y: -100 },
         }}
       >
-        <DialogBody className="relative p-8 rounded-lg bg-black text-white shadow-lg">
+        <DialogBody className="relative rounded-lg p-8 shadow-lg">
           <button
             onClick={handleClose}
-            className="absolute top-2 right-2 p-1 rounded-full bg-red-100 text-red-600"
+            className="absolute right-2 top-2 rounded-full bg-red-100 p-1 text-red-600"
           >
             <IoMdClose className="text-xl" />
           </button>
-          <div className="text-center mt-12 flex flex-col items-center gap-8">
-            <p className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#186BB5] via-white to-[#186BB5] animate-pulse">
+          <div className="mt-12 flex flex-col items-center gap-8 text-center">
+            <p className="animate-pulse text-5xl font-extrabold text-primary md:text-7xl lg:text-8xl">
               28% Off
             </p>
             <div className="flex items-center justify-center gap-4">
@@ -76,15 +76,15 @@ export default function Home() {
                 loading="lazy"
               />
             </div>
-            <p className="text-2xl md:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#186BB5] via-white to-[#186BB5]">
+            <p className="bg-clip-text text-2xl font-semibold text-primary md:text-4xl">
               Enjoy on yearly hosting plan
             </p>
             <Link
               to={"fully-managed-dedicated-server"}
-              className="px-6 py-3 bg-primary text-white font-semibold rounded shadow w-fit flex items-center gap-4 group"
+              className="group flex w-fit items-center gap-4 rounded border border-primary px-6 py-3 font-semibold text-primary shadow duration-300 ease-linear hover:bg-primary hover:text-white"
             >
               <span className="md:text-xl">Explore</span>
-              <MdArrowOutward className="md:text-xl group-hover:rotate-45 duration-300 ease-linear" />
+              <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45 md:text-xl" />
             </Link>
           </div>
         </DialogBody>
