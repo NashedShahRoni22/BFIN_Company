@@ -1,8 +1,13 @@
 import bitss from "../assets/bitss_icon.png";
 import pensaki from "../assets/Pensaki-Blackboard.png";
-import omada from "../assets/Omada.png";
-import ifgaap from "../assets/Ifgaap.png";
-import bfinitSaas from "../assets/web-development.png";
+import bfinitEcommerce from "../assets/logo/bfinit.png";
+import omadaHrPayroll from "../assets/logo/omada-hr-payroll.png";
+import omadaProjectManager from "../assets/logo/omada-project-manager.png";
+import clasicoPayslips from "../assets/logo/clasico-payslips.png";
+import ifgaapAccounting from "../assets/logo/ifgaap-accounting.png";
+import ifgaapInvoicing from "../assets/logo/ifgaap-invoicing.png";
+import hPanel from "../assets/logo/hpanel.png";
+import bobosoho from "../assets/logo/bobosoho.jpg";
 import whiteLabel from "../assets/white-label.png";
 import sosay from "../assets/Sosay.png";
 
@@ -21,11 +26,63 @@ export const ourBrands = [
     icon: bitss,
   },
   {
-    title: "Bitss VWAR frontline protection",
+    title: "Bitss VWAR Frontline Protection",
     details:
       "Real-time malware detection, neutralization and detailed modification tracking.",
     url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
     icon: bitss,
+  },
+  {
+    title: "BFINIT E-commerce",
+    details:
+      "Real-time malware detection, neutralization and detailed modification tracking.",
+    url: "/bfinit-ecomerce-platform",
+    icon: bfinitEcommerce,
+  },
+  {
+    title: "BFINIT hPanel",
+    details:
+      "Streamline accounting and invoicing processes for businesses of any size.",
+    url: "https://ifgaap.org/",
+    icon: hPanel,
+  },
+  {
+    title: "BFINIT White Label",
+    details: "Fully customizable white-label solutions for your business.",
+    url: "https://bfin.company/software/white_label/",
+    icon: whiteLabel,
+  },
+  {
+    title: "Ifgaap Accounting",
+    details:
+      "Streamline accounting and invoicing processes for businesses of any size.",
+    url: "https://ifgaap.org/",
+    icon: ifgaapAccounting,
+  },
+  {
+    title: "Ifgaap Invoicing",
+    details:
+      "Streamline accounting and invoicing processes for businesses of any size.",
+    url: "https://ifgaap.org/",
+    icon: ifgaapInvoicing,
+  },
+  {
+    title: "Omada HR Payroll",
+    details: "Simplify payroll management and HR tasks with ease.",
+    url: "https://omada-clasico.org/",
+    icon: omadaHrPayroll,
+  },
+  {
+    title: "Omada Project Manager",
+    details: "Simplify payroll management and HR tasks with ease.",
+    url: "https://omada-clasico.org/",
+    icon: omadaProjectManager,
+  },
+  {
+    title: "Clasico Payslips",
+    details: "Simplify payroll management and HR tasks with ease.",
+    url: "https://omada-clasico.org/",
+    icon: clasicoPayslips,
   },
   {
     title: "Pensaki Blackboard",
@@ -34,29 +91,11 @@ export const ourBrands = [
     icon: pensaki,
   },
   {
-    title: "Omada HR Payroll",
-    details: "Simplify payroll management and HR tasks with ease.",
-    url: "https://omada-clasico.org/",
-    icon: omada,
-  },
-  {
-    title: "Ifgaap Accounting & Invoicing",
+    title: "Bobosoho Mail",
     details:
       "Streamline accounting and invoicing processes for businesses of any size.",
-    url: "https://ifgaap.org/",
-    icon: ifgaap,
-  },
-  {
-    title: "BFINIT SaaS Software",
-    details: "Innovative software solutions tailored to your SaaS needs.",
-    url: "https://officetools.bobosoho.com/special-software/",
-    icon: bfinitSaas,
-  },
-  {
-    title: "BFINIT White Label",
-    details: "Fully customizable white-label solutions for your business.",
-    url: "https://bfin.company/software/white_label/",
-    icon: whiteLabel,
+    url: "https://bobosoho.com",
+    icon: bobosoho,
   },
   {
     title: "Sosay Social Media",

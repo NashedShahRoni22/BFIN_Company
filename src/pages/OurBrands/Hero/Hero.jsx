@@ -1,4 +1,7 @@
+import { BiSolidDownArrow } from "react-icons/bi";
 import { ourBrands } from "../../../data/ourBrands";
+import { Link } from "react-router-dom";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 export default function Hero() {
   return (
@@ -11,26 +14,44 @@ export default function Hero() {
         more.
       </p>
 
-      {/* Services Card Container */}
-      <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {ourBrands.map((service, i) => (
-          <div key={i} className="rounded border p-4">
-            <img
-              src={service.icon}
-              alt={service.title}
-              className="h-16 w-auto"
-            />
-            <h3 className="my-2 text-xl font-semibold">{service.title}</h3>
-            <p className="mb-4">{service.details}</p>
-            <a
-              href={service.url}
+      <div className="mt-20 flex gap-8 md:gap-16">
+        {/* Left Side Services Name */}
+        <div className="hidden w-1/3 flex-col gap-4 md:flex">
+          {ourBrands.map((brand, i) => (
+            <Link
+              key={i}
+              to={brand.url}
               target="_blanck"
-              className="text-sm font-medium text-primary transition-all duration-200 ease-linear hover:font-semibold"
+              className="group flex items-center gap-1 transition-all duration-200 ease-linear hover:font-semibold hover:text-primary"
             >
-              Learn More
-            </a>
-          </div>
-        ))}
+              <MdOutlineArrowOutward className="min-w-fit text-lg transition-all duration-200 ease-linear group-hover:rotate-45" />
+              {brand.title}
+            </Link>
+          ))}
+        </div>
+
+        {/* Services Image Card Container */}
+        <div className="grid w-full grid-cols-2 place-items-center gap-8 rounded bg-gray-100 py-8 md:w-2/3 md:grid-cols-4">
+          {ourBrands.map((service, i) => (
+            <div key={i} className="group relative size-32 bg-white">
+              <Link
+                to={service.url}
+                target="_blanck"
+                className="flex h-full items-center justify-center rounded border p-4 transition-all duration-200 ease-linear hover:border-primary"
+              >
+                <img
+                  src={service.icon}
+                  alt={service.title}
+                  className="h-16 w-auto object-contain"
+                />
+              </Link>
+              <BiSolidDownArrow className="absolute bottom-full left-1/2 hidden -translate-x-1/2 text-primary group-hover:block" />
+              <p className="absolute bottom-[109%] left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded bg-primary px-4 py-1 font-medium text-white group-hover:block">
+                {service.title}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
