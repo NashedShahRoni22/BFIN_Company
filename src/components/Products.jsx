@@ -1,4 +1,3 @@
-import React from "react";
 import bitss from "../assets/Bitss-cyber-security.png";
 import omada from "../assets/Omada.png";
 import ifgaap from "../assets/Ifgaap.png";
@@ -43,28 +42,33 @@ export default function Products() {
   ];
 
   return (
-    <section className="mx-5 md:container md:mx-auto py-10 md:py-20">
-      <h5 className="text-2xl md:text-4xl text-primary font-extrabold">
+    <section className="mx-5 py-10 md:container md:mx-auto md:py-20">
+      <h5 className="text-2xl font-extrabold text-primary md:text-4xl">
         Our Products
       </h5>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-20">
+      <div className="mt-10 grid gap-5 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product, i) => (
           <div
             key={i}
-            className="flex flex-col justify-between p-5 h-full md:hover:-translate-y-5 duration-300 ease-linear rounded-xl shadow-xl"
+            className="flex h-full flex-col justify-between rounded-xl p-5 shadow-xl duration-300 ease-linear md:hover:-translate-y-5"
           >
-            <img src={product.image} alt="" loading="lazy" />
-            <h5 className="text-xl mt-5 md:text-2xl text-primary font-extrabold">
+            <img
+              src={product.image}
+              alt={product.title}
+              loading="lazy"
+              className="h-24 w-auto object-contain"
+            />
+            <h5 className="mt-5 text-xl font-extrabold text-primary md:text-2xl">
               {product.title}
             </h5>
             <p className="my-2.5">{product.desc}</p>
             <Link
               to={product.link}
               target="_blank"
-              className="px-4 py-2 flex items-center gap-2 border rounded border-primary w-fit hover:bg-primary hover:text-white group duration-300 ease-linear"
+              className="group flex w-fit items-center gap-2 rounded border border-primary px-4 py-2 duration-300 ease-linear hover:bg-primary hover:text-white"
             >
               <span>Learn more</span>
-              <MdArrowOutward className="group-hover:rotate-45 duration-300 ease-linear text-xl" />
+              <MdArrowOutward className="text-xl duration-300 ease-linear group-hover:rotate-45" />
             </Link>
           </div>
         ))}

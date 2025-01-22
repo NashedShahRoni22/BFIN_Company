@@ -34,13 +34,21 @@ export default function About() {
           <p className="text-2xl font-semibold text-primary md:text-4xl">
             This is Who We Are
           </p>
-          <p>
-            BFIN SASU, a French research company in IT security, with Bitss
-            providing ultimate cyber security for networks, dedicated servers,
-            WP database protection including the Bitss secured client contact
-            page that prevents scamming and other threats, and Bobosoho SaaS
-            software and soho hosting services.
-          </p>
+          <div>
+            <p className="mb-1.5">
+              BFIN SASU, a French research company in IT security, with Bitss
+              providing ultimate cyber security, with bitss wap login
+              enforcement protection for websites, Bitss C secured anti spam and
+              virus website contact form, and Bitss Vway Malware a software that
+              identifies, neutralises, removes and destroys MALWARE coding sent
+              to destroy a website server or laptop with specific objects.
+            </p>
+            <p>
+              Bfinit in addition provides server hosting, ecommerce platform,
+              white label, and SaaS software products with ongoing research to
+              improve its technology and giving infinit value to our brands
+            </p>
+          </div>
           <div className="flex gap-4">
             <Link
               to={"/contact"}

@@ -40,10 +40,10 @@ export const ourBrands = [
     icon: bfinitEcommerce,
   },
   {
-    title: "BFINIT hPanel",
+    title: "BFINIT hPanel Hosting",
     details:
       "Streamline accounting and invoicing processes for businesses of any size.",
-    url: "https://ifgaap.org/",
+    url: "https://hpanel.bfinit.com/",
     icon: hPanel,
   },
   {
@@ -53,14 +53,14 @@ export const ourBrands = [
     icon: whiteLabel,
   },
   {
-    title: "Ifgaap Accounting",
+    title: "Ifgaap GL Accounting",
     details:
       "Streamline accounting and invoicing processes for businesses of any size.",
     url: "https://ifgaap.org/",
     icon: ifgaapAccounting,
   },
   {
-    title: "Ifgaap Invoicing",
+    title: "Ifgaap Mobile Invoicing",
     details:
       "Streamline accounting and invoicing processes for businesses of any size.",
     url: "https://ifgaap.org/",
@@ -98,7 +98,7 @@ export const ourBrands = [
     icon: bobosoho,
   },
   {
-    title: "Sosay Social Media",
+    title: "Social Network & Business Platform",
     details:
       "Boost your online presence with effective social media management tools.",
     url: "https://sosay.org/",

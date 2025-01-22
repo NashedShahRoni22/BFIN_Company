@@ -7,11 +7,13 @@ export default function Hero() {
   return (
     <section className="mx-5 py-10 md:container md:mx-auto md:py-20">
       <h2 className="text-center text-3xl font-bold md:text-4xl">
-        Explore Our Brands
+        Explore Our Leading Brands
       </h2>
-      <p className="mt-6 text-balance text-center text-lg leading-relaxed">
-        Discover solutions for security, payroll, accounting, social media and
-        more.
+      <p className="mt-6 text-center text-lg leading-relaxed md:text-balance">
+        Each of our brands adds integrated value, offering features that benefit
+        both private and business users. <br /> We strive to enhance our brands,
+        continually adding new technologies to ensure their utility remains
+        infinite.
       </p>
 
       <div className="mt-20 flex gap-8 md:gap-16">
@@ -31,22 +33,23 @@ export default function Hero() {
         </div>
 
         {/* Services Image Card Container */}
-        <div className="w-full flex flex-wrap justify-center md:justify-normal gap-5 md:w-2/3">
+        <div className="flex w-full flex-wrap justify-center gap-5 md:w-2/3 md:justify-normal">
           {ourBrands.map((service, i) => (
-            <div key={i} className="group relative size-32 bg-white">
-              <Link
-                to={service.url}
-                target="_blanck"
-                className="flex h-full items-center justify-center p-4 rounded border shadow hover:border-primary transition-all duration-200 ease-linear"
-              >
-                <img
-                  src={service.icon}
-                  alt={service.title}
-                  className="h-16 w-auto object-contain"
-                />
-              </Link>
-              <BiSolidDownArrow className="absolute bottom-full left-1/2 hidden -translate-x-1/2 text-primary group-hover:block" />
-              <p className="absolute bottom-[109%] left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded bg-primary px-4 py-1 font-medium text-white group-hover:block">
+            <div key={i} className="w-32 md:w-44">
+              <div className="group relative size-32 bg-white md:size-44">
+                <Link
+                  to={service.url}
+                  target="_blanck"
+                  className="flex h-full items-center justify-center rounded border p-4 shadow transition-all duration-200 ease-linear hover:border-primary"
+                >
+                  <img src={service.icon} alt={service.title} />
+                </Link>
+                <BiSolidDownArrow className="absolute bottom-full left-1/2 hidden -translate-x-1/2 text-primary group-hover:block" />
+                <p className="absolute bottom-[106%] left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded bg-primary px-4 py-1 text-sm font-medium text-white group-hover:block md:text-base">
+                  {service.title}
+                </p>
+              </div>
+              <p className="mt-2.5 text-center text-sm font-semibold">
                 {service.title}
               </p>
             </div>
