@@ -20,6 +20,7 @@ import ECommerceDetails from "../pages/ECommerceDetails/ECommerceDetails";
 import Reseller from "../pages/Reseller/Reseller";
 import EcommerceGuide from "../pages/EcommerceGuide/EcommerceGuide";
 import OurBrands from "../pages/OurBrands/OurBrands";
+import BlogDetails from "../pages/Blog/BlogDetails";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs />,
+      },
+      {
+        path: "/blog/:slug",
+        element: <BlogDetails />,
       },
       {
         path: "/our-products",

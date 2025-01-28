@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../../shared/Loader";
 
 export default function Blogs() {
   const blogsData = [
@@ -55,38 +57,52 @@ export default function Blogs() {
     },
   ];
 
+  const [data, setData] = useState([]);
+  const [loader, setLoader] = useState(false);
+  useEffect(()=>{
+    setLoader(true)
+    fetch("https://api.blog.bfinit.com/api/v1/show_blog/31")
+    .then(res => res.json())
+    .then(data => {
+      setData(data?.data?.data);
+      setLoader(false)
+    })
+  },[])
+
   return (
-    <section className="py-10 md:py-20 mx-5 md:container md:mx-auto">
+    <section className="py-10 mx-5 md:container md:mx-auto">
       <h2 className="md:text-2xl text-primary font-semibold">
         Recent Blogs & Information
       </h2>
-      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {blogsData.map((data, i) => (
-          <div key={i} className="rounded border">
-            <Link to="/">
-              <img
-                src={data.image}
-                alt=""
-                loading="lazy"
-                className="rounded-t border-b"
-              />
+      {
+        loader ?
+        <Loader/>
+        :
+        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {data?.map((data, i) => (
+          <div key={i} className="rounded border flex flex-col">
+            <img
+              src={data.thumbnail}
+              alt=""
+              loading="lazy"
+              className="rounded-t w-full h-auto"
+            />
+          <div className="p-4">
+            <h5 to="/" className="text-xl font-semibold">
+              {data.title}
+            </h5>
+            <div dangerouslySetInnerHTML={{ __html: data?.content.slice(0, 200) }} className="text-justify mt-1.5 mb-5" />
+            <Link
+              to={`blog/${data.custom_url}`}
+              className="px-4 py-2 inline-block bg-primary text-white rounded w-fit self-start"
+            >
+              Read More
             </Link>
-            <div className="px-4 py-6">
-              <Link to="/" className="text-xl font-semibold">
-                {data.title}
-              </Link>
-              <p className="mb-4 mt-1">{data.date}</p>
-              <p className="">{data.description}</p>
-              <Link
-                to="/"
-                className="mt-4 px-4 py-2 inline-block bg-primary text-white rounded"
-              >
-                Read More
-              </Link>
-            </div>
           </div>
+        </div>
         ))}
       </div>
+      }
     </section>
   );
 }

@@ -35,7 +35,7 @@ export default function Topbar() {
       link: "/",
     },
     {
-      name: "Hosting Products",
+      name: "Data Centers",
       child: [
         {
           name: "Fully Managed Dedicated Server",
