@@ -59,50 +59,54 @@ export default function Blogs() {
 
   const [data, setData] = useState([]);
   const [loader, setLoader] = useState(false);
-  useEffect(()=>{
-    setLoader(true)
+  useEffect(() => {
+    setLoader(true);
     fetch("https://api.blog.bfinit.com/api/v1/show_blog/31")
-    .then(res => res.json())
-    .then(data => {
-      setData(data?.data?.data);
-      setLoader(false)
-    })
-  },[])
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data?.data?.data);
+        setLoader(false);
+      });
+  }, []);
 
   return (
-    <section className="py-10 mx-5 md:container md:mx-auto">
-      <h2 className="md:text-2xl text-primary font-semibold">
+    <section className="mx-5 py-10 md:container md:mx-auto">
+      <h2 className="font-semibold text-primary md:text-2xl">
         Recent Blogs & Information
       </h2>
-      {
-        loader ?
-        <Loader/>
-        :
+      {loader ? (
+        <Loader />
+      ) : (
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {data?.map((data, i) => (
-          <div key={i} className="rounded border flex flex-col">
-            <img
-              src={data.thumbnail}
-              alt=""
-              loading="lazy"
-              className="rounded-t w-full h-auto"
-            />
-          <div className="p-4">
-            <h5 to="/" className="text-xl font-semibold">
-              {data.title}
-            </h5>
-            <div dangerouslySetInnerHTML={{ __html: data?.content.slice(0, 200) }} className="text-justify mt-1.5 mb-5" />
-            <Link
-              to={`blog/${data.custom_url}`}
-              className="px-4 py-2 inline-block bg-primary text-white rounded w-fit self-start"
-            >
-              Read More
-            </Link>
-          </div>
+          {data?.map((data, i) => (
+            <div key={i} className="flex flex-col rounded border">
+              <img
+                src={data.thumbnail}
+                alt=""
+                loading="lazy"
+                className="h-auto w-full rounded-t"
+              />
+              <div className="p-4">
+                <h5 to="/" className="text-xl font-semibold">
+                  {data.title}
+                </h5>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: data?.content.slice(0, 200),
+                  }}
+                  className="mb-5 mt-1.5 text-justify"
+                />
+                <Link
+                  to={`blog/${data.custom_url}`}
+                  className="inline-block w-fit self-start rounded bg-primary px-4 py-2 text-white"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
-        ))}
-      </div>
-      }
+      )}
     </section>
   );
 }

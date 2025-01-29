@@ -34,8 +34,8 @@ export default function Home() {
       <Hero />
       {/* <KeywordsMerque /> */}
       <Ecommerce />
-      <Businessproof />
       <Products />
+      <Businessproof />
       <OurServices />
       <DigitalEconomy />
       <OurWorkingProcess />

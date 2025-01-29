@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 
 export default function HostingPackages({ s }) {
   const [storages, setStorages] = useState([]);
   const [exchangeRates, setExchangeRates] = useState([]);
-  const [exchangeRate, setExchangeRate] = useState(1); 
-  const [currencyCode, setCurrencyCode] = useState("USD"); 
+  const [exchangeRate, setExchangeRate] = useState(1);
+  const [currencyCode, setCurrencyCode] = useState("USD");
 
   // Initialize with default values
   const [serverId, setServerId] = useState(s.id);
-  const [ramId, setRamId] = useState(s.uniqueRams[0]); 
+  const [ramId, setRamId] = useState(s.uniqueRams[0]);
   const [storageId, setStorageId] = useState(s.storages[0]);
-  const [contract, setContract] = useState("3"); 
+  const [contract, setContract] = useState("3");
 
   // Prices data
   const [updatedPrice, setUpdatedPrice] = useState("");
@@ -27,7 +27,7 @@ export default function HostingPackages({ s }) {
         .then((res) => res.json())
         .then((data) => {
           setStorages(data?.data);
-          setStorageId(data?.data[0]?.storage); 
+          setStorageId(data?.data[0]?.storage);
         });
     }
   }, [serverId, ramId]);
@@ -85,7 +85,7 @@ export default function HostingPackages({ s }) {
   const handleCurrencyChange = (e) => {
     const selectedCurrencyCode = e.target.value;
     const selectedCurrencyRate = exchangeRates.find(
-      ([currency, rate]) => currency === selectedCurrencyCode
+      ([currency, rate]) => currency === selectedCurrencyCode,
     )[1];
 
     setCurrencyCode(selectedCurrencyCode);
@@ -93,7 +93,7 @@ export default function HostingPackages({ s }) {
   };
 
   return (
-    <div className="flex flex-col justify-between gap-2.5 p-6 shadow rounded">
+    <div className="flex flex-col justify-between gap-2.5 rounded p-6 shadow">
       <h5 className="font-bold text-primary">{s?.name}</h5>
       <div className="flex items-center gap-2">
         <img
@@ -105,7 +105,7 @@ export default function HostingPackages({ s }) {
         <div>
           <p className="text-sm">{s?.processor}</p>
           <hr />
-          <h5 className="font-semibold text-sm">{s?.core}</h5>
+          <h5 className="text-sm font-semibold">{s?.core}</h5>
         </div>
       </div>
 
@@ -142,7 +142,7 @@ export default function HostingPackages({ s }) {
         <select
           value={ramId}
           onChange={(e) => setRamId(e.target.value)}
-          className="px-4 py-1 border rounded focus:outline-none border-primary "
+          className="rounded border border-primary px-4 py-1 focus:outline-none"
         >
           {s?.uniqueRams?.map((ur, index) => (
             <option key={index} value={ur}>
@@ -161,7 +161,7 @@ export default function HostingPackages({ s }) {
           <select
             value={storageId}
             onChange={(e) => setStorageId(e.target.value)}
-            className="px-4 py-1 border rounded focus:outline-none border-primary "
+            className="rounded border border-primary px-4 py-1 focus:outline-none"
           >
             {storages?.map((us, index) => (
               <option key={index} value={us?.storage}>
@@ -173,7 +173,7 @@ export default function HostingPackages({ s }) {
           <select
             value={storageId}
             onChange={(e) => setStorageId(e.target.value)}
-            className="px-4 py-1 border rounded focus:outline-none border-primary "
+            className="rounded border border-primary px-4 py-1 focus:outline-none"
           >
             {s?.storages?.map((us, index) => (
               <option key={index} value={us}>
@@ -192,7 +192,7 @@ export default function HostingPackages({ s }) {
         <select
           value={contract}
           onChange={(e) => setContract(e.target.value)}
-          className="px-4 py-1 border rounded focus:outline-none border-primary"
+          className="rounded border border-primary px-4 py-1 focus:outline-none"
         >
           <option value="1">1 Months</option>
           <option value="3">3 Months (15% Discount)</option>
@@ -210,7 +210,7 @@ export default function HostingPackages({ s }) {
         <select
           value={currencyCode}
           onChange={handleCurrencyChange}
-          className="px-4 py-1 border rounded focus:outline-none border-primary "
+          className="rounded border border-primary px-4 py-1 focus:outline-none"
         >
           {exchangeRates.map(([currencyCode], i) => (
             <option key={i} value={currencyCode}>
@@ -246,7 +246,7 @@ export default function HostingPackages({ s }) {
         ))}
       </div>
       {/* Display Standard and Discounted Prices */}
-      <p className="text-primary text-center">
+      <p className="text-center font-semibold text-primary">
         {updatedPrice !== "" ? (
           (updatedPrice * exchangeRate).toFixed(2)
         ) : (
@@ -258,8 +258,8 @@ export default function HostingPackages({ s }) {
       {/* Discounted price */}
       {discountedPrice !== "" && (
         <>
-          <p className="text-sm font-semibold text-center">You are paying</p>
-          <p className="text-xl md:text-2xl font-semibold text-primary text-center">
+          <p className="text-center text-sm font-semibold">You are paying</p>
+          <p className="text-center text-xl font-semibold text-primary md:text-2xl">
             {discountedPrice} {currencyCode}
           </p>
         </>
@@ -270,10 +270,10 @@ export default function HostingPackages({ s }) {
         <>
           {standardPrice !== "" && (
             <>
-              <p className="text-sm text-center">
+              <p className="text-center text-sm">
                 Standard regular price for {contract} month
               </p>
-              <p className="font-semibold text-red-400 line-through text-center">
+              <p className="text-center font-semibold text-red-400 line-through">
                 {standardPrice} {currencyCode}
               </p>
             </>
@@ -284,7 +284,7 @@ export default function HostingPackages({ s }) {
       <Link
         to={`https://hpanel.bfinit.com/checkout?productId=${serverId}&packageType=server&ram=${ramId}&storage=${storageId}&timePeriod=${contract}&currency=${currencyCode}&currencyRate=${exchangeRate}&storageVariantId=`}
         target="_blank"
-        className="px-4 py-2 rounded-xl bg-primary text-white text-center mt-10"
+        className="mt-10 rounded-xl bg-primary px-4 py-2 text-center text-white"
       >
         Order Now
       </Link>

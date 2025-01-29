@@ -1,8 +1,7 @@
-import React from "react";
 import hosting from "../assets/hosting-N2.png";
 import retail from "../assets/retail.png";
 import white from "../assets/white-label.png";
-import wp from "../assets/wordpress-development.png";
+import ecomSass from "../assets/ecommerce-sass.png";
 import web from "../assets/web-development.png";
 import security from "../assets/Cyber-Security-N2.png";
 
@@ -14,9 +13,9 @@ export default function OurServices() {
       desc: "BFINIT offers Soho server hosting with comprehensive security, including Bitss protection against natural disasters, data theft, and hackers. Our fully managed hosting services ensure 100% uptime, with backups to another data center and Bitss cloud protection, safeguarding your websites from unforeseen threats.",
     },
     {
-      image: wp,
-      title: "WordPress Security & Development",
-      desc: "BFINIT provides comprehensive WordPress development with Bitss Cyber Security, safeguarding your site against hackers and intrusions. Secure your online presence with Bitss WAP and Vwar frontline virus defenders, ensuring robust protection and long-term security for your WordPress site.",
+      image: ecomSass,
+      title: "E-commerce SaaS Platform",
+      desc: "BFINIT delivers a powerful E-commerce SaaS solution, enabling businesses to launch and manage online stores effortlessly. Our platform ensures top-tier security with Bitss Cyber Protection, while offering seamless scalability, payment integrations, and robust store management features.",
     },
     {
       image: web,
@@ -42,23 +41,23 @@ export default function OurServices() {
   ];
 
   return (
-    <section className="mx-5 md:container md:mx-auto py-10 md:py-20">
-      <h5 className="text-2xl md:text-4xl text-primary font-extrabold">
+    <section className="mx-5 py-10 md:container md:mx-auto md:py-20">
+      <h5 className="text-2xl font-extrabold text-primary md:text-4xl">
         Our Software & Services
       </h5>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-20">
+      <div className="mt-10 grid gap-5 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
         {items.map((item, i) => (
           <div
             key={i}
-            className="p-5 rounded-xl shadow-xl md:hover:-translate-y-5 ease-linear duration-300"
+            className="rounded-xl p-5 shadow-xl duration-300 ease-linear md:hover:-translate-y-5"
           >
             <img
               src={item.image}
-              className="h-[80px] w-[80px]"
+              className="size-[80px]"
               alt=""
               loading="lazy"
             />
-            <h5 className="mt-5 text-[20px] md:text-[26px] font-semibold text-primary">
+            <h5 className="mt-5 text-[20px] font-semibold text-primary md:text-[26px]">
               {item.title}
             </h5>
             <p className="mt-2.5 text-[12px] md:text-[16px]">{item.desc}</p>

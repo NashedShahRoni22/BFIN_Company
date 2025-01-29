@@ -1,4 +1,6 @@
-import bitss from "../assets/bitss_icon.png";
+import wap from "../assets/logo/bitss-wap.png";
+import cContactForm from "../assets/logo/bitss-c.png";
+import vWar from "../assets/logo/bitss-vwar.png";
 import pensaki from "../assets/Pensaki-Blackboard.png";
 import bfinitEcommerce from "../assets/logo/bfinit.png";
 import omadaHrPayroll from "../assets/logo/omada-hr-payroll.png";
@@ -13,24 +15,24 @@ import sosay from "../assets/Sosay.png";
 
 export const ourBrands = [
   {
-    title: "Bitss WAP Protection",
+    title: "Bitss WAP Login Protection for Website",
     details: "Secure login, blacklist IPs and prevent hacking or data theft.",
     url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
-    icon: bitss,
+    icon: wap,
   },
   {
-    title: "Bitss C Contact Form",
+    title: "Bitss C Contact Form for Website",
     details:
       "Spam-free contact forms with real-time protection and user-friendly CAPTCHA.",
     url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
-    icon: bitss,
+    icon: cContactForm,
   },
   {
-    title: "Bitss VWAR Frontline Protection",
+    title: "Bitss VWAR Frontline Protection for Device",
     details:
       "Real-time malware detection, neutralization and detailed modification tracking.",
     url: "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
-    icon: bitss,
+    icon: vWar,
   },
   {
     title: "BFINIT E-commerce",

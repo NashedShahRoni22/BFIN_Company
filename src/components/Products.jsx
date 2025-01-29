@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
+import { MdArrowOutward } from "react-icons/md";
 import bitss from "../assets/Bitss-cyber-security.png";
 import omada from "../assets/Omada.png";
 import ifgaap from "../assets/Ifgaap.png";
 // import kcorral from "../assets/kcorral.png";
 import pensaki from "../assets/Pensaki-Blackboard.png";
 import sosay from "../assets/Sosay.png";
-import { Link } from "react-router-dom";
-import { MdArrowOutward } from "react-icons/md";
+import dataCenter from "../assets/hosting.png";
 
 export default function Products() {
   const products = [
@@ -38,6 +39,12 @@ export default function Products() {
       title: "IFGAAP Accounting and Invoicing",
       desc: "IFGAAP offers advanced accounting features like multi-user access, tax management, and real-time processing. It streamlines invoicing, financial reporting, and compliance, making it essential for efficient financial management.",
       link: "https://ifgaap.org/",
+    },
+    {
+      image: dataCenter,
+      title: "Data Center Solutions",
+      desc: "Data Center Solutions provide secure, high-performance hosting with scalable infrastructure for businesses. Our data centers ensure 24/7 uptime, robust cybersecurity, and optimized performance for eCommerce, cloud computing, and enterprise applications.",
+      link: "https://bfinit-datacenter.org/",
     },
   ];
 
