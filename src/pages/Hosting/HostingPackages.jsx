@@ -5,14 +5,14 @@ import { FaCheck } from "react-icons/fa";
 export default function HostingPackages({ s }) {
   const [storages, setStorages] = useState([]);
   const [exchangeRates, setExchangeRates] = useState([]);
-  const [exchangeRate, setExchangeRate] = useState(1); // Default exchange rate of 1
-  const [currencyCode, setCurrencyCode] = useState("USD"); // Default currency as USD
+  const [exchangeRate, setExchangeRate] = useState(1); 
+  const [currencyCode, setCurrencyCode] = useState("USD"); 
 
   // Initialize with default values
   const [serverId, setServerId] = useState(s.id);
-  const [ramId, setRamId] = useState(s.uniqueRams[0]); // First RAM element selected by default
-  const [storageId, setStorageId] = useState(s.storages[0]); // First Storage element selected by default
-  const [contract, setContract] = useState("3"); // Default to 3 months
+  const [ramId, setRamId] = useState(s.uniqueRams[0]); 
+  const [storageId, setStorageId] = useState(s.storages[0]);
+  const [contract, setContract] = useState("3"); 
 
   // Prices data
   const [updatedPrice, setUpdatedPrice] = useState("");
@@ -27,7 +27,7 @@ export default function HostingPackages({ s }) {
         .then((res) => res.json())
         .then((data) => {
           setStorages(data?.data);
-          setStorageId(data?.data[0]?.storage); // Select the first storage by default
+          setStorageId(data?.data[0]?.storage); 
         });
     }
   }, [serverId, ramId]);

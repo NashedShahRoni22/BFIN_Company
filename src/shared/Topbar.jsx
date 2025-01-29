@@ -6,10 +6,179 @@ import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
 import logo from "../assets/logo.png";
 
+const MenuItems = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Data Centers",
+    // child: [
+    //   {
+    //     name: "Fully Managed Dedicated Server",
+    //     link: "/fully-managed-dedicated-server",
+    //   },
+    //   {
+    //     name: "Fully Managed Virtual Dedicated Server",
+    //     link: "/fully-managed-virtual-dedicated-server",
+    //   },
+    //   {
+    //     name: "Self Managed Dedicated Server",
+    //     link: "/self-managed-dedicated-server",
+    //   },
+    //   {
+    //     name: "Fully Managed Pure Website Hosting",
+    //     link: "fully-managed-pure-web-hosting",
+    //   },
+    //   {
+    //     name: "Self Managed Pure Website Hosting",
+    //     link: "/self-managed-pure-web-hosting",
+    //   },
+    // ],
+    child:[],
+  },
+  {
+    name: "Our Technologies",
+    child: [
+      {
+        header: "IT Cyber Security",
+        subChild: [
+          {
+            name: "Bitss Cyber Security",
+            link: "https://bitss.fr/",
+          },
+        ],
+      },
+      {
+        header: "Build Business",
+        subChild: [
+          {
+            name: "SaaS Software",
+            link: "/software",
+          },
+          {
+            name: "White Label",
+            link: "/white-label",
+          },
+          {
+            name: "Become a Reseller",
+            link: "/reseller-program",
+          },
+          {
+            name: "E-commerce Platform",
+            link: "/bfinit-ecomerce-platform",
+          },
+          {
+            name: "E-commerce Guide",
+            link: "/ecommerce-guide",
+          },
+        ],
+      },
+      {
+        header: "Social Communication",
+        subChild: [
+          {
+            name: "Sosay",
+            link: "https://sosay.org/",
+          },
+          {
+            name: "Bobosoho",
+            link: "https://bobosoho.com/",
+          },
+        ],
+      },
+      {
+        header: "Expand Business",
+        subChild: [
+          {
+            name: "Pensaki Blackboard",
+            link: "https://pensaki.org/",
+          },
+          {
+            name: "hPanel Hosting Manager",
+            link: "/fully-managed-dedicated-server",
+          },
+          {
+            name: "Omada HR Payroll",
+            link: "https://omada-clasico.org/omada-hr-payroll",
+          },
+          {
+            name: "Omada Project Management",
+            link: "https://omada-clasico.org/project-management",
+          },
+          {
+            name: "Clasico Payslips",
+            link: "https://omada-clasico.org/clasico-payslip",
+          },
+          {
+            name: "Ifgaap Mobile Invoicing",
+            link: "https://ifgaap.org/",
+          },
+          {
+            name: "Ifgaap GL Accounting",
+            link: "https://ifgaap.org/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Company",
+    child: [
+      {
+        name: "About Us",
+        link: "/about",
+      },
+      {
+        name: "Our Brands",
+        link: "/our-brands",
+      },
+    ],
+  },
+  {
+    name: "Career",
+    link: "/career",
+  },
+];
+
 export default function Topbar() {
   const [showNav, setShowNav] = useState(false);
   const [showChild, setShowChild] = useState("");
   const [showSubMenu, setShowSubMenu] = useState(null);
+  const [hostingProducts, setHostingProducts] = useState([]);
+  const [updatedMenuItems, setUpdatedMenuItems] = useState(MenuItems);
+  
+
+  // fetching hosting products
+  useEffect(() => {
+    const fetchHostingProducts = async () => {
+      const response = await fetch("https://hpanel.bfinit.com/api/product/categories");
+      const data = await response.json();
+      setHostingProducts(data.data);
+    };
+
+    fetchHostingProducts();
+  }, []);
+
+  // Update the MenuItems when hostingProducts changes
+  useEffect(() => {
+    if (hostingProducts.length > 0) {
+      const updatedChild = hostingProducts.map((product) => ({
+        name: product.name,
+        link: `/hosting-products/${product.id}`,
+      }));
+      const updatedMenu = updatedMenuItems.map((item) => {
+        if (item.name === "Data Centers") {
+          return {
+            ...item,
+            child: updatedChild,
+          };
+        }
+        return item;
+      });
+      setUpdatedMenuItems(updatedMenu);
+    }
+  }, [hostingProducts]);
 
   // Function to handle scroll event
   const handleScroll = () => {
@@ -29,140 +198,6 @@ export default function Topbar() {
     };
   }, []);
 
-  const MenuItems = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "Data Centers",
-      child: [
-        {
-          name: "Fully Managed Dedicated Server",
-          link: "/fully-managed-dedicated-server",
-        },
-        {
-          name: "Fully Managed Virtual Dedicated Server",
-          link: "/fully-managed-virtual-dedicated-server",
-        },
-        {
-          name: "Self Managed Dedicated Server",
-          link: "/self-managed-dedicated-server",
-        },
-        {
-          name: "Fully Managed Pure Website Hosting",
-          link: "fully-managed-pure-web-hosting",
-        },
-        {
-          name: "Self Managed Pure Website Hosting",
-          link: "/self-managed-pure-web-hosting",
-        },
-      ],
-    },
-    {
-      name: "Our Technologies",
-      child: [
-        {
-          header: "IT Cyber Security",
-          subChild: [
-            {
-              name: "Bitss Cyber Security",
-              link: "https://bitss.fr/",
-            },
-          ],
-        },
-        {
-          header: "Build Business",
-          subChild: [
-            {
-              name: "SaaS Software",
-              link: "/software",
-            },
-            {
-              name: "White Label",
-              link: "/white-label",
-            },
-            {
-              name: "Become a Reseller",
-              link: "/reseller-program",
-            },
-            {
-              name: "E-commerce Platform",
-              link: "/bfinit-ecomerce-platform",
-            },
-            {
-              name: "E-commerce Guide",
-              link: "/ecommerce-guide",
-            },
-          ],
-        },
-        {
-          header: "Social Communication",
-          subChild: [
-            {
-              name: "Sosay",
-              link: "https://sosay.org/",
-            },
-            {
-              name: "Bobosoho",
-              link: "https://bobosoho.com/",
-            },
-          ],
-        },
-        {
-          header: "Expand Business",
-          subChild: [
-            {
-              name: "Pensaki Blackboard",
-              link: "https://pensaki.org/",
-            },
-            {
-              name: "hPanel Hosting Manager",
-              link: "/fully-managed-dedicated-server",
-            },
-            {
-              name: "Omada HR Payroll",
-              link: "https://omada-clasico.org/omada-hr-payroll",
-            },
-            {
-              name: "Omada Project Management",
-              link: "https://omada-clasico.org/project-management",
-            },
-            {
-              name: "Clasico Payslips",
-              link: "https://omada-clasico.org/clasico-payslip",
-            },
-            {
-              name: "Ifgaap Mobile Invoicing",
-              link: "https://ifgaap.org/",
-            },
-            {
-              name: "Ifgaap GL Accounting",
-              link: "https://ifgaap.org/",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Company",
-      child: [
-        {
-          name: "About Us",
-          link: "/about",
-        },
-        {
-          name: "Our Brands",
-          link: "/our-brands",
-        },
-      ],
-    },
-    {
-      name: "Career",
-      link: "/career",
-    },
-  ];
-
   return (
     <nav className="sticky top-0 z-50 bg-white">
       <section className="relative mx-5 flex items-center justify-between py-5 md:container md:mx-auto">
@@ -172,7 +207,7 @@ export default function Topbar() {
         </Link>
         {/* desktop view  */}
         <div className="hidden lg:flex lg:items-center lg:gap-8">
-          {MenuItems.map((mi, i) => (
+          {updatedMenuItems.map((mi, i) => (
             <div key={i}>
               {mi.child ? (
                 <div className="group text-[18px]">
@@ -186,9 +221,9 @@ export default function Topbar() {
                   {showSubMenu === i && (
                     <div className="absolute left-1/2 top-full grid h-auto max-h-[calc(100vh-80px)] w-7/12 flex-1 -translate-x-1/2 grid-cols-3 gap-2 overflow-y-auto rounded border border-primary bg-white p-5 shadow">
                       {mi.child.map((mc, i) => (
-                        <>
+                        <div key={i}>
                           {mc.header ? (
-                            <div key={i}>
+                            <div>
                               <span className="font-semibold">{mc.header}</span>
                               <ul className="ml-2 mt-2 flex flex-col gap-2">
                                 {mc.subChild.map((mcc, i) => (
@@ -215,7 +250,7 @@ export default function Topbar() {
                               {mc.name}
                             </Link>
                           )}
-                        </>
+                        </div>
                       ))}
                     </div>
                   )}
@@ -256,7 +291,7 @@ export default function Topbar() {
       </section>
       {showNav && (
         <div className="top-18 absolute left-0 flex h-[80vh] min-w-full flex-col gap-4 overflow-y-scroll bg-white p-5 md:px-14 lg:hidden">
-          {MenuItems.map((mi, i) => (
+          {updatedMenuItems.map((mi, i) => (
             <div key={i}>
               {mi.child ? (
                 <div>
@@ -283,7 +318,7 @@ export default function Topbar() {
                   {showChild === i && (
                     <div className="ml-2 mt-2 flex flex-col gap-4">
                       {mi.child.map((mc, i) => (
-                        <>
+                        <div key={i}>
                           {mc.header ? (
                             <div>
                               <span className="font-semibold text-primary">
@@ -314,7 +349,7 @@ export default function Topbar() {
                               {mc.name}
                             </Link>
                           )}
-                        </>
+                        </div>
                       ))}
                     </div>
                   )}

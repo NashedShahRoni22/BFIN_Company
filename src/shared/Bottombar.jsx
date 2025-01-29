@@ -1,35 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BiCopyright, BiX } from "react-icons/bi";
 import { BsInstagram, BsLinkedin, BsYoutube } from "react-icons/bs";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { FaLocationArrow } from "react-icons/fa";
 import logo from "../assets/bfin.png";
 
 export default function Bottombar() {
-  const hostingProducts = [
-    {
-      name: "Fully Managed Dedicated Server",
-      link: "/fully-managed-dedicated-server",
-    },
-    {
-      name: "Fully Managed Virtual Dedicated Server",
-      link: "/fully-managed-virtual-dedicated-server",
-    },
-    {
-      name: "Self Managed Dedicated Server",
-      link: "/self-managed-dedicated-server",
-    },
-    {
-      name: "Fully Managed Pure Website Hosting",
-      link: "fully-managed-pure-web-hosting",
-    },
-    {
-      name: "Self Managed Pure Website Hosting",
-      link: "/self-managed-pure-web-hosting",
-    },
-  ];
+  const [hostingProducts, setHostingProducts] = useState([]);
 
   const Products = [
     {
@@ -85,6 +63,17 @@ export default function Bottombar() {
     },
   ];
 
+  // fetching hosting products
+    useEffect(() => {
+      const fetchHostingProducts = async () => {
+        const response = await fetch("https://hpanel.bfinit.com/api/product/categories");
+        const data = await response.json();
+        setHostingProducts(data.data);
+      };
+  
+      fetchHostingProducts();
+    }, []);
+
   return (
     <footer className="bg-primary text-white p-10 md:p-20">
       <section className="grid lg:grid-cols-2 gap-4 lg:gap-8">
@@ -126,7 +115,7 @@ export default function Bottombar() {
             <h5 className="font-semibold">Hosting Products</h5>
             <div className="flex flex-col gap-2 ml-2 mt-2">
               {hostingProducts.map((product, i) => (
-                <Link to={product.link} key={i} className="flex gap-2.5">
+                <Link to={`/hosting-products/${product.id}`} key={i} className="flex gap-2.5">
                   {product.name}
                 </Link>
               ))}

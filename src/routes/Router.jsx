@@ -21,6 +21,7 @@ import Reseller from "../pages/Reseller/Reseller";
 import EcommerceGuide from "../pages/EcommerceGuide/EcommerceGuide";
 import OurBrands from "../pages/OurBrands/OurBrands";
 import BlogDetails from "../pages/Blog/BlogDetails";
+import HostingProducts from "../pages/Hosting/HostingProducts";
 
 export const router = createBrowserRouter([
   {
@@ -60,28 +61,8 @@ export const router = createBrowserRouter([
         element: <Products />,
       },
       {
-        path: "/fully-managed-dedicated-server",
-        element: <ManagedServer />,
-      },
-      {
-        path: "/fully-managed-virtual-dedicated-server",
-        element: <VirtualServer />,
-      },
-      {
-        path: "/self-managed-dedicated-server",
-        element: <SelfManagedServer />,
-      },
-      {
-        path: "/fully-managed-pure-web-hosting",
-        element: <PureHosting />,
-      },
-      {
-        path: "/self-managed-pure-web-hosting",
-        element: <SelftPureHosting />,
-      },
-      {
-        path: "/vault-cloud-storage",
-        element: <VaultStorage />,
+        path: "/hosting-products/:id",
+        element: <HostingProducts />,
       },
       {
         path: "/white-label",
