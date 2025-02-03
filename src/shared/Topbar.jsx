@@ -12,30 +12,8 @@ const MenuItems = [
     link: "/",
   },
   {
-    name: "Data Centers",
-    // child: [
-    //   {
-    //     name: "Fully Managed Dedicated Server",
-    //     link: "/fully-managed-dedicated-server",
-    //   },
-    //   {
-    //     name: "Fully Managed Virtual Dedicated Server",
-    //     link: "/fully-managed-virtual-dedicated-server",
-    //   },
-    //   {
-    //     name: "Self Managed Dedicated Server",
-    //     link: "/self-managed-dedicated-server",
-    //   },
-    //   {
-    //     name: "Fully Managed Pure Website Hosting",
-    //     link: "fully-managed-pure-web-hosting",
-    //   },
-    //   {
-    //     name: "Self Managed Pure Website Hosting",
-    //     link: "/self-managed-pure-web-hosting",
-    //   },
-    // ],
-    child:[],
+    name: "Hosting Products",
+    child: [],
   },
   {
     name: "Our Technologies",
@@ -147,12 +125,13 @@ export default function Topbar() {
   const [showSubMenu, setShowSubMenu] = useState(null);
   const [hostingProducts, setHostingProducts] = useState([]);
   const [updatedMenuItems, setUpdatedMenuItems] = useState(MenuItems);
-  
 
   // fetching hosting products
   useEffect(() => {
     const fetchHostingProducts = async () => {
-      const response = await fetch("https://hpanel.bfinit.com/api/product/categories");
+      const response = await fetch(
+        "https://hpanel.bfinit.com/api/product/categories",
+      );
       const data = await response.json();
       setHostingProducts(data.data);
     };
@@ -168,7 +147,7 @@ export default function Topbar() {
         link: `/hosting-products/${product.id}`,
       }));
       const updatedMenu = updatedMenuItems.map((item) => {
-        if (item.name === "Data Centers") {
+        if (item.name === "Hosting Products") {
           return {
             ...item,
             child: updatedChild,
@@ -202,7 +181,7 @@ export default function Topbar() {
     <nav className="sticky top-0 z-50 bg-white">
       <section className="relative mx-5 flex items-center justify-between py-5 md:container md:mx-auto">
         {/* logo here  */}
-        <Link to={"/"} className="flex items-center">
+        <Link onClick={toggleSubMenu} to={"/"} className="flex items-center">
           <img src={logo} className="h-[40px]" alt="" loading="lazy" />
         </Link>
         {/* desktop view  */}
@@ -257,8 +236,9 @@ export default function Topbar() {
                 </div>
               ) : (
                 <Link
-                  to={mi.link}
+                  onClick={toggleSubMenu}
                   key={i}
+                  to={mi.link}
                   className="flex items-center gap-2.5 text-[18px] font-semibold"
                 >
                   {mi.name}
