@@ -74,7 +74,7 @@ const MenuItems = [
           },
           {
             name: "hPanel Hosting Manager",
-            link: "/fully-managed-dedicated-server",
+            link: "https://hpanel.bfinit.com/login",
           },
           {
             name: "Omada HR Payroll",

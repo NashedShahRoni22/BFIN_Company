@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import dataCenterImg from "../../../assets/home/data-center.png";
+import dataCenterImg from "../../../assets/home/data-center.webp";
 
 export default function DataCenter() {
   return (
@@ -17,13 +17,13 @@ export default function DataCenter() {
             src={dataCenterImg}
             alt="bfinit data center"
             loading="lazy"
-            className="mx-auto h-auto max-h-full w-auto rounded-xl object-contain md:mx-0 md:h-full md:w-full md:object-cover"
+            className="h-full w-full rounded-xl object-cover"
           />
         </div>
 
         <div className="w-full md:w-1/2">
           <h2 className="text-2xl font-semibold">Data Center&apos;s Mission</h2>
-          <p className="mt-8 text-lg">
+          <p className="mt-4 text-lg md:mt-8">
             Bfinit - Next-Gen Data Center Solutions for Speed, Reliability &
             Security, Backed by Multi-Site Infrastructure and Secure Data
             Redundancy for Unmatched Protection.

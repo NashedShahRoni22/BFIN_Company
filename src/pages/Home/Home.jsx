@@ -36,7 +36,7 @@ export default function Home() {
       {/* <KeywordsMerque /> */}
       <Ecommerce />
       <DataCenter />
-      {/* <Products /> */}
+      <Products />
       <Businessproof />
       <OurServices />
       <DigitalEconomy />
