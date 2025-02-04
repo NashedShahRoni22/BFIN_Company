@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
-import OurServices from "../components/OurServices";
-import DigitalEconomy from "../components/DigitalEconomy";
-import OurWorkingProcess from "../components/OurWorkingProcess";
-import KeywordsMerque from "../components/KeywordsMerque";
-import Testimonials from "../components/Testimonials";
-import Question from "../components/Question";
-import Products from "../components/Products";
-import hostingImage from "../assets/hosting.png";
-import hostingImage2 from "../assets/hosting-N2.png";
-import { Dialog, DialogBody } from "@material-tailwind/react";
-import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { Dialog, DialogBody } from "@material-tailwind/react";
 import { MdArrowOutward } from "react-icons/md";
-import Hero from "./Home/Hero/Hero";
-import Businessproof from "../components/Businessproof";
-import Ecommerce from "./Home/Ecommerce/Ecommerce";
-import Blogs from "./Blog/Blogs";
+import { IoMdClose } from "react-icons/io";
+import OurServices from "../../components/OurServices";
+import DigitalEconomy from "../../components/DigitalEconomy";
+import OurWorkingProcess from "../../components/OurWorkingProcess";
+import KeywordsMerque from "../../components/KeywordsMerque";
+import Testimonials from "../../components/Testimonials";
+import Question from "../../components/Question";
+import Products from "../../components/Products";
+import hostingImage from "../../assets/hosting.png";
+import hostingImage2 from "../../assets/hosting-N2.png";
+import Hero from "./Hero/Hero";
+import Businessproof from "../../components/Businessproof";
+import Ecommerce from "./Ecommerce/Ecommerce";
+import Blogs from "../Blog/Blogs";
+import DataCenter from "./DataCenter/DataCenter";
 
 export default function Home() {
   const [open, setOpen] = React.useState(false);
@@ -34,7 +35,8 @@ export default function Home() {
       <Hero />
       {/* <KeywordsMerque /> */}
       <Ecommerce />
-      <Products />
+      <DataCenter />
+      {/* <Products /> */}
       <Businessproof />
       <OurServices />
       <DigitalEconomy />

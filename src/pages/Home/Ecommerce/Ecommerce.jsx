@@ -8,18 +8,18 @@ export default function Ecommerce() {
 
   return (
     <>
-      <section className="mx-5 py-10 flex flex-col items-center justify-between gap-8 md:container md:mx-auto md:py-20 md:flex-row md:gap-16">
-        <div className="w-full h-[390px] md:h-auto md:w-1/2">
+      <section className="mx-5 flex flex-col items-center justify-between gap-8 py-10 md:container md:mx-auto md:flex-row md:gap-16 md:py-20">
+        <div className="h-[390px] w-full md:h-auto md:w-1/2">
           <img
             src={ecommerceImg}
-            alt=""
+            alt="bfinit ecommerce sass"
             loading="lazy"
-            className="w-auto max-w-auto mx-auto md:mx-0 max-h-full object-contain rounded-xl h-auto md:h-full md:w-full md:object-cover"
+            className="max-w-auto mx-auto h-auto max-h-full w-auto rounded-xl object-contain md:mx-0 md:h-full md:w-full md:object-cover"
           />
         </div>
 
         <div className="w-full md:w-1/2">
-          <h2 className="text-3xl text-primary text-balance font-extrabold md:text-5xl">
+          <h2 className="text-balance text-3xl font-extrabold text-primary md:text-5xl">
             Build Your Business with BFINIT Ecommerce
           </h2>
           <p className="my-8 md:text-xl">
@@ -32,9 +32,9 @@ export default function Ecommerce() {
               <div
                 key={data.id}
                 onClick={() => setOpen(data.id)}
-                className="py-5 border-b rounded last:border-b-0"
+                className="rounded border-b py-5 last:border-b-0"
               >
-                <p className="flex cursor-pointer items-center justify-between gap-2.5 text-xl text-primary font-medium">
+                <p className="flex cursor-pointer items-center justify-between gap-2.5 text-xl font-medium text-primary">
                   {data.name}
                   {data.id === open ? <LuMinus /> : <LuPlus />}
                 </p>

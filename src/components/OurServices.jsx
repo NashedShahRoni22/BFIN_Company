@@ -19,7 +19,7 @@ export default function OurServices() {
     },
     {
       image: web,
-      title: "Custom Website Development",
+      title: "Create Your Online Store",
       desc: "BFINIT delivers custom-built websites designed for ease of management and security. Enhance your online business with our bespoke solutions, fortified by Bitss security add-ons to protect your online revenue and ensure your digital operations are secure and efficient.",
     },
     {
