@@ -1,7 +1,7 @@
-import { BiSolidDownArrow } from "react-icons/bi";
 import { ourBrands } from "../../../data/ourBrands";
 import { Link } from "react-router-dom";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import OurBrandCards from "../../../components/OurBrandCards/OurBrandCards";
 
 export default function Hero() {
   return (
@@ -33,28 +33,7 @@ export default function Hero() {
         </div>
 
         {/* Services Image Card Container */}
-        <div className="flex w-full flex-wrap justify-center gap-5 md:w-2/3 md:justify-normal">
-          {ourBrands.map((service, i) => (
-            <div key={i} className="w-32 md:w-44">
-              <div className="group relative size-32 bg-white md:size-44">
-                <Link
-                  to={service.url}
-                  target="_blanck"
-                  className="flex h-full items-center justify-center rounded border p-4 shadow transition-all duration-200 ease-linear hover:border-primary"
-                >
-                  <img src={service.icon} alt={service.title} />
-                </Link>
-                <BiSolidDownArrow className="absolute bottom-full left-1/2 hidden -translate-x-1/2 text-primary group-hover:block" />
-                <p className="absolute bottom-[106%] left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded bg-primary px-4 py-1 text-sm font-medium text-white group-hover:block md:text-base">
-                  {service.title}
-                </p>
-              </div>
-              <p className="mt-2.5 text-center text-sm font-semibold">
-                {service.title}
-              </p>
-            </div>
-          ))}
-        </div>
+        <OurBrandCards />
       </div>
     </section>
   );

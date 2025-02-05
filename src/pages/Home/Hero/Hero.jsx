@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { carouselData } from "../../../data/carouselData";
 // Import Swiper styles
 import "swiper/css";
@@ -13,43 +13,40 @@ export default function Hero() {
   return (
     <section id="hero-container" className="relative">
       <Swiper
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
         navigation={true}
+        loop={true}
         pagination={{
           clickable: true,
         }}
-        modules={[Autoplay, Navigation, Pagination]}
+        modules={[Navigation, Pagination]}
       >
         {carouselData.map((data, i) => (
           <SwiperSlide
             key={i}
             style={{ background: data.bgColor }}
-            className="px-5 py-10 h-full w-full md:py-20"
+            className="h-full w-full px-5 py-10 md:py-20"
           >
-            <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:gap-16 md:container md:mx-auto">
+            <div className="flex flex-col items-center justify-between gap-8 md:container md:mx-auto md:flex-row md:gap-16">
               {/* Left Side Details Container */}
               <div className="md:w-1/2">
                 <h1 className="text-4xl font-semibold leading-tight">
                   {data.title}
                 </h1>
-                <p className=" mt-6 mb-10">{data.subTitle}</p>
+                <p className="mb-10 mt-6">{data.subTitle}</p>
                 <Link
                   to={data.link}
-                  className="px-5 py-2.5 rounded shadow bg-[#186bb5] text-lg text-white font-medium transition-all duration-200 ease-linear hover:bg-[#145d9c]"
+                  className="rounded bg-[#186bb5] px-5 py-2.5 text-lg font-medium text-white shadow transition-all duration-200 ease-linear hover:bg-[#145d9c]"
                 >
                   {data.btnText}
                 </Link>
               </div>
               {/* Right Side Image Container */}
-              <div className="md:w-1/2 flex items-center justify-center">
+              <div className="flex items-center justify-center md:w-1/2">
                 <img
                   src={data.img}
                   alt=""
                   loading="lazy"
-                  className="h-full w-full max-w-md object-cover rounded-lg"
+                  className="h-full w-full rounded-lg object-cover md:h-[400px]"
                 />
               </div>
             </div>

@@ -16,6 +16,7 @@ import EcommerceGuide from "../pages/EcommerceGuide/EcommerceGuide";
 import OurBrands from "../pages/OurBrands/OurBrands";
 import BlogDetails from "../pages/Blog/BlogDetails";
 import HostingProducts from "../pages/Hosting/HostingProducts";
+import DataCenter from "../pages/DataCenter/DataCenter";
 
 export const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ export const router = createBrowserRouter([
       {
         path: "/ecommerce-guide",
         element: <EcommerceGuide />,
+      },
+      {
+        path: "/data-center",
+        element: <DataCenter />,
       },
     ],
   },

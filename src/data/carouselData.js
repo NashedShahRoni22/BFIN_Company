@@ -1,5 +1,5 @@
-import hostingImg from "../assets/home/data-center-1.png";
-import bitssImg from "../assets/home/bitss.png";
+import hostingImg from "../assets/home/slider-1.jpeg";
+import bitssImg from "../assets/home/slider-2.jpeg";
 import payrollImg from "../assets/home/payroll.webp";
 
 export const carouselData = [

@@ -1,15 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { BiCheckDouble } from "react-icons/bi";
-import image from "../../assets/managed-server.png";
+import { BiCheck } from "react-icons/bi";
+import hostingImg from "../../assets/hosting-packages/hosting-1.jpeg";
+import hostingImg5 from "../../assets/hosting-packages/hosting-5.jpeg";
 import HostingPackages from "./HostingPackages";
 import Loader from "../../shared/Loader";
 import { dataCenterSupport } from "../../data/dataCenterSupport";
 
 export default function HostingProducts() {
   const { id } = useParams();
+  const packageRef = useRef(null);
   const [loader, setLoader] = useState(false);
   const [servers, setServers] = useState([]);
+
+  const handleScrollToPackageRef = () => {
+    if (packageRef.current) {
+      packageRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
 
   // Get data
   useEffect(() => {
@@ -30,24 +40,42 @@ export default function HostingProducts() {
         <>
           <div className="grid place-items-center gap-8 py-10 md:py-20 lg:grid-cols-2">
             <div className="flex flex-col gap-5">
-              <h5 className="text-xl md:text-2xl">
-                Vault Cloud Storage including BITSS WAP
+              <h5 className="text-xl font-bold text-primary">
+                Up to 34% off Web hosting
               </h5>
-              <p className="text-2xl font-semibold text-primary md:text-4xl">
+              <p className="text-2xl font-semibold md:text-4xl">
                 Get {servers[0]?.category?.name}
               </p>
               {dataCenterSupport.map((data, i) => (
                 <p key={i} className="flex gap-2">
-                  <BiCheckDouble className="text-xl text-primary" />
+                  <BiCheck className="text-xl text-primary" />
                   <span className="flex-1">{data}</span>
                 </p>
               ))}
+              <p>
+                From{" "}
+                <span className="text-xl font-bold text-primary">
+                  US$ {servers[0]?.defaultStorage?.price.toFixed(2)}
+                </span>{" "}
+                / mo{" "}
+              </p>
+              <button
+                onClick={handleScrollToPackageRef}
+                className="w-fit rounded-lg bg-primary px-12 py-3 font-bold text-white transition-all duration-200 ease-linear hover:bg-[#145c9b]"
+              >
+                Start Now
+              </button>
             </div>
             <div>
-              <img src={image} alt="" loading="lazy" />
+              <img
+                src={id === "5" ? hostingImg5 : hostingImg}
+                alt=""
+                loading="lazy"
+                className="h-full w-full rounded-lg object-cover md:h-[440px]"
+              />
             </div>
           </div>
-          <h5 className="text-xl font-semibold md:text-3xl">
+          <h5 ref={packageRef} className="text-xl font-semibold md:text-3xl">
             Explore Our Packages
           </h5>
           <div className="grid gap-5 py-5 md:grid-cols-2 md:py-10 lg:grid-cols-4">

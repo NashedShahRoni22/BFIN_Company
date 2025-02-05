@@ -39,19 +39,25 @@ export default function Businessproof() {
     },
   ];
   return (
-    <section className="mx-5 py-10 md:container md:mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-xl md:py-20">
-      {items.map((item, i) => (
-        <div
-          key={i}
-          className="bg-white p-5 rounded-xl shadow-xl group hover:bg-primary hover:text-white ease-linear duration-300"
-        >
-          <img src={item.image} alt="" loading="lazy" />
-          <h5 className="mt-5 text-[20px] md:text-[26px] font-semibold text-primary group-hover:text-white ease-linear duration-300">
-            {item.title}
-          </h5>
-          <p className="mt-2.5 text-[12px] md:text-[16px]">{item.desc}</p>
-        </div>
-      ))}
+    <section className="mx-5 py-10 md:container md:mx-auto md:py-20">
+      <h5 className="text-2xl font-extrabold text-primary md:text-4xl">
+        Our Specialities
+      </h5>
+
+      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {items.map((item, i) => (
+          <div
+            key={i}
+            className="group rounded-xl bg-white p-5 shadow-xl duration-300 ease-linear hover:bg-primary hover:text-white"
+          >
+            <img src={item.image} alt="" loading="lazy" />
+            <h5 className="mt-5 text-[20px] font-semibold text-primary duration-300 ease-linear group-hover:text-white md:text-[26px]">
+              {item.title}
+            </h5>
+            <p className="mt-2.5 text-[12px] md:text-[16px]">{item.desc}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

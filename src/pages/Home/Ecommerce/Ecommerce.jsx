@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ecommerceImg from "../../../assets/ecommerce/e-commerce.jpeg";
+import ecommerceImg from "../../../assets/home/e-commerce.jpeg";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import { ecommerceFeat } from "../../../data/ecommerceFeat";
 
