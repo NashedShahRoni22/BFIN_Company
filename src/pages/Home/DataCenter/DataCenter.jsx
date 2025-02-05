@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import dataCenterImg from "../../../assets/home/data-center.webp";
+import dataCenterImg from "../../../assets/data-center/data-center.webp";
 
 export default function DataCenter() {
   return (

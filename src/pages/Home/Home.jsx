@@ -37,7 +37,7 @@ export default function Home() {
       <Ecommerce />
       <DataCenter />
       <Products />
-      <Businessproof />
+      {/* <Businessproof /> */}
       <OurServices />
       <DigitalEconomy />
       <OurWorkingProcess />

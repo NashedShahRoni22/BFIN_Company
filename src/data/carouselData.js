@@ -9,7 +9,7 @@ export const carouselData = [
     subTitle:
       "From fully managed servers to self-managed website hosting, we provide secure, scalable, and reliable hosting tailored for your success. Choose the flexibility and support that fits your business.",
     btnText: "Explore Hosting Plans",
-    link: "/fully-managed-dedicated-server",
+    link: "/hosting-products/7",
     img: hostingImg,
   },
   {

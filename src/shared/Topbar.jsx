@@ -98,6 +98,23 @@ const MenuItems = [
           },
         ],
       },
+      {
+        header: "BFINIT",
+        subChild: [
+          {
+            name: "Data Center",
+            link: "/data-center",
+          },
+          {
+            name: "Hosting",
+            link: "/hosting-products/7",
+          },
+          {
+            name: "H Panel",
+            link: "https://hpanel.bfinit.com/login",
+          },
+        ],
+      },
     ],
   },
   {
