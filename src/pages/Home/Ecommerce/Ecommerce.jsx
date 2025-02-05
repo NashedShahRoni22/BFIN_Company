@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ecommerceImg from "../../../assets/home/e-commerce.jpeg";
+import ecommerceImg from "../../../assets/home/e-commerce-2.jpeg";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import { ecommerceFeat } from "../../../data/ecommerceFeat";
 
@@ -9,7 +9,7 @@ export default function Ecommerce() {
   return (
     <>
       <section className="mx-5 flex flex-col items-center justify-between gap-8 py-10 md:container md:mx-auto md:flex-row md:gap-16 md:py-20">
-        <div className="h-[390px] w-full md:h-auto md:w-1/2">
+        <div className="w-full md:h-auto md:w-1/2">
           <img
             src={ecommerceImg}
             alt="bfinit ecommerce sass"
