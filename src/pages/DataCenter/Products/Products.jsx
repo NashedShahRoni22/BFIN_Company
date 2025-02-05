@@ -20,7 +20,7 @@ export default function Products() {
   return (
     <section className="mx-5 py-10 md:container md:mx-auto md:py-20">
       <h2 className="text-center text-3xl font-bold md:text-4xl">
-        Our Hosting Offerings
+        Our Data Center Features
       </h2>
       <div className="mt-8 grid grid-cols-12 gap-6">
         {hostingProducts &&
