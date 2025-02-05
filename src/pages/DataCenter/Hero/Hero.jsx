@@ -1,11 +1,6 @@
-import { useLocation } from "react-router-dom";
 import dataCenterImg from "../../../assets/data-center/data-center.webp";
-import heroImg from "../../../assets/data-center/hero.jpeg";
 
 export default function Hero() {
-  const { pathname } = useLocation();
-  const isHome = pathname === "/";
-
   return (
     <section className="mx-5 py-5 md:container md:mx-auto md:py-20">
       <h1 className="text-center text-3xl font-bold text-primary md:text-5xl">
@@ -34,7 +29,7 @@ export default function Hero() {
         </div>
         <div className="h-[390px] w-full md:w-1/2">
           <img
-            src={isHome ? dataCenterImg : heroImg}
+            src={dataCenterImg}
             alt="Data Center"
             className="h-full w-full rounded-xl object-cover shadow-lg"
           />
