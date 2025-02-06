@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BiCheck } from "react-icons/bi";
-import hostingImg from "../../assets/hosting-packages/hosting-1.jpeg";
+import hostingImg1 from "../../assets/hosting-packages/hosting-1.jpeg";
 import hostingImg2 from "../../assets/hosting-packages/hosting-2.jpeg";
 import hostingImg5 from "../../assets/hosting-packages/hosting-5.jpeg";
 import hostingImg7 from "../../assets/hosting-packages/hosting-7.jpeg";
@@ -70,18 +70,26 @@ export default function HostingProducts() {
               </button>
             </div>
             <div>
-              {/* <img
-                src={
-                  id === "5"
-                    ? hostingImg5
-                    : parseInt(id) % 2 === 0
-                      ? hostingImg
-                      : hostingImg2
-                }
-                alt=""
-                loading="lazy"
-                className="h-full w-full rounded-lg object-cover md:h-[440px]"
-              /> */}
+            {
+                id === "1"  &&
+                <img src={hostingImg2} loading="lazy"
+                className="h-full w-full rounded-lg object-cover md:h-[440px]" />
+              }
+            {
+                id === "2"  &&
+                <img src={hostingImg1} loading="lazy"
+                className="h-full w-full rounded-lg object-cover md:h-[440px]" />
+              }
+            {
+                id === "3"  &&
+                <img src={hostingImg1} loading="lazy"
+                className="h-full w-full rounded-lg object-cover md:h-[440px]" />
+              }
+              {
+                id === "4"  &&
+                <img src={hostingImgNew} loading="lazy"
+                className="h-full w-full rounded-lg object-cover md:h-[440px]" />
+              }
               {
                 id === "5" &&
                 <img src={hostingImg5} loading="lazy"
@@ -92,14 +100,11 @@ export default function HostingProducts() {
                 <img src={hostingImg7} loading="lazy"
                 className="h-full w-full rounded-lg object-cover md:h-[440px]" />
               }
-              {/* {
-                parseInt
-              } */}
               {
-                (id !== "5" && id !== "7") &&
-                <img src={hostingImgNew} loading="lazy"
+                id === "8" &&
+                <img src={hostingImg2} loading="lazy"
                 className="h-full w-full rounded-lg object-cover md:h-[440px]" />
-              }
+              }              
               
             </div>
           </div>

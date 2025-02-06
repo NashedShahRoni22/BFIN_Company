@@ -5,13 +5,14 @@ import scalable from "../assets/data-center/scalable.jpeg";
 export const dataCenterSections = [
   {
     tagLine: "Secure Backup, Forever",
-    title: "Unlimited Data Backup & Geo-Redundant Storage",
+    title: "Database geo location redundancy management",
     descriptions: [
-      "Never lose your data again! We offer Unlimited backups, stored securely in Europe and USA data centers. Restore your data anytime with a single click.",
+      "Backup redundancy management is a vital tool to keep your data safe.  Bfinit offers a unique backup system, a step towards client surity, where your data is backed up to a different location and server. So your live online data is in one data centre and it is backup to another data centre, ready to be deployed if circumstances arise.",
+      "Bfinit Data Backup & Geo-Redundant Storage is an option. Bfinit provides classic backup common to datacentres if the geo location redundancy option is not taken, this classic back up is stored at the same location where your website or software is hosted."
     ],
     features: [
       "Automated daily backups",
-      "Multiple secure data centers",
+      "Multiple secure data centres",
       "Instant recovery options",
       "End-to-end encryption for security",
     ],
@@ -20,24 +21,19 @@ export const dataCenterSections = [
   {
     tagLine: "Secure, Reliable & Powerful",
     title: "Secure & Reliable Data Center Infrastructure",
-    descriptions: [
-      "Our state-of-the-art data centers ensure maximum security, reliability and performance. We provide redundant power, network stability and 24/7 monitoring to safeguard your critical data.",
-    ],
+    descriptions: ["Never lose your data again! We offer Geo located or classic backups, select your option on processing your Purchase . With Bfinit Geo redundancy option store your data securely in Europe, USA data and other multi Bfinit server location. Restore your data anytime with a single click."],
     features: [
-      "Multi-Layer Security Protocols – Biometric access, CCTV, and firewall protection.",
-      "Redundant Power & Cooling Systems – Ensures continuous uptime.",
-      "Geo-Distributed Data Centers – Located in USA & Europe for global coverage.",
+      "Geo-Distributed Data centres – Located in USA & Europe for global coverage.",
       "24/7 Network Monitoring – Real-time threat detection and instant response.",
     ],
     image: dataSecure,
   },
   {
     tagLine: "Scale Faster, Smarter",
-    title: "Scalable & High-Performance Data Center",
-    descriptions: [
-      "Our state-of-the-art data center infrastructure is designed to scale seamlessly with your business. Whether you're handling a few users or millions, we ensure optimal performance at all times.",
-      "With elastic scaling , we automatically adjust resources based on demand. This means zero downtime and maximum efficiency no matter the traffic spikes.",
-      "Experience ultra-fast connectivity , enterprise-grade security and cloud-ready architecture—all in one powerful, future-proof solution.",
+    title: "Data centres equiped with the latest server technology ensuring secured performace",
+    features: [
+      "Multiple secured data centres.",
+      "Maximization of geo location backup redundancy management.",
     ],
     image: scalable,
   },

@@ -19,11 +19,36 @@ const MenuItems = [
     name: "Our Technologies",
     child: [
       {
-        header: "IT Cyber Security",
+        header: "Bitss Cyber Security",
         subChild: [
           {
-            name: "Bitss Cyber Security",
-            link: "https://bitss.fr/",
+            name: "Bitss WAP",
+            link: "https://bitss.fr/products/wap-website-protection/wp",
+          },
+          {
+            name: "Bitss C",
+            link: "https://bitss.fr/products/c-contact-form/wp",
+          },
+          {
+            name: "Bitss VWAR",
+            link: "https://bitss.fr/products/vwar-frontline/wp",
+          },
+        ],
+      },
+      {
+        header: "Database Hosting & Security",
+        subChild: [
+          {
+            name: "Data Center",
+            link: "/data-center",
+          },
+          {
+            name: "Hosting",
+            link: "/hosting-products/7",
+          },
+          {
+            name: "H Panel",
+            link: "https://hpanel.bfinit.com/login",
           },
         ],
       },
@@ -53,28 +78,11 @@ const MenuItems = [
         ],
       },
       {
-        header: "Social Communication",
-        subChild: [
-          {
-            name: "Sosay",
-            link: "https://sosay.org/",
-          },
-          {
-            name: "Bobosoho",
-            link: "https://bobosoho.com/",
-          },
-        ],
-      },
-      {
         header: "Expand Business",
         subChild: [
           {
             name: "Pensaki Blackboard",
             link: "https://pensaki.org/",
-          },
-          {
-            name: "hPanel Hosting Manager",
-            link: "https://hpanel.bfinit.com/login",
           },
           {
             name: "Omada HR Payroll",
@@ -99,22 +107,20 @@ const MenuItems = [
         ],
       },
       {
-        header: "BFINIT",
+        header: "Social Communication",
         subChild: [
           {
-            name: "Data Center",
-            link: "/data-center",
+            name: "Sosay",
+            link: "https://sosay.org/",
           },
           {
-            name: "Hosting",
-            link: "/hosting-products/7",
-          },
-          {
-            name: "H Panel",
-            link: "https://hpanel.bfinit.com/login",
+            name: "Bobosoho",
+            link: "https://bobosoho.com/",
           },
         ],
       },
+      
+      
     ],
   },
   {
