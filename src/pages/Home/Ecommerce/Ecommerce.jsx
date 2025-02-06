@@ -2,13 +2,14 @@ import { useState } from "react";
 import ecommerceImg from "../../../assets/home/e-commerce-2.jpeg";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import { ecommerceFeat } from "../../../data/ecommerceFeat";
+import { Link } from "react-router-dom";
 
 export default function Ecommerce() {
   const [open, setOpen] = useState("");
 
   return (
     <>
-      <section className="mx-5 flex flex-col items-center justify-between gap-8 py-10 md:container md:mx-auto md:flex-row md:gap-16 md:py-20">
+      <section className="mx-5 flex flex-col justify-between gap-8 py-10 md:container md:mx-auto md:flex-row md:gap-16 md:py-20">
         <div className="w-full md:h-auto md:w-1/2">
           <img
             src={ecommerceImg}
@@ -16,15 +17,22 @@ export default function Ecommerce() {
             loading="lazy"
             className="max-w-auto mx-auto h-auto max-h-full w-auto rounded-xl object-contain md:mx-0 md:h-full md:w-full md:object-cover"
           />
+          <div className="flex justify-center mt-2.5">
+          <Link
+            to={"hosting-products/7"}
+            className="rounded bg-[#186bb5] px-5 py-2.5 text-lg font-medium  text-white shadow transition-all duration-200 ease-linear hover:bg-[#145d9c]">
+            Get your ecomerce website builder now
+          </Link>
+          </div>
         </div>
 
         <div className="w-full md:w-1/2">
           <h2 className="text-balance text-3xl font-extrabold text-primary md:text-5xl">
-            Build Your Business with BFINIT Ecommerce
+            Build your business with BFINIT Ecommerce custom built websites.
           </h2>
           <p className="my-8 md:text-xl">
             Scale your business effortlessly with our flexible Ecommerce
-            solutions. From custom designs to seamless integrations, we provide
+            solutions. From custom designs to all kinds of products and services ensuring for seamless integrations, we provide
             everything you need for success.
           </p>
           <div>

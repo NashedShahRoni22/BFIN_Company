@@ -4,6 +4,8 @@ import { BiCheck } from "react-icons/bi";
 import hostingImg from "../../assets/hosting-packages/hosting-1.jpeg";
 import hostingImg2 from "../../assets/hosting-packages/hosting-2.jpeg";
 import hostingImg5 from "../../assets/hosting-packages/hosting-5.jpeg";
+import hostingImg7 from "../../assets/hosting-packages/hosting-7.jpeg";
+import hostingImgNew from "../../assets/hosting-packages/hosting-new.jpeg";
 import HostingPackages from "./HostingPackages";
 import Loader from "../../shared/Loader";
 import { dataCenterSupport } from "../../data/dataCenterSupport";
@@ -42,7 +44,7 @@ export default function HostingProducts() {
           <div className="grid place-items-center gap-8 py-10 md:py-20 lg:grid-cols-2">
             <div className="flex flex-col gap-5">
               <h5 className="text-xl font-bold text-primary">
-                Up to 34% off Web hosting
+                Up to 34% off Web hosting with eCommerce Website Builder
               </h5>
               <p className="text-2xl font-semibold md:text-4xl">
                 Get {servers[0]?.category?.name}
@@ -68,7 +70,7 @@ export default function HostingProducts() {
               </button>
             </div>
             <div>
-              <img
+              {/* <img
                 src={
                   id === "5"
                     ? hostingImg5
@@ -79,7 +81,26 @@ export default function HostingProducts() {
                 alt=""
                 loading="lazy"
                 className="h-full w-full rounded-lg object-cover md:h-[440px]"
-              />
+              /> */}
+              {
+                id === "5" &&
+                <img src={hostingImg5} loading="lazy"
+                className="h-full w-full rounded-lg object-cover md:h-[440px]" />
+              }
+              {
+                id === "7" &&
+                <img src={hostingImg7} loading="lazy"
+                className="h-full w-full rounded-lg object-cover md:h-[440px]" />
+              }
+              {/* {
+                parseInt
+              } */}
+              {
+                (id !== "5" && id !== "7") &&
+                <img src={hostingImgNew} loading="lazy"
+                className="h-full w-full rounded-lg object-cover md:h-[440px]" />
+              }
+              
             </div>
           </div>
           <h5 ref={packageRef} className="text-xl font-semibold md:text-3xl">

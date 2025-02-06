@@ -39,7 +39,7 @@ export default function About() {
               BFIN SASU, a French research company in IT security, with Bitss
               providing ultimate cyber security, with bitss wap login
               enforcement protection for websites, Bitss C secured anti spam and
-              virus website contact form, and Bitss Vway Malware a software that
+              virus website contact form, and Bitss Vwar Malware a software that
               identifies, neutralises, removes and destroys MALWARE coding sent
               to destroy a website server or laptop with specific objects.
             </p>
