@@ -7,7 +7,15 @@ module.exports = withMT({
       primary: "#186BB5",
       secondary: "#C5FF41",
     },
-    extend: {},
+    extend: {
+      colors: {
+        "custom-gray": "#333",
+      },
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+        roboto: ["Roboto", "serif"],
+      },
+    },
   },
   plugins: [],
 });
