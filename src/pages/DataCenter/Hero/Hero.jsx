@@ -2,7 +2,7 @@ import dataCenterImg from "../../../assets/data-center/data-center.webp";
 
 export default function Hero() {
   return (
-    <section className="mx-5 py-5 md:container md:mx-auto md:py-20">
+    <section className="py-5 md:py-20">
       <h1 className="text-center text-3xl font-bold text-primary md:text-5xl">
         BFINIT - Secure, Scalable and Redundant
       </h1>

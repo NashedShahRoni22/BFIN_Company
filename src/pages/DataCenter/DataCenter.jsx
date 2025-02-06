@@ -5,7 +5,7 @@ import { BsCheck } from "react-icons/bs";
 
 const DataCenter = () => {
   return (
-    <main>
+    <section className="mx-5 md:container md:mx-auto">
       <Hero />
       <Products />
 
@@ -51,7 +51,7 @@ const DataCenter = () => {
           />
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

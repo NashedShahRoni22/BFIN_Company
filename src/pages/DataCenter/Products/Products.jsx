@@ -18,7 +18,7 @@ export default function Products() {
   }, []);
 
   return (
-    <section className="mx-5 py-10 md:container md:mx-auto md:py-20">
+    <section className="py-10 md:py-20">
       <h2 className="text-center text-3xl font-bold md:text-4xl">
         Our Data Center Features
       </h2>
