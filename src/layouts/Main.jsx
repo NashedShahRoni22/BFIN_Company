@@ -10,13 +10,13 @@ export default function Main() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
-  
+
   return (
-    <main>
+    <main className="font-montserrat">
       <ContactBar />
       <Topbar />
       <Outlet />
-      <Bottombar/>
+      <Bottombar />
     </main>
   );
 }

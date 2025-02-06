@@ -31,6 +31,7 @@ export default function Hero() {
           <img
             src={dataCenterImg}
             alt="Data Center"
+            loading="lazy"
             className="h-full w-full rounded-xl object-cover shadow-lg"
           />
         </div>
