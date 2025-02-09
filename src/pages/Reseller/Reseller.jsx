@@ -9,6 +9,7 @@ import Faq from "./Faq/Faq";
 
 export default function Reseller() {
   const { sectionRef, handleScrollToSection } = useScrollToSection();
+
   return (
     <main>
       <Hero handleScrollToSection={handleScrollToSection} />
