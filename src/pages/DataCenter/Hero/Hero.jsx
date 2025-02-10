@@ -1,4 +1,4 @@
-import dataCenterImg from "../../../assets/data-center/data-center.webp";
+import dataBackup from "../../../assets/data-center/backup.png";
 
 export default function Hero() {
   return (
@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
         <div className="h-[390px] w-full md:w-1/2">
           <img
-            src={dataCenterImg}
+            src={dataBackup}
             alt="Data Center"
             loading="lazy"
             className="h-full w-full rounded-xl object-cover shadow-lg"

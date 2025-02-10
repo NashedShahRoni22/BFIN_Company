@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BiCheck } from "react-icons/bi";
+import hostingImg11 from "../../assets/hosting-packages/hosting-1.1.png";
 import hostingImg1 from "../../assets/hosting-packages/hosting-1.jpeg";
 import hostingImg2 from "../../assets/hosting-packages/hosting-2.jpeg";
 import hostingImg5 from "../../assets/hosting-packages/hosting-5.jpeg";
@@ -72,7 +73,7 @@ export default function HostingProducts() {
             <div>
             {
                 id === "1"  &&
-                <img src={hostingImg2} loading="lazy"
+                <img src={hostingImg11} loading="lazy"
                 className="h-full w-full rounded-lg object-cover md:h-[440px]" />
               }
             {
