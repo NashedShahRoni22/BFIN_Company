@@ -1,4 +1,4 @@
-import dataBackup from "../assets/data-center/backup.jpeg";
+import dataBackup from "../assets/data-center/data-center.webp";
 import dataSecure from "../assets/data-center/secure.jpeg";
 import scalable from "../assets/data-center/scalable.jpeg";
 
