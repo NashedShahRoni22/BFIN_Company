@@ -1,7 +1,8 @@
-import customBranding from "../../../assets/white-label/custom-branding.png";
-import scalability from "../../../assets/white-label/scalability.png";
-import support from "../../../assets/white-label/support.png";
-import flexibility from "../../../assets/white-label/flexibility.png";
+import customBranding from "../../../assets/icons/custom-branding.png";
+import scalability from "../../../assets/icons/scalability.png";
+import support from "../../../assets/icons/headphone.png";
+import flexibility from "../../../assets/icons/flexibility.png";
+import WhiteLabelFeatCard from "../../../components/Cards/WhiteLabelFeatCard";
 
 const keyFeatures = [
   {
@@ -38,16 +39,8 @@ export default function KeyFeats() {
       </h2>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {keyFeatures.map((feature, i) => (
-          <div key={i} className="rounded-md border p-5">
-            <img
-              src={feature.icon}
-              alt={feature.title}
-              className="mb-4 size-10"
-            />
-            <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>
-            <p className="text-gray-800">{feature.description}</p>
-          </div>
+        {keyFeatures.map((feat, i) => (
+          <WhiteLabelFeatCard key={i} feat={feat} />
         ))}
       </div>
     </div>

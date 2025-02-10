@@ -1,32 +1,33 @@
-import React from "react";
 import { useEffect } from "react";
 import { BiPhoneCall } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 export default function ContactBar() {
-  // manage translate 
+  // manage translate
   const googleTranslateElementInit = () => {
     new window.google.translate.TranslateElement(
       {
         pageLanguage: "en",
-        autoDisplay: false
+        autoDisplay: false,
       },
-      "google_translate_element"
+      "google_translate_element",
     );
   };
+
   useEffect(() => {
     var addScript = document.createElement("script");
     addScript.setAttribute(
       "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit",
     );
     document.body.appendChild(addScript);
     window.googleTranslateElementInit = googleTranslateElementInit;
   }, []);
+
   return (
-    <section className="py-2.5 bg-primary text-white">
-      <div className="mx-5 md:container md:mx-auto flex justify-between items-center">
+    <section className="bg-primary py-2.5 text-white">
+      <div className="mx-5 flex items-center justify-between md:container md:mx-auto">
         <div className="flex items-center gap-2.5">
           <FaLocationDot className="text-xl" />8 rue de Dublin, 34200, Sète,
           France.

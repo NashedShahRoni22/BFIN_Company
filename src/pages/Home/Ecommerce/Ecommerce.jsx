@@ -1,8 +1,8 @@
 import { useState } from "react";
-import ecommerceImg from "../../../assets/home/e-commerce-2.jpeg";
+import { Link } from "react-router-dom";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import { ecommerceFeat } from "../../../data/ecommerceFeat";
-import { Link } from "react-router-dom";
+import ecommerceImg from "../../../assets/home/e-commerce.webp";
 
 export default function Ecommerce() {
   const [open, setOpen] = useState("");
@@ -17,12 +17,13 @@ export default function Ecommerce() {
             loading="lazy"
             className="max-w-auto mx-auto h-auto max-h-full w-auto rounded-xl object-contain md:mx-0 md:h-full md:w-full md:object-cover"
           />
-          <div className="flex justify-center mt-2.5">
-          <Link
-            to={"hosting-products/7"}
-            className="rounded bg-[#186bb5] px-5 py-2.5 text-lg font-medium  text-white shadow transition-all duration-200 ease-linear hover:bg-[#145d9c]">
-            Get your ecomerce website builder now
-          </Link>
+          <div className="mt-2.5 flex justify-center">
+            <Link
+              to={"hosting-products/7"}
+              className="rounded bg-[#186bb5] px-5 py-2.5 text-lg font-medium text-white shadow transition-all duration-200 ease-linear hover:bg-[#145d9c]"
+            >
+              Get your Ecommerce website builder now
+            </Link>
           </div>
         </div>
 
@@ -32,8 +33,9 @@ export default function Ecommerce() {
           </h2>
           <p className="my-8 md:text-xl">
             Scale your business effortlessly with our flexible Ecommerce
-            solutions. From custom designs to all kinds of products and services ensuring for seamless integrations, we provide
-            everything you need for success.
+            solutions. From custom designs to all kinds of products and services
+            ensuring for seamless integrations, we provide everything you need
+            for success.
           </p>
           <div>
             {ecommerceFeat.map((data) => (

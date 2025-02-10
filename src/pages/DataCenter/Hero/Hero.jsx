@@ -1,4 +1,4 @@
-import dataBackup from "../../../assets/data-center/backup.png";
+import dataBackup from "../../../assets/data-center/backup.webp";
 
 export default function Hero() {
   return (

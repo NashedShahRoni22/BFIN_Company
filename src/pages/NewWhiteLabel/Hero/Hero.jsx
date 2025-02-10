@@ -1,9 +1,9 @@
 import { MdArrowDownward } from "react-icons/md";
-import alertIcon from "../../../assets/white-label/alert.png";
+import alertIcon from "../../../assets/icons/alert.png";
 import bgOverlay from "../../../assets/white-label/bg-overlay.png";
-import handshake from "../../../assets/white-label/handshake.png";
-import lightingBolt from "../../../assets/white-label/lighting-bolt.png";
-import user from "../../../assets/white-label/user.png";
+import handshake from "../../../assets/icons/handshake.png";
+import lightingBolt from "../../../assets/icons/lighting-bolt.png";
+import user from "../../../assets/icons/user.png";
 
 const highlightedFeats = [
   { icon: lightingBolt, title: "Power Your Brand" },

@@ -1,97 +1,82 @@
-import { AiOutlineArrowRight } from "react-icons/ai";
-import { MdArrowDownward, MdArrowRight } from "react-icons/md";
-import { Link } from "react-router-dom";
-
-const pricingOptions = [
-  {
-    title: "One Year Hosting",
-    description: "Hosting of your website, customer software, and admin panel.",
-    price: "€480.00",
-    required: true,
-  },
-  {
-    title: "Website Design (One-time)",
-    description: "Professional website design included in your package.",
-    price: "€350.00",
-    optional: true,
-  },
-  {
-    title: "WordPress Payment Integration",
-    description: "Seamless payment gateway integration for WordPress.",
-    price: "€25.00",
-    optional: true,
-  },
-  {
-    title: "Website Payment Integration + Backend Automation",
-    description: "Advanced payment integration with automation.",
-    price: "€375.00",
-    optional: true,
-  },
-  {
-    title: "Custom Branded Login Page",
-    description: "Unique login page with your branding.",
-    price: "€350.00",
-    optional: true,
-  },
-  {
-    title: "Branded Mobile App (iOS & Android)",
-    description: "Fully branded mobile application with maintenance.",
-    price: "€750.00",
-    optional: true,
-  },
-];
+import { whiteLabelProducts } from "../../../data/whiteLabelProducts";
+import WhiteLabelFeatCard from "../../../components/Cards/WhiteLabelFeatCard";
+import ArrowBtn from "../../../components/buttons/ArrowBtn";
 
 export default function Products({ sectionRef }) {
   return (
-    <div
-      ref={sectionRef}
-      className="relative mx-5 flex flex-col justify-between gap-8 py-10 font-roboto md:container md:mx-auto md:flex-row md:gap-16 md:py-20"
-    >
-      <div className="h-fit md:sticky md:top-28 md:w-1/2">
-        <p>
-          Join the BFIN Program and reserve your prodcut now, limited version
-        </p>
-        <h2 className="mt-2 font-montserrat text-2xl font-bold md:text-4xl">
-          White Label Payroll Software
-        </h2>
-        <p className="mt-8 text-xl text-gray-800">
-          Payroll software typically includes a range of features designed to
-          help businesses manage their payroll processes.
-        </p>
-        <Link
-          to="/"
-          className="group mt-8 inline-flex items-center rounded bg-primary px-6 py-3 font-medium text-white shadow"
+    <div ref={sectionRef}>
+      {whiteLabelProducts.map((product) => (
+        <div
+          key={product.id}
+          className="relative mx-5 flex flex-col justify-between gap-8 py-10 font-roboto md:container md:mx-auto md:flex-row md:gap-16 md:py-20"
         >
-          <span className="flex items-center px-3">
-            <span className="transition-transform duration-300 group-hover:-translate-x-2">
-              Buy Payroll Software
-            </span>
-          </span>
-          <AiOutlineArrowRight className="-ml-3 scale-0 opacity-0 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100" />
-        </Link>
-      </div>
+          {/* Sticky Product Details Section */}
+          <div className="h-fit w-full text-center md:sticky md:top-28 md:w-2/5 md:text-left">
+            <p className="text-sm text-gray-600">{product.tagLine}</p>
+            <h2 className="mt-4 font-montserrat text-3xl font-bold md:mt-2 md:text-4xl">
+              {product.title}
+            </h2>
+            <p className="mb-6 mt-8 text-gray-700 md:mt-4">
+              {product.description}
+            </p>
+            <ArrowBtn
+              to={`https://bfinit.com/software/white_label/subscription.php?id=${product.id}`}
+              label={product.cta}
+            />
+          </div>
 
-      <div className="md:w-1/2">
-        <div className="grid gap-6">
-          {pricingOptions.map((option, index) => (
-            <div
-              key={index}
-              className="relative rounded-lg border border-gray-300 bg-white p-4 shadow-sm"
-            >
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold">{option.title}</h3>
-                <span className="text-lg font-bold">{option.price}</span>
+          {/* Product Pricing & Feautes Card Section */}
+          <div className="w-full md:w-3/5">
+            {/* Pricing Details */}
+            <div className="mt-8 md:mt-0">
+              <h4 className="text-center font-montserrat text-3xl font-semibold text-gray-900">
+                Pricing
+              </h4>
+              <p className="mt-2 text-center text-gray-600">
+                Choose the best plan that fits your business needs.
+              </p>
+
+              <div className="mt-8 grid grid-cols-1 gap-6">
+                {product.pricingDetails.map((price, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col rounded-md border bg-white p-4"
+                  >
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between gap-4">
+                        <h3 className="text-lg font-semibold">{price.title}</h3>
+                        <p className="text-lg font-bold">{price.price}</p>
+                      </div>
+                      <p className="my-3 text-gray-600">{price.description}</p>
+                    </div>
+                    {price.optional && (
+                      <p className="w-fit rounded bg-gray-100 px-2 py-1 text-xs">
+                        Can be added at checkout
+                      </p>
+                    )}
+                  </div>
+                ))}
               </div>
-              <p className="mt-2 text-gray-600">{option.description}</p>
-              {option.optional && (
-                <span className="absolute right-2 top-2 hidden rounded bg-yellow-500 px-2 py-1 text-xs text-white">
-                  Can be added at checkout
-                </span>
-              )}
             </div>
-          ))}
+
+            {/* Features */}
+            <div className="mt-16">
+              <h2 className="text-center text-3xl font-semibold text-gray-900">
+                Features
+              </h2>
+              <p className="mt-2 text-center text-gray-600">
+                Explore powerful tools designed to streamline your workflow.
+              </p>
+
+              <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+                {product.features.map((feat, i) => (
+                  <WhiteLabelFeatCard key={i} feat={feat} />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 }

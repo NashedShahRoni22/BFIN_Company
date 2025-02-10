@@ -1,14 +1,13 @@
-import React from "react";
-import question from "../assets/question.png";
+import question from "../assets/home/question.png";
 import arrow from "../assets/arrow.png";
 import { MdArrowOutward } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default function Question() {
   return (
-    <section className="relative mx-5 md:container md:mx-auto mb-10 md:mb-20 pt-10 md:pt-20 grid gap-8 md:grid-cols-2 md:gap-16 md:items-center border-2 border-primary rounded-xl shadow-xl">
-      <div className="flex flex-col gap-4 items-center p-8">
-        <h5 className="text-2xl md:text-4xl font-semibold text-primary text-center">
+    <section className="relative mx-5 mb-10 grid gap-8 rounded-xl border-2 border-primary pt-10 shadow-xl md:container md:mx-auto md:mb-20 md:grid-cols-2 md:items-center md:gap-16 md:pt-20">
+      <div className="flex flex-col items-center gap-4 p-8">
+        <h5 className="text-center text-2xl font-semibold text-primary md:text-4xl">
           Have more questions
         </h5>
         <p className="text-center">
@@ -17,17 +16,17 @@ export default function Question() {
         </p>
         <Link
           to={"/contact"}
-          className="px-6 py-3 bg-primary text-white font-semibold rounded shadow w-fit flex items-center gap-4 group md:hover:scale-110 duration-300 ease-linear"
+          className="group flex w-fit items-center gap-4 rounded bg-primary px-6 py-3 font-semibold text-white shadow duration-300 ease-linear md:hover:scale-110"
         >
           <span className="md:text-xl">Contact</span>
-          <MdArrowOutward className="md:text-xl group-hover:rotate-45 duration-300 ease-linear" />
+          <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45 md:text-xl" />
         </Link>
       </div>
       <div className="">
         <img src={question} alt="" loading="lazy" />
       </div>
       <img
-        className="hidden md:block absolute left-0 bottom-0"
+        className="absolute bottom-0 left-0 hidden md:block"
         src={arrow}
         alt=""
         loading="lazy"
