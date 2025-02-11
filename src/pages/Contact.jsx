@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BiCopyright, BiHome, BiPhone } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
 import animData from "../assets/contact-anim.json";
@@ -172,16 +172,16 @@ export default function Contact() {
   };
 
   return (
-    <section className="mx-5 md:container md:mx-auto py-10 md:py-20">
-      <div className="grid gap-8 lg:grid-cols-2 md:gap-16">
+    <section className="mx-5 py-10 md:container md:mx-auto md:py-20">
+      <div className="grid gap-8 md:gap-16 lg:grid-cols-2">
         <div className="flex flex-col gap-4 md:gap-8">
-          <h5 className="md:text-2xl font-semibold">Contact Us</h5>
-          <p className="text-xl md:text-3xl text-primary font-semibold">
+          <h5 className="font-semibold md:text-2xl">Contact Us</h5>
+          <p className="text-xl font-semibold text-primary md:text-3xl">
             To make requests for further information, contact us via our social
             channels.{" "}
           </p>
           <div className="flex gap-5">
-            <div className="p-4 shadow text-primary bg-gray-100 rounded-xl h-fit w-fit flex justify-center items-center">
+            <div className="flex h-fit w-fit items-center justify-center rounded-xl bg-gray-100 p-4 text-primary shadow">
               <BiHome className="text-xl md:text-2xl" />
             </div>
             <div className="flex flex-col gap-2">
@@ -190,7 +190,7 @@ export default function Contact() {
             </div>
           </div>
           <div className="flex gap-5">
-            <div className="p-4 shadow text-primary bg-gray-100 rounded-xl h-fit w-fit flex justify-center items-center">
+            <div className="flex h-fit w-fit items-center justify-center rounded-xl bg-gray-100 p-4 text-primary shadow">
               <BiPhone className="text-xl md:text-2xl" />
             </div>
             <div className="flex flex-col gap-2">
@@ -199,7 +199,7 @@ export default function Contact() {
             </div>
           </div>
           <div className="flex gap-5">
-            <div className="p-4 shadow text-primary bg-gray-100 rounded-xl h-fit w-fit flex justify-center items-center">
+            <div className="flex h-fit w-fit items-center justify-center rounded-xl bg-gray-100 p-4 text-primary shadow">
               <MdEmail className="text-xl md:text-2xl" />
             </div>
             <div className="flex flex-col gap-2">
@@ -214,17 +214,17 @@ export default function Contact() {
         </div>
       </div>
 
-      <h5 className="md:text-2xl font-semibold text-end mt-10 md:mt-20">
+      <h5 className="mt-10 text-end font-semibold md:mt-20 md:text-2xl">
         Send Message
       </h5>
-      <p className="text-xl md:text-3xl text-primary font-semibold text-end mt-4 md:mt-8">
+      <p className="mt-4 text-end text-xl font-semibold text-primary md:mt-8 md:text-3xl">
         Get in touch
       </p>
 
-      <div className="grid gap-8 lg:grid-cols-2 md:gap-16 mt-10 md:mt-20">
+      <div className="mt-10 grid gap-8 md:mt-20 md:gap-16 lg:grid-cols-2">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-5 shadow rounded p-8"
+          className="flex flex-col gap-5 rounded p-8 shadow"
         >
           <Input
             variant="outlined"
@@ -324,22 +324,22 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="px-8 py-2 rounded border border-primary hover:bg-primary text-primary hover:text-white font-semibold md:w-fit flex items-center justify-center gap-4 duration-300 ease-linear group"
+            className="group flex items-center justify-center gap-4 rounded border border-primary px-8 py-2 font-semibold text-primary duration-300 ease-linear hover:bg-primary hover:text-white md:w-fit"
           >
             {loader ? (
               <Spinner className="h-5 w-5" />
             ) : (
               <>
                 <span>Send Message</span>
-                <MdArrowOutward className="text-xl group-hover:rotate-45 duration-300 ease-linear" />
+                <MdArrowOutward className="text-xl duration-300 ease-linear group-hover:rotate-45" />
               </>
             )}
           </button>
           <div className="mt-5">
-            <p className="flex gap-1 items-center justify-center text-xs">
+            <p className="flex items-center justify-center gap-1 text-xs">
               <BiCopyright /> 2024 BFIN. BITSS by BFIN. All rights reserved.
             </p>
-            <div className="flex flex-col justify-center items-center gap-2.5 mt-2.5">
+            <div className="mt-2.5 flex flex-col items-center justify-center gap-2.5">
               <img src={logo} alt="" loading="lazy" />
               <p className="text-xs">
                 This form is powered by bitss cyber security

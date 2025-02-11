@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Topbar from "../shared/Topbar";
 import ContactBar from "../shared/ContactBar";

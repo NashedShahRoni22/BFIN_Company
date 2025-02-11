@@ -20,7 +20,7 @@ export default function Products({ sectionRef }) {
               {product.description}
             </p>
             <ArrowBtn
-              to={`https://bfinit.com/software/white_label/subscription.php?id=${product.id}`}
+              to={`/white-label/checkout/?id=${product.id}`}
               label={product.cta}
             />
           </div>

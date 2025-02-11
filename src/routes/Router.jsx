@@ -18,6 +18,7 @@ import BlogDetails from "../pages/Blog/BlogDetails";
 import HostingProducts from "../pages/Hosting/HostingProducts";
 import DataCenter from "../pages/DataCenter/DataCenter";
 import NewWhiteLabel from "../pages/NewWhiteLabel/NewWhiteLabel";
+import WhiteLabelCheckout from "../pages/WhiteLabelCheckout/WhiteLabelCheckout";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       {
         path: "/new-white-label",
         element: <NewWhiteLabel />,
+      },
+      {
+        path: "/white-label/checkout",
+        element: <WhiteLabelCheckout />,
       },
       {
         path: "/software",

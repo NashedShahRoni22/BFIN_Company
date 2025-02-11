@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import { BiCheck } from "react-icons/bi";
 import hostingImg11 from "../../assets/hosting-packages/hosting-1.1.png";
 import hostingImg1 from "../../assets/hosting-packages/hosting-1.jpeg";
-import hostingImg2 from "../../assets/hosting-packages/hosting-2.jpeg";
 import hostingImg5 from "../../assets/hosting-packages/hosting-5.jpeg";
 import hostingImg7 from "../../assets/hosting-packages/hosting-7.jpeg";
 import proBalanceHosting from "../../assets/hosting-packages/pro-balanced.png";
+import selfManagedHosting from "../../assets/hosting-packages/self-managed.jpeg";
 import HostingPackages from "./HostingPackages";
 import Loader from "../../shared/Loader";
 import { dataCenterSupport } from "../../data/dataCenterSupport";
@@ -115,7 +115,7 @@ export default function HostingProducts() {
               )}
               {id === "8" && (
                 <img
-                  src={hostingImg2}
+                  src={selfManagedHosting}
                   loading="lazy"
                   className="h-full w-full rounded-lg object-cover md:h-[440px]"
                 />

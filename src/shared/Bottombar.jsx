@@ -64,23 +64,25 @@ export default function Bottombar() {
   ];
 
   // fetching hosting products
-    useEffect(() => {
-      const fetchHostingProducts = async () => {
-        const response = await fetch("https://hpanel.bfinit.com/api/product/categories");
-        const data = await response.json();
-        setHostingProducts(data.data);
-      };
-  
-      fetchHostingProducts();
-    }, []);
+  useEffect(() => {
+    const fetchHostingProducts = async () => {
+      const response = await fetch(
+        "https://hpanel.bfinit.com/api/product/categories",
+      );
+      const data = await response.json();
+      setHostingProducts(data.data);
+    };
+
+    fetchHostingProducts();
+  }, []);
 
   return (
-    <footer className="bg-primary text-white p-10 md:p-20">
-      <section className="grid lg:grid-cols-2 gap-4 lg:gap-8">
+    <footer className="bg-primary p-5 text-white md:p-20">
+      <section className="grid gap-4 lg:grid-cols-2 lg:gap-8">
         <div className="flex flex-col gap-4 md:gap-8">
           <Link
             to={"/"}
-            className="flex items-center bg-white w-fit pr-2 rounded-xl"
+            className="flex w-fit items-center rounded-xl bg-white pr-2"
           >
             <img
               src={logo}
@@ -95,27 +97,31 @@ export default function Bottombar() {
             products, software and branding.
           </p>
           <h5 className="font-semibold">Join BFINIT Cosmopolitan </h5>
-          <form className="flex items-center">
+          <form className="flex w-full items-center">
             <input
-              className="px-4 py-2 outline-none text-primary border border-white rounded-l-xl"
+              className="w-full rounded-l-xl border border-white px-4 py-2 text-primary outline-none"
               placeholder="Enter your email"
               type="email"
               required
             />
             <button
               type="submit"
-              className="px-4 py-2 border border-white rounded-r-xl"
+              className="rounded-r-xl border border-white px-4 py-2"
             >
               Subscribe
             </button>
           </form>
         </div>
-        <div className="grid md:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid gap-4 md:grid-cols-3 md:gap-8">
           <div>
             <h5 className="font-semibold">Hosting Products</h5>
-            <div className="flex flex-col gap-2 ml-2 mt-2">
+            <div className="ml-2 mt-2 flex flex-col gap-2">
               {hostingProducts.map((product, i) => (
-                <Link to={`/hosting-products/${product.id}`} key={i} className="flex gap-2.5">
+                <Link
+                  to={`/hosting-products/${product.id}`}
+                  key={i}
+                  className="flex gap-2.5"
+                >
                   {product.name}
                 </Link>
               ))}
@@ -124,7 +130,7 @@ export default function Bottombar() {
 
           <div>
             <h5 className="font-semibold">Products</h5>
-            <div className="flex flex-col gap-2 ml-2 mt-2">
+            <div className="ml-2 mt-2 flex flex-col gap-2">
               {Products.map((product, i) => (
                 <Link
                   to={product.link}
@@ -140,7 +146,7 @@ export default function Bottombar() {
 
           <div>
             <h5 className="font-semibold">Quick Links</h5>
-            <div className="flex flex-col gap-2 ml-2 mt-2">
+            <div className="ml-2 mt-2 flex flex-col gap-2">
               {Pages.map((product, i) => (
                 <Link to={product.link} key={i} className="flex gap-2.5">
                   {product.name}
@@ -150,10 +156,10 @@ export default function Bottombar() {
           </div>
         </div>
       </section>
-      <div className="h-0.5 w-full bg-white my-5"></div>
+      <div className="my-5 h-0.5 w-full bg-white"></div>
       <div className="flex flex-col gap-4 md:flex-row md:justify-between">
-        <p className="flex gap-2 items-center">
-          <BiCopyright className="lg:text-xl" />
+        <p className="flex items-center gap-2">
+          <BiCopyright className="min-w-fit text-xl" />
           2024 BFIN Company All rights Reserved | 8 rue de Dublin, 34200, Sète,
           France.
         </p>
