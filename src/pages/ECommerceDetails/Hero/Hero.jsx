@@ -1,5 +1,5 @@
 import { MdOutlineArrowDownward } from "react-icons/md";
-import ecommerce from "../../../assets/ecommerce/banner.jpeg";
+import ecommerce from "../../../assets/ecommerce/banner.webp";
 
 export default function Hero({ handleScrollToSection }) {
   return (
@@ -26,7 +26,7 @@ export default function Hero({ handleScrollToSection }) {
           src={ecommerce}
           alt="bfinit reseller program"
           loading="lazy"
-          className="max-w-auto mx-auto h-auto max-h-full w-auto rounded-lg object-contain md:mx-0 md:h-full md:w-full md:object-cover"
+          className="h-[228px] w-full rounded-lg object-cover md:h-full"
         />
       </div>
     </section>

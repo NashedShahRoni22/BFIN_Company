@@ -1,4 +1,3 @@
-import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -82,8 +81,8 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="mx-5 md:container md:mx-auto py-10 md:py-20 min-h-screen">
-      <h2 className="text-2xl md:text-4xl text-primary font-extrabold text-center">
+    <section className="mx-5 min-h-screen py-10 md:container md:mx-auto md:py-20">
+      <h2 className="text-center text-2xl font-extrabold text-primary md:text-4xl">
         Hear what our users have to say about us.
       </h2>
 
@@ -122,7 +121,7 @@ export default function Testimonials() {
         >
           {testimonials.map((testimonial, i) => (
             <SwiperSlide key={i}>
-              <div className="flex flex-col gap-5 border-2 border-primary p-8 rounded-xl shadow-xl">
+              <div className="flex flex-col gap-5 rounded-xl border-2 border-primary p-8 shadow-xl">
                 <div className="flex gap-1.5">
                   <BsStarFill className="text-orange-600" />
                   <BsStarFill className="text-orange-600" />
@@ -151,16 +150,16 @@ export default function Testimonials() {
         </Swiper>
 
         {/* Custom navigation buttons */}
-        <div className="flex justify-center gap-2 mt-10 md:mt-20">
+        <div className="mt-10 flex justify-center gap-2 md:mt-20">
           <button
             id="categorySwiper-prev"
-            className="swiper-button-prev-custom p-2 border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary duration-300 ease-linear shadow-xl rounded-full"
+            className="swiper-button-prev-custom rounded-full border-2 border-primary bg-primary p-2 text-white shadow-xl duration-300 ease-linear hover:bg-white hover:text-primary"
           >
             <BsArrowLeft className="text-xl md:text-3xl" />
           </button>
           <button
             id="categorySwiper-next"
-            className="swiper-button-next-custom p-2 border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary duration-300 ease-linear shadow-xl rounded-full"
+            className="swiper-button-next-custom rounded-full border-2 border-primary bg-primary p-2 text-white shadow-xl duration-300 ease-linear hover:bg-white hover:text-primary"
           >
             <BsArrowRight className="text-xl md:text-3xl" />
           </button>

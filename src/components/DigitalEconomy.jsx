@@ -4,7 +4,12 @@ export default function DigitalEconomy() {
   return (
     <section className="mx-5 flex flex-col gap-8 py-10 md:container md:mx-auto md:flex-row md:items-center md:gap-16 md:py-20">
       <div className="md:w-1/2">
-        <img src={digitaleconomyImg} alt="" loading="lazy" className="" />
+        <img
+          src={digitaleconomyImg}
+          alt=""
+          loading="lazy"
+          className="h-[330px] w-full object-cover md:h-full"
+        />
       </div>
       <div className="flex flex-col gap-8 md:w-1/2 md:gap-16">
         <h5 className="text-3xl font-extrabold text-primary md:text-5xl">

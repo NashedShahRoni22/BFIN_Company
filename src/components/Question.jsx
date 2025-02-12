@@ -22,7 +22,7 @@ export default function Question() {
           <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45 md:text-xl" />
         </Link>
       </div>
-      <div className="">
+      <div>
         <img src={question} alt="" loading="lazy" />
       </div>
       <img

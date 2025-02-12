@@ -1,15 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BiCheck } from "react-icons/bi";
-import hostingImg11 from "../../assets/hosting-packages/hosting-1.1.png";
-import hostingImg1 from "../../assets/hosting-packages/hosting-1.jpeg";
-import hostingImg5 from "../../assets/hosting-packages/hosting-5.jpeg";
-import hostingImg7 from "../../assets/hosting-packages/hosting-7.jpeg";
-import proBalanceHosting from "../../assets/hosting-packages/pro-balanced.png";
-import selfManagedHosting from "../../assets/hosting-packages/self-managed.jpeg";
+import img1 from "../../assets/hosting-packages/1.webp";
+import img2 from "../../assets/hosting-packages/2.webp";
+import img4 from "../../assets/hosting-packages/4.webp";
+import img5 from "../../assets/hosting-packages/5.webp";
+import img8 from "../../assets/hosting-packages/8.webp";
+import img7 from "../../assets/hosting-packages/7.webp";
 import HostingPackages from "./HostingPackages";
 import Loader from "../../shared/Loader";
 import { dataCenterSupport } from "../../data/dataCenterSupport";
+
+const hostingImg = {
+  1: img1,
+  2: img2,
+  3: img2,
+  4: img4,
+  5: img5,
+  7: img7,
+  8: img8,
+};
 
 export default function HostingProducts() {
   const { id } = useParams();
@@ -42,8 +52,8 @@ export default function HostingProducts() {
         <Loader />
       ) : (
         <>
-          <div className="grid place-items-center gap-8 py-10 md:py-20 lg:grid-cols-2">
-            <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-8 py-10 md:gap-16 md:py-20 lg:flex-row">
+            <div className="flex w-full flex-col gap-5 md:w-1/2">
               <h5 className="text-xl font-bold text-primary">
                 Up to 34% off Web hosting with eCommerce Website Builder
               </h5>
@@ -70,56 +80,12 @@ export default function HostingProducts() {
                 Start Now
               </button>
             </div>
-            <div>
-              {id === "1" && (
-                <img
-                  src={hostingImg11}
-                  loading="lazy"
-                  className="h-full w-full rounded-lg object-cover md:h-[440px]"
-                />
-              )}
-              {id === "2" && (
-                <img
-                  src={hostingImg1}
-                  loading="lazy"
-                  className="h-full w-full rounded-lg object-cover md:h-[440px]"
-                />
-              )}
-              {id === "3" && (
-                <img
-                  src={hostingImg1}
-                  loading="lazy"
-                  className="h-full w-full rounded-lg object-cover md:h-[440px]"
-                />
-              )}
-              {id === "4" && (
-                <img
-                  src={proBalanceHosting}
-                  loading="lazy"
-                  className="h-full w-full rounded-lg object-cover md:h-[440px]"
-                />
-              )}
-              {id === "5" && (
-                <img
-                  src={hostingImg5}
-                  loading="lazy"
-                  className="h-full w-full rounded-lg object-cover md:h-[440px]"
-                />
-              )}
-              {id === "7" && (
-                <img
-                  src={hostingImg7}
-                  loading="lazy"
-                  className="h-full w-full rounded-lg object-cover md:h-[440px]"
-                />
-              )}
-              {id === "8" && (
-                <img
-                  src={selfManagedHosting}
-                  loading="lazy"
-                  className="h-full w-full rounded-lg object-cover md:h-[440px]"
-                />
-              )}
+            <div className="w-full md:w-1/2">
+              <img
+                src={hostingImg[id]}
+                loading="lazy"
+                className="h-[200px] w-full rounded-lg object-cover md:h-[440px]"
+              />
             </div>
           </div>
           <h5 ref={packageRef} className="text-xl font-semibold md:text-3xl">

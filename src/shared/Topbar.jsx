@@ -64,6 +64,10 @@ const MenuItems = [
             link: "/white-label",
           },
           {
+            name: "New White Label",
+            link: "/new-white-label",
+          },
+          {
             name: "Become a Reseller",
             link: "/reseller-program",
           },
@@ -119,8 +123,6 @@ const MenuItems = [
           },
         ],
       },
-      
-      
     ],
   },
   {

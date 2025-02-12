@@ -7,7 +7,7 @@ export default function HighlightedFeats() {
       {dataCenterSections.map((data, i) => (
         <div
           key={i}
-          className={`font-roboto flex flex-col gap-8 py-10 md:items-center md:gap-16 md:py-20 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+          className={`flex flex-col gap-8 py-10 font-roboto md:items-center md:gap-16 md:py-20 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
         >
           {/* Text Content */}
           <div className="w-full md:w-1/2">
@@ -37,7 +37,7 @@ export default function HighlightedFeats() {
               src={data.image}
               alt="Scalable Data Center"
               loading="lazy"
-              className="h-[352px] w-full rounded-xl object-cover shadow-lg"
+              className="h-[200px] w-full rounded-xl object-cover shadow-lg md:h-[352px]"
             />
           </div>
         </div>

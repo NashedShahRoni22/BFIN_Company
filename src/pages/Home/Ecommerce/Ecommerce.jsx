@@ -15,12 +15,12 @@ export default function Ecommerce() {
             src={ecommerceImg}
             alt="bfinit ecommerce sass"
             loading="lazy"
-            className="max-w-auto mx-auto h-auto max-h-full w-auto rounded-xl object-contain md:mx-0 md:h-full md:w-full md:object-cover"
+            className="max-w-auto mx-auto h-[200px] max-h-full w-auto rounded-xl object-contain md:mx-0 md:h-full md:w-full md:object-cover"
           />
           <div className="mt-2.5 flex justify-center">
             <Link
               to={"hosting-products/7"}
-              className="rounded bg-[#186bb5] px-5 py-2.5 text-lg font-medium text-white shadow transition-all duration-200 ease-linear hover:bg-[#145d9c]"
+              className="rounded bg-[#186bb5] px-5 py-2.5 text-center text-lg font-medium text-white shadow transition-all duration-200 ease-linear hover:bg-[#145d9c]"
             >
               Get your Ecommerce website builder now
             </Link>

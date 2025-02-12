@@ -17,7 +17,7 @@ export default function DataCenter() {
             src={dataCenterImg}
             alt="bfinit data center"
             loading="lazy"
-            className="h-full w-full rounded-xl object-cover"
+            className="h-[390px] w-full rounded-xl object-cover md:h-full"
           />
         </div>
 

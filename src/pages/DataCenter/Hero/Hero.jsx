@@ -27,12 +27,12 @@ export default function Hero() {
             trusted partner in safeguarding your critical data assets.
           </p>
         </div>
-        <div className="h-[390px] w-full md:w-1/2">
+        <div className="w-full md:w-1/2">
           <img
             src={dataBackup}
             alt="Data Center"
             loading="lazy"
-            className="h-full w-full rounded-xl object-cover shadow-lg"
+            className="h-[200px] w-full rounded-xl object-cover shadow-lg md:h-auto"
           />
         </div>
       </div>

@@ -6,19 +6,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.banner {
-  background: url("../src/assets/bg-banner.png");
-  background-position: center;
-  background-size: cover;
-}
-
 .goog-te-gadget {
-  color: transparent  !important;
+  color: transparent !important;
 }
 /* Change the text color */
 select.goog-te-combo {
   color: #000 !important;
-  border: 1px solid #007bff; 
+  border: 1px solid #007bff;
   padding: 5px;
   border-radius: 4px;
 }
@@ -26,7 +20,7 @@ select.goog-te-combo {
 /* Remove the outline on focus */
 select.goog-te-combo:focus {
   outline: none;
-  border: 1px solid #007bff; 
+  border: 1px solid #007bff;
 }
 #google_translate_element a {
   display: none !important;
