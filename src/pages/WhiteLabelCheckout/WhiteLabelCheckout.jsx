@@ -9,47 +9,80 @@ export default function WhiteLabelCheckout() {
   const [selectedSoftware, setSelectedSoftware] = useState(
     whiteLabelChecoutData[id] || whiteLabelChecoutData["1"],
   );
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    address: "",
+    country: "",
+    software: selectedSoftware.name,
+    features: selectedSoftware.features
+      .filter((feat) => feat.required)
+      .map((feat) => ({ name: feat.name, price: feat.price })),
+    freeProduct: "payroll admin",
+    paymentType: "full payment",
+    paymentMethod: "bank transfer",
+    totalPrice: totalPrice,
+  });
+
+  // Handle Input Change
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    setFormData((prev) => {
+      if (type === "checkbox") {
+        const feature = selectedSoftware.features.find(
+          (feat) => feat.name === value,
+        );
+
+        return {
+          ...prev,
+          features: checked
+            ? [...prev.features, { name: feature.name, price: feature.price }] // Add feature as object
+            : prev.features.filter((f) => f.name !== feature.name), // Remove feature
+        };
+      }
+
+      return { ...prev, [name]: value };
+    });
+  };
 
   //  Update software info on Select Software Dropdown
   const handleSoftwareChange = (e) => {
-    const updatedSoftware = whiteLabelChecoutData[e.target.value];
-    setSelectedSoftware(updatedSoftware);
+    const newSoftware = whiteLabelChecoutData[e.target.value];
+    setSelectedSoftware(newSoftware);
+
+    setFormData((prev) => ({
+      ...prev,
+      software: newSoftware.name,
+      features: newSoftware.features
+        .filter((feat) => feat.required)
+        .map((feat) => ({ name: feat.name, price: feat.price })), // Ensure objects with price
+    }));
   };
 
   // Handle Checkout Form Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const contact = form.contact.value;
-    const address = form.address.value;
-    const country = form.country.value;
-    const software = selectedSoftware.name;
-    const freeProduct = form.freeProduct.value;
-    const paymentType = form.paymentType.value;
-    const paymentMethod = form.paymentMethod.value;
-
-    const formData = {
-      name,
-      email,
-      contact,
-      address,
-      country,
-      software,
-      freeProduct,
-      paymentType,
-      paymentMethod,
-    };
-
     console.log(formData);
   };
 
+  // update price on software dropdown change or additional feature checkbox click
+  useEffect(() => {
+    const newTotal =
+      selectedSoftware.price +
+      formData.features.reduce((acc, feat) => acc + (feat.price || 0), 0);
+    setTotalPrice(newTotal);
+  }, [selectedSoftware, formData.features]);
+
+  // fetch all country name & dial code
   useEffect(() => {
     fetch("/country.json")
       .then((res) => res.json())
       .then((data) => {
         setCountries(data);
+        setFormData((prev) => ({ ...prev, country: data[0].name }));
       })
       .catch((err) => console.log(err));
   }, []);
@@ -70,6 +103,8 @@ export default function WhiteLabelCheckout() {
             type="text"
             name="name"
             id="name"
+            value={formData.name}
+            onChange={handleChange}
             required
             placeholder="Enter your name"
             className="mt-2.5 w-full rounded border px-3 py-1.5 outline-none focus:border-primary"
@@ -85,6 +120,8 @@ export default function WhiteLabelCheckout() {
             type="email"
             name="email"
             id="email"
+            value={formData.email}
+            onChange={handleChange}
             required
             placeholder="Enter your email"
             className="mt-2.5 w-full rounded border px-3 py-1.5 outline-none focus:border-primary"
@@ -100,6 +137,8 @@ export default function WhiteLabelCheckout() {
             type="text"
             name="contact"
             id="contact"
+            value={formData.contact}
+            onChange={handleChange}
             required
             placeholder="Enter your contact number"
             className="mt-2.5 w-full rounded border px-3 py-1.5 outline-none focus:border-primary"
@@ -114,6 +153,8 @@ export default function WhiteLabelCheckout() {
           <textarea
             name="address"
             id="address"
+            value={formData.address}
+            onChange={handleChange}
             required
             placeholder="Enter your address"
             className="mt-2.5 w-full rounded border px-3 py-1.5 outline-none focus:border-primary"
@@ -128,6 +169,8 @@ export default function WhiteLabelCheckout() {
           <select
             name="country"
             id="country"
+            value={formData.country}
+            onChange={handleChange}
             className="mt-2.5 w-full rounded border px-3 py-1.5 outline-none focus:border-primary"
           >
             {countries.map((country, i) => (
@@ -138,7 +181,7 @@ export default function WhiteLabelCheckout() {
           </select>
         </div>
 
-        {/* selecte software dropdown */}
+        {/* select software dropdown */}
         <div className="mt-8 flex w-full justify-between">
           <label htmlFor="software" className="w-1/2 font-medium">
             Select Software:
@@ -150,7 +193,11 @@ export default function WhiteLabelCheckout() {
             className="w-1/2 rounded border px-3 py-1.5 outline-none focus:border-primary"
           >
             {Object.entries(whiteLabelChecoutData).map((software, i) => (
-              <option key={i} value={software[0]} selected={id === software[0]}>
+              <option
+                key={i}
+                value={software[0]}
+                defaultValue={id === software[0]}
+              >
                 {software[1]?.name}
               </option>
             ))}
@@ -177,7 +224,7 @@ export default function WhiteLabelCheckout() {
         {/* total price */}
         <div className="mt-4 flex w-full justify-between font-medium">
           <p className="w-1/2">Total Price:</p>
-          <p className="w-1/2 text-lg text-primary">€480</p>
+          <p className="w-1/2 text-lg text-primary">€{totalPrice}</p>
         </div>
 
         {/* additional feature items */}
@@ -191,10 +238,9 @@ export default function WhiteLabelCheckout() {
                   name={feat.name}
                   id={feat.name}
                   value={feat.name}
-                  checked={
-                    feat.required === true
-                  } /* TODO: checking through comparison operator disabling all other checkbox too.  */
-                  readOnly={feat.required}
+                  checked={formData.features.some((f) => f.name === feat.name)}
+                  onChange={handleChange}
+                  disabled={feat.required}
                 />
                 <label htmlFor={feat.name}>
                   {feat.name} €{feat.price}
@@ -217,7 +263,8 @@ export default function WhiteLabelCheckout() {
                 name="freeProduct"
                 id="payroll"
                 value="payroll admin"
-                defaultChecked
+                checked={formData.freeProduct === "payroll admin"}
+                onChange={handleChange}
               />
               <label htmlFor="payroll">Payroll Admin</label>
             </div>
@@ -227,6 +274,8 @@ export default function WhiteLabelCheckout() {
                 name="freeProduct"
                 id="accounting"
                 value="accounting admin"
+                checked={formData.freeProduct === "accounting admin"}
+                onChange={handleChange}
               />
               <label htmlFor="accounting">Accounting Admin</label>
             </div>
