@@ -19,6 +19,7 @@ import HostingProducts from "../pages/Hosting/HostingProducts";
 import DataCenter from "../pages/DataCenter/DataCenter";
 import NewWhiteLabel from "../pages/NewWhiteLabel/NewWhiteLabel";
 import WhiteLabelCheckout from "../pages/WhiteLabelCheckout/WhiteLabelCheckout";
+import SassSoftware from "../pages/SassSoftware/SassSoftware";
 
 export const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ export const router = createBrowserRouter([
       {
         path: "/software",
         element: <SpecialSoftware />,
+      },
+      {
+        path: "/sass-software",
+        element: <SassSoftware />,
       },
       {
         path: "/bfinit-ecomerce-platform",

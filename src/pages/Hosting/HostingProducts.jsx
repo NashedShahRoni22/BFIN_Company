@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BiCheck } from "react-icons/bi";
 import img1 from "../../assets/hosting-packages/1.webp";
-import img2 from "../../assets/hosting-packages/2.webp";
+import img2 from "../../assets/hosting-packages/2.jpeg";
+import img3 from "../../assets/hosting-packages/3.webp";
 import img4 from "../../assets/hosting-packages/4.webp";
 import img5 from "../../assets/hosting-packages/5.webp";
-import img8 from "../../assets/hosting-packages/8.webp";
 import img7 from "../../assets/hosting-packages/7.webp";
+import img8 from "../../assets/hosting-packages/8.jpeg";
 import HostingPackages from "./HostingPackages";
 import Loader from "../../shared/Loader";
 import { dataCenterSupport } from "../../data/dataCenterSupport";
@@ -14,7 +15,7 @@ import { dataCenterSupport } from "../../data/dataCenterSupport";
 const hostingImg = {
   1: img1,
   2: img2,
-  3: img2,
+  3: img3,
   4: img4,
   5: img5,
   7: img7,

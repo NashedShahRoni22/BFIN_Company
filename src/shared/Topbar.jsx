@@ -60,6 +60,10 @@ const MenuItems = [
             link: "/software",
           },
           {
+            name: "New SaaS Software",
+            link: "/sass-software",
+          },
+          {
             name: "White Label",
             link: "/white-label",
           },

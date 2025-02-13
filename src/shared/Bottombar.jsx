@@ -77,98 +77,102 @@ export default function Bottombar() {
   }, []);
 
   return (
-    <footer className="bg-primary p-5 text-white md:p-20">
-      <section className="grid gap-4 lg:grid-cols-2 lg:gap-8">
-        <div className="flex flex-col gap-4 md:gap-8">
-          <Link
-            to={"/"}
-            className="flex w-fit items-center rounded-xl bg-white pr-2"
-          >
-            <img
-              src={logo}
-              className="h-[40px] md:h-[80px]"
-              alt=""
-              loading="lazy"
-            />
-            <span className="text-xl font-extrabold text-primary">BFINIT</span>
-          </Link>
-          <p>
-            BFIN IT to fuel your growth goals. We build world-class digital
-            products, software and branding.
-          </p>
-          <h5 className="font-semibold">Join BFINIT Cosmopolitan </h5>
-          <form className="flex w-full items-center">
-            <input
-              className="w-full rounded-l-xl border border-white px-4 py-2 text-primary outline-none"
-              placeholder="Enter your email"
-              type="email"
-              required
-            />
-            <button
-              type="submit"
-              className="rounded-r-xl border border-white px-4 py-2"
+    <footer className="bg-primary text-white">
+      <div className="mx-5 py-10 md:container md:mx-auto md:py-20">
+        <section className="grid gap-4 lg:grid-cols-2 lg:gap-8">
+          <div className="flex flex-col gap-4 md:gap-8">
+            <Link
+              to={"/"}
+              className="flex w-fit items-center rounded-xl bg-white pr-2"
             >
-              Subscribe
-            </button>
-          </form>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3 md:gap-8">
-          <div>
-            <h5 className="font-semibold">Hosting Products</h5>
-            <div className="ml-2 mt-2 flex flex-col gap-2">
-              {hostingProducts.map((product, i) => (
-                <Link
-                  to={`/hosting-products/${product.id}`}
-                  key={i}
-                  className="flex gap-2.5"
-                >
-                  {product.name}
-                </Link>
-              ))}
-            </div>
+              <img
+                src={logo}
+                className="h-[40px] md:h-[80px]"
+                alt=""
+                loading="lazy"
+              />
+              <span className="text-xl font-extrabold text-primary">
+                BFINIT
+              </span>
+            </Link>
+            <p>
+              BFIN IT to fuel your growth goals. We build world-class digital
+              products, software and branding.
+            </p>
+            <h5 className="font-semibold">Join BFINIT Cosmopolitan </h5>
+            <form className="flex w-full items-center">
+              <input
+                className="w-full rounded-l-xl border border-white px-4 py-2 text-primary outline-none"
+                placeholder="Enter your email"
+                type="email"
+                required
+              />
+              <button
+                type="submit"
+                className="rounded-r-xl border border-white px-4 py-2"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
+          <div className="grid gap-4 md:grid-cols-3 md:gap-8">
+            <div>
+              <h5 className="font-semibold">Hosting Products</h5>
+              <div className="ml-2 mt-2 flex flex-col gap-2">
+                {hostingProducts.map((product, i) => (
+                  <Link
+                    to={`/hosting-products/${product.id}`}
+                    key={i}
+                    className="flex gap-2.5"
+                  >
+                    {product.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
 
-          <div>
-            <h5 className="font-semibold">Products</h5>
-            <div className="ml-2 mt-2 flex flex-col gap-2">
-              {Products.map((product, i) => (
-                <Link
-                  to={product.link}
-                  target="_blank"
-                  key={i}
-                  className="flex gap-2.5"
-                >
-                  {product.name}
-                </Link>
-              ))}
+            <div>
+              <h5 className="font-semibold">Products</h5>
+              <div className="ml-2 mt-2 flex flex-col gap-2">
+                {Products.map((product, i) => (
+                  <Link
+                    to={product.link}
+                    target="_blank"
+                    key={i}
+                    className="flex gap-2.5"
+                  >
+                    {product.name}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div>
-            <h5 className="font-semibold">Quick Links</h5>
-            <div className="ml-2 mt-2 flex flex-col gap-2">
-              {Pages.map((product, i) => (
-                <Link to={product.link} key={i} className="flex gap-2.5">
-                  {product.name}
-                </Link>
-              ))}
+            <div>
+              <h5 className="font-semibold">Quick Links</h5>
+              <div className="ml-2 mt-2 flex flex-col gap-2">
+                {Pages.map((product, i) => (
+                  <Link to={product.link} key={i} className="flex gap-2.5">
+                    {product.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <div className="my-5 h-0.5 w-full bg-white"></div>
-      <div className="flex flex-col gap-4 md:flex-row md:justify-between">
-        <p className="flex items-center gap-2">
-          <BiCopyright className="min-w-fit text-xl" />
-          2024 BFIN Company All rights Reserved | 8 rue de Dublin, 34200, Sète,
-          France.
-        </p>
-        <div className="flex justify-center gap-4">
-          <FaFacebook className="lg:text-xl" />
-          <FaSquareXTwitter className="lg:text-xl" />
-          <BsLinkedin className="lg:text-xl" />
-          <BsInstagram className="lg:text-xl" />
-          <BsYoutube className="lg:text-xl" />
+        </section>
+        <div className="my-5 h-0.5 w-full bg-white"></div>
+        <div className="flex flex-col gap-4 md:flex-row md:justify-between">
+          <p className="flex items-center gap-2">
+            <BiCopyright className="min-w-fit text-xl" />
+            2024 BFIN Company All rights Reserved | 8 rue de Dublin, 34200,
+            Sète, France.
+          </p>
+          <div className="flex justify-center gap-4">
+            <FaFacebook className="lg:text-xl" />
+            <FaSquareXTwitter className="lg:text-xl" />
+            <BsLinkedin className="lg:text-xl" />
+            <BsInstagram className="lg:text-xl" />
+            <BsYoutube className="lg:text-xl" />
+          </div>
         </div>
       </div>
     </footer>
