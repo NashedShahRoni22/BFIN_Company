@@ -63,11 +63,11 @@ export const router = createBrowserRouter([
         element: <HostingProducts />,
       },
       {
-        path: "/white-label",
+        path: "/old-white-label",
         element: <WhiteLabel />,
       },
       {
-        path: "/new-white-label",
+        path: "/white-label",
         element: <NewWhiteLabel />,
       },
       {
@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
         element: <WhiteLabelCheckout />,
       },
       {
-        path: "/software",
+        path: "/old-software",
         element: <SpecialSoftware />,
       },
       {

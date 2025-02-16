@@ -55,21 +55,21 @@ const MenuItems = [
       {
         header: "Build Business",
         subChild: [
+          // {
+          //   name: "Old SaaS Software",
+          //   link: "/old-software",
+          // },
           {
             name: "SaaS Software",
-            link: "/software",
-          },
-          {
-            name: "New SaaS Software",
             link: "/sass-software",
           },
+          // {
+          //   name: "White Label",
+          //   link: "/old-white-label",
+          // },
           {
             name: "White Label",
             link: "/white-label",
-          },
-          {
-            name: "New White Label",
-            link: "/new-white-label",
           },
           {
             name: "Become a Reseller",

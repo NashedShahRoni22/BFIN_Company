@@ -1,18 +1,15 @@
 import calculator from "../assets/icons/calculator.png";
 import chart from "../assets/icons/chart.png";
 import clock from "../assets/icons/clock.png";
-import customBrand from "../assets/icons/custom-branding.png";
 import employee from "../assets/icons/employee.png";
 import invoice from "../assets/icons/invoice.png";
 import ledger from "../assets/icons/ledger.png";
 import update from "../assets/icons/update.png";
-import video from "../assets/icons/video.png";
-import save from "../assets/icons/save.png";
 
 export const sassProducts = [
   {
     id: 1,
-    title: "HR payroll",
+    title: "HR payroll software & Project Management",
     description:
       "Payroll software can integrate with other HR systems for seamless management",
     cta: "25000",
@@ -45,7 +42,7 @@ export const sassProducts = [
   },
   {
     id: 2,
-    title: "Classic payroll",
+    title: "Classic payroll software",
     description:
       "Payroll software can integrate with other HR systems for seamless management",
     cta: "15000",
@@ -73,6 +70,38 @@ export const sassProducts = [
         description:
           "Payroll software automatically calculates and withholds taxes, including federal and state income tax",
         icon: invoice,
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Mobile Invoicing App",
+    description: "Invoicing Can Be Used For Client Management",
+    cta: "7500",
+    features: [
+      {
+        title: "Customizable Invoice Templates",
+        description:
+          "Invoicing software provides customizable invoice templates that businesses can use to create professional-looking invoices with their own branding and logo.",
+        icon: invoice,
+      },
+      {
+        title: "Automated Invoicing",
+        description:
+          "Invoicing software can automatically generate and send invoices to customers based on predetermined settings, such as recurring invoices or payment reminders.",
+        icon: update,
+      },
+      {
+        title: "Invoice Tracking",
+        description:
+          "Invoicing software allows businesses to track the status of invoices, such as when they are sent, viewed, and paid.",
+        icon: clock,
+      },
+      {
+        title: "Reporting and Analytics",
+        description:
+          "Invoicing software can generate reports and analytics on invoice-related data, such as invoice totals, outstanding invoices, and payment history.",
+        icon: chart,
       },
     ],
   },
@@ -106,71 +135,6 @@ export const sassProducts = [
         description:
           "GAAP requires businesses to provide full and complete disclosure of all relevant financial information in the footnotes to the financial statements. This ensures that investors and stakeholders have access to all relevant information needed to make informed decisions.",
         icon: ledger,
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "Invoicing Software",
-    description: "Invoicing Can Be Used For Client Management",
-    cta: "7500",
-    features: [
-      {
-        title: "Customizable Invoice Templates",
-        description:
-          "Invoicing software provides customizable invoice templates that businesses can use to create professional-looking invoices with their own branding and logo.",
-        icon: invoice,
-      },
-      {
-        title: "Automated Invoicing",
-        description:
-          "Invoicing software can automatically generate and send invoices to customers based on predetermined settings, such as recurring invoices or payment reminders.",
-        icon: update,
-      },
-      {
-        title: "Invoice Tracking",
-        description:
-          "Invoicing software allows businesses to track the status of invoices, such as when they are sent, viewed, and paid.",
-        icon: clock,
-      },
-      {
-        title: "Reporting and Analytics",
-        description:
-          "Invoicing software can generate reports and analytics on invoice-related data, such as invoice totals, outstanding invoices, and payment history.",
-        icon: chart,
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "WRODSXTRA DOC WRITE",
-    description:
-      "Payroll software can store employee information, such as contact details, tax forms, and benefit enrollment",
-    cta: "25000",
-    features: [
-      {
-        title: "Text formatting & Paragraph formatting",
-        description:
-          "It allows users to modify paragraph styles such as alignment, indentation, line spacing, and list styles. Text formatting options such as bold, italic, underline, strikethrough, subscript, superscript, font size, font color, background color, and more.",
-        icon: customBrand,
-      },
-      {
-        title: "Inserting images and videos",
-        description:
-          "Users can insert images and videos into their documents and customize their size, alignment, and other settings.",
-        icon: video,
-      },
-      {
-        title: "Spell checker & Undo/Redo",
-        description:
-          "It has a built-in spell checker that helps users identify and correct spelling errors. Users can easily undo or redo actions with a single click.",
-        icon: update,
-      },
-      {
-        title: "Save and export",
-        description:
-          "Users can save their documents in various formats like HTML, PDF, and Word, and export them to other platforms.",
-        icon: save,
       },
     ],
   },

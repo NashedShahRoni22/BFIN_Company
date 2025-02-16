@@ -38,21 +38,29 @@ export const whiteLabelProducts = [
         optional: true,
       },
       {
-        title: "WordPress Payment Integration",
+        title: "WordPress Payment Integration (One-time)",
         description: "Seamless payment gateway integration for WordPress.",
         price: "€25.00",
         optional: true,
       },
       {
-        title: "Website Payment Integration + Backend Automation",
+        title: "Website Payment Integration + Backend Automation (One-time)",
         description: "Advanced payment integration with automation.",
         price: "€375.00",
         optional: true,
       },
       {
-        title: "Custom Branded Login Page",
-        description: "Unique login page with your branding.",
+        title: "Custom Branded Login Page (One-time)",
+        description:
+          "Unique login page with your branding. Includes Wordsxtra account.",
         price: "€350.00",
+        optional: true,
+      },
+      {
+        title: "White Label Payroll/Account Admin",
+        description:
+          "Choose a free white-label payroll or account admin solution.",
+        price: "€0.00 (Free)",
         optional: true,
       },
       {
@@ -124,27 +132,29 @@ export const whiteLabelProducts = [
         optional: true,
       },
       {
-        title: "WordPress Payment Integration",
+        title: "WordPress Payment Integration (One-time)",
         description: "Seamless payment gateway integration for WordPress.",
         price: "€25.00",
         optional: true,
       },
       {
-        title: "Website Payment Integration + Backend Automation",
+        title: "Website Payment Integration + Backend Automation (One-time)",
         description: "Advanced payment integration with automation.",
         price: "€250.00",
         optional: true,
       },
       {
-        title: "Custom Branded Login Page",
-        description: "Unique login page with your branding.",
+        title: "Custom Branded Login Page (One-time)",
+        description:
+          "Unique login page with your branding. Includes Wordsxtra account.",
         price: "€150.00",
         optional: true,
       },
       {
-        title: "Choose Free Payroll/Account Admin White Label",
-        description: "Free payroll/account admin white-label solution.",
-        price: "€0.00",
+        title: "White Label Payroll/Account Admin",
+        description:
+          "Choose a free white-label payroll or account admin solution.",
+        price: "€0.00 (Free)",
         optional: true,
       },
     ],
@@ -217,27 +227,29 @@ export const whiteLabelProducts = [
         optional: true,
       },
       {
-        title: "WordPress Payment Integration",
+        title: "WordPress Payment Integration (One-time)",
         description: "Seamless payment gateway integration for WordPress.",
         price: "€25.00",
         optional: true,
       },
       {
-        title: "Website Payment Integration + Backend Automation",
+        title: "Website Payment Integration + Backend Automation (One-time)",
         description: "Advanced payment integration with automation.",
         price: "€250.00",
         optional: true,
       },
       {
-        title: "Custom Branded Login Page",
-        description: "Unique login page with your branding.",
+        title: "Custom Branded Login Page (One-time)",
+        description:
+          "Unique login page with your branding. Includes Wordsxtra account.",
         price: "€150.00",
         optional: true,
       },
       {
-        title: "Choose Free Payroll/Account Admin White Label",
-        description: "Free payroll/account admin white-label solution.",
-        price: "€0.00",
+        title: "White Label Payroll/Account Admin",
+        description:
+          "Choose a free white-label payroll or account admin solution.",
+        price: "€0.00 (Free)",
         optional: true,
       },
     ],

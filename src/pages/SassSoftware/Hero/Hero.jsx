@@ -3,40 +3,39 @@ import { Pagination } from "swiper/modules";
 import { MdArrowDownward } from "react-icons/md";
 import bgOverlay from "../../../assets/white-label/bg-overlay.png";
 import deviceImg from "../../../assets/sass-software/device.png";
+import giftIcon from "../../../assets/icons/gift.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./hero.css";
 
-export default function Hero() {
+export default function Hero({ scrollToProduct }) {
   const heroData = [
     {
-      title: "HR Payroll software",
+      id: 1,
+      title: "HR Payroll software & Project Management",
       details:
-        "HR Payroll software typically includes a range Of features designed to help businesses manage their payroll processes.",
+        "Comprehensive payroll solution with Built-In Project Management tools to streamline employee payments, task tracking and financial reporting.",
       image: deviceImg,
     },
     {
-      title: "Classic payroll sotware",
+      id: 2,
+      title: "Classic payroll software",
       details:
         "Classic Payroll software typically includes a range of features designed to help businesses manage their payroll processes.",
       image: deviceImg,
     },
     {
-      title: "Accounting GAAP",
-      details:
-        "GAAP requires businesses to report information that is relevant to the decision-making needs of investors, creditors, and other stakeholders.",
-      image: deviceImg,
-    },
-    {
-      title: "Invoicing Software",
+      id: 4,
+      title: "Mobile Invoicing App",
       details:
         "Invoicing software provides customizable invoice templates that businesses can use to create professional-looking invoices with their own branding and logo.",
       image: deviceImg,
     },
     {
-      title: "WORDSXTRA DOC",
+      id: 3,
+      title: "Accounting GAAP",
       details:
-        "Wordsxtra provides a simple, intuitive user interface that makes it easy for users to create and edit content without needing any technical expertise.",
+        "GAAP requires businesses to report information that is relevant to the decision-making needs of investors, creditors, and other stakeholders.",
       image: deviceImg,
     },
   ];
@@ -58,21 +57,38 @@ export default function Hero() {
             <div className="mx-5 flex flex-col gap-8 py-10 font-roboto md:container md:mx-auto md:flex-row md:items-center md:justify-between md:gap-16 md:py-20">
               {/* product title container */}
               <div className="w-full text-center md:w-1/2 md:pl-5 md:text-left">
-                <p className="mx-auto w-fit rounded-full bg-[#EDF6FD]/60 px-3 py-1 font-semibold capitalize text-primary md:mx-0">
-                  White label business
-                </p>
+                {data.id === 3 ? (
+                  <div className="mx-auto mt-8 flex w-fit items-center gap-2 rounded-full bg-[#EDF6FD]/60 px-3 py-1 font-medium text-primary md:mx-0">
+                    <img src={giftIcon} alt="label icon" className="size-6" />
+                    FREE - with any White Label Products!
+                  </div>
+                ) : (
+                  <p className="mx-auto w-fit rounded-full bg-[#EDF6FD]/60 px-3 py-1 font-semibold text-primary md:mx-0">
+                    White Label Business
+                  </p>
+                )}
                 <h1 className="mt-4 text-balance font-montserrat text-3xl font-bold capitalize md:text-5xl">
                   {data.title}
                 </h1>
                 <p className="mt-8 text-xl text-gray-800">{data.details}</p>
-                <button className="group mt-8 inline-flex items-center rounded bg-primary px-6 py-3 font-medium text-white shadow">
+                <button
+                  onClick={() => scrollToProduct(data.id)}
+                  className="group mt-8 inline-flex items-center rounded bg-primary px-6 py-3 font-medium text-white shadow"
+                >
                   <span className="flex items-center px-3">
                     <span className="transition-transform duration-300 group-hover:-translate-x-2">
-                      Buy Now
+                      {data.id !== 3 ? "Buy Now" : "See Details"}
                     </span>
                   </span>
                   <MdArrowDownward className="-ml-3 scale-0 opacity-0 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100" />
                 </button>
+
+                {data.id !== 3 && (
+                  <div className="mt-8 flex w-fit gap-2 rounded-full bg-[#EDF6FD]/60 px-3 py-1 font-medium text-primary md:items-center">
+                    <img src={giftIcon} alt="label icon" className="size-6" />
+                    GET FREE - Accounting GAAP Software with any White Label!
+                  </div>
+                )}
               </div>
 
               {/* image container */}
