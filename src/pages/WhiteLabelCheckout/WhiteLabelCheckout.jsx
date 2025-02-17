@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { whiteLabelChecoutData } from "../../data/whiteLabelCheckoutData";
+import { sassCheckoutData } from "../../data/sassCheckoutData";
 
 export default function WhiteLabelCheckout() {
   const [searchParams] = useSearchParams();
-  const id = searchParams.get("id") || "1";
+  const {type, id} = useParams();
+  console.log(type, id);
+  // const id = searchParams.get("id") || "1";
+  const productData = type === 'whitelabel' ? whiteLabelChecoutData[id] || whiteLabelChecoutData['1'] : sassCheckoutData[id] || sassCheckoutData['1'];
   const [countries, setCountries] = useState([]);
-  const [selectedSoftware, setSelectedSoftware] = useState(
-    whiteLabelChecoutData[id] || whiteLabelChecoutData["1"],
-  );
+  const [selectedSoftware, setSelectedSoftware] = useState(productData);
   const [totalPrice, setTotalPrice] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
@@ -17,9 +19,9 @@ export default function WhiteLabelCheckout() {
     address: "",
     country: "",
     software: selectedSoftware.name,
-    features: selectedSoftware.features
+    features: type === 'whitelabel' ? selectedSoftware.features
       .filter((feat) => feat.required)
-      .map((feat) => ({ name: feat.name, price: feat.price })),
+      .map((feat) => ({ name: feat.name, price: feat.price })) : [],
     freeProduct: "payroll admin",
     paymentType: "full payment",
     paymentMethod: "bank transfer",
@@ -30,22 +32,22 @@ export default function WhiteLabelCheckout() {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    setFormData((prev) => {
-      if (type === "checkbox") {
-        const feature = selectedSoftware.features.find(
-          (feat) => feat.name === value,
-        );
+    // setFormData((prev) => {
+    //   if (type === "checkbox") {
+    //     const feature = selectedSoftware.features.find(
+    //       (feat) => feat.name === value,
+    //     );
 
-        return {
-          ...prev,
-          features: checked
-            ? [...prev.features, { name: feature.name, price: feature.price }] // Add feature as object
-            : prev.features.filter((f) => f.name !== feature.name), // Remove feature
-        };
-      }
+    //     return {
+    //       ...prev,
+    //       features: checked
+    //         ? [...prev.features, { name: feature.name, price: feature.price }] // Add feature as object
+    //         : prev.features.filter((f) => f.name !== feature.name), // Remove feature
+    //     };
+    //   }
 
-      return { ...prev, [name]: value };
-    });
+    //   return { ...prev, [name]: value };
+    // });
   };
 
   //  Update software info on Select Software Dropdown
@@ -53,13 +55,13 @@ export default function WhiteLabelCheckout() {
     const newSoftware = whiteLabelChecoutData[e.target.value];
     setSelectedSoftware(newSoftware);
 
-    setFormData((prev) => ({
-      ...prev,
-      software: newSoftware.name,
-      features: newSoftware.features
-        .filter((feat) => feat.required)
-        .map((feat) => ({ name: feat.name, price: feat.price })), // Ensure objects with price
-    }));
+    // setFormData((prev) => ({
+    //   ...prev,
+    //   software: newSoftware.name,
+    //   features: newSoftware.features
+    //     .filter((feat) => feat.required)
+    //     .map((feat) => ({ name: feat.name, price: feat.price })), // Ensure objects with price
+    // }));
   };
 
   // Handle Checkout Form Submit
@@ -69,12 +71,12 @@ export default function WhiteLabelCheckout() {
   };
 
   // update price on software dropdown change or additional feature checkbox click
-  useEffect(() => {
-    const newTotal =
-      selectedSoftware.price +
-      formData.features.reduce((acc, feat) => acc + (feat.price || 0), 0);
-    setTotalPrice(newTotal);
-  }, [selectedSoftware, formData.features]);
+  // useEffect(() => {
+  //   const newTotal =
+  //     selectedSoftware.price +
+  //     formData.features.reduce((acc, feat) => acc + (feat.price || 0), 0);
+  //   setTotalPrice(newTotal);
+  // }, [selectedSoftware, formData.features]);
 
   // fetch all country name & dial code
   useEffect(() => {
@@ -186,7 +188,7 @@ export default function WhiteLabelCheckout() {
           <label htmlFor="software" className="w-1/2 font-medium">
             Select Software:
           </label>
-          <select
+          {type === 'whitelabel' ? <select
             onChange={handleSoftwareChange}
             name="software"
             id="software"
@@ -201,7 +203,7 @@ export default function WhiteLabelCheckout() {
                 {software[1]?.name}
               </option>
             ))}
-          </select>
+          </select> : <p className="w-1/2">{selectedSoftware?.name}</p>}
         </div>
 
         {/* product name */}
@@ -228,7 +230,7 @@ export default function WhiteLabelCheckout() {
         </div>
 
         {/* additional feature items */}
-        <div className="mt-4">
+        {type === 'whitelabel' && <div className="mt-4">
           <p className="font-medium">Add Items From Below:</p>
           <div className="mt-2.5">
             {selectedSoftware.features.map((feat, i) => (
@@ -248,10 +250,10 @@ export default function WhiteLabelCheckout() {
               </div>
             ))}
           </div>
-        </div>
+        </div>}
 
         {/* Free White Label Product */}
-        <div className="mt-4">
+        {type === 'whitelabel' && <div className="mt-4">
           <p className="font-medium">
             Select one of the the below white label software for free including
             in hosting:
@@ -280,21 +282,34 @@ export default function WhiteLabelCheckout() {
               <label htmlFor="accounting">Accounting Admin</label>
             </div>
           </div>
-        </div>
+        </div>}
 
         {/* payment type */}
         <div className="mt-4">
           <p className="font-medium">Payment Type:</p>
+          <div className="mt-2.5 flex items-center gap-2.5 md:gap-6">
           <div className="mt-2.5 space-x-2">
             <input
               type="radio"
               name="paymentType"
-              id="paymentType"
+              id="fullPayment"
               value="full payment"
-              checked
-              readOnly
+              checked={formData.paymentType === "full payment"}
+              onChange={handleChange}
             />
-            <label htmlFor="paymentType">Full Payment</label>
+            <label htmlFor="fullPayment">Full Payment</label>
+          </div>
+          {type !== 'whitelabel' && <div className="mt-2.5 space-x-2">
+            <input
+              type="radio"
+              name="paymentType"
+              id="partialPayment"
+              value="partial payment"
+              checked={formData.paymentType === "partial payment"}
+              onChange={handleChange}
+            />
+            <label htmlFor="partialPayment">Partial Payment (20% in first installment)</label>
+          </div>}
           </div>
         </div>
 

@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
         element: <NewWhiteLabel />,
       },
       {
-        path: "/white-label/checkout",
+        path: "/checkout/:type/:id",
         element: <WhiteLabelCheckout />,
       },
       {

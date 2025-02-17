@@ -34,7 +34,7 @@ export default function Products({ productRefs }) {
           <div className="mt-12 text-center">
             {product.id !== 3 && (
               <ArrowBtn
-                to={`/sass-software`}
+                to={`/checkout/sass-software/${product.id}`}
                 label={`Buy Now - €${product.cta}`}
               />
             )}

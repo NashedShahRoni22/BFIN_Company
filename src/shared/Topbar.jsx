@@ -55,18 +55,18 @@ const MenuItems = [
       {
         header: "Build Business",
         subChild: [
-          // {
-          //   name: "Old SaaS Software",
-          //   link: "/old-software",
-          // },
+          {
+            name: "Old SaaS Software",
+            link: "/old-software",
+          },
           {
             name: "SaaS Software",
             link: "/sass-software",
           },
-          // {
-          //   name: "White Label",
-          //   link: "/old-white-label",
-          // },
+          {
+            name: "Old White Label",
+            link: "/old-white-label",
+          },
           {
             name: "White Label",
             link: "/white-label",
@@ -94,15 +94,15 @@ const MenuItems = [
           },
           {
             name: "Omada HR Payroll",
-            link: "https://omada-clasico.org/omada-hr-payroll",
+            link: "https://omada-clasico.com/omada-hr-payroll",
           },
           {
             name: "Omada Project Management",
-            link: "https://omada-clasico.org/project-management",
+            link: "https://omada-clasico.com/project-management",
           },
           {
             name: "Clasico Payslips",
-            link: "https://omada-clasico.org/clasico-payslip",
+            link: "https://omada-clasico.com/clasico-payslip",
           },
           {
             name: "Ifgaap Mobile Invoicing",

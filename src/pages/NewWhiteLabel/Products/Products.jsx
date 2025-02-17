@@ -20,7 +20,7 @@ export default function Products({ sectionRef }) {
               {product.description}
             </p>
             <ArrowBtn
-              to={`/white-label/checkout/?id=${product.id}`}
+              to={`/checkout/whitelabel/${product.id}`}
               label={product.cta}
             />
           </div>
