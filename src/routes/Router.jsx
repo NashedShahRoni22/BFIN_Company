@@ -20,6 +20,7 @@ import DataCenter from "../pages/DataCenter/DataCenter";
 import NewWhiteLabel from "../pages/NewWhiteLabel/NewWhiteLabel";
 import WhiteLabelCheckout from "../pages/WhiteLabelCheckout/WhiteLabelCheckout";
 import SassSoftware from "../pages/SassSoftware/SassSoftware";
+import ConfirmOrder from "../pages/ConfirmOrder/ConfirmOrder";
 
 export const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
       {
         path: "/data-center",
         element: <DataCenter />,
+      },
+      {
+        path: "/confirm-order",
+        element: <ConfirmOrder />,
       },
     ],
   },

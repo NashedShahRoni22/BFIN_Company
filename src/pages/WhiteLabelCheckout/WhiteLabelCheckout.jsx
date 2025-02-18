@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { whiteLabelChecoutData } from "../../data/whiteLabelCheckoutData";
 import { sassCheckoutData } from "../../data/sassCheckoutData";
 
 export default function WhiteLabelCheckout() {
   const { type, id } = useParams();
+  const navigate = useNavigate();
   const productData =
     type === "whitelabel"
       ? whiteLabelChecoutData[id] || whiteLabelChecoutData["1"]
@@ -23,7 +24,7 @@ export default function WhiteLabelCheckout() {
     paymentType: "full payment",
     paymentMethod: "bank transfer",
     ...(type === "whitelabel" && {
-      features:
+      addonsSoftwares:
         type === "whitelabel"
           ? selectedSoftware.features
               .filter((feat) => feat.required)
@@ -49,9 +50,12 @@ export default function WhiteLabelCheckout() {
 
         return {
           ...prev,
-          features: checked
-            ? [...prev.features, { name: feature.name, price: feature.price }] // Add feature as object
-            : prev.features.filter((f) => f.name !== feature.name), // Remove feature
+          addonsSoftwares: checked
+            ? [
+                ...prev.addonsSoftwares,
+                { name: feature.name, price: feature.price },
+              ] // Add feature as object
+            : prev.addonsSoftwares.filter((f) => f.name !== feature.name), // Remove feature
         };
       }
 
@@ -67,7 +71,7 @@ export default function WhiteLabelCheckout() {
     setFormData((prev) => ({
       ...prev,
       software: newSoftware.name,
-      features: newSoftware.features
+      addonsSoftwares: newSoftware.features
         .filter((feat) => feat.required)
         .map((feat) => ({ name: feat.name, price: feat.price })), // Ensure objects with price
     }));
@@ -76,7 +80,8 @@ export default function WhiteLabelCheckout() {
   // Handle Checkout Form Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    localStorage.setItem("orderData", JSON.stringify(formData));
+    navigate("/confirm-order");
   };
 
   // update price on software dropdown change or additional feature checkbox click
@@ -86,7 +91,10 @@ export default function WhiteLabelCheckout() {
     if (type === "whitelabel") {
       const newTotal =
         selectedSoftware.price +
-        formData.features.reduce((acc, feat) => acc + (feat.price || 0), 0);
+        formData.addonsSoftwares.reduce(
+          (acc, feat) => acc + (feat.price || 0),
+          0,
+        );
       setTotalPrice(newTotal);
       setFormData((prev) => ({
         ...prev,
@@ -114,7 +122,12 @@ export default function WhiteLabelCheckout() {
         };
       }
     });
-  }, [selectedSoftware, formData?.features, formData?.paymentType, type]);
+  }, [
+    selectedSoftware,
+    formData?.addonsSoftwares,
+    formData?.paymentType,
+    type,
+  ]);
 
   // fetch all country name & dial code
   useEffect(() => {
@@ -308,7 +321,7 @@ export default function WhiteLabelCheckout() {
                     name={feat.name}
                     id={feat.name}
                     value={feat.name}
-                    checked={formData.features.some(
+                    checked={formData.addonsSoftwares.some(
                       (f) => f.name === feat.name,
                     )}
                     onChange={handleChange}
