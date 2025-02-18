@@ -81,6 +81,8 @@ export default function WhiteLabelCheckout() {
 
   // update price on software dropdown change or additional feature checkbox click
   useEffect(() => {
+    setTotalPrice(selectedSoftware?.price);
+
     if (type === "whitelabel") {
       const newTotal =
         selectedSoftware.price +
@@ -92,14 +94,27 @@ export default function WhiteLabelCheckout() {
       }));
       return;
     }
-    setTotalPrice(selectedSoftware?.price);
-    setFormData((prev) => ({
-      ...prev,
-      totalPrice: selectedSoftware?.price,
-      partialPrice: (selectedSoftware?.price / 100) * 20,
-      duePrice: selectedSoftware?.price - (selectedSoftware?.price / 100) * 20,
-    }));
-  }, [selectedSoftware, formData.features, type]);
+
+    // update the form price for sass products
+    setFormData((prev) => {
+      if (prev.paymentType === "partial payment") {
+        return {
+          ...prev,
+          totalPrice: selectedSoftware?.price,
+          partialPrice: (selectedSoftware?.price / 100) * 20,
+          duePrice:
+            selectedSoftware?.price - (selectedSoftware?.price / 100) * 20,
+        };
+      } else {
+        // Remove partialPrice and duePrice when payment type is "full payment"
+        const { partialPrice, duePrice, ...newData } = prev;
+        return {
+          ...newData,
+          totalPrice: selectedSoftware?.price,
+        };
+      }
+    });
+  }, [selectedSoftware, formData?.features, formData?.paymentType, type]);
 
   // fetch all country name & dial code
   useEffect(() => {
