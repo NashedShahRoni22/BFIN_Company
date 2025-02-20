@@ -20,6 +20,7 @@ export default function WhiteLabelCheckout() {
     address: "",
     country: "",
     software: selectedSoftware.name,
+    basePrice: selectedSoftware.price,
     totalPrice: totalPrice,
     paymentType: "full payment",
     paymentMethod: "bank transfer",

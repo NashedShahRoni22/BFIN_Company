@@ -20,7 +20,7 @@ export default function Bottombar() {
     },
     {
       name: "Omada HR Payroll",
-      link: "https://omada-clasico.org/",
+      link: "https://omada-clasico.com/",
     },
     {
       name: "Ifgaap Acounting & Invoicing",

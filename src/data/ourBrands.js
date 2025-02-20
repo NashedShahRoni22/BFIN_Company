@@ -72,7 +72,7 @@ export const ourBrands = [
   {
     title: "Omada HR Payroll",
     details: "Simplify payroll management and HR tasks with ease.",
-    websiteUrl: "https://omada-clasico.org/",
+    websiteUrl: "https://omada-clasico.com/",
     icon: omadaHrPayroll,
   },
   {

@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { generateDate } from "../../utils/generateData";
+import { generateInvoiceId } from "../../data/generateInvoiceId";
 
 export default function ConfirmOrder() {
   const [orderData, setOrderData] = useState({});
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const savedData = localStorage.getItem("orderData");
@@ -11,88 +16,122 @@ export default function ConfirmOrder() {
     }
   }, []);
 
+  const handleConfirmOrder = () => {
+    console.log(orderData);
+  };
+
   console.log(orderData);
 
   return (
     <section className="mx-5 py-10 font-roboto md:container md:mx-auto md:py-20">
       <div className="mx-auto w-full max-w-4xl rounded border p-6 text-[15px]">
-        <h1 className="text-center font-montserrat text-2xl font-semibold md:text-3xl">
+        <h1 className="text-center text-2xl font-semibold md:text-3xl">
           Confirm Order
         </h1>
 
-        <div className="flex justify-between gap-16 border-t py-4">
+        <div className="mt-4 flex justify-between gap-16 border-t py-4">
           <div>
             <p className="font-semibold">Invoiced To:</p>
-            <p>Jesse Pinkman</p>
-            <p>Dhaka</p>
-            <p>Bangladesh</p>
+            <p>{orderData?.name}</p>
+            <p>{orderData?.address}</p>
+            <p>{orderData?.country}</p>
           </div>
           <div>
             <p>
-              <span className="font-semibold">Invoice No:</span> #awik125sI4
+              <span className="font-semibold">Invoice No:</span> #
+              {generateInvoiceId()}
             </p>
             <p>
-              <span className="font-semibold">Date:</span> 30/12/2025
+              <span className="font-semibold">Date:</span> {generateDate()}
             </p>
           </div>
         </div>
 
         <p>
-          <span className="font-semibold">Software Name:</span> White Label
-          Payroll Software
+          <span className="font-semibold">Software Name:</span>{" "}
+          {orderData?.software}
         </p>
 
-        <p>
-          <span className="font-semibold">Free Software:</span> Payroll Admin
+        {orderData.freeProduct && (
+          <p className="mt-1 capitalize">
+            <span className="font-semibold">Free Software:</span>{" "}
+            {orderData?.freeProduct}
+          </p>
+        )}
+
+        <p className="mt-1 capitalize">
+          <span className="font-semibold">Payment Type:</span>{" "}
+          {orderData?.paymentType}{" "}
+          {orderData.duePrice && orderData.partialPrice && "(20%)"}
         </p>
 
-        <p>
-          <span className="font-semibold">Payment Type:</span> Full Payment
+        <p className="mt-1 capitalize">
+          <span className="font-semibold">Payment Method:</span>{" "}
+          {orderData?.paymentMethod}
         </p>
 
-        <p>
-          <span className="font-semibold">Payment Method:</span> Bank Transfer
-        </p>
-
-        <p className="font-semibold">Additional Addons:</p>
-        <table className="w-full border-collapse border border-gray-300 text-lg">
+        <p className="mt-3 font-semibold">Additional Addons:</p>
+        <table className="mt-1.5 w-full border-collapse border border-gray-300 text-lg">
           <thead>
-            <tr className="bg-gray-100t text-base">
-              <th className="border border-gray-300 px-4 py-2 text-left">
+            <tr className="bg-gray-100 text-[17px]">
+              <th className="w-full border border-gray-300 px-4 py-2 text-left">
                 Item
               </th>
-              <th className="border border-gray-300 px-4 py-2 text-left">
+              <th className="w-fit border border-gray-300 px-4 py-2 text-left">
                 Price
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr className="border border-gray-300 text-base">
-              <td className="border px-4 py-2">
-                One year hosting for your clients software and other items
-              </td>
-              <td className="border px-4 py-2">€230</td>
+            <tr className="border border-gray-300 text-[15px]">
+              <td className="border px-4 py-2">{orderData?.software}</td>
+              <td className="border px-4 py-2">€{orderData?.basePrice}</td>
             </tr>
-            <tr className="border border-gray-300 text-base">
-              <td className="border px-4 py-2">
-                Web site design once off payment
-              </td>
-              <td className="border px-4 py-2">€320</td>
-            </tr>
-            <tr className="border border-gray-300 text-base">
-              <td className="border px-4 py-2">
-                Website payment integration with backend automation
-              </td>
-              <td className="border px-4 py-2">€75</td>
-            </tr>
-            <tr className="border border-gray-300 text-base">
-              <td className="border px-4 py-2">
-                Branded application for iOS and Android with maintenance
-              </td>
-              <td className="border px-4 py-2">€750</td>
-            </tr>
+            {orderData &&
+              orderData?.addonsSoftwares &&
+              orderData?.addonsSoftwares.length > 0 &&
+              orderData?.addonsSoftwares?.map((addon, i) => (
+                <tr key={i} className="border border-gray-300 text-[15px]">
+                  <td className="border px-4 py-2">{addon.name}</td>
+                  <td className="border px-4 py-2">€{addon.price}</td>
+                </tr>
+              ))}
+
+            {orderData.duePrice && (
+              <tr className="border border-gray-300 bg-gray-100 text-[17px]">
+                <td className="border px-4 py-2 text-right">Due</td>
+                <td className="border px-4 py-2">€{orderData?.duePrice}</td>
+              </tr>
+            )}
+
+            {orderData.partialPrice ? (
+              <tr className="border border-gray-300 bg-gray-100 text-[17px] font-semibold">
+                <td className="border px-4 py-2 text-right">Total</td>
+                <td className="border px-4 py-2">€{orderData?.partialPrice}</td>
+              </tr>
+            ) : (
+              <tr className="border border-gray-300 bg-gray-100 text-[17px] font-semibold">
+                <td className="border px-4 py-2 text-right">Total</td>
+                <td className="border px-4 py-2">€{orderData?.totalPrice}</td>
+              </tr>
+            )}
           </tbody>
         </table>
+
+        <div className="mt-8 space-x-8 text-center">
+          <button
+            onClick={() => navigate(-1)}
+            className="text-lg font-medium transition-all duration-200 ease-linear hover:text-primary"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleConfirmOrder}
+            className="rounded bg-primary px-4 py-2 text-lg font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145a97]"
+          >
+            Confirm Order
+          </button>
+        </div>
       </div>
     </section>
   );
