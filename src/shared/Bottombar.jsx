@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BiCopyright, BiX } from "react-icons/bi";
+import { useEffect, useState } from "react";
+import { BiCopyright } from "react-icons/bi";
 import { BsInstagram, BsLinkedin, BsYoutube } from "react-icons/bs";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
@@ -63,7 +63,7 @@ export default function Bottombar() {
     },
   ];
 
-  // fetching hosting products
+  // Fetching hosting products
   useEffect(() => {
     const fetchHostingProducts = async () => {
       const response = await fetch(
@@ -75,6 +75,41 @@ export default function Bottombar() {
 
     fetchHostingProducts();
   }, []);
+
+  // Categorize hosting products
+  const categorizeHostingProducts = () => {
+    const categories = {
+      "Bare Metal Servers": [1, 3],
+      "Virtual Machine": [2, 8],
+      Hosting: [4, 5, 7],
+    };
+
+    return Object.keys(categories).map((category) => {
+      const productIds = categories[category];
+      const products = hostingProducts.filter((product) =>
+        productIds.includes(product.id),
+      );
+
+      // Add "Build your own VPS" to the "Virtual Machine" category
+      if (category === "Virtual Machine") {
+        products.push({
+          id: "build-your-own-vps",
+          name: "Build your own VPS",
+          link: "/build-your-own-vps",
+        });
+      }
+
+      return {
+        category,
+        products: products.map((product) => ({
+          name: product.name,
+          link: product.link || `/hosting-products/${product.id}`,
+        })),
+      };
+    });
+  };
+
+  const categorizedProducts = categorizeHostingProducts();
 
   return (
     <footer className="bg-primary text-white">
@@ -119,14 +154,21 @@ export default function Bottombar() {
             <div>
               <h5 className="font-semibold">Hosting Products</h5>
               <div className="ml-2 mt-2 flex flex-col gap-2">
-                {hostingProducts.map((product, i) => (
-                  <Link
-                    to={`/hosting-products/${product.id}`}
-                    key={i}
-                    className="flex gap-2.5"
-                  >
-                    {product.name}
-                  </Link>
+                {categorizedProducts.map((category, i) => (
+                  <div key={i}>
+                    <h6 className="font-semibold underline underline-offset-2">
+                      {category.category}
+                    </h6>
+                    {category.products.map((product, j) => (
+                      <Link
+                        to={product.link}
+                        key={j}
+                        className="flex gap-2.5 hover:underline"
+                      >
+                        {product.name}
+                      </Link>
+                    ))}
+                  </div>
                 ))}
               </div>
             </div>
@@ -139,7 +181,7 @@ export default function Bottombar() {
                     to={product.link}
                     target="_blank"
                     key={i}
-                    className="flex gap-2.5"
+                    className="flex gap-2.5 hover:underline"
                   >
                     {product.name}
                   </Link>
@@ -151,7 +193,11 @@ export default function Bottombar() {
               <h5 className="font-semibold">Quick Links</h5>
               <div className="ml-2 mt-2 flex flex-col gap-2">
                 {Pages.map((product, i) => (
-                  <Link to={product.link} key={i} className="flex gap-2.5">
+                  <Link
+                    to={product.link}
+                    key={i}
+                    className="flex gap-2.5 hover:underline"
+                  >
                     {product.name}
                   </Link>
                 ))}

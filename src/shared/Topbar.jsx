@@ -171,19 +171,50 @@ export default function Topbar() {
   // Update the MenuItems when hostingProducts changes
   useEffect(() => {
     if (hostingProducts.length > 0) {
-      const updatedChild = hostingProducts.map((product) => ({
-        name: product.name,
-        link: `/hosting-products/${product.id}`,
-      }));
+      // Define categories and their respective product IDs
+      const categories = {
+        "Bare Metal Servers": [1, 3],
+        "Virtual Machine": [2, 8],
+        Hosting: [4, 5, 7],
+      };
+
+      // Map hosting products to categories
+      const categorizedProducts = Object.keys(categories).map((category) => {
+        const productIds = categories[category];
+        const products = hostingProducts.filter((product) =>
+          productIds.includes(product.id),
+        );
+        return {
+          header: category,
+          subChild: products.map((product) => ({
+            name: product.name,
+            link: `/hosting-products/${product.id}`,
+          })),
+        };
+      });
+
+      // Add "Build your own VPS" to the "Virtual Machine" category
+      const virtualMachineCategory = categorizedProducts.find(
+        (cat) => cat.header === "Virtual Machine",
+      );
+      if (virtualMachineCategory) {
+        virtualMachineCategory.subChild.push({
+          name: "Build your own VPS",
+          link: "/build-your-own-vps",
+        });
+      }
+
+      // Update the MenuItems
       const updatedMenu = updatedMenuItems.map((item) => {
         if (item.name === "Hosting Products") {
           return {
             ...item,
-            child: updatedChild,
+            child: categorizedProducts,
           };
         }
         return item;
       });
+
       setUpdatedMenuItems(updatedMenu);
     }
   }, [hostingProducts]);
@@ -241,7 +272,7 @@ export default function Topbar() {
                                     to={mcc.link}
                                     className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3 hover:font-semibold hover:text-primary"
                                   >
-                                    <BiChevronRight className="text-2xl" />
+                                    <BiChevronRight className="min-w-fit text-2xl" />
                                     {mcc.name}
                                   </Link>
                                 ))}

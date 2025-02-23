@@ -17,6 +17,7 @@ import Businessproof from "../../components/Businessproof";
 import Ecommerce from "./Ecommerce/Ecommerce";
 import Blogs from "../Blog/Blogs";
 import DataCenter from "./DataCenter/DataCenter";
+import Gdpr from "./Gdpr/Gdpr";
 
 export default function Home() {
   const [open, setOpen] = React.useState(false);
@@ -36,6 +37,7 @@ export default function Home() {
       {/* <KeywordsMerque /> */}
       <Ecommerce />
       <DataCenter />
+      <Gdpr />
       <Products />
       {/* <Businessproof /> */}
       <OurServices />
