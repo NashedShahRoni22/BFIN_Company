@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { generateDate } from "../../utils/generateData";
 import { generateInvoiceId } from "../../data/generateInvoiceId";
+import { LiaSpinnerSolid } from "react-icons/lia";
 
 export default function ConfirmOrder() {
-  const [orderData, setOrderData] = useState({});
-
+  const baseUrl = import.meta.env.VITE_Base_Url;
+  const invoiceId = "BFINITSW" + generateInvoiceId();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [orderData, setOrderData] = useState({});
 
   useEffect(() => {
     const savedData = localStorage.getItem("orderData");
@@ -16,11 +19,55 @@ export default function ConfirmOrder() {
     }
   }, []);
 
-  const handleConfirmOrder = () => {
-    console.log(orderData);
-  };
+  // confirm order submit
+  const handleConfirmOrder = async () => {
+    setLoading(true);
 
-  console.log(orderData);
+    const {
+      name,
+      email,
+      address,
+      country,
+      software,
+      paymentType,
+      totalPrice,
+      addonsSoftwares,
+      partialPrice,
+    } = orderData;
+
+    const newOrderData = {
+      order_id: invoiceId,
+      name,
+      email,
+      address,
+      country,
+      software,
+      payment_type: paymentType,
+      price: partialPrice ? partialPrice : totalPrice,
+      addone_software: addonsSoftwares,
+      status: true,
+    };
+
+    try {
+      const res = await fetch(`${baseUrl}/payments/payment/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newOrderData),
+      });
+      const data = await res.json();
+      if (data.success === true) {
+        setLoading(false);
+        window.alert(data.message);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+      window.alert(error.message);
+    }
+  };
 
   return (
     <section className="mx-5 py-10 font-roboto md:container md:mx-auto md:py-20">
@@ -38,8 +85,7 @@ export default function ConfirmOrder() {
           </div>
           <div>
             <p>
-              <span className="font-semibold">Invoice No:</span> #
-              {generateInvoiceId()}
+              <span className="font-semibold">Invoice No:</span> #{invoiceId}
             </p>
             <p>
               <span className="font-semibold">Date:</span> {generateDate()}
@@ -118,7 +164,7 @@ export default function ConfirmOrder() {
           </tbody>
         </table>
 
-        <div className="mt-8 space-x-8 text-center">
+        <div className="mt-8 flex items-center justify-center gap-8 text-center">
           <button
             onClick={() => navigate(-1)}
             className="text-lg font-medium transition-all duration-200 ease-linear hover:text-primary"
@@ -127,9 +173,13 @@ export default function ConfirmOrder() {
           </button>
           <button
             onClick={handleConfirmOrder}
-            className="rounded bg-primary px-4 py-2 text-lg font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145a97]"
+            disabled={loading}
+            className="flex items-center gap-2 rounded bg-primary px-4 py-2 text-lg font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145a97]"
           >
             Confirm Order
+            {loading && (
+              <LiaSpinnerSolid className="animate-spin text-2xl text-white" />
+            )}
           </button>
         </div>
       </div>

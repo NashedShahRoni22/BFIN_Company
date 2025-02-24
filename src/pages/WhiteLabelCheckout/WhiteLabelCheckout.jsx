@@ -438,8 +438,10 @@ export default function WhiteLabelCheckout() {
         {/* bank payment details */}
         <div className="mt-4 space-y-1 border-t pt-4 text-gray-600">
           <p>
-            Make your payment directly into the BFIN SASU bank account. Please
-            use your Order ID as the payment reference.
+            Make your payment directly into the BFIN SASU bank account.{" "}
+            <span className="font-bold text-black">
+              Please use your Order ID as the Payment Reference.
+            </span>
           </p>
           <p>
             Your order will not be shipped electronically (the software transfer
@@ -466,7 +468,7 @@ export default function WhiteLabelCheckout() {
             type="submit"
             className="rounded bg-primary px-4 py-2 text-lg font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145a97] md:w-1/2"
           >
-            Confirm Payment
+            Checkout Now
           </button>
         </div>
 
