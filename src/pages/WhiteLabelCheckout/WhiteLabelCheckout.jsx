@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { whiteLabelChecoutData } from "../../data/whiteLabelCheckoutData";
 import { sassCheckoutData } from "../../data/sassCheckoutData";
+import { LiaSpinnerSolid } from "react-icons/lia";
 
 export default function WhiteLabelCheckout() {
   const { type, id } = useParams();
@@ -13,6 +14,7 @@ export default function WhiteLabelCheckout() {
   const [countries, setCountries] = useState([]);
   const [selectedSoftware, setSelectedSoftware] = useState(productData);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -79,10 +81,64 @@ export default function WhiteLabelCheckout() {
   };
 
   // Handle Checkout Form Submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    localStorage.setItem("orderData", JSON.stringify(formData));
-    navigate("/confirm-order");
+    setLoading(true);
+
+    const {
+      name,
+      email,
+      address,
+      country,
+      software,
+      paymentType,
+      totalPrice,
+      addonsSoftwares,
+      partialPrice,
+    } = formData;
+
+    const newOrderData = {
+      name,
+      email,
+      address,
+      country,
+      software,
+      payment_type: paymentType,
+      price: totalPrice,
+      addone_software: addonsSoftwares,
+      paid_amount: partialPrice ? partialPrice : totalPrice,
+    };
+
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_Base_Url}/payments/payment/create`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newOrderData),
+        },
+      );
+      const data = await res.json();
+      if (data.success === true) {
+        setLoading(false);
+        window.alert(data.message);
+        console.log(data);
+        const localData = {
+          ...formData,
+          order_id: data.data.order_id,
+          createdAt: data.data.createdAt,
+        };
+        localStorage.setItem("orderData", JSON.stringify(localData));
+        navigate("/invoice");
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+      window.alert(error.message);
+    }
   };
 
   // update price on software dropdown change or additional feature checkbox click
@@ -338,7 +394,7 @@ export default function WhiteLabelCheckout() {
         )}
 
         {/* Free White Label Product */}
-        {type === "whitelabel" && (
+        {/* {type === "whitelabel" && (
           <div className="mt-4">
             <p className="font-medium">
               Select one of the the below white label software for free
@@ -369,7 +425,7 @@ export default function WhiteLabelCheckout() {
               </div>
             </div>
           </div>
-        )}
+        )} */}
 
         {/* payment type */}
         <div className="mt-4">
@@ -463,17 +519,21 @@ export default function WhiteLabelCheckout() {
         </div>
 
         {/* submit button */}
-        <div className="mt-6 text-center">
+        <div className="mt-8 flex justify-center">
           <button
             type="submit"
-            className="rounded bg-primary px-4 py-2 text-lg font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145a97] md:w-1/2"
+            disabled={loading}
+            className="flex items-center gap-2 rounded bg-primary px-4 py-2 text-lg font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145a97]"
           >
-            Checkout Now
+            Confirm Order{" "}
+            {loading && (
+              <LiaSpinnerSolid className="animate-spin text-2xl text-white" />
+            )}
           </button>
         </div>
 
         {/* Contact Details */}
-        <div className="mt-12 border-t pt-4">
+        {/* <div className="mt-12 border-t pt-4">
           <h3 className="text-center text-2xl font-semibold md:text-3xl">
             Contact Us
           </h3>
@@ -499,7 +559,7 @@ export default function WhiteLabelCheckout() {
             <span className="font-medium">Skype: </span>
             bfin.ltd [Text or Call Appointment Only]
           </p>
-        </div>
+        </div> */}
       </form>
     </section>
   );

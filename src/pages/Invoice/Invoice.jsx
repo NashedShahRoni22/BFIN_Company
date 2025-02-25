@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { generateDate } from "../../utils/generateData";
-import { generateInvoiceId } from "../../data/generateInvoiceId";
-import { LiaSpinnerSolid } from "react-icons/lia";
+import { Link } from "react-router-dom";
 
-export default function ConfirmOrder() {
-  const baseUrl = import.meta.env.VITE_Base_Url;
-  const invoiceId = "BFINITSW" + generateInvoiceId();
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+export default function Invoice() {
   const [orderData, setOrderData] = useState({});
 
   useEffect(() => {
@@ -19,62 +13,32 @@ export default function ConfirmOrder() {
     }
   }, []);
 
-  // confirm order submit
-  const handleConfirmOrder = async () => {
-    setLoading(true);
-
-    const {
-      name,
-      email,
-      address,
-      country,
-      software,
-      paymentType,
-      totalPrice,
-      addonsSoftwares,
-      partialPrice,
-    } = orderData;
-
-    const newOrderData = {
-      order_id: invoiceId,
-      name,
-      email,
-      address,
-      country,
-      software,
-      payment_type: paymentType,
-      price: partialPrice ? partialPrice : totalPrice,
-      addone_software: addonsSoftwares,
-      status: true,
-    };
-
-    try {
-      const res = await fetch(`${baseUrl}/payments/payment/create`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newOrderData),
-      });
-      const data = await res.json();
-      if (data.success === true) {
-        setLoading(false);
-        window.alert(data.message);
-        navigate("/");
-      }
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
-      window.alert(error.message);
-    }
+  const handlePrint = () => {
+    const printContents = document.getElementById("invoice-section").innerHTML;
+    const originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+    window.location.reload();
   };
 
   return (
     <section className="mx-5 py-10 font-roboto md:container md:mx-auto md:py-20">
-      <div className="mx-auto w-full max-w-4xl rounded border p-6 text-[15px]">
-        <h1 className="text-center text-2xl font-semibold md:text-3xl">
-          Confirm Order
-        </h1>
+      <div
+        id="invoice-section"
+        className="mx-auto w-full max-w-4xl rounded border p-6 text-[15px]"
+      >
+        <div className="flex items-center justify-between">
+          <h1 className="text-center text-2xl font-semibold md:text-3xl">
+            Invoice
+          </h1>
+          <button
+            onClick={handlePrint}
+            className="rounded bg-blue-500 px-4 py-2 text-white"
+          >
+            Print
+          </button>
+        </div>
 
         <div className="mt-4 flex justify-between gap-16 border-t py-4">
           <div>
@@ -85,10 +49,12 @@ export default function ConfirmOrder() {
           </div>
           <div>
             <p>
-              <span className="font-semibold">Invoice No:</span> #{invoiceId}
+              <span className="font-semibold">Order ID:</span> #
+              {orderData?.order_id}
             </p>
             <p>
-              <span className="font-semibold">Date:</span> {generateDate()}
+              <span className="font-semibold">Date:</span>{" "}
+              {generateDate(orderData?.createdAt)}
             </p>
           </div>
         </div>
@@ -163,25 +129,23 @@ export default function ConfirmOrder() {
             )}
           </tbody>
         </table>
+      </div>
+      <p className="mt-8 text-center">
+        Make your payment directly into the BFIN SASU bank account.
+        <br />
+        <span className="font-semibold">
+          Please use your Order ID as the Payment Reference.
+        </span>
+      </p>
 
-        <div className="mt-8 flex items-center justify-center gap-8 text-center">
-          <button
-            onClick={() => navigate(-1)}
-            className="text-lg font-medium transition-all duration-200 ease-linear hover:text-primary"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={handleConfirmOrder}
-            disabled={loading}
-            className="flex items-center gap-2 rounded bg-primary px-4 py-2 text-lg font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145a97]"
-          >
-            Confirm Order
-            {loading && (
-              <LiaSpinnerSolid className="animate-spin text-2xl text-white" />
-            )}
-          </button>
-        </div>
+      <div className="mt-8 flex justify-center">
+        <Link
+          to="/"
+          onClick={() => localStorage.removeItem("orderData")}
+          className="flex items-center gap-2 rounded bg-primary px-4 py-2 text-lg font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145a97]"
+        >
+          Back To Home
+        </Link>
       </div>
     </section>
   );
