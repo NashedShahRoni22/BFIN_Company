@@ -21,6 +21,9 @@ import NewWhiteLabel from "../pages/NewWhiteLabel/NewWhiteLabel";
 import WhiteLabelCheckout from "../pages/WhiteLabelCheckout/WhiteLabelCheckout";
 import SassSoftware from "../pages/SassSoftware/SassSoftware";
 import Invoice from "../pages/Invoice/Invoice";
+import CookiePolicy from "../pages/CookiePolicy/CookiePolicy";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
+import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
 
 export const router = createBrowserRouter([
   {
@@ -98,6 +101,18 @@ export const router = createBrowserRouter([
       {
         path: "/data-center",
         element: <DataCenter />,
+      },
+      {
+        path: "/cookie-policy",
+        element: <CookiePolicy />,
+      },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy />,
+      },
+      {
+        path: "/terms-and-conditions",
+        element: <TermsAndConditions />,
       },
     ],
   },

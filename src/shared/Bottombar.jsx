@@ -61,6 +61,18 @@ export default function Bottombar() {
       name: "Our blogs",
       link: "/blogs",
     },
+    {
+      name: "Cookie Policy",
+      link: "/cookie-policy",
+    },
+    {
+      name: "Privacy Policy",
+      link: "/privacy-policy",
+    },
+    {
+      name: "Terms & Conditions",
+      link: "/terms-and-conditions",
+    },
   ];
 
   // Fetching hosting products
