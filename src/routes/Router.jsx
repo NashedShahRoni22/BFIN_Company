@@ -24,7 +24,7 @@ import Invoice from "../pages/Invoice/Invoice";
 import CookiePolicy from "../pages/CookiePolicy/CookiePolicy";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
-import CustomVps from "../pages/Hosting/CustomVps";
+import CustomVps from "../pages/Hosting/CustomVps/CustomVps";
 
 export const router = createBrowserRouter([
   {
