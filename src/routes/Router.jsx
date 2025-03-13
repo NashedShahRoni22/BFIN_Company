@@ -24,6 +24,7 @@ import Invoice from "../pages/Invoice/Invoice";
 import CookiePolicy from "../pages/CookiePolicy/CookiePolicy";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
+import CustomVps from "../pages/Hosting/CustomVps";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
       {
         path: "/hosting-products/:id",
         element: <HostingProducts />,
+      },
+      {
+        path: "/build-your-own-vps",
+        element: <CustomVps />,
       },
       {
         path: "/old-white-label",

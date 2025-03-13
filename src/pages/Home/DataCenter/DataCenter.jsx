@@ -7,7 +7,7 @@ export default function DataCenter() {
       <h2 className="text-center text-2xl font-extrabold text-primary md:text-4xl">
         BFINIT - Secure, Scalable and Redundant
       </h2>
-      <p className="mt-6 text-center text-lg md:text-xl">
+      <p className="mt-6 text-center">
         Safeguard Your Servers or Hosting Space Across Multiple Locations for
         Unmatched Protection.
       </p>
@@ -23,12 +23,12 @@ export default function DataCenter() {
 
         <div className="w-full md:w-1/2">
           <h2 className="text-2xl font-semibold">Data Center&apos;s Mission</h2>
-          <p className="mt-4 text-lg md:mt-8">
+          <p className="mt-4 md:mt-8">
             Bfinit - Next-Gen Data Center Solutions for Speed, Reliability &
             Security, Backed by Multi-Site Infrastructure and Secure Data
             Redundancy for Unmatched Protection.
           </p>
-          <p className="mt-4 text-lg">
+          <p className="mt-4">
             Our state-of-the-art facilities ensure top-tier security, constant
             uptime and resilience against unforeseen circumstances, making us a
             trusted partner in safeguarding your critical data assets.

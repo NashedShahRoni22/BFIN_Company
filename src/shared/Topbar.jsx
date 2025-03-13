@@ -199,7 +199,7 @@ export default function Topbar() {
       );
       if (virtualMachineCategory) {
         virtualMachineCategory.subChild.push({
-          name: "Build your own VPS",
+          name: "Build Your Own VPS",
           link: "/build-your-own-vps",
         });
       }

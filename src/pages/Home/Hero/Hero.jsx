@@ -23,7 +23,7 @@ export default function Hero() {
         {carouselData.map((data, i) => (
           <SwiperSlide
             key={i}
-            style={{ background: data.bgColor }}
+            // style={{ background: data.bgColor }}
             className="h-full w-full px-5 py-10 md:py-20"
           >
             <div className="flex flex-col items-center justify-between gap-8 md:container md:mx-auto md:flex-row md:gap-16">
