@@ -115,19 +115,31 @@ export default function HostingPackages({ s }) {
           <span className="flex-1 text-sm">{s?.ips}</span>
         </p>
       )}
-      {s?.description1 !== null && (
+
+      {/* description 1 */}
+      {s?.description1 !== null &&
+        s?.description1?.includes("[") &&
+        JSON.parse(s.description1)?.map((desc, i) => (
+          <p key={i} className="flex gap-2">
+            <FaCheck className="text-primary" />
+            <span className="flex-1 text-sm">{desc}</span>
+          </p>
+        ))}
+
+      {s?.description1 !== null && !s?.description1?.includes("[") && (
         <p className="flex gap-2">
           <FaCheck className="text-primary" />
           <span className="flex-1 text-sm">{s?.description1}</span>
         </p>
       )}
-      {s?.description2 !== null && (
+
+      {!s?.description1 && s?.description2 !== null && (
         <p className="flex gap-2">
           <FaCheck className="text-primary" />
           <span className="flex-1 text-sm">{s?.description2}</span>
         </p>
       )}
-      {s?.description3 !== null && (
+      {!s?.description1 && s?.description3 !== null && (
         <p className="flex gap-2">
           <FaCheck className="text-primary" />
           <span className="flex-1 text-sm">{s?.description3}</span>
@@ -135,22 +147,24 @@ export default function HostingPackages({ s }) {
       )}
 
       {/* Select RAM with default value */}
-      <div className="flex flex-col gap-2.5">
-        <label htmlFor="" className="text-sm font-semibold text-primary">
-          Ram
-        </label>
-        <select
-          value={ramId}
-          onChange={(e) => setRamId(e.target.value)}
-          className="rounded border border-primary px-4 py-1 focus:outline-none"
-        >
-          {s?.uniqueRams?.map((ur, index) => (
-            <option key={index} value={ur}>
-              {ur}
-            </option>
-          ))}
-        </select>
-      </div>
+      {s?.uniqueRams[0] !== "0 setup fee" && (
+        <div className="flex flex-col gap-2.5">
+          <label htmlFor="" className="text-sm font-semibold text-primary">
+            Ram
+          </label>
+          <select
+            value={ramId}
+            onChange={(e) => setRamId(e.target.value)}
+            className="rounded border border-primary px-4 py-1 focus:outline-none"
+          >
+            {s?.uniqueRams?.map((ur, index) => (
+              <option key={index} value={ur}>
+                {ur}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
       {/* Select Storage with default value */}
       <div className="flex flex-col gap-2.5">

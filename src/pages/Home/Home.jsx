@@ -84,7 +84,7 @@ export default function Home() {
               Enjoy on yearly hosting plan
             </p>
             <Link
-              to={"fully-managed-dedicated-server"}
+              to="/hosting-products/1"
               className="group flex w-fit items-center gap-4 rounded border border-primary px-6 py-3 font-semibold text-primary shadow duration-300 ease-linear hover:bg-primary hover:text-white"
             >
               <span className="md:text-xl">Explore</span>
