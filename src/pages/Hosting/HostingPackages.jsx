@@ -209,10 +209,10 @@ export default function HostingPackages({ s }) {
           className="rounded border border-primary px-4 py-1 focus:outline-none"
         >
           <option value="1">1 Months</option>
-          <option value="3">3 Months (15% Discount)</option>
-          <option value="6">6 Months (19% Discount)</option>
-          <option value="12">12 Months (28% Discount)</option>
-          <option value="24">24 Months (34% Discount)</option>
+          <option value="3">3 Months</option>
+          <option value="6">6 Months</option>
+          <option value="12">12 Months</option>
+          <option value="24">24 Months</option>
         </select>
       </div>
 
@@ -270,17 +270,22 @@ export default function HostingPackages({ s }) {
       </p>
 
       {/* Discounted price */}
-      {discountedPrice !== "" && (
+      {/* {discountedPrice !== "" && (
         <>
           <p className="text-center text-sm font-semibold">You are paying</p>
           <p className="text-center text-xl font-semibold text-primary md:text-2xl">
             {discountedPrice} {currencyCode}
           </p>
         </>
-      )}
+      )} */}
+
+          <p className="text-center text-sm font-semibold">You are paying</p>
+          <p className="text-center text-xl font-semibold text-primary md:text-2xl">
+            {standardPrice} {currencyCode}
+          </p>
 
       {/* Standard regular price */}
-      {contract !== "1" && (
+      {/* {contract !== "1" && (
         <>
           {standardPrice !== "" && (
             <>
@@ -293,7 +298,7 @@ export default function HostingPackages({ s }) {
             </>
           )}
         </>
-      )}
+      )} */}
 
       <Link
         to={`https://hpanel.bfinit.com/checkout?productId=${serverId}&packageType=server&ram=${ramId}&storage=${storageId}&timePeriod=${contract}&currency=${currencyCode}&currencyRate=${exchangeRate}&storageVariantId=`}

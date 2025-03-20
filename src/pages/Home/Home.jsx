@@ -20,17 +20,17 @@ import DataCenter from "./DataCenter/DataCenter";
 import Gdpr from "./Gdpr/Gdpr";
 
 export default function Home() {
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpen(true);
-    }, 3000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setOpen(true);
+  //   }, 3000);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  const handleClose = () => setOpen(false);
+  // const handleClose = () => setOpen(false);
   return (
     <main>
       <Hero />
@@ -47,7 +47,7 @@ export default function Home() {
       <Blogs />
       <Question />
 
-      <Dialog
+      {/* <Dialog
         open={open}
         handler={handleClose}
         animate={{
@@ -92,7 +92,7 @@ export default function Home() {
             </Link>
           </div>
         </DialogBody>
-      </Dialog>
+      </Dialog> */}
     </main>
   );
 }
