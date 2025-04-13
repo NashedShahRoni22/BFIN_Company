@@ -25,6 +25,7 @@ import CookiePolicy from "../pages/CookiePolicy/CookiePolicy";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
 import CustomVps from "../pages/Hosting/CustomVps/CustomVps";
+import ServerHomePage from "../pages/ServerHomePage/HomePage";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <ServerHomePage />,
       },
       {
         path: "/contact",
