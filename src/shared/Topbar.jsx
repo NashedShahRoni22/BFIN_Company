@@ -12,10 +12,57 @@ const MenuItems = [
     link: "/",
   },
   {
-    name: "Hosting Products",
-    child: [],
+    name: "Hosting & Servers",
+    child: [
+      {
+        icon: "https://img.icons8.com/ios/50/domain.png",
+        name: "Web Hosting",
+        link: "/web-hosting",
+        description: "Reliable and affordable web hosting solutions.",
+      },
+      {
+        icon: "https://img.icons8.com/ios/50/database--v1.png",
+        name: "VPS Hosting",
+        link: "/vps-hosting",
+        description: "Scalable and secure virtual private servers.",
+      },
+      {
+        icon: "https://img.icons8.com/badges/50/server.png",
+        name: "Dedicated Server",
+        link: "/dedicated-server",
+        description: "High-performance servers for demanding applications.",
+      },
+      {
+        icon: "https://img.icons8.com/windows/50/maintenance.png",
+        name: "Custom VPS",
+        link: "/build-your-own-vps",
+        description: "Customize resources for your exact needs.",
+      },
+    ],
+  },
+
+  {
+    name: "Our Technologies",
+    link: "/our-technologies",
   },
   {
+    name: "Company",
+    child: [
+      {
+        name: "About Us",
+        link: "/about",
+      },
+      {
+        name: "Our Brands",
+        link: "/our-brands",
+      },
+    ],
+  },
+  {
+    name: "Career",
+    link: "/career",
+  },
+  /* {
     name: "Our Technologies",
     child: [
       {
@@ -128,24 +175,7 @@ const MenuItems = [
         ],
       },
     ],
-  },
-  {
-    name: "Company",
-    child: [
-      {
-        name: "About Us",
-        link: "/about",
-      },
-      {
-        name: "Our Brands",
-        link: "/our-brands",
-      },
-    ],
-  },
-  {
-    name: "Career",
-    link: "/career",
-  },
+  }, */
 ];
 
 export default function Topbar() {
@@ -258,7 +288,7 @@ export default function Topbar() {
                     <BiChevronDown className="text-2xl" />
                   </span>
                   {showSubMenu === i && (
-                    <div className="absolute left-1/2 top-full grid h-auto max-h-[calc(100vh-80px)] w-7/12 flex-1 -translate-x-1/2 grid-cols-3 gap-2 overflow-y-auto rounded border border-primary bg-white p-5 shadow">
+                    <div className="absolute left-1/2 top-full grid h-auto max-h-[calc(100vh-80px)] w-7/12 flex-1 -translate-x-1/2 grid-cols-3 gap-4 overflow-y-auto rounded border border-primary bg-white p-5 shadow">
                       {mi.child.map((mc, i) => (
                         <div key={i}>
                           {mc.header ? (
@@ -283,10 +313,23 @@ export default function Topbar() {
                               onClick={() => setShowSubMenu(null)}
                               to={mc.link}
                               key={i}
-                              className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3 hover:font-semibold hover:text-primary"
+                              className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3"
                             >
-                              <BiChevronRight className="text-2xl" />
-                              {mc.name}
+                              {mc.icon ? (
+                                <img
+                                  src={mc.icon}
+                                  className="size-8 rounded bg-blue-100 p-1"
+                                  alt=""
+                                />
+                              ) : (
+                                <BiChevronRight className="text-2xl" />
+                              )}
+                              <div>
+                                <p className="font-semibold">{mc.name}</p>
+                                <p className="mt-1 text-xs text-gray-800">
+                                  {mc.description}
+                                </p>
+                              </div>
                             </Link>
                           )}
                         </div>
@@ -329,6 +372,8 @@ export default function Topbar() {
           <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45" />
         </Link>
       </section>
+
+      {/* mobile view  */}
       {showNav && (
         <div className="top-18 absolute left-0 flex h-[80vh] min-w-full flex-col gap-4 overflow-y-scroll bg-white p-5 md:px-14 lg:hidden">
           {updatedMenuItems.map((mi, i) => (
@@ -337,7 +382,6 @@ export default function Topbar() {
                 <div>
                   <div className="flex items-center justify-between text-[18px]">
                     {mi.name}
-
                     {showChild !== i ? (
                       <button
                         onClick={() => setShowChild(i)}
@@ -385,8 +429,21 @@ export default function Topbar() {
                               onClick={() => setShowNav(!showNav)}
                               className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3 hover:font-semibold hover:text-primary"
                             >
-                              <BiChevronRight className="text-2xl" />
-                              {mc.name}
+                              {mc.icon ? (
+                                <img
+                                  src={mc.icon}
+                                  className="size-8 rounded bg-blue-100 p-1"
+                                  alt=""
+                                />
+                              ) : (
+                                <BiChevronRight className="text-2xl" />
+                              )}
+                              <div>
+                                <p className="">{mc.name}</p>
+                                <p className="text-xs mt-1 text-gray-800">
+                                  {mc.description}
+                                </p>
+                              </div>
                             </Link>
                           )}
                         </div>

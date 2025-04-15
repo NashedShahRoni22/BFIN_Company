@@ -109,7 +109,7 @@ export default function KeyFeats() {
         {/* Bitss Related Product - Colspan 8 */}
         <div className="rounded-lg border border-neutral-200 bg-[#fafbff] p-6 md:col-span-8">
           <h3 className="flex gap-2 text-2xl font-semibold">
-            <image
+            <img
               src={bitssLogo}
               alt="bitss logo"
               width={40}

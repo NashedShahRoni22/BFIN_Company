@@ -26,6 +26,11 @@ import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
 import CustomVps from "../pages/Hosting/CustomVps/CustomVps";
 import ServerHomePage from "../pages/ServerHomePage/HomePage";
+import VpsHosting from "../pages/VpsHosting/VpsHosting";
+import WebHosting from "../pages/WebHosting/WebHosting";
+import DedicatedServer from "../pages/DedicatedServer/DedicatedServer";
+import NewDataCenter from "../pages/NewDataCenter/NewDataCenter";
+import OurTechnologies from "../pages/OurTechnologies/OurTechnologies";
 
 export const router = createBrowserRouter([
   {
@@ -106,7 +111,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/data-center",
-        element: <DataCenter />,
+        element: <NewDataCenter />,
+      },
+      {
+        path: "/our-technologies",
+        element: <OurTechnologies />,
       },
       {
         path: "/cookie-policy",
@@ -119,6 +128,18 @@ export const router = createBrowserRouter([
       {
         path: "/terms-and-conditions",
         element: <TermsAndConditions />,
+      },
+      {
+        path: "/vps-hosting",
+        element: <VpsHosting />,
+      },
+      {
+        path: "/web-hosting",
+        element: <WebHosting />,
+      },
+      {
+        path: "/dedicated-server",
+        element: <DedicatedServer />,
       },
     ],
   },

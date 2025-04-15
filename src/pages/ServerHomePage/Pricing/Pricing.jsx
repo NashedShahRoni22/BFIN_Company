@@ -2,7 +2,7 @@ import FeaturedHostingCard from "../../../components/Cards/FeaturedHostingCard";
 const hostingPackages = [
   {
     name: "WEB HOSTING",
-    price: 4.99,
+    price: "4.99",
     description: "A simple and affordable solution for small websites.",
     features: [
       "Great performance at an affordable price",
@@ -13,11 +13,11 @@ const hostingPackages = [
       "100 Mbit/s network",
       "Unlimited traffic",
     ],
-    route: "/hosting-products/4"
+    route: "/web-hosting"
   },
   {
     name: "VIRTUAL SERVER HDD",
-    price: 14.50,
+    price: "14.50",
     description: "Best value for growing websites and businesses.",
     features: [
       "Dedicated performance at the lowest price",
@@ -28,12 +28,12 @@ const hostingPackages = [
       "100 Mbit/s network",
       "Unlimited traffic",
     ],
-    route: "/hosting-products/2",
+    route: "/vps-hosting",
     mostPopular: true,
   },
   {
     name: "DEDICATED SERVER",
-    price: 77.99,
+    price: "77.99",
     description: "Powerful hosting for high-performance websites.",
     features: [
       "Maximum performance - no ifs, no buts",
@@ -44,7 +44,7 @@ const hostingPackages = [
       "Up to 1 Gbit/s network",
       "Unlimited traffic",
     ],
-    route: "/hosting-products/1"
+    route: "/dedicated-server"
   },
 ];
 

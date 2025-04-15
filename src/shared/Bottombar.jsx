@@ -75,6 +75,33 @@ export default function Bottombar() {
     },
   ];
 
+  const hostingServers = [
+    {
+      icon: "https://img.icons8.com/ios/50/domain.png",
+      name: "Web Hosting",
+      link: "/web-hosting",
+      description: "Reliable and affordable web hosting solutions.",
+    },
+    {
+      icon: "https://img.icons8.com/ios/50/database--v1.png",
+      name: "VPS Hosting",
+      link: "/vps-hosting",
+      description: "Scalable and secure virtual private servers.",
+    },
+    {
+      icon: "https://img.icons8.com/badges/50/server.png",
+      name: "Dedicated Server",
+      link: "/dedicated-server",
+      description: "High-performance servers for demanding applications.",
+    },
+    {
+      icon: "https://img.icons8.com/windows/50/maintenance.png",
+      name: "Custom VPS",
+      link: "/build-your-own-vps",
+      description: "Customize resources for your exact needs.",
+    },
+  ];
+
   // Fetching hosting products
   useEffect(() => {
     const fetchHostingProducts = async () => {
@@ -165,7 +192,7 @@ export default function Bottombar() {
           <div className="grid gap-4 md:grid-cols-3 md:gap-8">
             <div>
               <h5 className="font-semibold">Hosting Products</h5>
-              <div className="ml-2 mt-2 flex flex-col gap-2">
+              {/* <div className="ml-2 mt-2 flex flex-col gap-2">
                 {categorizedProducts.map((category, i) => (
                   <div key={i}>
                     <h6 className="font-semibold underline underline-offset-2">
@@ -181,6 +208,17 @@ export default function Bottombar() {
                       </Link>
                     ))}
                   </div>
+                ))}
+              </div> */}
+              <div className="ml-2 mt-2 flex flex-col gap-2">
+                {hostingServers.map((product, i) => (
+                  <Link
+                    to={product.link}
+                    key={i}
+                    className="flex gap-2.5 hover:underline"
+                  >
+                    {product.name}
+                  </Link>
                 ))}
               </div>
             </div>
