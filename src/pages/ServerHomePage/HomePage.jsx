@@ -14,8 +14,8 @@ export default function ServerHomePage() {
       <KeyFeats />
       <ServerCompare />
       <Benefits />
-      <Blogs/>
       <ServerSection />
+      <Blogs/>
     </section>
   );
 }

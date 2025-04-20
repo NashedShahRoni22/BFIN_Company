@@ -1,4 +1,4 @@
-import heroBg from "../assets/server-home/hero-bg.jpg";
+import heroBg from "../assets/server-home/hero-bg.webp";
 
 export default function ProductHero({ title, subTitle }) {
   return (

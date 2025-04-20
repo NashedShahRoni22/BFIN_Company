@@ -5,6 +5,7 @@ import philosopy from "../../assets/philosopy.png";
 import vision from "../../assets/vision.png";
 import mission from "../../assets/mission.png";
 import OurOffices from "./OurOffices/OurOffices";
+import { Helmet } from "react-helmet";
 
 export default function About() {
   const items = [
@@ -26,7 +27,14 @@ export default function About() {
   ];
 
   return (
-    <section className="">
+    <section>
+      <Helmet>
+        <title>BFIN SASU – Cybersecurity Research & IT Solutions</title>
+        <meta
+          name="description"
+          content="BFIN SASU is French research company offering advanced cybersecurity with Bitss, secure server hosting, SaaS software and e commerce solutions. Explore our global presence and innovation driven mission to protect digital environments."
+        />
+      </Helmet>
       {/* about us content  */}
       <div className="mx-5 my-10 grid place-items-center gap-4 md:container md:mx-auto lg:my-20 lg:grid-cols-2 lg:gap-8">
         <div className="flex flex-col gap-4 md:gap-8">

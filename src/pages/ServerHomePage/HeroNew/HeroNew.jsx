@@ -1,4 +1,4 @@
-import heroBg from "../../../assets/server-home/hero-bg.jpg";
+import heroBg from "../../../assets/server-home/hero-bg.webp";
 import { IoIosSpeedometer } from "react-icons/io";
 
 export default function HeroNew() {

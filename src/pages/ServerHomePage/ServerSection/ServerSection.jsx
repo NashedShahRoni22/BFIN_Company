@@ -27,13 +27,13 @@ export default function ServerSection() {
 
         <div className="flex flex-col items-center gap-4 md:flex-row">
           <Link
-            to="/hosting-products/2"
+            to="/vps-hosting"
             className="mt-4 w-full rounded-full border px-5 py-2 font-medium transition hover:bg-gray-200 md:w-fit"
           >
             Browse Virtual Servers
           </Link>
           <Link
-            to="/hosting-products/1"
+            to="/dedicated-server"
             className="mt-4 w-full rounded-full border px-5 py-2 font-medium transition hover:bg-gray-200 md:w-fit"
           >
             Browse Dedicated Servers

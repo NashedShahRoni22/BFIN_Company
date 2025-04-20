@@ -83,7 +83,7 @@ export default function Benefits() {
           />
           <div className="absolute bottom-4 left-4">
             <Link
-              href="/"
+              to="/contact"
               className="flex items-center rounded-full bg-white px-5 py-2 font-medium"
             >
               Contact an expert 💬

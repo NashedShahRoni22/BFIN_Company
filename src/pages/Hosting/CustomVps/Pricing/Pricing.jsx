@@ -79,7 +79,7 @@ export default function Pricing({sectionRef}) {
 
   return (
     <div ref={sectionRef} className="mx-5 py-5 md:flex md:justify-center md:py-10">
-      <div className="rounded p-5 shadow md:w-1/2 lg:w-1/3">
+      <div className="rounded p-5 shadow-lg md:w-1/2 lg:w-1/3">
         <h5 className="text-center text-2xl font-semibold">
           Build your own VPS!
         </h5>
