@@ -1,5 +1,6 @@
 import Blogs from "../Blog/Blogs";
 import Benefits from "./Benefits/Benefits";
+import DistributorAffiliation from "./DistributorAffiliation/DistributorAffiliation";
 import HeroNew from "./HeroNew/HeroNew";
 import KeyFeats from "./KeyFeats/KeyFeats";
 import Pricing from "./Pricing/Pricing";
@@ -11,6 +12,7 @@ export default function ServerHomePage() {
     <section>
       <HeroNew />
       <Pricing />
+      <DistributorAffiliation/>
       <KeyFeats />
       <ServerCompare />
       <Benefits />
