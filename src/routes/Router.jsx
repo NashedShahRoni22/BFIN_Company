@@ -31,6 +31,7 @@ import WebHosting from "../pages/WebHosting/WebHosting";
 import DedicatedServer from "../pages/DedicatedServer/DedicatedServer";
 import NewDataCenter from "../pages/NewDataCenter/NewDataCenter";
 import OurTechnologies from "../pages/OurTechnologies/OurTechnologies";
+import DistributeAffiliate from "../pages/DistributeAffiliate/DistributeAffiliate";
 
 export const router = createBrowserRouter([
   {
@@ -140,6 +141,10 @@ export const router = createBrowserRouter([
       {
         path: "/dedicated-server",
         element: <DedicatedServer />,
+      },
+      {
+        path: "/distributeurs-affiliation",
+        element: <DistributeAffiliate />,
       },
     ],
   },

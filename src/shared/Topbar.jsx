@@ -38,6 +38,13 @@ const MenuItems = [
         link: "/build-your-own-vps",
         description: "Customize resources for your exact needs.",
       },
+      {
+        icon: "https://img.icons8.com/ios/100/reseller.png",
+        name: "Distributeurs Affiliation",
+        link: "/distributeurs-affiliation",
+        description:
+          "Start your own hosting business with our distributeurs affiliation program.",
+      },
     ],
   },
 
@@ -440,7 +447,7 @@ export default function Topbar() {
                               )}
                               <div>
                                 <p className="">{mc.name}</p>
-                                <p className="text-xs mt-1 text-gray-800">
+                                <p className="mt-1 text-xs text-gray-800">
                                   {mc.description}
                                 </p>
                               </div>
