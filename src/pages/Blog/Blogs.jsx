@@ -56,7 +56,7 @@ export default function Blogs() {
                       className="mb-5 mt-1.5 text-justify"
                     />
                     <Link
-                      to={`blog/${data.custom_url}`}
+                      to={`/blog/${data.custom_url}`}
                       className="inline-block w-fit self-start rounded bg-primary px-4 py-2 text-white"
                     >
                       Read More
@@ -86,7 +86,7 @@ export default function Blogs() {
                       className="mb-5 mt-1.5 text-justify"
                     />
                     <Link
-                      to={`blog/${data.custom_url}`}
+                      to={`/blog/${data.custom_url}`}
                       className="inline-block w-fit self-start rounded bg-primary px-4 py-2 text-white"
                     >
                       Read More
