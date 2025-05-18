@@ -39,6 +39,12 @@ const MenuItems = [
         description: "Customize resources for your exact needs.",
       },
       {
+        icon: "https://img.icons8.com/?size=100&id=16226&format=png&color=000000",
+        name: "Starter Webpack",
+        link: "/starter-web-pack",
+        description: "Start surfing web with our blezing fast hosting.",
+      },
+      {
         icon: "https://img.icons8.com/ios/100/reseller.png",
         name: "Distributeurs Affiliation",
         link: "/distributeurs-affiliation",

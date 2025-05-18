@@ -33,6 +33,7 @@ import NewDataCenter from "../pages/NewDataCenter/NewDataCenter";
 import OurTechnologies from "../pages/OurTechnologies/OurTechnologies";
 import DistributeAffiliate from "../pages/DistributeAffiliate/DistributeAffiliate";
 import HostingPackages from "../pages/Hosting/HostingPackages";
+import StarterWebPack from "../pages/StarterWebPack/StarterWebPack";
 
 export const router = createBrowserRouter([
   {
@@ -143,6 +144,10 @@ export const router = createBrowserRouter([
       {
         path: "/dedicated-server",
         element: <DedicatedServer />,
+      },
+      {
+        path: "/starter-web-pack",
+        element: <StarterWebPack />,
       },
       {
         path: "/distributeurs-affiliation",
