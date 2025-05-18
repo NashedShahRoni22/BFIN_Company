@@ -1,4 +1,3 @@
-import React from "react";
 import ProductHero from "../../components/ProductHero";
 import Pricing from "./Pricing";
 import { Helmet } from "react-helmet";
@@ -19,7 +18,8 @@ export default function VpsHosting() {
         subTitle="If you're looking for a fast, flexible and affordable solution, our VPS
         Hosting are ready to meet your demands!"
       />
-      <Pricing/>
+
+      <Pricing />
     </section>
   );
 }

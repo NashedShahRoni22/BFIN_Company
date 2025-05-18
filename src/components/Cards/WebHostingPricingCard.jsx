@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 
-export default function HostingPackages({ s }) {
+export default function HostingPricingCard({ product }) {
   const [storages, setStorages] = useState([]);
   const [exchangeRates, setExchangeRates] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(1);
   const [currencyCode, setCurrencyCode] = useState("USD");
 
   // Initialize with default values
-  const [serverId, setServerId] = useState(s.id);
-  const [ramId, setRamId] = useState(s.uniqueRams[0]);
-  const [storageId, setStorageId] = useState(s.storages[0]);
+  const [serverId, setServerId] = useState(product.id);
+  const [ramId, setRamId] = useState(product.uniqueRams[0]);
+  const [storageId, setStorageId] = useState(product.storages[0]);
   const [contract, setContract] = useState("3");
 
   // Prices data
@@ -43,7 +43,9 @@ export default function HostingPackages({ s }) {
   }, [serverId, ramId, storageId]);
 
   useEffect(() => {
-    const basePrice = parseFloat(updatedPrice || s?.defaultStorage?.price);
+    const basePrice = parseFloat(
+      updatedPrice || product?.defaultStorage?.price,
+    );
 
     // Apply discount based on contract
     let discountPercentage = 0;
@@ -94,7 +96,7 @@ export default function HostingPackages({ s }) {
 
   return (
     <div className="flex flex-col justify-between gap-2.5 rounded p-6 shadow">
-      <h5 className="font-bold text-primary">{s?.name}</h5>
+      <h5 className="font-bold text-primary">{product?.name}</h5>
       <div className="flex items-center gap-2">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Intel_Inside_Logo_%282020%29.svg"
@@ -103,51 +105,52 @@ export default function HostingPackages({ s }) {
           className="h-[60px]"
         />
         <div>
-          <p className="text-sm">{s?.processor}</p>
+          <p className="text-sm">{product?.processor}</p>
           <hr />
-          <h5 className="text-sm font-semibold">{s?.core}</h5>
+          <h5 className="text-sm font-semibold">{product?.core}</h5>
         </div>
       </div>
 
-      {s?.ips !== null && (
+      {product?.ips !== null && (
         <p className="flex gap-2">
           <FaCheck className="text-primary" />
-          <span className="flex-1 text-sm">{s?.ips}</span>
+          <span className="flex-1 text-sm">{product?.ips}</span>
         </p>
       )}
 
       {/* description 1 */}
-      {s?.description1 !== null &&
-        s?.description1?.includes("[") &&
-        JSON.parse(s.description1)?.map((desc, i) => (
+      {product?.description1 !== null &&
+        product?.description1?.includes("[") &&
+        JSON.parse(product.description1)?.map((desc, i) => (
           <p key={i} className="flex gap-2">
             <FaCheck className="text-primary" />
             <span className="flex-1 text-sm">{desc}</span>
           </p>
         ))}
 
-      {s?.description1 !== null && !s?.description1?.includes("[") && (
-        <p className="flex gap-2">
-          <FaCheck className="text-primary" />
-          <span className="flex-1 text-sm">{s?.description1}</span>
-        </p>
-      )}
+      {product?.description1 !== null &&
+        !product?.description1?.includes("[") && (
+          <p className="flex gap-2">
+            <FaCheck className="text-primary" />
+            <span className="flex-1 text-sm">{product?.description1}</span>
+          </p>
+        )}
 
-      {!s?.description1 && s?.description2 !== null && (
+      {!product?.description1 && product?.description2 !== null && (
         <p className="flex gap-2">
           <FaCheck className="text-primary" />
-          <span className="flex-1 text-sm">{s?.description2}</span>
+          <span className="flex-1 text-sm">{product?.description2}</span>
         </p>
       )}
-      {!s?.description1 && s?.description3 !== null && (
+      {!product?.description1 && product?.description3 !== null && (
         <p className="flex gap-2">
           <FaCheck className="text-primary" />
-          <span className="flex-1 text-sm">{s?.description3}</span>
+          <span className="flex-1 text-sm">{product?.description3}</span>
         </p>
       )}
 
       {/* Select RAM with default value */}
-      {s?.uniqueRams[0] !== "0 setup fee" && (
+      {product?.uniqueRams[0] !== "0 setup fee" && (
         <div className="flex flex-col gap-2.5">
           <label htmlFor="" className="text-sm font-semibold text-primary">
             Ram
@@ -157,7 +160,7 @@ export default function HostingPackages({ s }) {
             onChange={(e) => setRamId(e.target.value)}
             className="rounded border border-primary px-4 py-1 focus:outline-none"
           >
-            {s?.uniqueRams?.map((ur, index) => (
+            {product?.uniqueRams?.map((ur, index) => (
               <option key={index} value={ur}>
                 {ur}
               </option>
@@ -189,7 +192,7 @@ export default function HostingPackages({ s }) {
             onChange={(e) => setStorageId(e.target.value)}
             className="rounded border border-primary px-4 py-1 focus:outline-none"
           >
-            {s?.storages?.map((us, index) => (
+            {product?.storages?.map((us, index) => (
               <option key={index} value={us}>
                 {us}
               </option>
@@ -238,7 +241,7 @@ export default function HostingPackages({ s }) {
         <label htmlFor="" className="text-sm font-semibold text-primary">
           Server Location
         </label>
-        {JSON.parse(s?.data_center).map((dc, i) => (
+        {JSON.parse(product?.data_center).map((dc, i) => (
           <div key={i}>
             {dc === "usa" && (
               <img
@@ -264,7 +267,7 @@ export default function HostingPackages({ s }) {
         {updatedPrice !== "" ? (
           (updatedPrice * exchangeRate).toFixed(2)
         ) : (
-          <>{(s?.defaultStorage?.price * exchangeRate).toFixed(2)}</>
+          <>{(product?.defaultStorage?.price * exchangeRate).toFixed(2)}</>
         )}{" "}
         {currencyCode} / <span className="text-sm">Per month</span>
       </p>

@@ -32,6 +32,7 @@ import DedicatedServer from "../pages/DedicatedServer/DedicatedServer";
 import NewDataCenter from "../pages/NewDataCenter/NewDataCenter";
 import OurTechnologies from "../pages/OurTechnologies/OurTechnologies";
 import DistributeAffiliate from "../pages/DistributeAffiliate/DistributeAffiliate";
+import HostingPackages from "../pages/Hosting/HostingPackages";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,7 @@ export const router = createBrowserRouter([
         path: "/our-products",
         element: <Products />,
       },
+      // old design hosting pricing page
       {
         path: "/hosting-products/:id",
         element: <HostingProducts />,

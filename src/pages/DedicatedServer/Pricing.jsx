@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCardSkeleton from "../../components/Cards/CardSkleton";
 import { getData } from "../../shared/GetData";
-import DedicatedServerPricing from "../../components/Cards/DedicatedServerPricing";
+import HostingPricingCard from "../../components/Cards/WebHostingPricingCard";
 
 const dedicateServerProducts = [
   {
@@ -39,7 +39,7 @@ export default function Pricing() {
   }, [productId]);
 
   return (
-    <div className="text-primary px-5 py-10 md:container md:mx-auto md:px-0 md:py-20">
+    <div className="px-5 py-10 text-primary md:container md:mx-auto md:px-0 md:py-20">
       {/* section title */}
       <p className="text-center text-lg">Choose Your Dedicated Server Plan!</p>
       <h2 className="font-urbanist mt-4 text-center text-4xl font-bold">
@@ -47,7 +47,7 @@ export default function Pricing() {
       </h2>
 
       {/* tab button */}
-      <div className="mt-8 flex items-center justify-center flex-wrap gap-4 py-2.5">
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-4 py-2.5">
         {dedicateServerProducts.map((product, i) => (
           <button
             key={i}
@@ -55,7 +55,7 @@ export default function Pricing() {
             className={`min-w-fit cursor-pointer rounded-full px-4 py-2 ${
               product.id === productId
                 ? "bg-primary text-white"
-                : "bg-white hover:bg-neutral-100"
+                : "hover:bg-neutral-100 bg-white"
             }`}
           >
             {product.title}
@@ -70,7 +70,7 @@ export default function Pricing() {
               <ProductCardSkeleton key={i} />
             ))
           : products.map((product) => (
-              <DedicatedServerPricing key={product.id} product={product} />
+              <HostingPricingCard key={product.id} product={product} />
             ))}
       </div>
     </div>

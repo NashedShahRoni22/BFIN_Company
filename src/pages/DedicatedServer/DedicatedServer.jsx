@@ -18,6 +18,7 @@ export default function DedicatedServer() {
         subTitle="If you're looking for a fast, flexible, and affordable solution, our
         dedicated servers are ready to meet your demands!"
       />
+
       <Pricing />
     </section>
   );
