@@ -98,13 +98,6 @@ export default function Partner() {
                 </div>
               ))}
             </div>
-
-            {/* CTA Button */}
-            <div className="mt-10 text-center md:text-left">
-              <button className="mx-auto inline-block rounded-md bg-primary px-6 py-3 text-base font-medium text-white shadow-sm focus:outline-none">
-                Start Earning Today
-              </button>
-            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { FiDollarSign, FiStar, FiUserPlus } from "react-icons/fi";
 import heroImg from "../../../assets/distributor-affiliate/hero.jpg";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -12,15 +13,15 @@ export default function Hero() {
         <div className="relative z-10 w-full md:w-1/2">
           <div className="mb-4 inline-flex items-center rounded-full bg-primary/5 px-4 py-1.5">
             <span className="mr-2 text-sm font-medium text-primary">
-              Partner Program
+              Distributeur Program
             </span>
             <FiStar className="h-4 w-4 text-[#31c5f4]" />
           </div>
 
           <h1 className="mb-4 bg-gradient-to-r from-primary to-[#31c5f4] bg-clip-text text-4xl font-bold text-transparent md:text-5xl lg:text-6xl">
-            Earn Recurring
+            Become
             <br />
-            Commissions
+            Distributeur
           </h1>
 
           <p className="mb-8 text-lg font-light text-gray-600 md:text-xl">
@@ -30,13 +31,10 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row">
-            <button className="flex items-center justify-center rounded-lg bg-primary px-8 py-3.5 font-medium text-white transition-all hover:shadow-lg">
+            <Link to={"/contact"} className="flex items-center justify-center rounded-lg bg-primary px-8 py-3.5 font-medium text-white transition-all hover:shadow-lg">
               <FiUserPlus className="mr-2" />
               Become a Partner
-            </button>
-            <button className="rounded-lg border-2 border-primary/5 bg-primary/10 px-8 py-3.5 font-medium backdrop-blur-sm transition-all hover:bg-primary/20">
-              Learn More
-            </button>
+            </Link>
           </div>
         </div>
 
