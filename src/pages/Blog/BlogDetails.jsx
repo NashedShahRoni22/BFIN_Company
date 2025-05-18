@@ -24,7 +24,7 @@ useEffect(()=>{
         <Loader/>
         :
         <div className='mx-5 md:container md:mx-auto py-5 md:py-10 flex flex-col gap-5'>
-            <img src={data?.thumbnail} alt="" className='w-full md:h-[350px] lg:h-[450px]' />
+            <img src={data?.thumbnail} alt="" className='w-full md:h-[400px] lg:h-[600px]' loading='lazy' />
             <h5 className='text-xl font-semibold'>{data?.title}</h5>
             <div id="preview" dangerouslySetInnerHTML={{__html: data?.content}} />
         </div>

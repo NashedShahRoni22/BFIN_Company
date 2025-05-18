@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import iDistributorAffiliationImage from "../../../assets/DistributorAffiliation.jpg";
 
 const DistributorAffiliation = () => {
@@ -11,9 +12,9 @@ const DistributorAffiliation = () => {
           by offering high-quality, scalable solutions to your clients.
         </p>
         <div className="mt-8">
-          <button className="px-6 py-3 bg-primary text-white text-lg font-semibold rounded-full shadow">
+          <Link to={"/distributeurs-affiliation"} className="px-6 py-3 bg-primary text-white text-lg font-semibold rounded-full shadow">
             Join as a Distributor
-          </button>
+          </Link>
         </div>
       </div>
 
