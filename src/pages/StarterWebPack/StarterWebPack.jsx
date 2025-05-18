@@ -6,19 +6,17 @@ export default function StarterWebPack() {
   return (
     <section>
       <Helmet>
-        <title>Starter Web Pack</title>
+        <title>Starter Micro Hosting</title>
         <meta
           name="description"
-          content="Powerful VPS hosting from just $14.50/mo. Choose fully or self-managed plans with SSD storage, DDR4 RAM and 0 setup fee. Scale your server easily!"
+          content="Get best performance cost effective web hosting for you mico business, Fresetup, 24/7 support, web builder, and free upgrade."
         />
       </Helmet>
 
       <ProductHero
-        title="Starter Web Pack"
-        subTitle="If you're looking for a fast, flexible and affordable solution, our VPS
-        Hosting are ready to meet your demands!"
+        title="Starter Micro Hosting"
+        subTitle="Get best performance cost effective web hosting for you mico business, Fresetup, 24/7 support, web builder, and free upgrade"
       />
-
       <Pricing />
     </section>
   );
