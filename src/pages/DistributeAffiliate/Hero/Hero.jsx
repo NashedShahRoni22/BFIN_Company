@@ -31,7 +31,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Link to={"/contact"} className="flex items-center justify-center rounded-lg bg-primary px-8 py-3.5 font-medium text-white transition-all hover:shadow-lg">
+            <Link to={"https://hpanel.bfinit.com/distributor/register"} target="_blank" className="flex items-center justify-center rounded-lg bg-primary px-8 py-3.5 font-medium text-white transition-all hover:shadow-lg">
               <FiUserPlus className="mr-2" />
               Become a Partner
             </Link>

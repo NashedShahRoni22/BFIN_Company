@@ -9,7 +9,7 @@ export default function Contact() {
           Join now and get your exclusive partner dashboard instantly.
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Link to={"/contact"} className="rounded-lg bg-primary px-8 py-3 font-bold text-white">
+          <Link to={"https://hpanel.bfinit.com/distributor/register"} target="_blank" className="rounded-lg bg-primary px-8 py-3 font-bold text-white">
             Sign Up Free
           </Link>
         </div>
