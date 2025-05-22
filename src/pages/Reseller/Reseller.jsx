@@ -14,7 +14,7 @@ export default function Reseller() {
     <main>
       <Hero handleScrollToSection={handleScrollToSection} />
       <Features />
-      <Pricing sectionRef={sectionRef} />
+      {/* <Pricing sectionRef={sectionRef} /> */}
       <Overview />
       <Proudcts />
       <Contact />

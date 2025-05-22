@@ -52,7 +52,7 @@ export default function OurTechnologies() {
           link: "/white-label",
         },
         {
-          name: "Become a Reseller",
+          name: "Become a Distributor",
           link: "/reseller-program",
         },
         {

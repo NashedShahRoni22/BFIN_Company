@@ -12,7 +12,7 @@ export default function Hero({ handleScrollToSection }) {
   return (
     <section className="mx-5 flex flex-col items-center gap-8 py-10 md:container md:mx-auto md:flex-row md:gap-16 md:py-20">
       <div className="w-full md:w-1/2">
-        <h6 className="font-bold text-primary">Become a Reseller</h6>
+        <h6 className="font-bold text-primary">Become a Distributor</h6>
         <h1 className="mt-2 text-3xl font-bold md:text-4xl">
           Our Brand, Powered by You
         </h1>
