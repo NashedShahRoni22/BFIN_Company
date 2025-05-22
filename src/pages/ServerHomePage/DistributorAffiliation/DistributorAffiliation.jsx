@@ -27,7 +27,7 @@ const DistributorAffiliation = () => {
         <img
           src={iDistributorAffiliationImage}
           alt="Distribute Hosting Services"
-          className="h-full max-h-[460px] w-full object-contain"
+          className="h-full w-full rounded-md object-contain"
         />
       </div>
     </div>

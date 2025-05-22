@@ -37,7 +37,7 @@ export default function Hero({ handleScrollToSection }) {
         >
           <span className="flex items-center px-3">
             <span className="transition-transform duration-300 group-hover:-translate-x-2">
-              See Plans & Pricing
+              Explore Packages
             </span>
           </span>
           <BsArrowRight className="-ml-3 scale-0 opacity-0 transition-all duration-300 group-hover:scale-125 group-hover:opacity-100" />

@@ -3,6 +3,7 @@ export const ecommercePackages = [
     id: 156156,
     name: "Ecommerce Pack 1",
     price: 504,
+    link: "https://hpanel.bfinit.com/checkout?productId=30&packageType=server&ram=4GB%20DDR4%20ECC%20RAM&storage=100GB%20SSD&timePeriod=12&currency=EUR&currencyRate=0.883&storageVariantId=",
     features: [
       "1 Website",
       "Pre-Built Templates",
@@ -30,6 +31,7 @@ export const ecommercePackages = [
     id: 7123,
     name: "Ecommerce Pack 2",
     price: 756,
+    link: "https://hpanel.bfinit.com/checkout?productId=31&packageType=server&ram=8GB%20DDR4%20ECC%20RAM&storage=200GB%20SSD&timePeriod=12&currency=EUR&currencyRate=0.883&storageVariantId=",
     features: [
       "2 Websites",
       "Pre-Built Templates",
@@ -56,6 +58,7 @@ export const ecommercePackages = [
   {
     id: 935871,
     name: "Ecommerce Pack 3",
+    link: "https://hpanel.bfinit.com/checkout?productId=32&packageType=server&ram=16GB%20DDR4%20ECC%20RAM&storage=300GB%20SSD&timePeriod=12&currency=EUR&currencyRate=0.883&storageVariantId=",
     price: 1260,
     features: [
       "3 Websites",
@@ -86,6 +89,7 @@ export const ecommercePackages = [
     id: 3682,
     name: "Ecommerce Pack 4",
     price: 2520,
+    link: "https://hpanel.bfinit.com/checkout?productId=33&packageType=server&ram=32GB%20DDR4%20ECC%20RAM&storage=500GB%20SSD&timePeriod=12&currency=EUR&currencyRate=0.883&storageVariantId=",
     features: [
       "4 Websites",
       "Pre-Built Templates",
