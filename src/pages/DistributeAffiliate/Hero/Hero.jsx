@@ -48,11 +48,11 @@ export default function Hero() {
           <div className="absolute -bottom-8 right-0 z-0 h-32 w-32 rounded-full bg-indigo-400/20 backdrop-blur-sm"></div>
 
           {/* Main image with floating effect */}
-          <div className="relative z-10 transform transition-all duration-500 hover:scale-105">
+          <div className="group relative z-10">
             <img
               src={heroImg}
               alt="Happy partners collaborating"
-              className="mx-auto w-full max-w-md rounded-xl shadow-2xl"
+              className="mx-auto w-full max-w-md transform rounded-xl shadow-2xl transition-all duration-500 group-hover:scale-105"
             />
             {/* Decorative badge on image */}
             <div className="absolute -bottom-5 -right-5 flex items-center rounded-xl bg-white px-4 py-2 shadow-lg">
