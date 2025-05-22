@@ -1,21 +1,39 @@
 import { BsArrowRight } from "react-icons/bs";
 import heroImg from "../../../assets/reseller/hero.webp";
 
+const distributionProducts = [
+  "Bfinit Hosting",
+  "Web Builder",
+  "Omada HR Payroll",
+  "Bitss Cybersecurity",
+];
+
 export default function Hero({ handleScrollToSection }) {
   return (
     <section className="mx-5 flex flex-col items-center gap-8 py-10 md:container md:mx-auto md:flex-row md:gap-16 md:py-20">
       <div className="w-full md:w-1/2">
         <h6 className="font-bold text-primary">Become a Reseller</h6>
         <h1 className="mt-2 text-3xl font-bold md:text-4xl">
-          Your Brand, Powered by Us
+          Our Brand, Powered by You
         </h1>
-        <p className="my-6 text-balance text-lg leading-relaxed">
-          Deliver exceptional value to your customers with our products. Resell
-          hosting, domains, and more under your own brand.
+        <p className="my-4 text-lg leading-relaxed text-gray-900">
+          <span className="font-semibold">Earn 20-30% as a Distributor</span> by
+          distributing Bfinit&apos;s premium solutions:{" "}
+          {distributionProducts.map((product, i) => (
+            <span
+              key={i}
+              className="mr-2 mt-2 inline-block whitespace-nowrap rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
+            >
+              {product}
+            </span>
+          ))}
+        </p>
+        <p className="my-3">
+          Grow your revenue with performance-driven, trusted solutions.
         </p>
         <button
           onClick={handleScrollToSection}
-          className="group inline-flex items-center rounded bg-primary px-4 py-2 font-medium text-white shadow"
+          className="group inline-flex items-center rounded-lg bg-primary px-6 py-3 font-medium text-white shadow"
         >
           <span className="flex items-center px-3">
             <span className="transition-transform duration-300 group-hover:-translate-x-2">

@@ -50,7 +50,7 @@ export default function Partner() {
                 <div className="flex items-center gap-2 text-sm">
                   <FiDollarSign className="text-green-500" />
                   <span className="font-bold text-gray-800">
-                    30% Commission
+                    20-30% Commission
                   </span>
                 </div>
               </div>

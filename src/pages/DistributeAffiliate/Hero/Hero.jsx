@@ -1,6 +1,6 @@
-import { FiDollarSign, FiStar, FiUserPlus } from "react-icons/fi";
-import heroImg from "../../../assets/distributor-affiliate/hero.jpg";
 import { Link } from "react-router-dom";
+import { FiDollarSign, FiStar, FiUserPlus } from "react-icons/fi";
+import heroImg from "../../../assets/distributor-affiliate/hero.webp";
 
 export default function Hero() {
   return (
@@ -31,7 +31,11 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Link to={"https://hpanel.bfinit.com/distributor/register"} target="_blank" className="flex items-center justify-center rounded-lg bg-primary px-8 py-3.5 font-medium text-white transition-all hover:shadow-lg">
+            <Link
+              to={"https://hpanel.bfinit.com/distributor/register"}
+              target="_blank"
+              className="flex items-center justify-center rounded-lg bg-primary px-8 py-3.5 font-medium text-white transition-all hover:shadow-lg"
+            >
               <FiUserPlus className="mr-2" />
               Become a Partner
             </Link>
@@ -53,7 +57,7 @@ export default function Hero() {
             {/* Decorative badge on image */}
             <div className="absolute -bottom-5 -right-5 flex items-center rounded-xl bg-white px-4 py-2 shadow-lg">
               <FiDollarSign className="mr-2 text-green-500" />
-              <span className="font-bold text-gray-800">30% Commission</span>
+              <span className="font-bold text-gray-800">20-30% Commission</span>
             </div>
           </div>
         </div>
