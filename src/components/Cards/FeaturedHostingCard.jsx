@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 export default function FeaturedHostingCard({ pack }) {
   return (
     <div
-      className={`relative rounded-md shadow-md bg-white px-4 py-8 ${pack.mostPopular && "scale-y-105"}`}
+      className={`relative rounded-md bg-white px-4 py-8 shadow-md ${pack.mostPopular && "scale-y-105"}`}
     >
       {pack.mostPopular && (
-        <p className="bg-primary absolute -top-[1px] right-0 rounded-bl-md px-4 py-1.5 text-sm font-semibold text-white">
+        <p className="absolute -top-[1px] right-0 rounded-bl-md bg-primary px-4 py-1.5 text-sm font-semibold text-white">
           Most Popular
         </p>
       )}
@@ -22,7 +22,7 @@ export default function FeaturedHostingCard({ pack }) {
       </p>
       <Link
         to={pack.route}
-        className={`border-primary text-primary mt-4 block rounded-full border-2 py-2 text-center font-bold transition-all duration-200 ease-linear ${pack.mostPopular ? "bg-primary text-white hover:border-transparent" : "hover:bg-neutral-200"}`}
+        className={`mt-4 block rounded-full border-2 border-primary py-2 text-center font-bold text-primary transition-all duration-200 ease-linear ${pack.mostPopular ? "bg-primary text-white hover:border-transparent" : "hover:bg-gray-200"}`}
       >
         Learn More
       </Link>

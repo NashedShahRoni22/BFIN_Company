@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 
 export default function EcomPricingCard({ pack, exchangerates }) {
-  const { name, price, link, features } = pack;
+  const { name, price, features, id, ram, storage } = pack;
 
   const [currency, setCurrency] = useState("USD");
+  const [selectedCurrencyRate, setSelectedCurrencyRate] = useState(1);
   const [packPrice, setPackPrice] = useState(price);
   const [selectedDuration, setSelectedDuration] = useState("");
-  const monthlyPrice = packPrice / 15 || 0;
+  const monthlyPrice = packPrice / 12 || 0;
 
   // Handle the currency and currencyRate on select tag change
   const handleCurrencyChange = (e) => {
@@ -18,8 +19,13 @@ export default function EcomPricingCard({ pack, exchangerates }) {
     )[1];
 
     setPackPrice(price * selectedCurrencyRate);
+    setSelectedCurrencyRate(selectedCurrencyRate);
     setCurrency(selectedCurrency);
   };
+
+  const buyingUrl = encodeURI(
+    `https://hpanel.bfinit.com/checkout?productId=${id}&packageType=server&ram=${ram}&storage=${storage}&timePeriod=${selectedDuration ? selectedDuration : "12"}&currency=${currency}&currencyRate=${selectedCurrencyRate}&storageVariantId=`,
+  );
 
   return (
     <div className="flex flex-col justify-between rounded-md border shadow-xl">
@@ -50,11 +56,11 @@ export default function EcomPricingCard({ pack, exchangerates }) {
             </div>
             <p className="mb-1 text-center text-xs">
               {currency}{" "}
-              <span className="mr-1 text-sm font-medium text-gray-300 line-through">
+              {/* <span className="mr-1 text-sm font-medium text-gray-300 line-through">
                 {Number.isInteger(packPrice / 12)
                   ? packPrice / 12
                   : (packPrice / 12).toFixed(2)}
-              </span>
+              </span> */}
               <span className="text-base font-semibold">
                 {Number.isInteger(monthlyPrice)
                   ? monthlyPrice
@@ -82,7 +88,7 @@ export default function EcomPricingCard({ pack, exchangerates }) {
             </option>
           </select>
         </div>
-        {(selectedDuration === "12" || selectedDuration === "24") && (
+        {/* {(selectedDuration === "12" || selectedDuration === "24") && (
           <p className="mt-4 px-4 text-sm">
             Get{" "}
             <span className="font-semibold text-primary">
@@ -92,7 +98,7 @@ export default function EcomPricingCard({ pack, exchangerates }) {
             {selectedDuration === "12" ? "15 " : "30 "}
             Months Total!
           </p>
-        )}
+        )} */}
 
         <ul className="mt-4 space-y-2.5">
           {features.map((feat, i) => (
@@ -103,11 +109,17 @@ export default function EcomPricingCard({ pack, exchangerates }) {
               <FaCheck className="min-w-fit text-sm text-primary" /> {feat}
             </li>
           ))}
+          <li className="flex items-center gap-2 border-b px-4 py-1.5 last:border-b-0">
+            <FaCheck className="min-w-fit text-sm text-primary" /> {ram}
+          </li>
+          <li className="flex items-center gap-2 border-b px-4 py-1.5 last:border-b-0">
+            <FaCheck className="min-w-fit text-sm text-primary" /> {storage}
+          </li>
         </ul>
       </div>
 
       <Link
-        to={link}
+        to={buyingUrl}
         target="_blank"
         className="mt-6 block w-full rounded-b-md bg-gradient-to-t from-primary to-[#31c5f4] py-2 text-center font-semibold text-white hover:from-[#155c99] hover:to-[#31c5f4]"
       >

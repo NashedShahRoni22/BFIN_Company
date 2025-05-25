@@ -1,6 +1,5 @@
-import supportBg from "../../../assets/server-home/support-bg.png";
-import expertBg from '../../../assets/server-home/expert-bg.jpg';
 import { Link } from "react-router-dom";
+import expertBg from "../../../assets/server-home/expert-bg.jpg";
 
 const benefitsData = [
   {
@@ -37,7 +36,7 @@ const benefitsData = [
 
 export default function Benefits() {
   return (
-    <section className="text-primary w-full px-5 py-10 md:container md:mx-auto md:px-0 md:py-20">
+    <section className="w-full px-5 py-10 text-primary md:container md:mx-auto md:px-0 md:py-20">
       {/* Section Heading */}
       <h3 className="text-accent text-sm font-bold uppercase">Top Benefits</h3>
       <h2 className="font-urbanist mt-2 text-3xl font-bold">
@@ -52,7 +51,7 @@ export default function Benefits() {
             style={{
               backgroundImage: benefit.bgImg && `url(${benefit.bgImg.src})`,
             }}
-            className={`rounded-2xl border border-neutral-200 p-6 text-center ${benefit.bgImg ? "flex flex-col justify-center bg-[#14161c] bg-cover bg-center text-white" : "bg-[#fafbff]"} ${
+            className={`border-neutral-200 rounded-2xl border p-6 text-center ${benefit.bgImg ? "flex flex-col justify-center bg-[#14161c] bg-cover bg-center text-white" : "bg-[#fafbff]"} ${
               i >= 3 ? "col-span-12 md:col-span-6" : "col-span-12 md:col-span-4"
             }`}
           >
@@ -75,11 +74,11 @@ export default function Benefits() {
         ))}
 
         {/* Expert Contact Card */}
-        <div className="relative col-span-12 h-auto max-h-[292px] overflow-hidden rounded-2xl border border-neutral-200 bg-[#fafbff] md:col-span-6">
+        <div className="border-neutral-200 relative col-span-12 h-auto max-h-[292px] overflow-hidden rounded-2xl border bg-[#fafbff] md:col-span-6">
           <img
             src={expertBg}
             alt="expert"
-            className="object-cover object-center "
+            className="object-cover object-center"
           />
           <div className="absolute bottom-4 left-4">
             <Link

@@ -51,6 +51,13 @@ const MenuItems = [
         description:
           "Start your own hosting business with our distributeurs affiliation program.",
       },
+      {
+        icon: "https://img.icons8.com/ios/50/shopping-cart--v1.png",
+        name: "Ecommerce Pack",
+        link: "/bfinit-ecomerce-platform",
+        description:
+          "Get your free online store — fast, easy, and ready to sell!",
+      },
     ],
   },
 
@@ -301,7 +308,7 @@ export default function Topbar() {
                     <BiChevronDown className="text-2xl" />
                   </span>
                   {showSubMenu === i && (
-                    <div className="absolute left-1/2 top-full grid h-auto max-h-[calc(100vh-80px)] w-7/12 flex-1 -translate-x-1/2 grid-cols-3 gap-4 overflow-y-auto rounded border border-primary bg-white p-5 shadow">
+                    <div className="absolute left-1/2 top-full grid h-auto max-h-[calc(100vh-80px)] w-2/3 flex-1 -translate-x-1/2 grid-cols-3 gap-4 overflow-y-auto rounded border border-primary bg-white p-5 shadow">
                       {mi.child.map((mc, i) => (
                         <div key={i}>
                           {mc.header ? (

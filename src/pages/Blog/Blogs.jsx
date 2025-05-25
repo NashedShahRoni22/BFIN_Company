@@ -45,7 +45,7 @@ export default function Blogs() {
                     loading="lazy"
                     className="h-auto w-full rounded-t"
                   />
-                  <div className="p-4">
+                  <div className="mt-4 flex-1 px-4">
                     <h5 to="/" className="text-xl font-semibold">
                       {data.title}
                     </h5>
@@ -55,6 +55,9 @@ export default function Blogs() {
                       }}
                       className="mb-5 mt-1.5 text-justify"
                     />
+                  </div>
+
+                  <div className="p-4 text-right">
                     <Link
                       to={`/blog/${data.custom_url}`}
                       className="inline-block w-fit self-start rounded bg-primary px-4 py-2 text-white"

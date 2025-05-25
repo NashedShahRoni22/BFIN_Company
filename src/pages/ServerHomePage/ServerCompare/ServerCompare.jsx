@@ -54,13 +54,13 @@ export default function ServerCompare() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="text-primary w-full px-5 py-10 md:container md:mx-auto md:px-0">
+    <div className="w-full px-5 py-10 text-primary md:container md:mx-auto md:px-0">
       {/* Header */}
       <h2 className="font-urbanist text-center text-4xl font-bold">
         Virtual Server or Dedicated Server
       </h2>
       <p className="mt-4 text-center text-lg">
-        We've compared the key performance differences to make your choice
+        We&apos;ve compared the key performance differences to make your choice
         easier— check it out and make the best call!
       </p>
 
@@ -91,7 +91,7 @@ export default function ServerCompare() {
 
                   {/* Section Rows */}
                   {section.specs.map((row, rowIndex) => (
-                    <tr key={rowIndex} className="border-t border-neutral-200">
+                    <tr key={rowIndex} className="border-neutral-200 border-t">
                       <td className="p-3 font-semibold">{row.name}</td>
                       {row.values.map((value, colIndex) => (
                         <td key={colIndex} className="p-3 text-center">
@@ -118,7 +118,7 @@ export default function ServerCompare() {
         <div className="mt-4 text-center">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="border-royal-blue cursor-pointer rounded-full border px-6 py-2 font-semibold transition-all duration-200 ease-linear hover:bg-neutral-200"
+            className="cursor-pointer rounded-full border border-primary px-6 py-2 font-semibold transition-all duration-200 ease-linear hover:bg-gray-200"
           >
             {expanded ? "Collapse" : "Expand to see all key facts"}
           </button>
