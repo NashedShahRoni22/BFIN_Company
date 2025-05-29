@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 
 export default function HostingPricingCard({ product }) {
+  const { server_subscription_periods } = product;
+
   const [storages, setStorages] = useState([]);
   const [exchangeRates, setExchangeRates] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(1);
@@ -12,6 +14,7 @@ export default function HostingPricingCard({ product }) {
   const [serverId, setServerId] = useState(product.id);
   const [ramId, setRamId] = useState(product.uniqueRams[0]);
   const [storageId, setStorageId] = useState(product.storages[0]);
+  const [contractId, setContractId] = useState(null);
   const [contract, setContract] = useState("3");
 
   // Prices data
@@ -42,37 +45,49 @@ export default function HostingPricingCard({ product }) {
     }
   }, [serverId, ramId, storageId]);
 
+  // Find default contract ID (3 months if available, otherwise first item)
+  const getDefaultContractId = useCallback(() => {
+    const threeMonthPeriod = server_subscription_periods?.find(
+      (period) => period.period_time === 3,
+    );
+    return threeMonthPeriod?.id ?? server_subscription_periods?.[0]?.id;
+  }, [server_subscription_periods]);
+
   useEffect(() => {
-    const basePrice = parseFloat(
-      updatedPrice || product?.defaultStorage?.price,
+    const selectedContractId = contractId ? contractId : getDefaultContractId();
+    const selectedDuration = server_subscription_periods?.find(
+      (duration) => duration?.id?.toString() === selectedContractId?.toString(),
     );
 
-    // Apply discount based on contract
-    let discountPercentage = 0;
-    let month = 1;
-    if (contract === "1") {
-      discountPercentage = 0;
-      month = 1;
-    } else if (contract === "3") {
-      discountPercentage = 15;
-      month = 3;
-    } else if (contract === "6") {
-      discountPercentage = 19;
-      month = 6;
-    } else if (contract === "12") {
-      discountPercentage = 28;
-      month = 12;
-    } else if (contract === "24") {
-      discountPercentage = 34;
-      month = 24;
-    }
-    const calculatedStandardPrice = basePrice * month;
-    setStandardPrice((calculatedStandardPrice * exchangeRate).toFixed(2));
+    if (selectedDuration && product?.defaultStorage?.price) {
+      const basePrice = parseFloat(
+        updatedPrice || product?.defaultStorage?.price,
+      );
+      const month = selectedDuration?.period_time;
+      const serverId = selectedDuration?.server_id;
+      const discountPercentage = selectedDuration?.discount || 0;
 
-    const calculatedDiscountedPrice =
-      calculatedStandardPrice * ((100 - discountPercentage) / 100);
-    setDiscountedPrice((calculatedDiscountedPrice * exchangeRate).toFixed(2));
-  }, [contract, updatedPrice, exchangeRate]);
+      // set contract month
+      setContract(month);
+      setServerId(serverId);
+
+      // standard price
+      const calculatedStandardPrice = basePrice * month;
+      setStandardPrice((calculatedStandardPrice * exchangeRate).toFixed(2));
+
+      // discounted price
+      const calculatedDiscountedPrice =
+        calculatedStandardPrice * ((100 - discountPercentage) / 100);
+      setDiscountedPrice((calculatedDiscountedPrice * exchangeRate).toFixed(2));
+    }
+  }, [
+    contractId,
+    updatedPrice,
+    server_subscription_periods,
+    product?.defaultStorage?.price,
+    exchangeRate,
+    getDefaultContractId,
+  ]);
 
   // Get exchange rates
   useEffect(() => {
@@ -207,15 +222,17 @@ export default function HostingPricingCard({ product }) {
           Contract
         </label>
         <select
-          value={contract}
-          onChange={(e) => setContract(e.target.value)}
+          value={contractId ?? getDefaultContractId()}
+          onChange={(e) => setContractId(e.target.value)}
           className="rounded border border-primary px-4 py-1 focus:outline-none"
         >
-          <option value="1">1 Months</option>
-          <option value="3">3 Months</option>
-          <option value="6">6 Months</option>
-          <option value="12">12 Months</option>
-          <option value="24">24 Months</option>
+          {server_subscription_periods?.length > 0 &&
+            server_subscription_periods?.map((duration) => (
+              <option key={duration?.id} value={duration?.id}>
+                {duration?.period_time} Months{" "}
+                {duration?.discount && `(${duration?.discount}% Off)`}
+              </option>
+            ))}
         </select>
       </div>
 
@@ -284,7 +301,7 @@ export default function HostingPricingCard({ product }) {
 
       <p className="text-center text-sm font-semibold">You are paying</p>
       <p className="text-center text-xl font-semibold text-primary md:text-2xl">
-        {standardPrice} {currencyCode}
+        {discountedPrice ? discountedPrice : standardPrice} {currencyCode}
       </p>
 
       {/* Standard regular price */}
