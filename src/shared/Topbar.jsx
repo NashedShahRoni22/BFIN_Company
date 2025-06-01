@@ -46,10 +46,10 @@ const MenuItems = [
       },
       {
         icon: "https://img.icons8.com/ios/100/reseller.png",
-        name: "Distributeurs Affiliation",
+        name: "Distributors Affiliation",
         link: "/distributeurs-affiliation",
         description:
-          "Start your own hosting business with our distributeurs affiliation program.",
+          "Start your own hosting business with our distributors affiliation program.",
       },
       {
         icon: "https://img.icons8.com/ios/50/shopping-cart--v1.png",

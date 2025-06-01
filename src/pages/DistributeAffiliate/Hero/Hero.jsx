@@ -13,7 +13,7 @@ export default function Hero() {
         <div className="relative z-10 w-full md:w-1/2">
           <div className="mb-4 inline-flex items-center rounded-full bg-primary/5 px-4 py-1.5">
             <span className="mr-2 text-sm font-medium text-primary">
-              Distributeur Program
+              Distributor Program
             </span>
             <FiStar className="h-4 w-4 text-[#31c5f4]" />
           </div>
@@ -21,7 +21,7 @@ export default function Hero() {
           <h1 className="mb-4 bg-gradient-to-r from-primary to-[#31c5f4] bg-clip-text text-4xl font-bold text-transparent md:text-5xl lg:text-6xl">
             Become
             <br />
-            Distributeur
+            Distributor
           </h1>
 
           <p className="mb-8 text-lg font-light text-gray-600 md:text-xl">
