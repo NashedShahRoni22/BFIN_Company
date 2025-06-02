@@ -4,32 +4,32 @@ export const whiteLabelChecoutData = {
     price: 250,
     features: [
       {
-        name: "Web site design once off payment",
+        name: "Website Design (One-time)",
         price: 350,
       },
       {
-        name: "One year hosting for your clients software and other items",
+        name: "1 Year Hosting",
         price: 230,
         required: true,
       },
       {
-        name: "Client order automation from your website linked to your white label software, once off",
+        name: "Client Order Automation (One-time)",
         price: 750,
       },
       {
-        name: "Wordpress payment integration, once off",
+        name: "WordPress Payment Integration (One-time)",
         price: 25,
       },
       {
-        name: "Website payment integration with backend automation, once off",
+        name: "Website Payment Integration + Backend Automation (One-time)",
         price: 375,
       },
       {
-        name: "Unique own branded login page software, once off",
+        name: "Custom Branded Login Page (One-time)",
         price: 350,
       },
       {
-        name: "Branded application for iOS and Android with maintenance, once off",
+        name: "Branded Mobile App (iOS & Android, One-time)",
         price: 750,
       },
     ],
