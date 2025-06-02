@@ -25,47 +25,47 @@ export const whiteLabelProducts = [
     cta: "Buy Payroll Software",
     pricingDetails: [
       {
-        title: "One Year Hosting",
+        title: "1 Year Hosting",
         description:
-          "Hosting of your website, customer software, and admin panel.",
-        price: "€480.00",
+          "Hosting for client software, support & training included.",
+        price: "€230.00",
         required: true,
       },
       {
         title: "Website Design (One-time)",
-        description: "Professional website design included in your package.",
+        description: "One-time professional website design service.",
         price: "€350.00",
         optional: true,
       },
       {
+        title: "Client Order Automation (One-time)",
+        description:
+          "Automate client orders from your website to white-label software.",
+        price: "€750.00",
+        optional: true,
+      },
+      {
         title: "WordPress Payment Integration (One-time)",
-        description: "Seamless payment gateway integration for WordPress.",
+        description: "Payment gateway integration for WordPress websites.",
         price: "€25.00",
         optional: true,
       },
       {
         title: "Website Payment Integration + Backend Automation (One-time)",
-        description: "Advanced payment integration with automation.",
+        description: "Advanced payment setup with backend automation.",
         price: "€375.00",
         optional: true,
       },
       {
         title: "Custom Branded Login Page (One-time)",
-        description:
-          "Unique login page with your branding. Includes Wordsxtra account.",
+        description: "Login page with your branding or use standard version.",
         price: "€350.00",
         optional: true,
       },
       {
-        title: "White Label Payroll/Account Admin",
+        title: "Branded Mobile App (iOS & Android, One-time)",
         description:
-          "Choose a free white-label payroll or account admin solution.",
-        price: "€0.00 (Free)",
-        optional: true,
-      },
-      {
-        title: "Branded Mobile App (iOS & Android)",
-        description: "Fully branded mobile application with maintenance.",
+          "Branded app with maintenance. iOS fee €95/year after launch.",
         price: "€750.00",
         optional: true,
       },

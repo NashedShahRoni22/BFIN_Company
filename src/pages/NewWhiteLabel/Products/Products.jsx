@@ -1,6 +1,6 @@
-import { whiteLabelProducts } from "../../../data/whiteLabelProducts";
 import WhiteLabelFeatCard from "../../../components/Cards/WhiteLabelFeatCard";
 import ArrowBtn from "../../../components/buttons/ArrowBtn";
+import { whiteLabelProducts } from "../../../data/whiteLabelProducts";
 
 export default function Products({ sectionRef }) {
   return (
