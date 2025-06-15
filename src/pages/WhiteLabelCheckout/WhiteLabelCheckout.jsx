@@ -111,7 +111,7 @@ export default function WhiteLabelCheckout() {
 
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_Base_Url}/payments/payment/create`,
+        "https://paymentapi.bfinit.com/api/v1/payments/payment/create",
         {
           method: "POST",
           headers: {
