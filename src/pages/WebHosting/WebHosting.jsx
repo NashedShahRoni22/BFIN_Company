@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import ProductHero from "../../components/ProductHero";
 import Pricing from "./Pricing";
+import BonusProductHighlight from "../../components/BonusProductHighlight";
 
 export default function WebHosting() {
   return (
@@ -18,6 +19,7 @@ export default function WebHosting() {
         subTitle="If you're looking for a fast, flexible and affordable solution, our Web Hosting are ready to meet your demands!"
       />
       <Pricing />
+      <BonusProductHighlight />
     </section>
   );
 }

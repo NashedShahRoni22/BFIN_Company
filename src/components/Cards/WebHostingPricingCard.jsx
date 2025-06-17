@@ -1,6 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
+import { FiGift } from "react-icons/fi";
+
+const bonusProducts = [
+  { name: "Bitss WAP", price: "€19.50" },
+  { name: "Bitss C", price: "€6.99" },
+  { name: "Bitss VWAR", price: "€4.99" },
+  { name: "Omada HR 10", price: "€8.99" },
+  { name: "Omada Clasico 25", price: "€10.99" },
+];
 
 export default function HostingPricingCard({ product }) {
   const { server_subscription_periods } = product;
@@ -108,6 +117,16 @@ export default function HostingPricingCard({ product }) {
     setCurrencyCode(selectedCurrencyCode);
     setExchangeRate(selectedCurrencyRate);
   };
+
+  const getBonusCount = (contractMonth) => {
+    if (contractMonth >= 24) return 5;
+    if (contractMonth >= 12) return 4;
+    if (contractMonth >= 6) return 2;
+    if (contractMonth >= 3) return 1;
+    return 0;
+  };
+
+  const bonusCount = getBonusCount(parseInt(contract));
 
   return (
     <div className="flex flex-col justify-between gap-2.5 rounded p-6 shadow">
@@ -258,26 +277,28 @@ export default function HostingPricingCard({ product }) {
         <label htmlFor="" className="text-sm font-semibold text-primary">
           Server Location
         </label>
-        {JSON.parse(product?.data_center).map((dc, i) => (
-          <div key={i}>
-            {dc === "usa" && (
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/330/330426.png"
-                alt=""
-                loading="lazy"
-                className="h-[40px]"
-              />
-            )}
-            {dc === "europe" && (
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/555/555526.png"
-                alt=""
-                loading="lazy"
-                className="h-[40px]"
-              />
-            )}
-          </div>
-        ))}
+        <div className="flex items-center gap-2.5">
+          {JSON.parse(product?.data_center).map((dc, i) => (
+            <div key={i}>
+              {dc === "usa" && (
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/330/330426.png"
+                  alt=""
+                  loading="lazy"
+                  className="h-[32px]"
+                />
+              )}
+              {dc === "europe" && (
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/555/555526.png"
+                  alt=""
+                  loading="lazy"
+                  className="h-[32px]"
+                />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
       {/* Display Standard and Discounted Prices */}
       <p className="text-center font-semibold text-primary">
@@ -319,6 +340,31 @@ export default function HostingPricingCard({ product }) {
           )}
         </>
       )} */}
+
+      {bonusCount > 0 && (
+        <div className="mt-4 rounded text-sm text-gray-700">
+          <div>
+            During Checkout you can select{" "}
+            <p className="inline-flex gap-1 font-semibold text-primary">
+              <FiGift className="mt-0.5 min-w-fit text-primary" /> {bonusCount}{" "}
+              Free Product{bonusCount > 1 ? "s" : ""}
+            </p>{" "}
+            with your hosting purchase.
+          </div>
+          <p className="mt-1.5">Available bonus options:</p>
+
+          <ul className="mt-1.5">
+            {bonusProducts.map((item, index) => (
+              <li key={index} className="flex gap-2 text-sm">
+                <FaCheck className="mt-0.5 min-w-fit text-primary" />
+                <span className="flex-1">
+                  {item?.name} - {item?.price}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <Link
         to={`https://hpanel.bfinit.com/checkout?productId=${serverId}&packageType=server&ram=${ramId}&storage=${storageId}&timePeriod=${contract}&currency=${currencyCode}&currencyRate=${exchangeRate}&storageVariantId=`}
