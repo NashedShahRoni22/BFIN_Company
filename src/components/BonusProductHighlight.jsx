@@ -1,13 +1,5 @@
 import { FiBarChart2, FiGift } from "react-icons/fi";
-import { FaCheck } from "react-icons/fa";
-
-const bonusProducts = [
-  { name: "Bitss WAP", price: "€19.50" },
-  { name: "Bitss C", price: "€6.99" },
-  { name: "Bitss VWAR", price: "€4.99" },
-  { name: "Omada HR 10", price: "€8.99" },
-  { name: "Omada Clasico 25", price: "€10.99" },
-];
+import bonusProducts from "../data/bonusProduct";
 
 const duration = [
   {
@@ -30,30 +22,29 @@ const duration = [
 
 export default function BonusProductHighlight() {
   return (
-    <div className="px-5 py-10 md:container md:mx-auto md:px-0 md:py-20">
+    <div className="px-5 py-10 text-primary md:container md:mx-auto md:px-0 md:py-20">
       {/* section title */}
       <p className="text-center text-lg">
-        Get free tools like login guard, spam filter, malware shield & payroll
-        software with hosting.
+        Free login guard, spam blocker & payroll tools with hosting
       </p>
-      <h2 className="mt-4 flex items-center justify-center gap-2.5 text-center text-4xl font-bold">
-        <FiGift className="text-3xl" />{" "}
-        <span>Get Up to 5 FREE Bonus Products</span>
+      <h2 className="mt-4 text-center text-4xl font-bold">
+        Get Up to 5 FREE Bonus Products
       </h2>
 
-      <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
+      <div className="mt-16 grid grid-cols-1 gap-8 text-gray-700 md:grid-cols-2 md:gap-16">
         {/* Left: Bonus by Duration */}
-        <div className="flex-1 space-y-4">
-          <div className="flex items-center gap-2">
-            <div className="bg-primary-500/10 text-primary-600 flex h-8 w-8 items-center justify-center rounded-lg">
-              <FiBarChart2 className="text-lg" />
-            </div>
-            <h3 className="text-primary-900 text-lg font-semibold">
-              Free Product Tiers
-            </h3>
+        <div>
+          <div className="flex items-center gap-1.5 text-lg font-semibold text-primary">
+            <FiBarChart2 />
+            <h3>Free Product Tiers</h3>
           </div>
 
-          <div className="rounded-xl bg-white p-5 shadow-[0_4px_24px_rgba(0,0,0,0.04)] ring-1 ring-gray-100/50">
+          <p className="mt-2 text-sm font-medium leading-relaxed">
+            Unlock up to 5 free bonus products based on your hosting duration —
+            a total value of up to €82.
+          </p>
+
+          <div className="mt-4 rounded p-5 ring-1 ring-gray-100/50">
             {duration?.map((item, i) => (
               <div
                 key={i}
@@ -69,7 +60,7 @@ export default function BonusProductHighlight() {
                     {item.bonus === 1 ? "product" : "products"}
                   </p>
                 </div>
-                <div className="text-primary-500 hidden text-xs font-medium sm:block">
+                <div className="hidden text-xs font-medium text-primary sm:block">
                   +{item.bonus} {item.bonus === 1 ? "product" : "products"}
                 </div>
               </div>
@@ -78,23 +69,38 @@ export default function BonusProductHighlight() {
         </div>
 
         {/* Right: Bonus Products List */}
-        <div className="flex-1 space-y-4">
-          <h3 className="text-primary-900 text-base font-semibold">
-            🎁 Available Bonus Products
+        <div>
+          <h3 className="flex items-center gap-1.5 text-base font-semibold text-primary">
+            <FiGift /> Available Bonus Products
           </h3>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <p className="mt-2 text-sm font-medium leading-relaxed">
+            Unlock premium tools like login security, anti-spam, malware
+            defense, and payroll software — worth up to €82 — free with eligible
+            hosting plans.
+          </p>
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {bonusProducts.map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 rounded-md bg-white p-3 shadow-sm ring-1 ring-gray-100"
+                className="rounded p-3 shadow-sm ring-1 ring-gray-100/50"
               >
-                <div className="bg-primary-100 text-primary-600 flex h-5 w-5 items-center justify-center rounded-full">
-                  <FaCheck className="text-xs" />
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center">
+                    <img
+                      src={item.logo}
+                      alt={`logo of ${item.name}`}
+                      className="w-full"
+                    />
+                  </div>
+                  <div className="flex flex-col font-medium text-gray-900">
+                    <p>
+                      {item.name} – {item.price}
+                    </p>
+                    <p className="text-xs font-normal text-gray-700">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <span className="text-primary-900 text-sm">
-                  <span className="font-medium">{item.name}</span> –{" "}
-                  {item.price}
-                </span>
               </div>
             ))}
           </div>

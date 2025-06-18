@@ -2,14 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 import { FiGift } from "react-icons/fi";
-
-const bonusProducts = [
-  { name: "Bitss WAP", price: "€19.50" },
-  { name: "Bitss C", price: "€6.99" },
-  { name: "Bitss VWAR", price: "€4.99" },
-  { name: "Omada HR 10", price: "€8.99" },
-  { name: "Omada Clasico 25", price: "€10.99" },
-];
+import bonusProducts from "../../data/bonusProduct";
 
 export default function HostingPricingCard({ product }) {
   const { server_subscription_periods } = product;
