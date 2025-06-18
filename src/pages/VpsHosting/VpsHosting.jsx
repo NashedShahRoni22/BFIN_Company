@@ -1,3 +1,4 @@
+import BonusProductHighlight from "../../components/BonusProductHighlight";
 import ProductHero from "../../components/ProductHero";
 import Pricing from "./Pricing";
 import { Helmet } from "react-helmet";
@@ -20,6 +21,7 @@ export default function VpsHosting() {
       />
 
       <Pricing />
+      <BonusProductHighlight />
     </section>
   );
 }

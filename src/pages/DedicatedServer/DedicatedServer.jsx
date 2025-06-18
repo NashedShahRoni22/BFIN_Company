@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import ProductHero from "../../components/ProductHero";
 import Pricing from "./Pricing";
+import BonusProductHighlight from "../../components/BonusProductHighlight";
 
 export default function DedicatedServer() {
   return (
@@ -20,6 +21,7 @@ export default function DedicatedServer() {
       />
 
       <Pricing />
+      <BonusProductHighlight />
     </section>
   );
 }
