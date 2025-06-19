@@ -41,7 +41,8 @@ export default function BonusProductHighlight() {
 
           <p className="mt-2 text-sm font-medium leading-relaxed">
             Unlock up to 5 free bonus products based on your hosting duration —
-            a total value of up to €82.
+            a total value of up to{" "}
+            <span className="font-semibold text-primary">€356.50/year</span>
           </p>
 
           <div className="mt-4 rounded p-5 ring-1 ring-gray-100/50">
@@ -75,8 +76,9 @@ export default function BonusProductHighlight() {
           </h3>
           <p className="mt-2 text-sm font-medium leading-relaxed">
             Unlock premium tools like login security, anti-spam, malware
-            defense, and payroll software — worth up to €82 — free with eligible
-            hosting plans.
+            defense, and payroll software — worth up to{" "}
+            <span className="font-semibold text-primary">€356.50/year</span> —
+            free with eligible hosting plans.
           </p>
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {bonusProducts.map((item, index) => (

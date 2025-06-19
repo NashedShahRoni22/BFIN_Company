@@ -337,14 +337,14 @@ export default function HostingPricingCard({ product }) {
       {bonusCount > 0 && (
         <div className="mt-4 rounded text-sm text-gray-700">
           <div>
-            During Checkout you can select{" "}
-            <p className="inline-flex gap-1 font-semibold text-primary">
+            <p className="inline-flex gap-x-1 font-semibold text-primary">
               <FiGift className="mt-0.5 min-w-fit text-primary" /> {bonusCount}{" "}
               Free Product{bonusCount > 1 ? "s" : ""}
             </p>{" "}
-            with your hosting purchase.
+            included choose during checkout.
           </div>
-          <p className="mt-1.5">Available bonus options:</p>
+
+          <p className="mt-1.5">Available products:</p>
 
           <ul className="mt-1.5">
             {bonusProducts.map((item, index) => (
@@ -352,6 +352,7 @@ export default function HostingPricingCard({ product }) {
                 <FaCheck className="mt-0.5 min-w-fit text-primary" />
                 <span className="flex-1">
                   {item?.name} - {item?.price}
+                  <span className="text-xs">/yr</span>
                 </span>
               </li>
             ))}

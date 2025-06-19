@@ -22,14 +22,14 @@ const bonusProducts = [
       "Malware scanner for WordPress with real-time threat blocking.",
   },
   {
-    name: "Omada HR 10",
-    price: "€15.00",
+    name: "Omada HR Payroll 10",
+    price: "€180",
     logo: omadaLogo,
     description: "Smart payroll software for small to medium businesses.",
   },
   {
-    name: "Omada Clasico 25",
-    price: "€10.00",
+    name: "Omada Clasico Payroll 25",
+    price: "€120",
     logo: omadaLogo,
     description: "Quickly generate payslips with professional formatting.",
   },
