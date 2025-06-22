@@ -356,7 +356,7 @@ export default function HostingPricingCard({ product }) {
               <li key={index} className="flex gap-2 text-sm">
                 <FaCheck className="mt-0.5 min-w-fit text-primary" />
                 <span className="flex-1">
-                  {item?.name} - {item?.price}
+                  {item?.name} - Gift Value: {item?.price}
                   <span className="text-xs">/yr</span>
                 </span>
               </li>

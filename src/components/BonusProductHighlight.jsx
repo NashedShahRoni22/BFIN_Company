@@ -99,7 +99,7 @@ export default function BonusProductHighlight() {
                   </div>
                   <div className="flex flex-col font-medium text-gray-900">
                     <p>
-                      {item.name} – {item.price}
+                      {item.name} – Gift Value: {item.price}
                       <span className="text-xs">/yr</span>
                     </p>
                     <p className="text-xs font-normal text-gray-700">
