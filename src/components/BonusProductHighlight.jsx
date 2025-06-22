@@ -80,6 +80,9 @@ export default function BonusProductHighlight() {
             <span className="font-semibold text-primary">€356.50/year</span> —
             free with eligible hosting plans.
           </p>
+          <p className="mt-2 text-[13px] font-medium italic text-primary/75">
+            * Free product is valid for the duration of your hosting plan.
+          </p>
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {bonusProducts.map((item, index) => (
               <div
@@ -97,6 +100,7 @@ export default function BonusProductHighlight() {
                   <div className="flex flex-col font-medium text-gray-900">
                     <p>
                       {item.name} – {item.price}
+                      <span className="text-xs">/yr</span>
                     </p>
                     <p className="text-xs font-normal text-gray-700">
                       {item.description}

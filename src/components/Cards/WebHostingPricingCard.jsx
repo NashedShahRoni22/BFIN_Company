@@ -334,6 +334,7 @@ export default function HostingPricingCard({ product }) {
         </>
       )} */}
 
+      {/* Bonus Product's */}
       {bonusCount > 0 && (
         <div className="mt-4 rounded text-sm text-gray-700">
           <div>
@@ -343,6 +344,10 @@ export default function HostingPricingCard({ product }) {
             </p>{" "}
             included choose during checkout.
           </div>
+
+          <p className="mt-0.5 text-[13px] font-medium italic text-primary/75">
+            * Free product is valid for the duration of your hosting plan.
+          </p>
 
           <p className="mt-1.5">Available products:</p>
 
