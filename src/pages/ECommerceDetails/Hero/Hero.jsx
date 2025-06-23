@@ -1,5 +1,7 @@
 import { MdOutlineArrowDownward } from "react-icons/md";
 import ecommerce from "../../../assets/ecommerce/banner.webp";
+import { Link } from "react-router-dom";
+import { HiOutlineEye } from "react-icons/hi";
 
 export default function Hero({ handleScrollToSection }) {
   return (
@@ -13,13 +15,23 @@ export default function Hero({ handleScrollToSection }) {
           customized designs. With market insights to seamless payment
           integration, cost-effective tools and dedicated SEO control.
         </p>
-        <button
-          onClick={handleScrollToSection}
-          className="group mx-auto flex items-center justify-center gap-2 rounded bg-primary px-4 py-2.5 font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145d9c] md:mx-0"
-        >
-          Learn More About Our Solutions
-          <MdOutlineArrowDownward className="animate-bounce text-xl group-hover:animate-none" />
-        </button>
+
+        <div className="flex flex-col items-center gap-4 md:flex-row">
+          <button
+            onClick={handleScrollToSection}
+            className="group mx-auto flex w-full items-center justify-center gap-2 rounded bg-primary px-4 py-2.5 font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145d9c] md:mx-0 md:w-fit"
+          >
+            Learn More About Our Solutions
+            <MdOutlineArrowDownward className="animate-bounce text-xl group-hover:animate-none" />
+          </button>
+          <Link
+            to="https://shop.bfinit.com/preview/6857bc3e4205851792ca088a"
+            target="_blank"
+            className="mx-auto flex w-full items-center justify-center gap-1.5 rounded bg-primary px-4 py-2.5 font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145d9c] md:mx-0 md:w-fit"
+          >
+            <HiOutlineEye className="min-w-fit text-lg" /> Live Preview
+          </Link>
+        </div>
       </div>
       <div className="h-[220px] w-full md:h-[440px] md:w-1/2">
         <img
