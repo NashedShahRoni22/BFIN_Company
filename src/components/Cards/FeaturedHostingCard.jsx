@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function FeaturedHostingCard({ pack }) {
   return (
     <div
-      className={`relative rounded-md bg-white px-4 py-8 shadow-md ${pack.mostPopular && "scale-y-105"}`}
+      className={`relative rounded-md bg-white px-4 py-8 shadow-xl ${pack.mostPopular && "scale-y-105"}`}
     >
       {pack.mostPopular && (
         <p className="absolute -top-[1px] right-0 rounded-bl-md bg-primary px-4 py-1.5 text-sm font-semibold text-white">

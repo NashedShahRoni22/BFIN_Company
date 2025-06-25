@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ecommercePackages } from "../../../data/ecommercePackages";
 import EcomPricingCard from "../../../components/Cards/EcomPricingCard";
 
-export default function Pricing() {
+export default function Pricing({ pricingSection }) {
   const [exchangerates, setExchangeRates] = useState([]);
 
   // Fetch updated currencies info(currency name & currency rate)
@@ -15,7 +15,7 @@ export default function Pricing() {
   }, []);
 
   return (
-    <section className="py-10 md:py-20">
+    <section ref={pricingSection} className="py-10 md:py-20">
       <div className="text-center">
         <h2 className="inline-block animate-pulse bg-gradient-to-r from-primary via-black to-primary bg-clip-text text-center text-3xl font-extrabold text-transparent md:text-4xl">
           Limited Time Offer!

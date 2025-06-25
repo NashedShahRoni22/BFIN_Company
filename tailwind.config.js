@@ -10,6 +10,7 @@ module.exports = withMT({
     extend: {
       colors: {
         "custom-gray": "#333",
+        "gray-soft": "#F8F9FA",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],

@@ -1,3 +1,4 @@
+import BonusProductHighlight from "../../components/BonusProductHighlight";
 import Blogs from "../Blog/Blogs";
 import Benefits from "./Benefits/Benefits";
 import DistributorAffiliation from "./DistributorAffiliation/DistributorAffiliation";
@@ -12,12 +13,13 @@ export default function ServerHomePage() {
     <section>
       <HeroNew />
       <Pricing />
-      <DistributorAffiliation/>
+      <BonusProductHighlight />
+      <DistributorAffiliation />
       <KeyFeats />
       <ServerCompare />
       <Benefits />
       <ServerSection />
-      <Blogs/>
+      <Blogs />
     </section>
   );
 }
