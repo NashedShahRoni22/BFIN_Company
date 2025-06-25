@@ -21,7 +21,7 @@ export default function Hero({ handleScrollToSection }) {
             onClick={handleScrollToSection}
             className="group mx-auto flex w-full items-center justify-center gap-2 rounded bg-primary px-4 py-2.5 font-medium text-white transition-all duration-200 ease-linear hover:bg-[#145d9c] md:mx-0 md:w-fit"
           >
-            Learn More About Our Solutions
+            Learn More
             <MdOutlineArrowDownward className="animate-bounce text-xl group-hover:animate-none" />
           </button>
           <Link
