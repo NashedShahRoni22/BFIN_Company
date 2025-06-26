@@ -3,8 +3,8 @@ import iDistributorAffiliationImage from "../../../assets/server-home/affiliatio
 
 const DistributorAffiliation = () => {
   return (
-    <div className="flex flex-col items-center justify-between rounded-lg p-8 shadow-md md:container md:mx-auto md:flex-row">
-      <div className="max-w-xl space-y-6 md:w-2/3">
+    <div className="flex flex-col items-center justify-between gap-8 p-8 md:container md:mx-auto md:flex-row md:gap-16">
+      <div className="w-full space-y-6 md:w-1/2">
         <h2 className="text-3xl font-semibold text-gray-800">
           Distributions Affiliation
         </h2>
@@ -23,10 +23,11 @@ const DistributorAffiliation = () => {
         </div>
       </div>
 
-      <div className="mt-8 md:mt-0 md:w-1/3">
+      <div className="mt-8 w-full md:mt-0 md:w-1/2">
         <img
           src={iDistributorAffiliationImage}
           alt="Distribute Hosting Services"
+          loading="lazy"
           className="h-full w-full rounded-md object-contain"
         />
       </div>
