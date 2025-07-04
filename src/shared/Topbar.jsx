@@ -76,11 +76,15 @@ const MenuItems = [
         name: "Our Brands",
         link: "/our-brands",
       },
+      {
+        name: "Career",
+        link: "/career",
+      },
     ],
   },
   {
-    name: "Career",
-    link: "/career",
+    name: "Hardwares",
+    link: "/hardwares",
   },
   /* {
     name: "Our Technologies",
