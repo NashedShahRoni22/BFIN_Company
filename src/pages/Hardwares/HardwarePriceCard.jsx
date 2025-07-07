@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import bonusProducts from '../../data/bonusProduct';
+import { Link } from 'react-router-dom';
+import bonusHardwareProduct from '../../data/bonusHardwareProduct';
 
 export default function HardwarePriceCard({ product }) {
     // Initialize with the first RAM and storage options instead of null
@@ -112,9 +115,29 @@ export default function HardwarePriceCard({ product }) {
             )}
 
             {/* Price Display */}
-            <div className="mt-4">
-                <p className="text-xl font-bold">Price: ${price}</p>
+            <div className="space-y-2">
+                <p className="text-center text-sm font-semibold">You are paying</p>
+                <p className="text-3xl font-bold text-center">${price}</p>
             </div>
+            {/* free products  */}
+            <ul className="mt-1.5">
+                {bonusHardwareProduct.map((item, index) => (
+                    <li key={index} className="flex gap-2 text-sm">
+                        <FaCheck className="mt-0.5 min-w-fit text-primary" />
+                        <span className="flex-1">
+                            {item?.name} - Gift Value: {item?.price}
+                            <span className="text-xs">/yr</span>
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <Link
+                to="/contact"
+                target="_blank"
+                className="mt-10 rounded-xl bg-primary px-4 py-2 text-center text-white"
+            >
+                Order Now
+            </Link>
         </div>
     );
 }
