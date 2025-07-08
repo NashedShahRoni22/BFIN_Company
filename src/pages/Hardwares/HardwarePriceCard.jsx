@@ -136,7 +136,7 @@ export default function HardwarePriceCard({ product }) {
                 target="_blank"
                 className="mt-10 rounded-xl bg-primary px-4 py-2 text-center text-white"
             >
-                Order Now
+                Contact Us
             </Link>
         </div>
     );

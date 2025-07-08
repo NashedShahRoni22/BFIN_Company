@@ -60,7 +60,10 @@ const MenuItems = [
       },
     ],
   },
-
+  {
+    name: "Hardwares",
+    link: "/hardwares",
+  },
   {
     name: "Our Technologies",
     link: "/our-technologies",
@@ -81,10 +84,6 @@ const MenuItems = [
         link: "/career",
       },
     ],
-  },
-  {
-    name: "Hardwares",
-    link: "/hardwares",
   },
   /* {
     name: "Our Technologies",
