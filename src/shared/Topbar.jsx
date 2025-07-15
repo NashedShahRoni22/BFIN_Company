@@ -12,7 +12,11 @@ const MenuItems = [
     link: "/",
   },
   {
-    name: "Hosting & Servers",
+    name: "Ecommerce Pack",
+    link: "/bfinit-ecomerce-platform",
+  },
+  {
+    name: "Hosting",
     child: [
       {
         icon: "https://img.icons8.com/ios/50/domain.png",
@@ -65,15 +69,15 @@ const MenuItems = [
     link: "/hardwares",
   },
   {
-    name: "Our Technologies",
-    link: "/our-technologies",
-  },
-  {
     name: "Company",
     child: [
       {
         name: "About Us",
         link: "/about",
+      },
+      {
+        name: "Our Technologies",
+        link: "/our-technologies",
       },
       {
         name: "Our Brands",
