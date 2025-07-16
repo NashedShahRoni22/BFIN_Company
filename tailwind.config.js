@@ -6,6 +6,7 @@ module.exports = withMT({
     colors: {
       primary: "#186BB5",
       secondary: "#C5FF41",
+      softGray: "#d4d4d8",
     },
     extend: {
       colors: {

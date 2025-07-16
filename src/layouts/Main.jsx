@@ -12,7 +12,7 @@ export default function Main() {
   }, [location]);
 
   return (
-    <main className="font-montserrat">
+    <main className="font-roboto">
       <ContactBar />
       <Topbar />
       <Outlet />

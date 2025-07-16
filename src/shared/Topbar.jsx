@@ -5,212 +5,16 @@ import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
 import logo from "../assets/logo.png";
-
-const MenuItems = [
-  {
-    name: "Home",
-    link: "/",
-  },
-  {
-    name: "Ecommerce Pack",
-    link: "/bfinit-ecomerce-platform",
-  },
-  {
-    name: "Hosting",
-    child: [
-      {
-        icon: "https://img.icons8.com/ios/50/domain.png",
-        name: "Web Hosting",
-        link: "/web-hosting",
-        description: "Reliable and affordable web hosting solutions.",
-      },
-      {
-        icon: "https://img.icons8.com/ios/50/database--v1.png",
-        name: "VPS Hosting",
-        link: "/vps-hosting",
-        description: "Scalable and secure virtual private servers.",
-      },
-      {
-        icon: "https://img.icons8.com/badges/50/server.png",
-        name: "Dedicated Server",
-        link: "/dedicated-server",
-        description: "High-performance servers for demanding applications.",
-      },
-      {
-        icon: "https://img.icons8.com/windows/50/maintenance.png",
-        name: "Custom VPS",
-        link: "/build-your-own-vps",
-        description: "Customize resources for your exact needs.",
-      },
-      {
-        icon: "https://img.icons8.com/?size=100&id=16226&format=png&color=000000",
-        name: "Starter Webpack",
-        link: "/starter-web-pack",
-        description: "Start surfing web with our blezing fast hosting.",
-      },
-      {
-        icon: "https://img.icons8.com/ios/100/reseller.png",
-        name: "Distributors Affiliation",
-        link: "/distributeurs-affiliation",
-        description:
-          "Start your own hosting business with our distributors affiliation program.",
-      },
-      {
-        icon: "https://img.icons8.com/ios/50/shopping-cart--v1.png",
-        name: "Ecommerce Pack",
-        link: "/bfinit-ecomerce-platform",
-        description:
-          "Get your free online store — fast, easy, and ready to sell!",
-      },
-    ],
-  },
-  {
-    name: "Hardwares",
-    link: "/hardwares",
-  },
-  {
-    name: "Company",
-    child: [
-      {
-        name: "About Us",
-        link: "/about",
-      },
-      {
-        name: "Our Technologies",
-        link: "/our-technologies",
-      },
-      {
-        name: "Our Brands",
-        link: "/our-brands",
-      },
-      {
-        name: "Career",
-        link: "/career",
-      },
-    ],
-  },
-  /* {
-    name: "Our Technologies",
-    child: [
-      {
-        header: "Bitss Cyber Security",
-        subChild: [
-          {
-            name: "Bitss WAP",
-            link: "https://bitss.fr/products/wap-website-protection/wp",
-          },
-          {
-            name: "Bitss C",
-            link: "https://bitss.fr/products/c-contact-form/wp",
-          },
-          {
-            name: "Bitss VWAR",
-            link: "https://bitss.fr/products/vwar-frontline/wp",
-          },
-        ],
-      },
-      {
-        header: "Database Hosting & Security",
-        subChild: [
-          {
-            name: "Data Center",
-            link: "/data-center",
-          },
-          {
-            name: "Hosting",
-            link: "/hosting-products/7",
-          },
-          {
-            name: "H Panel",
-            link: "https://hpanel.bfinit.com/login",
-          },
-        ],
-      },
-      {
-        header: "Build Business",
-        subChild: [
-          // {
-          //   name: "Old SaaS Software",
-          //   link: "/old-software",
-          // },
-          {
-            name: "SaaS Software",
-            link: "/sass-software",
-          },
-          // {
-          //   name: "Old White Label",
-          //   link: "/old-white-label",
-          // },
-          {
-            name: "White Label",
-            link: "/white-label",
-          },
-          {
-            name: "Become a Reseller",
-            link: "/reseller-program",
-          },
-          {
-            name: "E-commerce Platform",
-            link: "/bfinit-ecomerce-platform",
-          },
-          {
-            name: "E-commerce Guide",
-            link: "/ecommerce-guide",
-          },
-        ],
-      },
-      {
-        header: "Expand Business",
-        subChild: [
-          {
-            name: "Pensaki Blackboard",
-            link: "https://pensaki.org/",
-          },
-          {
-            name: "Omada HR Payroll",
-            link: "https://omada-clasico.com/omada-hr-payroll",
-          },
-          {
-            name: "Omada Project Management",
-            link: "https://omada-clasico.com/project-management",
-          },
-          {
-            name: "Clasico Payslips",
-            link: "https://omada-clasico.com/clasico-payslip",
-          },
-          {
-            name: "Ifgaap Mobile Invoicing",
-            link: "https://ifgaap.org/",
-          },
-          {
-            name: "Ifgaap GL Accounting",
-            link: "https://ifgaap.org/",
-          },
-        ],
-      },
-      {
-        header: "Social Communication",
-        subChild: [
-          {
-            name: "Sosay",
-            link: "https://sosay.org/",
-          },
-          {
-            name: "Bobosoho",
-            link: "https://bobosoho.com/",
-          },
-        ],
-      },
-    ],
-  }, */
-];
+import { menuItems } from "../data/menuItems";
+import Container from "./Container";
 
 export default function Topbar() {
   const [showNav, setShowNav] = useState(false);
   const [showChild, setShowChild] = useState("");
   const [showSubMenu, setShowSubMenu] = useState(null);
   const [hostingProducts, setHostingProducts] = useState([]);
-  const [updatedMenuItems, setUpdatedMenuItems] = useState(MenuItems);
+  const [updatedMenuItems, setUpdatedMenuItems] = useState(menuItems);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // fetching hosting products
   useEffect(() => {
@@ -276,15 +80,23 @@ export default function Topbar() {
     }
   }, [hostingProducts]);
 
-  // Function to handle scroll event
-  const handleScroll = () => {
-    setShowNav(false);
-    setShowSubMenu(false);
-  };
-
   // Toggle Submenu in Destop View
   const toggleSubMenu = (index) => {
     setShowSubMenu((prev) => (prev === index ? null : index));
+  };
+
+  // Function to handle scroll event
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+
+    setShowNav(false);
+    setShowSubMenu(false);
+
+    if (scrollY >= 10) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
   };
 
   useEffect(() => {
@@ -295,110 +107,118 @@ export default function Topbar() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white">
-      <section className="relative mx-5 flex items-center justify-between py-5 md:container md:mx-auto">
-        {/* logo here  */}
-        <Link onClick={toggleSubMenu} to={"/"} className="flex items-center">
-          <img src={logo} className="h-[40px]" alt="" loading="lazy" />
-        </Link>
-        {/* desktop view  */}
-        <div className="hidden lg:flex lg:items-center lg:gap-8">
-          {updatedMenuItems.map((mi, i) => (
-            <div key={i}>
-              {mi.child ? (
-                <div className="group text-[18px]">
-                  <span
-                    onClick={() => toggleSubMenu(i)}
-                    className="flex cursor-pointer items-center gap-1 font-semibold"
+    <nav
+      className={`fixed z-50 w-full ${isScrolled ? "top-0 bg-white" : "top-10 bg-transparent"}`}
+    >
+      <Container>
+        <section
+          className={`relative flex items-center justify-between py-2.5 ${isScrolled ? "text-black" : "text-white"}`}
+        >
+          {/* logo here  */}
+          <Link onClick={toggleSubMenu} to={"/"} className="flex items-center">
+            <img src={logo} className="h-[40px]" alt="" loading="lazy" />
+          </Link>
+          {/* desktop view  */}
+          <div className="hidden lg:flex lg:items-center lg:gap-8">
+            {updatedMenuItems.map((mi, i) => (
+              <div key={i}>
+                {mi.child ? (
+                  <div className="group hover:underline">
+                    <span
+                      onClick={() => toggleSubMenu(i)}
+                      className="flex cursor-pointer items-center gap-1"
+                    >
+                      {mi.name}
+                      <BiChevronDown className="text-2xl" />
+                    </span>
+                    {showSubMenu === i && (
+                      <div className="absolute left-1/2 top-full grid h-auto max-h-[calc(100vh-80px)] w-2/3 flex-1 -translate-x-1/2 grid-cols-3 gap-4 overflow-y-auto rounded border border-primary bg-white p-5 text-black shadow">
+                        {mi.child.map((mc, i) => (
+                          <div key={i}>
+                            {mc.header ? (
+                              <div>
+                                <span className="font-semibold">
+                                  {mc.header}
+                                </span>
+                                <ul className="ml-2 mt-2 flex flex-col gap-2">
+                                  {mc.subChild.map((mcc, i) => (
+                                    <Link
+                                      onClick={() => setShowSubMenu(null)}
+                                      key={i}
+                                      to={mcc.link}
+                                      className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3 hover:font-semibold hover:text-primary"
+                                    >
+                                      <BiChevronRight className="min-w-fit text-2xl" />
+                                      {mcc.name}
+                                    </Link>
+                                  ))}
+                                </ul>
+                              </div>
+                            ) : (
+                              <Link
+                                onClick={() => setShowSubMenu(null)}
+                                to={mc.link}
+                                key={i}
+                                className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3"
+                              >
+                                {mc.icon ? (
+                                  <img
+                                    src={mc.icon}
+                                    className="size-8 rounded bg-blue-100 p-1"
+                                    alt=""
+                                  />
+                                ) : (
+                                  <BiChevronRight className="text-2xl" />
+                                )}
+                                <div>
+                                  <p className="font-semibold">{mc.name}</p>
+                                  <p className="mt-1 text-xs text-gray-800">
+                                    {mc.description}
+                                  </p>
+                                </div>
+                              </Link>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    onClick={toggleSubMenu}
+                    key={i}
+                    to={mi.link}
+                    className="flex items-center gap-2.5 hover:underline"
                   >
                     {mi.name}
-                    <BiChevronDown className="text-2xl" />
-                  </span>
-                  {showSubMenu === i && (
-                    <div className="absolute left-1/2 top-full grid h-auto max-h-[calc(100vh-80px)] w-2/3 flex-1 -translate-x-1/2 grid-cols-3 gap-4 overflow-y-auto rounded border border-primary bg-white p-5 shadow">
-                      {mi.child.map((mc, i) => (
-                        <div key={i}>
-                          {mc.header ? (
-                            <div>
-                              <span className="font-semibold">{mc.header}</span>
-                              <ul className="ml-2 mt-2 flex flex-col gap-2">
-                                {mc.subChild.map((mcc, i) => (
-                                  <Link
-                                    onClick={() => setShowSubMenu(null)}
-                                    key={i}
-                                    to={mcc.link}
-                                    className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3 hover:font-semibold hover:text-primary"
-                                  >
-                                    <BiChevronRight className="min-w-fit text-2xl" />
-                                    {mcc.name}
-                                  </Link>
-                                ))}
-                              </ul>
-                            </div>
-                          ) : (
-                            <Link
-                              onClick={() => setShowSubMenu(null)}
-                              to={mc.link}
-                              key={i}
-                              className="flex gap-1.5 duration-300 ease-linear hover:translate-x-3"
-                            >
-                              {mc.icon ? (
-                                <img
-                                  src={mc.icon}
-                                  className="size-8 rounded bg-blue-100 p-1"
-                                  alt=""
-                                />
-                              ) : (
-                                <BiChevronRight className="text-2xl" />
-                              )}
-                              <div>
-                                <p className="font-semibold">{mc.name}</p>
-                                <p className="mt-1 text-xs text-gray-800">
-                                  {mc.description}
-                                </p>
-                              </div>
-                            </Link>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  onClick={toggleSubMenu}
-                  key={i}
-                  to={mi.link}
-                  className="flex items-center gap-2.5 text-[18px] font-semibold"
-                >
-                  {mi.name}
-                  {/* <MdArrowOutward /> */}
-                </Link>
-              )}
-            </div>
-          ))}
-        </div>
+                    {/* <MdArrowOutward /> */}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
 
-        {/* mobile view  */}
-        {showNav ? (
-          <button className="lg:hidden" onClick={() => setShowNav(!showNav)}>
-            <CgClose className="text-2xl" />
-          </button>
-        ) : (
-          <button className="lg:hidden" onClick={() => setShowNav(!showNav)}>
-            <FaBars className="text-xl" />
-          </button>
-        )}
+          {/* mobile view  */}
+          {showNav ? (
+            <button className="lg:hidden" onClick={() => setShowNav(!showNav)}>
+              <CgClose className="text-2xl" />
+            </button>
+          ) : (
+            <button className="lg:hidden" onClick={() => setShowNav(!showNav)}>
+              <FaBars className="text-xl" />
+            </button>
+          )}
 
-        {/* desktop mode contact button */}
-        <Link
-          to={"/contact"}
-          className="group hidden h-fit items-center gap-2.5 rounded bg-primary px-4 py-2 text-white shadow lg:flex"
-        >
-          Contact{" "}
-          <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45" />
-        </Link>
-      </section>
+          {/* desktop mode contact button */}
+          <Link
+            to="/contact"
+            className={`group hidden h-fit items-center gap-2.5 rounded-full border px-4 py-2 font-medium shadow transition-all duration-300 ease-linear lg:flex ${isScrolled ? "border-primary/25 bg-[#242D2B] text-white hover:bg-[#090B0B]" : "hover:bg-softGray border-transparent bg-white text-black"}`}
+          >
+            Contact{" "}
+            <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45" />
+          </Link>
+        </section>
+      </Container>
 
       {/* mobile view  */}
       {showNav && (
@@ -500,7 +320,6 @@ export default function Topbar() {
           </Link>
         </div>
       )}
-      <div className="h-0.5 w-full bg-primary"></div>
     </nav>
   );
 }

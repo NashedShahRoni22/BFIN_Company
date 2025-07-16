@@ -11,10 +11,20 @@
 }
 /* Change the text color */
 select.goog-te-combo {
-  color: #000 !important;
-  border: 1px solid #007bff;
-  padding: 5px;
-  border-radius: 4px;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(8px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(180%) !important;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+select.goog-te-combo option {
+  color: black !important;
 }
 
 /* Remove the outline on focus */
@@ -24,4 +34,10 @@ select.goog-te-combo:focus {
 }
 #google_translate_element a {
   display: none !important;
+}
+
+#google_translate_element * {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: normal !important;
 }

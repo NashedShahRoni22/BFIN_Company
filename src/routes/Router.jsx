@@ -35,6 +35,7 @@ import DistributeAffiliate from "../pages/DistributeAffiliate/DistributeAffiliat
 import HostingPackages from "../pages/Hosting/HostingPackages";
 import StarterWebPack from "../pages/StarterWebPack/StarterWebPack";
 import Hardwares from "../pages/Hardwares/Hardwares";
+import Home3 from "../pages/Home3/Home3";
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +44,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <ServerHomePage />,
+        element: <Home3 />,
       },
       {
         path: "/contact",
