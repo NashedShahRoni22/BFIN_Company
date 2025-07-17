@@ -34,7 +34,7 @@ export default function Hero() {
 
         <Link
           to="/bfinit-ecomerce-platform"
-          className="hover:bg-softGray mt-6 inline-block rounded-full bg-white px-6 py-3 font-medium text-black transition-all duration-300 ease-linear"
+          className="mt-6 inline-block rounded-full bg-white px-6 py-3 font-medium text-black transition-all duration-300 ease-linear hover:bg-softGray"
         >
           Launch Your Store
         </Link>

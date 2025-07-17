@@ -1,7 +1,9 @@
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 import Container from "../../../shared/Container";
-import "swiper/css";
 import { sliderData } from "../../../data/sliderData";
+import "swiper/css";
 
 const subTitles = [
   "Sell online and in person.",
@@ -11,6 +13,12 @@ const subTitles = [
 ];
 
 export default function Overview() {
+  const [activeGroupIndex, setActiveGroupIndex] = useState(0);
+  const swiperRef = useRef(null);
+
+  const groupSize = 3; // each group has 3 slides
+  const totalGroups = Math.ceil(sliderData.length / groupSize);
+
   return (
     <section className="-mt-11 min-h-screen rounded-t-[48px] bg-white py-10 md:py-24">
       <Container>
@@ -22,27 +30,59 @@ export default function Overview() {
           {subTitles.map((subTitle, i) => (
             <span
               key={i}
-              className={`via-emerald-400 bg-gradient-to-r bg-clip-text bg-left text-5xl font-light text-transparent transition-all duration-300 ease-linear hover:from-[#2D67B2] hover:via-[#00D492] hover:to-[#31C5F4] hover:bg-[length:200%_100%] hover:bg-right ${subTitles.length - 1 === i ? "from-[#2D67B2] via-[#00D492] to-[#31C5F4]" : "from-gray-700 via-gray-700 to-gray-700"}`}
+              onClick={() => {
+                const totalGroups = Math.ceil(sliderData.length / 3);
+                const groupIndex = (i + 1) % totalGroups;
+                swiperRef.current?.slideTo(groupIndex * 3);
+              }}
+              className={`cursor-pointer bg-gradient-to-r bg-clip-text bg-left text-5xl font-light text-transparent transition-all duration-300 ease-linear hover:from-[#2D67B2] hover:via-[#00D492] hover:to-[#31C5F4] hover:bg-[length:200%_100%] hover:bg-right ${
+                activeGroupIndex === i
+                  ? "from-[#2D67B2] via-[#00D492] to-[#31C5F4]"
+                  : "from-gray-700 via-gray-700 to-gray-700"
+              }`}
             >
               {subTitle}
             </span>
           ))}
         </div>
 
-        {/* swiper slider */}
-        <div>
-          <Swiper slidesPerView={3} className="mySwiper">
-            {sliderData.map((slider) => (
-              <SwiperSlide key={slider.id} className="h-64 w-full">
+        {/* Swiper */}
+        <Swiper
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          onSlideChange={(swiper) => {
+            const realIndex = swiper.realIndex;
+            const groupIndex = Math.floor(realIndex / groupSize);
+            const shiftedIndex = (groupIndex - 1 + totalGroups) % totalGroups;
+            setActiveGroupIndex(shiftedIndex);
+          }}
+          slidesPerView={3}
+          slidesPerGroup={3}
+          spaceBetween={16}
+          loop={true}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay]}
+          className="mySwiper"
+        >
+          {sliderData.map((slider) => (
+            <SwiperSlide
+              key={slider.id}
+              className="w-full cursor-grab active:cursor-grabbing"
+            >
+              <div className="w-full overflow-hidden rounded-lg shadow-sm">
                 <img
                   src={slider.img}
                   alt="bfin ecommerce dashboard"
                   className="h-full w-full object-cover"
                 />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Container>
     </section>
   );
