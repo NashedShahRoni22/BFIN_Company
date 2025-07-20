@@ -12,15 +12,15 @@ export default function Hero() {
       className="flex min-h-[calc(100vh+103px)] items-center py-10 text-white md:py-20"
     >
       <Container>
-        <h1 className="text-8xl font-light">
-          Be the next <br />
+        <h1 className="text-8xl font-light leading-tight">
+          Build the next <br />
           <Typewriter
             options={{
               strings: [
-                "big thing",
-                "one to watch",
-                "category creator",
-                "unicorn startup",
+                "a thriving brand",
+                "real online revenue",
+                "a global business",
+                "a powerful store",
               ],
               autoStart: true,
               loop: true,
@@ -28,8 +28,9 @@ export default function Hero() {
           />
         </h1>
 
-        <p className="mt-8 text-2xl font-light">
-          Dream big, build fast, and <br /> grow far on BFINIT Ecommerce
+        <p className="mt-8 max-w-2xl text-balance text-xl font-light">
+          Launch free with built-in invoicing, payroll, payments, SEO &
+          cybersecurity. Everything you need to grow smart & fast.
         </p>
 
         <Link
