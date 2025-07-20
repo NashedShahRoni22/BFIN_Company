@@ -13,8 +13,8 @@ export default function Main() {
 
   return (
     <main className="font-roboto">
-      <ContactBar />
-      <Topbar />
+      {/* <ContactBar /> */}
+      {/* <Topbar /> */}
       <Outlet />
       <Bottombar />
     </main>
