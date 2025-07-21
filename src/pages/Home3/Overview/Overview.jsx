@@ -20,9 +20,9 @@ export default function Overview() {
   const totalGroups = Math.ceil(sliderData.length / groupSize);
 
   return (
-    <section className="-mt-11 min-h-screen rounded-t-[48px] bg-white py-10 md:py-24">
+    <section className="min-h-screen rounded-t-[48px] bg-[#0E0E0E] py-10 md:py-24">
       <Container>
-        <h2 className="mb-8 text-balance text-6xl md:mb-10">
+        <h2 className="font-sora text-sky-blue mb-8 text-3xl font-semibold md:mb-10 md:text-[54px]">
           The one commerce platform behind it all
         </h2>
 
@@ -35,7 +35,7 @@ export default function Overview() {
                 const groupIndex = (i + 1) % totalGroups;
                 swiperRef.current?.slideTo(groupIndex * 3);
               }}
-              className={`cursor-pointer bg-gradient-to-r bg-clip-text bg-left text-5xl font-light text-transparent transition-all duration-300 ease-linear hover:from-[#2D67B2] hover:via-[#00D492] hover:to-[#31C5F4] hover:bg-[length:200%_100%] hover:bg-right ${
+              className={`cursor-pointer bg-gradient-to-r bg-clip-text bg-left text-5xl text-transparent transition-all duration-300 ease-linear hover:from-[#2D67B2] hover:via-[#00D492] hover:to-[#31C5F4] hover:bg-[length:200%_100%] hover:bg-right ${
                 activeGroupIndex === i
                   ? "from-[#2D67B2] via-[#00D492] to-[#31C5F4]"
                   : "from-gray-700 via-gray-700 to-gray-700"

@@ -108,14 +108,19 @@ export default function Topbar() {
 
   return (
     <nav
-      className={`fixed z-50 w-full ${isScrolled ? "top-0 bg-white" : "top-10 bg-transparent"}`}
+      className={`fixed z-50 w-full font-roboto ${isScrolled ? "top-0 bg-white" : "top-0 bg-transparent"}`}
     >
       <Container>
         <section
-          className={`relative flex items-center justify-between py-2.5 ${isScrolled ? "text-black" : "text-white"}`}
+          className={`relative flex items-center justify-between py-2.5 text-black`}
         >
           {/* logo here  */}
-          <Link onClick={toggleSubMenu} to={"/"} className="flex items-center">
+          <Link
+            onClick={toggleSubMenu}
+            to={"/"}
+            className="flex items-center gap-1"
+          >
+            <p className="text-5xl font-extrabold text-primary">e</p>
             <img src={logo} className="h-[40px]" alt="" loading="lazy" />
           </Link>
           {/* desktop view  */}
@@ -212,7 +217,7 @@ export default function Topbar() {
           {/* desktop mode contact button */}
           <Link
             to="/contact"
-            className={`group hidden h-fit items-center gap-2.5 rounded-full border px-4 py-2 font-medium shadow transition-all duration-300 ease-linear lg:flex ${isScrolled ? "border-primary/25 bg-[#242D2B] text-white hover:bg-[#090B0B]" : "hover:bg-softGray border-transparent bg-white text-black"}`}
+            className={`group hidden h-fit items-center gap-2.5 rounded-full border px-4 py-2 font-medium shadow transition-all duration-300 ease-linear lg:flex ${isScrolled ? "border-primary/25 bg-[#242D2B] text-white hover:bg-[#090B0B]" : "border-transparent bg-white text-black hover:bg-softGray"}`}
           >
             Contact{" "}
             <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45" />
