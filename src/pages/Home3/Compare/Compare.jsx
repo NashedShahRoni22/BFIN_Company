@@ -123,7 +123,7 @@ export default function Compare() {
             </div>
             <p>Platform Comparison</p>
           </div>
-          <h2 className="font-sora text-center text-3xl font-bold text-dark md:text-4xl">
+          <h2 className="text-center font-sora text-3xl font-bold text-dark md:text-4xl">
             eBfinit vs Shopify & Wix
           </h2>
           <p className="mt-2 text-gray-600">

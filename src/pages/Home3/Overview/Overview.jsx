@@ -20,9 +20,9 @@ export default function Overview() {
   const totalGroups = Math.ceil(sliderData.length / groupSize);
 
   return (
-    <section className="min-h-screen rounded-t-[48px] bg-[#0E0E0E] py-10 md:py-24">
+    <section className="bg-gradient-to-b from-[#F1F7FA] via-white to-white py-10 md:py-24">
       <Container>
-        <h2 className="font-sora text-sky-blue mb-8 text-3xl font-semibold md:mb-10 md:text-[54px]">
+        <h2 className="mb-8 font-sora text-3xl font-semibold md:mb-10 md:text-[54px]">
           The one commerce platform behind it all
         </h2>
 
