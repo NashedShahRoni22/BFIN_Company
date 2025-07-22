@@ -176,16 +176,23 @@ export default function Compare() {
           </div>
         </div>
 
-        {!showAll && features.length > initialRowsCount && (
-          <div className="mt-6 flex justify-center">
+        <div className="mt-6 flex justify-center">
+          {!showAll && features.length > initialRowsCount ? (
             <button
               onClick={() => setShowAll(true)}
-              className="rounded-lg border border-gray-300 px-6 py-3 font-medium transition-all duration-200 hover:border-primary/15 hover:bg-accent"
+              className="rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:text-primary"
             >
               View All Features
             </button>
-          </div>
-        )}
+          ) : (
+            <button
+              onClick={() => setShowAll(false)}
+              className="rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:text-primary"
+            >
+              Show less
+            </button>
+          )}
+        </div>
       </section>
     </Container>
   );

@@ -10,7 +10,7 @@ import bobosohoLogo from "../../../assets/logo/bobosoho.jpg";
 
 export default function HeroWithNavbar() {
   return (
-    <section className="min-h-screen w-full px-2 py-10 md:py-20">
+    <section className="flex h-screen max-h-[1080px] min-h-fit w-full flex-col justify-center px-2 py-10 md:py-20">
       <Container>
         <div className="flex flex-col items-center text-dark">
           {/* Badge */}
@@ -53,14 +53,14 @@ export default function HeroWithNavbar() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              to="/"
+              to="/bfinit-ecomerce-platform"
               className="group flex items-center rounded-lg border border-transparent bg-primary px-6 py-3 font-medium text-white transition-all duration-300 ease-linear hover:bg-secondary hover:text-dark"
             >
               Get Started Now
               <LuArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
             <Link
-              to="/"
+              to="/about"
               className="rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:text-primary"
             >
               Why Choose Bfinit?
@@ -69,7 +69,7 @@ export default function HeroWithNavbar() {
         </div>
 
         <p className="mt-10 flex items-center justify-center gap-2.5 text-sm text-gray-700">
-          Enjoy powerful tools & features free with your Ecommerce pack.{" "}
+          Enjoy powerful tools & features free with your each E-commerce pack.{" "}
           <a
             href="#free-tools"
             className="group flex items-center gap-0.5 font-semibold hover:text-primary"

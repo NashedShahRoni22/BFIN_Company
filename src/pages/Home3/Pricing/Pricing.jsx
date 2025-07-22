@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ecompricingPlan } from "../../../data/ecomPricingPlan";
 import Container from "../../../shared/Container";
 import EcomPricingCard2 from "../../../components/Cards/EcomPricingCard2";
+import { Link } from "react-router-dom";
+import { LuGift } from "react-icons/lu";
 
 export default function Pricing() {
   const [activeTab, setActiveTab] = useState(0);
@@ -20,9 +22,12 @@ export default function Pricing() {
             </h2>
           </div>
 
-          <button className="h-fit rounded-lg border border-gray-300 px-6 py-3 font-medium transition-all duration-200 hover:border-primary/15 hover:bg-accent">
+          <Link
+            to="/bfinit-ecomerce-platform"
+            className="rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:text-primary"
+          >
             View All Pack
-          </button>
+          </Link>
         </div>
 
         {/* tab button */}
@@ -42,6 +47,16 @@ export default function Pricing() {
             </button>
           </div>
         </div>
+
+        <p className="mt-2.5 text-center text-lg text-gray-600">
+          Each pack includes exclusive{" "}
+          <a
+            href="#free-tools"
+            className="inline-flex items-center gap-1 text-primary underline"
+          >
+            Bonus Gifts <LuGift className="shrink-0" />
+          </a>
+        </p>
 
         <div className="mt-10 grid grid-cols-3 gap-4 lg:gap-6">
           {ecompricingPlan.map((plan) => (

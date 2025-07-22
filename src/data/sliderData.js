@@ -12,62 +12,62 @@ export const sliderData = [
   {
     id: 1,
     title: "Home",
-    img: img1,
+    img: img2,
   },
   {
     id: 2,
     title: "Home",
-    img: img2,
+    img: img3,
   },
   {
     id: 3,
     title: "Home",
-    img: img3,
+    img: img2,
   },
   {
     id: 4,
     title: "Home",
-    img: img4,
+    img: img3,
   },
 
   {
     id: 5,
     title: "Home",
-    img: img5,
+    img: img2,
   },
   {
     id: 6,
     title: "Home",
-    img: img6,
+    img: img3,
   },
   {
     id: 7,
     title: "Home",
-    img: img7,
+    img: img2,
   },
   {
     id: 8,
     title: "Home",
-    img: img8,
+    img: img3,
   },
   {
     id: 9,
     title: "Home",
-    img: img9,
+    img: img2,
   },
   {
     id: 2,
     title: "Home",
-    img: img2,
+    img: img3,
   },
   {
     id: 5,
     title: "Home",
-    img: img5,
+    img: img2,
   },
   {
     id: 6,
     title: "Home",
-    img: img6,
+    img: img3,
   },
 ];
