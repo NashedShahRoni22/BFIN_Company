@@ -47,6 +47,10 @@ export const router = createBrowserRouter([
         element: <Home3 />,
       },
       {
+        path: "/hosting",
+        element: <ServerHomePage />,
+      },
+      {
         path: "/contact",
         element: <Contact />,
       },

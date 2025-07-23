@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { LuCheck, LuChevronDown, LuArrowRight } from "react-icons/lu";
+import bonusProducts from "../../data/bonusProduct";
+import { FaCheck } from "react-icons/fa";
+import { FiGift } from "react-icons/fi";
 
 export default function EcomPricingCard2({ plan, activeTab = 0 }) {
   const [showAll, setShowAll] = useState(false);
@@ -81,7 +84,9 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
 
       {/* Features Header */}
       <div className="mb-4">
-        <h4 className="text-sm font-medium text-gray-900">What's included:</h4>
+        <h4 className="text-sm font-medium text-gray-900">
+          What&apos;s included:
+        </h4>
       </div>
 
       {/* Features List */}
@@ -118,6 +123,39 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
           </li>
         )}
       </ul>
+
+      {/* Divider */}
+      <div className="my-6 h-px bg-gray-200"></div>
+
+      {/* Bonus Product's */}
+      {4 > 0 && (
+        <div className="mt-4 rounded text-sm text-gray-700">
+          <div>
+            <p className="inline-flex gap-x-1 font-semibold text-primary">
+              <FiGift className="mt-0.5 min-w-fit text-primary" /> Free Products
+            </p>{" "}
+            included choose during checkout.
+          </div>
+
+          <p className="mt-0.5 text-[13px] font-medium italic text-primary/75">
+            * Free product is valid for the duration of your e-commerce plan.
+          </p>
+
+          <p className="mt-1.5">Available products:</p>
+
+          <ul className="mt-1.5">
+            {bonusProducts.map((item, index) => (
+              <li key={index} className="flex gap-2 text-sm">
+                <FaCheck className="mt-0.5 min-w-fit text-primary" />
+                <span className="flex-1">
+                  {item?.name} - Gift Value: {item?.price}
+                  <span className="text-xs">/yr</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

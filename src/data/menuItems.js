@@ -1,7 +1,16 @@
 export const menuItems = [
   {
     name: "Home",
-    link: "/",
+    child: [
+      {
+        name: "Ecommerce Home",
+        link: "/",
+      },
+      {
+        name: "Hosting Home",
+        link: "/hosting",
+      },
+    ],
   },
   {
     name: "Ecommerce Pack",

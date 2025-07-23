@@ -4,6 +4,29 @@ import Container from "../../../shared/Container";
 import EcomPricingCard2 from "../../../components/Cards/EcomPricingCard2";
 import { Link } from "react-router-dom";
 import { LuGift } from "react-icons/lu";
+import bitssLogo from "../../../assets/logo/bitss.png";
+import omadaLogo from "../../../assets/logo/omada.png";
+import ifgaapLogo from "../../../assets/logo/ifgaap-accounting.png";
+import bobosohoLogo from "../../../assets/logo/bobosoho.jpg";
+
+const freeGifts = [
+  {
+    title: "Omada HR Payroll",
+    logo: omadaLogo,
+  },
+  {
+    title: "Bitss Cyber Security",
+    logo: bitssLogo,
+  },
+  {
+    title: "Mobile Field Invoicing",
+    logo: ifgaapLogo,
+  },
+  {
+    title: "Bobosho Mail",
+    logo: bobosohoLogo,
+  },
+];
 
 export default function Pricing() {
   const [activeTab, setActiveTab] = useState(0);
@@ -12,7 +35,7 @@ export default function Pricing() {
     <section className="py-10 md:py-20">
       <Container>
         {/* section title container */}
-        <div className="flex items-end justify-between gap-8">
+        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
             <h2 className="font-sora text-3xl font-bold text-dark/50 md:text-4xl">
               Pricing
@@ -24,7 +47,7 @@ export default function Pricing() {
 
           <Link
             to="/bfinit-ecomerce-platform"
-            className="rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:text-primary"
+            className="w-fit rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:text-primary"
           >
             View All Pack
           </Link>
@@ -52,13 +75,29 @@ export default function Pricing() {
           Each pack includes exclusive{" "}
           <a
             href="#free-tools"
-            className="inline-flex items-center gap-1 text-primary underline"
+            className="inline-flex items-center gap-1 text-orange-500 underline"
           >
             Bonus Gifts <LuGift className="shrink-0" />
           </a>
         </p>
 
-        <div className="mt-10 grid grid-cols-3 gap-4 lg:gap-6">
+        <p className="mt-2 text-center text-gray-700">
+          With e-Bfinit you are receiving tools that will help your business,
+          these free gifts are equilevelent to{" "}
+          <span className="font-semibold text-dark">20% to 90%</span> discount
+          referred to each pack for detail.
+        </p>
+
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
+          {freeGifts.map((gift, i) => (
+            <div key={i} className="text-center">
+              <img src={gift.logo} className="mx-auto h-9" />
+              <p>{gift.title}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {ecompricingPlan.map((plan) => (
             <EcomPricingCard2 key={plan.id} plan={plan} activeTab={activeTab} />
           ))}
