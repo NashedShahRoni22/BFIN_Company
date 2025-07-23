@@ -1,4 +1,3 @@
-import BonusProductHighlight from "../../components/BonusProductHighlight";
 import Compare from "./Compare/Compare";
 import Dashboard from "./Dashboard/Dashboard";
 import Features from "./Features/Features";
@@ -16,8 +15,7 @@ export default function Home3() {
       <Overview />
       <Features />
       <Compare />
-      {/* <FreeGift /> */}
-      <BonusProductHighlight />
+      <FreeGift />
     </div>
   );
 }
