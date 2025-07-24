@@ -7,7 +7,7 @@ module.exports = withMT({
       colors: {
         primary: "#186BB5",
         secondary: {
-          DEFAULT: "#BAFF29",
+          DEFAULT: "#31C5F4",
           light: "#C5FF41",
         },
         softGray: "#d4d4d8",

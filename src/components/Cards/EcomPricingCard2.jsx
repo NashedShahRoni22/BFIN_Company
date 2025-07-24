@@ -3,6 +3,7 @@ import { LuCheck, LuChevronDown, LuArrowRight } from "react-icons/lu";
 import bonusProducts from "../../data/bonusProduct";
 import { FaCheck } from "react-icons/fa";
 import { FiGift } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function EcomPricingCard2({ plan, activeTab = 0 }) {
   const [showAll, setShowAll] = useState(false);
@@ -64,8 +65,10 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
       </div>
 
       {/* CTA Button */}
-      <button
-        className={`mt-6 w-full rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-200 ease-linear hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+      <Link
+        to={plan?.url ? plan.url : "/"}
+        target="_blank"
+        className={`mt-6 inline-block w-full rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-200 ease-linear hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${
           isPopular
             ? "bg-primary text-white hover:bg-blue-600 focus:ring-blue-500"
             : isEnterprise
@@ -77,7 +80,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
           {isEnterprise ? "Contact Sales" : "Get Started"}
           <LuArrowRight className="h-4 w-4" />
         </span>
-      </button>
+      </Link>
 
       {/* Divider */}
       <div className="my-6 h-px bg-gray-200"></div>
@@ -129,31 +132,62 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
 
       {/* Bonus Product's */}
       {4 > 0 && (
-        <div className="mt-4 rounded text-sm text-gray-700">
-          <div>
-            <p className="inline-flex gap-x-1 font-semibold text-primary">
-              <FiGift className="mt-0.5 min-w-fit text-primary" /> Free Products
-            </p>{" "}
-            included choose during checkout.
+        <div>
+          {/* Header */}
+          <div className="mb-3 flex items-center gap-2">
+            <div className="flex items-center gap-1.5 text-primary">
+              <FiGift className="text-base" />
+              <span className="text-sm font-semibold">
+                {plan.freeProductsIncluded}
+              </span>
+            </div>
           </div>
 
-          <p className="mt-0.5 text-[13px] font-medium italic text-primary/75">
+          <p className="mb-3 text-xs leading-relaxed text-gray-500">
             * Free product is valid for the duration of your e-commerce plan.
           </p>
 
-          <p className="mt-1.5">Available products:</p>
+          {/* Products list */}
+          <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
+            <h4 className="mb-2.5 text-xs font-medium uppercase tracking-wide text-gray-700">
+              Available products:
+            </h4>
 
-          <ul className="mt-1.5">
-            {bonusProducts.map((item, index) => (
-              <li key={index} className="flex gap-2 text-sm">
-                <FaCheck className="mt-0.5 min-w-fit text-primary" />
-                <span className="flex-1">
-                  {item?.name} - Gift Value: {item?.price}
-                  <span className="text-xs">/yr</span>
-                </span>
-              </li>
-            ))}
-          </ul>
+            <div className="space-y-2">
+              {(plan.name === "Starter Pack"
+                ? bonusProducts.slice(0, 3)
+                : bonusProducts
+              ).map((item, index) => (
+                <div key={index} className="group flex items-center gap-2.5">
+                  {/* Logo and check */}
+                  <div className="flex items-center gap-2">
+                    <img
+                      src={item.logo}
+                      alt={`${item.name} logo`}
+                      className="h-5 w-5 rounded object-contain"
+                    />
+                    <FaCheck className="text-xs text-primary" />
+                  </div>
+
+                  {/* Product details */}
+                  <div className="flex min-w-0 flex-1 items-center justify-between">
+                    <div className="min-w-0 flex-1">
+                      <span className="block truncate text-sm font-medium text-gray-900">
+                        {item.name}
+                      </span>
+                      <span className="block truncate text-xs text-gray-500">
+                        {item.description}
+                      </span>
+                    </div>
+                    <div className="ml-2 whitespace-nowrap text-xs font-semibold text-primary">
+                      {item.price}
+                      <span className="text-gray-400">/yr</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </div>

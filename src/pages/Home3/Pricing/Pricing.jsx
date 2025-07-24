@@ -22,10 +22,6 @@ const freeGifts = [
     title: "Mobile Field Invoicing",
     logo: ifgaapLogo,
   },
-  {
-    title: "Bobosho Mail",
-    logo: bobosohoLogo,
-  },
 ];
 
 export default function Pricing() {

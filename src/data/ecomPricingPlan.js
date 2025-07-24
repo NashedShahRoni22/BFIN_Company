@@ -11,6 +11,7 @@ export const ecompricingPlan = [
     storage: "20GB SSD",
     detail:
       "Perfect for freelancers and small trials. Start small and upgrade anytime as you grow.",
+    freeProductsIncluded: "Choose 1 free product during checkout.",
     features: [
       "1 Ecommerce Store",
       "Up to 5 Products",
@@ -46,6 +47,8 @@ export const ecompricingPlan = [
     storage: "100GB SSD",
     detail:
       "A solid plan for lean startups and solo sellers with essential features and room to grow.",
+    freeProductsIncluded: "Choose 2 free products during checkout.",
+    url: "https://hpanel.bfinit.com/checkout?productId=30&packageType=server&ram=4GB%20DDR4%20ECC%20RAM&storage=100GB%20SSD&timePeriod=12&currency=USD&currencyRate=1&storageVariantId=",
     features: [
       "1 Ecommerce Store",
       "500 Products Add Option",
@@ -81,6 +84,8 @@ export const ecompricingPlan = [
     storage: "200GB SSD",
     detail:
       "Best for local businesses looking to expand their reach with more products and stores.",
+    freeProductsIncluded: "Choose 3 free products during checkout.",
+    url: "https://hpanel.bfinit.com/checkout?productId=31&packageType=server&ram=8GB%20DDR4%20ECC%20RAM&storage=200GB%20SSD&timePeriod=12&currency=USD&currencyRate=1&storageVariantId=",
     features: [
       "2 Ecommerce Store",
       "2,000 Products Add Option",
@@ -116,6 +121,8 @@ export const ecompricingPlan = [
     storage: "300GB SSD",
     detail:
       "Designed for mid-size operations ready to scale with powerful tools and custom options.",
+    freeProductsIncluded: "Choose 4 free products during checkout.",
+    url: "https://hpanel.bfinit.com/checkout?productId=32&packageType=server&ram=16GB%20DDR4%20ECC%20RAM&storage=300GB%20SSD&timePeriod=12&currency=USD&currencyRate=1&storageVariantId=",
     features: [
       "3 Ecommerce Store",
       "5,000 Products Add Option",
@@ -152,6 +159,8 @@ export const ecompricingPlan = [
     storage: "500GB SSD",
     detail:
       "Powerful hosting and large-scale ecommerce capacity for fast-growing enterprises.",
+    freeProductsIncluded: "Choose 5 free products during checkout.",
+    url: "https://hpanel.bfinit.com/checkout?productId=33&packageType=server&ram=32GB%20DDR4%20ECC%20RAM&storage=500GB%20SSD&timePeriod=12&currency=USD&currencyRate=1&storageVariantId=",
     features: [
       "4 Ecommerce Store",
       "10,000 Products Add Option",
@@ -188,6 +197,8 @@ export const ecompricingPlan = [
     storage: "2TB SSD + 2TB HDD",
     detail:
       "Custom-built for scalable global brands needing full control, resources, and support.",
+    freeProductsIncluded: "Free products based on custom plan.",
+    url: "/ecommerce-enterprise-pack",
     features: [
       "Unlimited Ecommerce Websites",
       "Unlimited Product Catalogs",

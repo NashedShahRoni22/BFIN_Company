@@ -1,5 +1,6 @@
 import bitssLogo from "../assets/logo/bitss.png";
 import omadaLogo from "../assets/logo/omada.png";
+import ifgaapLogo from "../assets/logo/ifgaap-invoicing.png";
 
 const bonusProducts = [
   {
@@ -32,6 +33,13 @@ const bonusProducts = [
     price: "€120",
     logo: omadaLogo,
     description: "Quickly generate payslips with professional formatting.",
+  },
+  {
+    name: "IFGAAP Mobile Invoicing",
+    price: "Free",
+    logo: ifgaapLogo,
+    description:
+      "Send unlimited invoices on the go — completely free with our mobile-first invoicing app.",
   },
 ];
 

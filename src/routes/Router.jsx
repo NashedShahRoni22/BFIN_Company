@@ -36,6 +36,7 @@ import HostingPackages from "../pages/Hosting/HostingPackages";
 import StarterWebPack from "../pages/StarterWebPack/StarterWebPack";
 import Hardwares from "../pages/Hardwares/Hardwares";
 import Home3 from "../pages/Home3/Home3";
+import EcomEnterprisePack from "../pages/EcomEnterprisePack/EcomEnterprisePack";
 
 export const router = createBrowserRouter([
   {
@@ -110,6 +111,10 @@ export const router = createBrowserRouter([
       {
         path: "/bfinit-ecomerce-platform",
         element: <ECommerceDetails />,
+      },
+      {
+        path: "/ecommerce-enterprise-pack",
+        element: <EcomEnterprisePack />,
       },
       {
         path: "/reseller-program",
