@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Topbar from "../shared/Topbar";
 import ContactBar from "../shared/ContactBar";
 import Bottombar from "../shared/Bottombar";
+import Container from "../shared/Container";
 
 export default function Main() {
   const location = useLocation();
@@ -15,7 +16,9 @@ export default function Main() {
     <main className="font-roboto">
       {/* <ContactBar /> */}
       <Topbar />
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
       <Bottombar />
     </main>
   );

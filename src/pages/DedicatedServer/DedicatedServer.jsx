@@ -5,7 +5,7 @@ import BonusProductHighlight from "../../components/BonusProductHighlight";
 
 export default function DedicatedServer() {
   return (
-    <section>
+    <section className="py-10 md:py-20">
       <Helmet>
         <title>Powerful Dedicated Servers | Fast, Flexible, Affordable</title>
         <meta

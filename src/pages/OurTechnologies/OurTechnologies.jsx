@@ -110,7 +110,7 @@ export default function OurTechnologies() {
   ];
 
   return (
-    <section className="mx-5 py-5 md:container md:mx-auto md:py-10">
+    <section className="mx-5 py-10 md:container md:mx-auto md:py-20">
       <Helmet>
         <title>Our Technologies | Digital Solutions by BFINIT</title>
         <meta

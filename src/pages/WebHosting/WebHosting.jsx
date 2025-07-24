@@ -5,7 +5,7 @@ import BonusProductHighlight from "../../components/BonusProductHighlight";
 
 export default function WebHosting() {
   return (
-    <section>
+    <section className="py-10 md:py-20">
       <Helmet>
         <title>Affordable & Fast Web Hosting | Plans from $4.99/mo</title>
         <meta

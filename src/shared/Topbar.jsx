@@ -2,19 +2,22 @@ import { useEffect, useState } from "react";
 import { BiChevronDown, BiChevronRight, BiChevronUp } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { FaBars } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
 import logo from "../assets/logo/e-bfinit.png";
 import { menuItems } from "../data/menuItems";
 import Container from "./Container";
 
 export default function Topbar() {
+  const { pathname } = useLocation();
   const [showNav, setShowNav] = useState(false);
   const [showChild, setShowChild] = useState("");
   const [showSubMenu, setShowSubMenu] = useState(null);
   const [hostingProducts, setHostingProducts] = useState([]);
   const [updatedMenuItems, setUpdatedMenuItems] = useState(menuItems);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const isHome = pathname === "/";
 
   // fetching hosting products
   useEffect(() => {
@@ -108,11 +111,11 @@ export default function Topbar() {
 
   return (
     <nav
-      className={`fixed z-50 w-full font-roboto ${isScrolled ? "top-0 bg-white" : "top-0 bg-transparent"}`}
+      className={`fixed z-50 w-full font-roboto ${isScrolled || !isHome ? "top-0 bg-white" : "top-0 bg-transparent"}`}
     >
       <Container>
         <section
-          className={`relative flex items-center justify-between py-2.5 text-black`}
+          className={`relative flex items-center justify-between border-b border-primary py-2.5 text-black`}
         >
           {/* logo here  */}
           <Link onClick={toggleSubMenu} to={"/"}>
@@ -212,7 +215,7 @@ export default function Topbar() {
           {/* desktop mode contact button */}
           <Link
             to="/contact"
-            className={`group hidden h-fit items-center gap-2.5 rounded-full border px-4 py-2 font-medium shadow transition-all duration-300 ease-linear lg:flex ${isScrolled ? "border-primary/25 bg-[#242D2B] text-white hover:bg-[#090B0B]" : "border-transparent bg-white text-black hover:bg-softGray"}`}
+            className={`group hidden h-fit items-center gap-2.5 rounded-full border px-4 py-2 font-medium shadow transition-all duration-300 ease-linear lg:flex ${isScrolled || !isHome ? "border-primary/25 bg-[#242D2B] text-white hover:bg-[#090B0B]" : "border-transparent bg-white text-black hover:bg-softGray"}`}
           >
             Contact{" "}
             <MdArrowOutward className="duration-300 ease-linear group-hover:rotate-45" />

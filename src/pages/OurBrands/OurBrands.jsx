@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 export default function OurBrands() {
   const location = useLocation();
   return (
-    <section>
+    <section className="py-10 md:py-20">
       {location.pathname === "/our-brands" && (
         <Helmet>
           <title>

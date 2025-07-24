@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 
 export default function StarterWebPack() {
   return (
-    <section>
+    <section className="py-10 md:py-20">
       <Helmet>
         <title>Starter Micro Hosting</title>
         <meta

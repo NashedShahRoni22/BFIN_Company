@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 export default function VpsHosting() {
   return (
-    <section>
+    <section className="py-10 md:py-20">
       <Helmet>
         <title>Affordable VPS Hosting | Fully Managed & Self Managed</title>
         <meta
