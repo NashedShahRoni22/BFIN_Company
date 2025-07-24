@@ -10,7 +10,7 @@ import bobosohoLogo from "../../../assets/logo/bobosoho.jpg";
 
 export default function HeroWithNavbar() {
   return (
-    <section className="flex h-screen max-h-[1080px] min-h-fit w-full flex-col justify-center px-2 py-10 md:py-20">
+    <section className="flex h-screen max-h-[1080px] min-h-fit w-full flex-col justify-center bg-gradient-to-b from-[#e6f9f3] to-[#f5fbff] px-2 py-10 md:py-20">
       <Container>
         <div className="flex flex-col items-center text-dark">
           {/* Badge */}
@@ -42,7 +42,7 @@ export default function HeroWithNavbar() {
                   delaySpeed={3000}
                 />
               </span>
-              <div className="absolute inset-0 rotate-1 transform rounded-lg bg-secondary opacity-80"></div>
+              <div className="absolute inset-0 transform rounded-lg bg-secondary opacity-80"></div>
             </span>
           </h1>
 

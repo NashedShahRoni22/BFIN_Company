@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ecompricingPlan } from "../../../data/ecomPricingPlan";
 import Container from "../../../shared/Container";
 import EcomPricingCard2 from "../../../components/Cards/EcomPricingCard2";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LuGift } from "react-icons/lu";
 import bitssLogo from "../../../assets/logo/bitss.png";
 import omadaLogo from "../../../assets/logo/omada.png";
@@ -19,16 +19,18 @@ const freeGifts = [
     logo: bitssLogo,
   },
   {
-    title: "Mobile Field Invoicing",
+    title: "IFGaap Mobile Invoicing",
     logo: ifgaapLogo,
   },
 ];
 
-export default function Pricing() {
+export default function Pricing({ pricingSection }) {
+  const { pathname } = useLocation();
   const [activeTab, setActiveTab] = useState(0);
+  const isHome = pathname === "/";
 
   return (
-    <section className="py-10 md:py-20">
+    <section ref={pricingSection} className="py-10 md:py-20">
       <Container>
         {/* section title container */}
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
@@ -41,12 +43,14 @@ export default function Pricing() {
             </h2>
           </div>
 
-          <Link
-            to="/bfinit-ecomerce-platform"
-            className="w-fit rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:text-primary"
-          >
-            View All Pack
-          </Link>
+          {isHome && (
+            <Link
+              to="/bfinit-ecomerce-platform"
+              className="w-fit rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:text-primary"
+            >
+              View All Pack
+            </Link>
+          )}
         </div>
 
         {/* tab button */}
@@ -93,7 +97,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
           {ecompricingPlan.map((plan) => (
             <EcomPricingCard2 key={plan.id} plan={plan} activeTab={activeTab} />
           ))}

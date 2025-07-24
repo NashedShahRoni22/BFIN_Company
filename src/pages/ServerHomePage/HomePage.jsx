@@ -1,4 +1,5 @@
 import BonusProductHighlight from "../../components/BonusProductHighlight";
+import Container from "../../shared/Container";
 import Blogs from "../Blog/Blogs";
 import Benefits from "./Benefits/Benefits";
 import DistributorAffiliation from "./DistributorAffiliation/DistributorAffiliation";
@@ -11,15 +12,17 @@ import ServerSection from "./ServerSection/ServerSection";
 export default function ServerHomePage() {
   return (
     <section>
-      <HeroNew />
-      <Pricing />
-      <BonusProductHighlight />
-      <DistributorAffiliation />
-      <KeyFeats />
-      <ServerCompare />
-      <Benefits />
-      <ServerSection />
-      <Blogs />
+      <Container>
+        <HeroNew />
+        <Pricing />
+        <BonusProductHighlight />
+        <DistributorAffiliation />
+        <KeyFeats />
+        <ServerCompare />
+        <Benefits />
+        <ServerSection />
+        <Blogs />
+      </Container>
     </section>
   );
 }

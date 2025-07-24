@@ -5,12 +5,14 @@ import FreeGift from "./FreeGift/FreeGift";
 import Hero from "./Hero/Hero";
 import Overview from "./Overview/Overview";
 import Pricing from "./Pricing/Pricing";
+import SiteShowCase from "./SiteShowcase/SiteShowcase";
 
 export default function Home3() {
   return (
     <div className="font-inter">
       <Hero />
       {/* <Dashboard /> */}
+      <SiteShowCase />
       <Pricing />
       <Overview />
       <Features />

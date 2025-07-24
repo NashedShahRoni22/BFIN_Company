@@ -3,6 +3,7 @@ import { IoArrowRedoSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import OurBrands from "../OurBrands/OurBrands";
 import { Helmet } from "react-helmet";
+import Container from "../../shared/Container";
 
 export default function OurTechnologies() {
   const data = [
@@ -110,35 +111,37 @@ export default function OurTechnologies() {
   ];
 
   return (
-    <section className="mx-5 py-10 md:container md:mx-auto md:py-20">
-      <Helmet>
-        <title>Our Technologies | Digital Solutions by BFINIT</title>
-        <meta
-          name="description"
-          content="Explore BFINIT’s tech stack: secure hosting, cybersecurity, HR tools, invoicing apps, e commerce and communication platforms built for growth."
-        />
-      </Helmet>
+    <Container>
+      <section className="mx-5 py-10 md:container md:mx-auto md:py-28">
+        <Helmet>
+          <title>Our Technologies | Digital Solutions by BFINIT</title>
+          <meta
+            name="description"
+            content="Explore BFINIT’s tech stack: secure hosting, cybersecurity, HR tools, invoicing apps, e commerce and communication platforms built for growth."
+          />
+        </Helmet>
 
-      <h5 className="text-2xl font-semibold md:text-4xl">Our Technologies</h5>
+        <h5 className="text-2xl font-semibold md:text-4xl">Our Technologies</h5>
 
-      <div className="mt-5 grid gap-5 md:mt-10 md:grid-cols-2 lg:grid-cols-3">
-        {data.map((d, i) => (
-          <div key={i} className="rounded p-4 shadow">
-            <h5 className="text-xl font-semibold text-primary">{d.header}</h5>
-            <ul className="ml-5 mt-2.5">
-              {d.subChild.map((ds, i) => (
-                <li key={i} className="list-disc">
-                  <Link to={ds.link} className="flex justify-between">
-                    {ds.name} <IoArrowRedoSharp className="text-primary" />{" "}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+        <div className="mt-5 grid gap-5 md:mt-10 md:grid-cols-2 lg:grid-cols-3">
+          {data.map((d, i) => (
+            <div key={i} className="rounded p-4 shadow">
+              <h5 className="text-xl font-semibold text-primary">{d.header}</h5>
+              <ul className="ml-5 mt-2.5">
+                {d.subChild.map((ds, i) => (
+                  <li key={i} className="list-disc">
+                    <Link to={ds.link} className="flex justify-between">
+                      {ds.name} <IoArrowRedoSharp className="text-primary" />{" "}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
-      <OurBrands />
-    </section>
+        <OurBrands />
+      </section>
+    </Container>
   );
 }

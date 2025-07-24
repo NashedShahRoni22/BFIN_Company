@@ -111,11 +111,11 @@ export default function Topbar() {
 
   return (
     <nav
-      className={`fixed z-50 w-full font-roboto ${isScrolled || !isHome ? "top-0 bg-white" : "top-0 bg-transparent"}`}
+      className={`fixed z-50 w-full border-b border-primary font-roboto ${isScrolled || !isHome ? "top-0 bg-white" : "top-0 bg-transparent"}`}
     >
       <Container>
         <section
-          className={`relative flex items-center justify-between border-b border-primary py-2.5 text-black`}
+          className={`relative flex items-center justify-between py-2.5 text-black`}
         >
           {/* logo here  */}
           <Link onClick={toggleSubMenu} to={"/"}>
