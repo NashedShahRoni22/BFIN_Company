@@ -84,7 +84,7 @@ export default function Pricing({ pricingSection }) {
         <p className="mt-2 text-center text-gray-700">
           With e-Bfinit you are receiving tools that will help your business,
           these free gifts are equilevelent to{" "}
-          <span className="font-semibold text-dark">20% to 90%</span> discount
+          <span className="font-semibold text-dark">20% to 100%</span> discount
           referred to each pack for detail.
         </p>
 

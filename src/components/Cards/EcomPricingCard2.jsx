@@ -19,7 +19,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
 
   return (
     <div
-      className={`relative h-fit rounded-xl border p-6 transition-all duration-200 ${
+      className={`relative rounded-xl border p-6 transition-all duration-200 ${
         isPopular ? "border-primary/40" : "border-gray-200"
       }`}
     >

@@ -4,6 +4,7 @@ import Features from "./Features/Features";
 import FreeGift from "./FreeGift/FreeGift";
 import Hero from "./Hero/Hero";
 import Overview from "./Overview/Overview";
+import PremiumPricing from "./PremiumPricing/PremiumPricing";
 import Pricing from "./Pricing/Pricing";
 import SiteShowCase from "./SiteShowcase/SiteShowcase";
 
@@ -14,6 +15,7 @@ export default function Home3() {
       {/* <Dashboard /> */}
       <SiteShowCase />
       <Pricing />
+      <PremiumPricing />
       <Overview />
       <Features />
       <Compare />
