@@ -40,7 +40,7 @@ const products = [
     details:
       "Bitss Cybersecurity offers comprehensive tools including the C Contact Form for anti-spam and virus filtering, WAP for login protection, and VWAR for database security and code filtering. These tools are available across multiple platforms such as WordPress, JavaScript, Windows, and Server—many already supported, with continuous upgrades for wider coverage.",
     price: "From €7.50",
-    link: "https://bitss.fr",
+    link: "https://bitss.one",
   },
 ];
 

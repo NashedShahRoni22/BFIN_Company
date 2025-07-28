@@ -1,254 +1,216 @@
+// unchanged imports
 import {
   LuCheck,
   LuArrowRight,
-  LuUsers,
+  LuServer,
   LuShield,
   LuZap,
-  LuGlobe,
-  LuClock,
-  LuHeadphones,
-  LuServer,
-  LuDatabase,
+  LuCrown,
+  LuChevronDown,
 } from "react-icons/lu";
+import Container from "../../../shared/Container";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { ecompricingPlan } from "../../../data/ecomPricingPlan";
+import { FaCheck } from "react-icons/fa";
+import { FiGift } from "react-icons/fi";
+import bonusProducts from "../../../data/bonusProduct";
 
 const PremiumPricing = () => {
+  const [expandedPlanId, setExpandedPlanId] = useState(null);
+  const toggleFeatures = (id) => {
+    setExpandedPlanId((prevId) => (prevId === id ? null : id));
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl font-bold text-gray-900">
-            Choose Your Plan
-          </h1>
-          <p className="text-xl text-gray-600">
-            Select the perfect plan for your business needs
-          </p>
-        </div>
-
-        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
-          {/* Premium Plan */}
-          <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl">
-            <div className="bg-blue-600 p-6 text-white">
-              <div className="mb-2 flex items-center gap-2">
-                <LuServer className="h-6 w-6" />
-                <h2 className="text-2xl font-bold">Premium Plan</h2>
-              </div>
-              <p className="mb-1 text-sm font-medium text-blue-100">
-                High Capacity
-              </p>
-              <p className="mb-4 text-sm text-blue-100">
-                Powerful hosting and large-scale ecommerce capacity for
-                fast-growing enterprises.
-              </p>
-              <div className="mb-2 flex items-baseline gap-2">
-                <span className="text-3xl font-bold">USD $594</span>
-                <span className="text-sm text-blue-200">annually</span>
-              </div>
-              <div className="text-sm text-blue-100">USD $49.50 monthly</div>
-            </div>
-
-            <div className="p-6">
-              <button className="mb-6 flex w-full items-center justify-center gap-2 rounded-lg bg-gray-900 px-6 py-3 font-semibold text-white transition-colors hover:bg-gray-800">
-                Get Started
-                <LuArrowRight className="h-4 w-4" />
-              </button>
-
-              {/* Key Specs */}
-              <div className="mb-6 rounded-lg bg-gray-50 p-4">
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <span className="text-gray-600">Stores:</span>
-                    <span className="ml-1 font-semibold">4</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-600">Products:</span>
-                    <span className="ml-1 font-semibold">10,000</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-600">RAM:</span>
-                    <span className="ml-1 font-semibold">32GB DDR4 ECC</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-600">Storage:</span>
-                    <span className="ml-1 font-semibold">500GB SSD</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <p className="text-sm font-medium text-blue-600">
-                  ✨ Choose 5 free products during checkout
-                </p>
-              </div>
-
-              <div className="mb-6">
-                <h3 className="mb-3 font-semibold text-gray-900">
-                  What&apos;s Included:
-                </h3>
-                <div className="max-h-48 overflow-y-auto pr-2">
-                  <ul className="space-y-2">
-                    {[
-                      "4 Ecommerce Store",
-                      "10,000 Products Add Option",
-                      "Pre-Built Templates",
-                      "Fully Responsive Website for Any Device",
-                      "32GB DDR4 ECC RAM",
-                      "500GB SSD",
-                      "Unlimited visits monthly",
-                      "Unlimited bandwidth",
-                      "Unlimited free SSL",
-                      "Weekly backups",
-                      "Enhance SEO Control",
-                      "Market & Business Insights Analysis",
-                      "Dedicated Blog Panel",
-                      "Custom Branding Experience",
-                      "Integrate your Own Payment Gateway",
-                      "Free email",
-                      "Advanced E-commerce Features to Boost Sales",
-                      "Unlimited Revisions for Design",
-                      "Unlimited Support",
-                      "Free Hosting Setup",
-                    ].map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <LuCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" />
-                        <span className="text-sm text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="border-t pt-4">
-                <p className="text-sm font-medium text-green-600">
-                  🎉 Buy 12 months or more and enjoy 3 months absolutely free!
-                </p>
-              </div>
-            </div>
+    <Container>
+      {/* Section heading */}
+      <div className="mb-16 text-center">
+        <div className="mx-auto mb-4 inline-flex items-center gap-1 rounded-full border border-gray-200/50 bg-white px-4 py-2 text-sm font-medium shadow-sm backdrop-blur-sm">
+          <div className="items-center justify-center rounded-full bg-gray-900 p-1">
+            <LuZap className="size-4 text-primary" />
           </div>
-
-          {/* Enterprise Pack */}
-          <div className="relative overflow-hidden rounded-xl border-2 border-purple-200 bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 transform">
-              <span className="rounded-full bg-purple-600 px-4 py-1 text-xs font-bold text-white">
-                Most Popular
-              </span>
-            </div>
-
-            <div className="bg-purple-600 p-6 text-white">
-              <div className="mb-2 flex items-center gap-2">
-                <LuShield className="h-6 w-6" />
-                <h2 className="text-2xl font-bold">Enterprise Pack</h2>
-              </div>
-              <p className="mb-1 text-sm font-medium text-purple-100">
-                Custom Solution
-              </p>
-              <p className="mb-4 text-sm text-purple-100">
-                Custom-built for scalable global brands needing full control,
-                resources, and support.
-              </p>
-              <div className="mb-2 flex items-baseline gap-2">
-                <span className="text-3xl font-bold">Custom</span>
-                <span className="text-sm text-purple-200">pricing</span>
-              </div>
-              <div className="text-sm text-purple-100">Contact for quote</div>
-            </div>
-
-            <div className="p-6">
-              <button className="mb-6 flex w-full items-center justify-center gap-2 rounded-lg bg-purple-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-purple-700">
-                Contact Sales
-                <LuArrowRight className="h-4 w-4" />
-              </button>
-
-              {/* Key Specs */}
-              <div className="mb-6 rounded-lg bg-purple-50 p-4">
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <span className="text-gray-600">Stores:</span>
-                    <span className="ml-1 font-semibold">Unlimited</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-600">Products:</span>
-                    <span className="ml-1 font-semibold">Unlimited</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-600">RAM:</span>
-                    <span className="ml-1 font-semibold">32GB DDR4 ECC</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-600">Storage:</span>
-                    <span className="ml-1 font-semibold">
-                      2TB SSD + 2TB HDD
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <p className="text-sm font-medium text-purple-600">
-                  🎁 Free products based on custom plan
-                </p>
-              </div>
-
-              <div className="mb-6">
-                <h3 className="mb-3 font-semibold text-gray-900">
-                  What&apos;s Included:
-                </h3>
-                <div className="max-h-48 overflow-y-auto pr-2">
-                  <ul className="space-y-2">
-                    {[
-                      "Unlimited Ecommerce Websites",
-                      "Unlimited Product Catalogs",
-                      "Pre-Built Templates + Custom Layouts",
-                      "Fully Responsive Across All Devices",
-                      "32 GB DDR4 ECC RAM",
-                      "2 x 1TB SATA III HDD + 2 x 1TB SSD Storage",
-                      "Unlimited Monthly Visits",
-                      "Unlimited Bandwidth",
-                      "Unlimited SSL Certificates",
-                      "Geo Redundant Backup Option",
-                      "Advanced SEO Control and Schema Integration",
-                      "Business Intelligence & Market Insights",
-                      "Dedicated Blog Panel for Each Store",
-                      "Full Branding Personalization",
-                      "Custom Payment Gateway Integration",
-                      "Free Domain(s) Included",
-                      "Free Business Email",
-                      "Enterprise-Grade Security with Bitss Cyber Protection",
-                      "Unlimited Revisions and Scaling",
-                      "Global Currency & Location Deployment Options",
-                      "CDN Distribution Option for Speed & Reliability",
-                      "Drag & Drop Website Builder",
-                      "Free Hosting Setup and Maintenance",
-                      "24/7 Priority Support",
-                      "Contract Options: 3, 6, 12, or 24 Months",
-                      "Dedicated SOHO 1230-T1 Fully Managed Server",
-                      "Intel® Core™ E3-1230v6 Quad-Core (4 x 3.9 GHz Turbo)",
-                      "1 IP Included (expandable to 4)",
-                      "Local Backup Included",
-                      "Managed by Bfinit – Updates, Patching, Monitoring",
-                    ].map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <LuCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" />
-                        <span className="text-sm text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p className="text-gray-800">Enterprise Solutions</p>
         </div>
-
-        <div className="mt-12 text-center">
-          <p className="mb-4 text-gray-600">
-            Need help choosing the right plan?
-          </p>
-          <button className="inline-flex items-center gap-2 font-medium text-blue-600 hover:text-blue-700">
-            <LuHeadphones className="h-5 w-5" />
-            Contact our sales team
-          </button>
-        </div>
+        <h2 className="font-sora text-3xl font-extrabold text-gray-900 md:text-4xl">
+          For Brands That Need Full Control & Scale
+        </h2>
+        <p className="mt-2 text-base text-gray-600">
+          Discover powerful hosting and tailored features built for high-volume
+          businesses like yours.
+        </p>
       </div>
-    </div>
+
+      {/* Pricing Cards */}
+      <div className="mx-auto mt-16 grid max-w-4xl gap-10 lg:grid-cols-2">
+        {ecompricingPlan.slice(4, 6).map((plan) => {
+          const isExpanded = expandedPlanId === plan.id;
+          const featuresToShow = isExpanded
+            ? plan.features
+            : plan.features.slice(0, 6);
+
+          return (
+            <div
+              key={plan.id}
+              className={`relative rounded-3xl border p-8 shadow-sm ${
+                plan.id === "enterprise"
+                  ? "bg-gray-900 text-white ring-gray-800"
+                  : "border-gray-200 bg-white text-gray-900"
+              }`}
+            >
+              {/* Most Popular Tag */}
+              {plan.id === "enterprise" && (
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-primary px-4 py-1 text-sm font-semibold text-white shadow-md">
+                    <LuCrown className="h-4 w-4" />
+                    Most Popular
+                  </span>
+                </div>
+              )}
+
+              <div className="flex items-center justify-between">
+                <h3 className="text-2xl font-bold">{plan.name}</h3>
+                {plan.id === "premium" ? (
+                  <LuServer className="h-6 w-6 text-primary" />
+                ) : (
+                  <LuShield className="h-6 w-6 text-primary" />
+                )}
+              </div>
+
+              <p className="mt-3 text-sm leading-relaxed text-gray-500 dark:text-gray-300">
+                {plan.detail}
+              </p>
+
+              <div className="mt-6 flex items-end gap-2">
+                <span className="text-4xl font-bold">
+                  {plan.price || "Custom"}
+                </span>
+                {plan.price && (
+                  <span className="text-sm text-gray-400">/year</span>
+                )}
+              </div>
+
+              {plan.monthly && (
+                <p className="mt-1 text-sm text-gray-400">
+                  {plan.monthly} /month
+                </p>
+              )}
+
+              <Link
+                to={plan?.url || "/"}
+                target="_blank"
+                className={`mt-6 inline-block w-full rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-200 ease-linear hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                  plan.id === "enterprise"
+                    ? "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500"
+                    : "bg-gray-900 text-white hover:bg-gray-800 focus:ring-gray-700"
+                }`}
+              >
+                <span className="flex items-center justify-center gap-2">
+                  {plan.id === "enterprise" ? "Contact Sales" : "Get Started"}
+                  <LuArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+
+              {/* Feature List */}
+              <ul className="mt-8 space-y-3 text-sm leading-6">
+                {featuresToShow.map((feature, index) => (
+                  <li key={index} className="flex items-start gap-x-3">
+                    <LuCheck className="mt-1 h-5 w-5 text-primary" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+
+                {isExpanded && (
+                  <li>
+                    <button
+                      onClick={() => toggleFeatures(plan.id)}
+                      className="text-sm font-medium text-gray-400 hover:text-gray-300"
+                    >
+                      Show less
+                    </button>
+                  </li>
+                )}
+              </ul>
+
+              {/* Show More */}
+              {!isExpanded && plan.features.length > 6 && (
+                <button
+                  onClick={() => toggleFeatures(plan.id)}
+                  className="mt-4 flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700"
+                >
+                  <span>{`Show ${plan.features.length - 6} more features`}</span>
+                  <LuChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      isExpanded ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              )}
+
+              <div className="my-6 h-px bg-gray-200 dark:bg-gray-700"></div>
+
+              {/* Bonus Products */}
+              {4 > 0 && (
+                <div>
+                  <div className="mb-3 flex items-center gap-2">
+                    <div className="flex gap-1.5 text-blue-600">
+                      <FiGift className="mt-1 text-base" />
+                      <span className="text-sm font-semibold">
+                        {plan.freeProductsIncluded}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="mb-3 text-xs leading-relaxed text-gray-500">
+                    * Free product is valid for the duration of your e-commerce
+                    plan.
+                  </p>
+
+                  <div className="rounded-lg border border-gray-100 bg-gray-50 p-3">
+                    <h4 className="mb-2.5 text-xs font-semibold uppercase tracking-wide text-gray-700">
+                      Available products:
+                    </h4>
+                    <div className="space-y-2">
+                      {(plan.name === "Starter Pack"
+                        ? bonusProducts.slice(0, 3)
+                        : bonusProducts
+                      ).map((item, index) => (
+                        <div
+                          key={index}
+                          className="group flex items-center gap-2.5"
+                        >
+                          <div className="flex items-center gap-2">
+                            <img
+                              src={item.logo}
+                              alt={`${item.name} logo`}
+                              className="h-5 w-5 rounded object-contain"
+                            />
+                            <FaCheck className="text-xs text-primary" />
+                          </div>
+                          <div className="flex min-w-0 flex-1 items-center justify-between">
+                            <div className="min-w-0 flex-1">
+                              <span className="block truncate text-sm font-medium text-gray-900">
+                                {item.name}
+                              </span>
+                              <span className="block truncate text-xs text-gray-500">
+                                {item.description}
+                              </span>
+                            </div>
+                            <div className="ml-2 whitespace-nowrap text-xs font-semibold text-blue-600">
+                              {item.price}
+                              <span className="text-gray-400">/yr</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </Container>
   );
 };
 

@@ -70,27 +70,6 @@ export const menuItems = [
     link: "/hardwares",
   },
   {
-    name: "Company",
-    child: [
-      {
-        name: "About Us",
-        link: "/about",
-      },
-      {
-        name: "Our Technologies",
-        link: "/our-technologies",
-      },
-      {
-        name: "Our Brands",
-        link: "/our-brands",
-      },
-      {
-        name: "Career",
-        link: "/career",
-      },
-    ],
-  },
-  /* {
     name: "Our Technologies",
     child: [
       {
@@ -98,15 +77,15 @@ export const menuItems = [
         subChild: [
           {
             name: "Bitss WAP",
-            link: "https://bitss.fr/products/wap-website-protection/wp",
+            link: "https://bitss.one/products/wap-website-protection/wp",
           },
           {
             name: "Bitss C",
-            link: "https://bitss.fr/products/c-contact-form/wp",
+            link: "https://bitss.one/products/c-contact-form/wp",
           },
           {
             name: "Bitss VWAR",
-            link: "https://bitss.fr/products/vwar-frontline/wp",
+            link: "https://bitss.one/products/vwar-frontline/wp",
           },
         ],
       },
@@ -203,5 +182,26 @@ export const menuItems = [
         ],
       },
     ],
-  }, */
+  },
+  {
+    name: "Company",
+    child: [
+      {
+        name: "About Us",
+        link: "/about",
+      },
+      {
+        name: "Our Technologies",
+        link: "/our-technologies",
+      },
+      {
+        name: "Our Brands",
+        link: "/our-brands",
+      },
+      {
+        name: "Career",
+        link: "/career",
+      },
+    ],
+  },
 ];

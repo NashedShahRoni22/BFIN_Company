@@ -18,7 +18,7 @@ export const carouselData = [
     subTitle:
       "Comprehensive security solutions to Safeguard your Software, Server, Website & Data from Threats, Hacks, Unauthorized Access and Potential Breaches.",
     btnText: "Get Protected Today",
-    link: "https://bitss.fr/",
+    link: "https://bitss.one/",
     img: bitssImg,
   },
   {

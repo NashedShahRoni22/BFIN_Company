@@ -36,7 +36,7 @@ const bonusProducts = [
   },
   {
     name: "IFGAAP Mobile Invoicing",
-    price: "Free",
+    price: "€4.99",
     logo: ifgaapLogo,
     description:
       "Send unlimited invoices on the go — completely free with our mobile-first invoicing app.",

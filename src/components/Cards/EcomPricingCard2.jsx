@@ -19,7 +19,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
 
   return (
     <div
-      className={`relative rounded-xl border p-6 transition-all duration-200 ${
+      className={`relative rounded-xl border p-6 ${
         isPopular ? "border-primary/40" : "border-gray-200"
       }`}
     >
@@ -135,8 +135,8 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
         <div>
           {/* Header */}
           <div className="mb-3 flex items-center gap-2">
-            <div className="flex items-center gap-1.5 text-primary">
-              <FiGift className="text-base" />
+            <div className="flex gap-1.5 text-primary">
+              <FiGift className="mt-1 text-base" />
               <span className="text-sm font-semibold">
                 {plan.freeProductsIncluded}
               </span>

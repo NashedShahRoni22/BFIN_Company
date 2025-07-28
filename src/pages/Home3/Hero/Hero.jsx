@@ -47,11 +47,11 @@ export default function HeroWithNavbar() {
           </h1>
 
           <p className="mx-auto mt-8 max-w-3xl text-balance text-center leading-relaxed md:text-xl">
-            e-Bfinit is a global E-commerce platform for micro, small, medium to
-            large businesses. Built to grow with no transectional charges &
-            built in features like SEO, Blogs, Free SSL certificate, Bitss Cyber
-            Security & Unlimited Traffic. With built in hosting plan to match
-            your e-commerce platform.
+            e-Bfinit is a global e-commerce platform for micro, small, medium,
+            and large businesses. Built to grow with no transactional charges
+            and built-in features like SEO, blogs, free SSL certificate, Bitss
+            Cyber Security, and unlimited traffic. Includes a hosting plan
+            tailored to match your e-commerce needs.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

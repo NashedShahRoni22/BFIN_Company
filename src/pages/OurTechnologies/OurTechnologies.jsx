@@ -12,15 +12,15 @@ export default function OurTechnologies() {
       subChild: [
         {
           name: "Bitss WAP",
-          link: "https://bitss.fr/products/wap-website-protection/wp",
+          link: "https://bitss.one/products/wap-website-protection/wp",
         },
         {
           name: "Bitss C",
-          link: "https://bitss.fr/products/c-contact-form/wp",
+          link: "https://bitss.one/products/c-contact-form/wp",
         },
         {
           name: "Bitss VWAR",
-          link: "https://bitss.fr/products/vwar-frontline/wp",
+          link: "https://bitss.one/products/vwar-frontline/wp",
         },
       ],
     },

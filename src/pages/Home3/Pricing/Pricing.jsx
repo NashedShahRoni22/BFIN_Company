@@ -98,7 +98,7 @@ export default function Pricing({ pricingSection }) {
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
-          {ecompricingPlan.map((plan) => (
+          {ecompricingPlan.slice(0, 4).map((plan) => (
             <EcomPricingCard2 key={plan.id} plan={plan} activeTab={activeTab} />
           ))}
         </div>
