@@ -7,6 +7,7 @@ import Overview from "./Overview/Overview";
 import PremiumPricing from "./PremiumPricing/PremiumPricing";
 import Pricing from "./Pricing/Pricing";
 import SiteShowCase from "./SiteShowcase/SiteShowcase";
+import SosayPromo from "./SosayPromo/SosayPromo";
 
 export default function Home3() {
   return (
@@ -20,6 +21,7 @@ export default function Home3() {
       <Features />
       <Compare />
       <FreeGift />
+      <SosayPromo />
     </div>
   );
 }

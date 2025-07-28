@@ -22,7 +22,7 @@ export default function Hero() {
           {ourBrands.map((brand, i) => (
             <Link
               key={i}
-              to={brand.url}
+              to={brand.websiteUrl}
               target="_blanck"
               className="group flex items-center gap-1 transition-all duration-200 ease-linear hover:font-semibold hover:text-primary"
             >

@@ -69,7 +69,7 @@ export const menuItems = [
     name: "Hardwares",
     link: "/hardwares",
   },
-  {
+  /* {
     name: "Our Technologies",
     child: [
       {
@@ -182,7 +182,7 @@ export const menuItems = [
         ],
       },
     ],
-  },
+  }, */
   {
     name: "Company",
     child: [

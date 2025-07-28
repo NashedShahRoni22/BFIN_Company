@@ -166,7 +166,6 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
                       alt={`${item.name} logo`}
                       className="h-5 w-5 rounded object-contain"
                     />
-                    <FaCheck className="text-xs text-primary" />
                   </div>
 
                   {/* Product details */}

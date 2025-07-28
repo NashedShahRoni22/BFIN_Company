@@ -71,7 +71,7 @@ export default function Overview() {
           {sliderData.map((slider) => (
             <SwiperSlide
               key={slider.id}
-              className="w-full cursor-grab active:cursor-grabbing"
+              className="w-full cursor-grab overflow-hidden rounded-lg border border-gray-200 shadow-sm active:cursor-grabbing"
             >
               <div className="w-full overflow-hidden rounded-lg shadow-sm">
                 <img

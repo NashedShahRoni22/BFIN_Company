@@ -42,7 +42,7 @@ const PremiumPricing = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className="mx-auto mt-16 grid max-w-4xl gap-10 lg:grid-cols-2">
+      <div className="mx-auto mt-16 grid max-w-4xl gap-y-10 lg:grid-cols-2 lg:gap-x-10">
         {ecompricingPlan.slice(4, 6).map((plan) => {
           const isExpanded = expandedPlanId === plan.id;
           const featuresToShow = isExpanded
@@ -52,11 +52,11 @@ const PremiumPricing = () => {
           return (
             <div
               key={plan.id}
-              className={`relative rounded-3xl border p-8 shadow-sm ${
+              className={`relative flex w-full flex-col rounded-3xl border p-6 shadow-sm ${
                 plan.id === "enterprise"
-                  ? "bg-gray-900 text-white ring-gray-800"
+                  ? "bg-dark text-white ring-gray-800"
                   : "border-gray-200 bg-white text-gray-900"
-              }`}
+              } ${isExpanded ? "h-fit" : "h-full"}`}
             >
               {/* Most Popular Tag */}
               {plan.id === "enterprise" && (
@@ -68,33 +68,35 @@ const PremiumPricing = () => {
                 </div>
               )}
 
-              <div className="flex items-center justify-between">
-                <h3 className="text-2xl font-bold">{plan.name}</h3>
-                {plan.id === "premium" ? (
-                  <LuServer className="h-6 w-6 text-primary" />
-                ) : (
-                  <LuShield className="h-6 w-6 text-primary" />
-                )}
-              </div>
+              <div className="flex-1">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-2xl font-bold">{plan.name}</h3>
+                  {plan.id === "premium" ? (
+                    <LuServer className="h-6 w-6 text-primary" />
+                  ) : (
+                    <LuShield className="h-6 w-6 text-primary" />
+                  )}
+                </div>
 
-              <p className="mt-3 text-sm leading-relaxed text-gray-500 dark:text-gray-300">
-                {plan.detail}
-              </p>
-
-              <div className="mt-6 flex items-end gap-2">
-                <span className="text-4xl font-bold">
-                  {plan.price || "Custom"}
-                </span>
-                {plan.price && (
-                  <span className="text-sm text-gray-400">/year</span>
-                )}
-              </div>
-
-              {plan.monthly && (
-                <p className="mt-1 text-sm text-gray-400">
-                  {plan.monthly} /month
+                <p className="mt-3 text-sm leading-relaxed text-gray-500 dark:text-gray-300">
+                  {plan.detail}
                 </p>
-              )}
+
+                <div className="mt-6 flex items-end gap-2">
+                  <span className="text-3xl font-bold">
+                    {plan.price || "Custom"}
+                  </span>
+                  {plan.price && (
+                    <span className="text-sm text-gray-400">/year</span>
+                  )}
+                </div>
+
+                {plan.monthly && (
+                  <p className="mt-1 text-sm text-gray-400">
+                    {plan.monthly} /month
+                  </p>
+                )}
+              </div>
 
               <Link
                 to={plan?.url || "/"}
@@ -178,14 +180,16 @@ const PremiumPricing = () => {
                           key={index}
                           className="group flex items-center gap-2.5"
                         >
+                          {/* Logo and check */}
                           <div className="flex items-center gap-2">
                             <img
                               src={item.logo}
                               alt={`${item.name} logo`}
                               className="h-5 w-5 rounded object-contain"
                             />
-                            <FaCheck className="text-xs text-primary" />
                           </div>
+
+                          {/* Product details */}
                           <div className="flex min-w-0 flex-1 items-center justify-between">
                             <div className="min-w-0 flex-1">
                               <span className="block truncate text-sm font-medium text-gray-900">
@@ -195,7 +199,7 @@ const PremiumPricing = () => {
                                 {item.description}
                               </span>
                             </div>
-                            <div className="ml-2 whitespace-nowrap text-xs font-semibold text-blue-600">
+                            <div className="ml-2 whitespace-nowrap text-xs font-semibold text-primary">
                               {item.price}
                               <span className="text-gray-400">/yr</span>
                             </div>

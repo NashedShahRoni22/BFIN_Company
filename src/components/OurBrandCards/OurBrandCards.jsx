@@ -24,7 +24,14 @@ export default function OurBrandCards() {
         {ourBrands.map((service, i) => (
           <div key={i} className="w-32 md:w-44">
             <div className="size-32 bg-white md:size-44">
-              {service.websiteUrl ? (
+              {service.youtubeUrl ? (
+                <div
+                  onClick={() => handleOpen(service.youtubeUrl)}
+                  className="flex h-full cursor-pointer items-center justify-center rounded border p-4 shadow transition-all duration-200 ease-linear hover:border-primary"
+                >
+                  <img src={service.icon} alt={service.title} />
+                </div>
+              ) : (
                 <Link
                   to={service.websiteUrl}
                   target="_blanck"
@@ -32,13 +39,6 @@ export default function OurBrandCards() {
                 >
                   <img src={service.icon} alt={service.title} />
                 </Link>
-              ) : (
-                <div
-                  onClick={() => handleOpen(service.youtubeUrl)}
-                  className="flex h-full cursor-pointer items-center justify-center rounded border p-4 shadow transition-all duration-200 ease-linear hover:border-primary"
-                >
-                  <img src={service.icon} alt={service.title} />
-                </div>
               )}
             </div>
             <p className="mt-2.5 text-center text-sm font-semibold">
