@@ -160,6 +160,7 @@ export const ecompricingPlan = [
     detail:
       "Powerful hosting with large-scale e-commerce capacity. Ideal for fast-growing enterprises needing speed & stability.",
     freeProductsIncluded: "Choose 5 free products during checkout.",
+    image: "https://images.pexels.com/photos/5408005/pexels-photo-5408005.jpeg",
     url: "https://hpanel.bfinit.com/checkout?productId=33&packageType=server&ram=32GB%20DDR4%20ECC%20RAM&storage=500GB%20SSD&timePeriod=12&currency=USD&currencyRate=1&storageVariantId=",
     features: [
       "4 Ecommerce Store",
@@ -191,6 +192,7 @@ export const ecompricingPlan = [
     label: "Custom Solution",
     price: null,
     monthly: null,
+    image: "https://images.pexels.com/photos/3862149/pexels-photo-3862149.jpeg",
     stores: "Unlimited Stores",
     products: "Unlimited Products",
     ram: "32GB DDR4 ECC RAM",

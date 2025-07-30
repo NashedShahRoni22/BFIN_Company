@@ -8,6 +8,7 @@ import PremiumPricing from "./PremiumPricing/PremiumPricing";
 import Pricing from "./Pricing/Pricing";
 import SiteShowCase from "./SiteShowcase/SiteShowcase";
 import SosayPromo from "./SosayPromo/SosayPromo";
+import FreeGifts from "./FreeGifts/FreeGifts";
 
 export default function Home3() {
   return (
@@ -16,11 +17,12 @@ export default function Home3() {
       {/* <Dashboard /> */}
       <SiteShowCase />
       <Pricing />
+      <FreeGifts />
       <PremiumPricing />
       <Overview />
       <Features />
       <Compare />
-      <FreeGift />
+      {/* <FreeGift /> */}
       <SosayPromo />
     </div>
   );

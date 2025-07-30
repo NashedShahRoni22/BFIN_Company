@@ -1,25 +1,20 @@
-import {
-  FaShareAlt,
-  FaStore,
-  FaComments,
-  FaUsers,
-  FaArrowRight,
-} from "react-icons/fa";
-import { LuArrowRight, LuGift } from "react-icons/lu";
+import { FaShareAlt, FaStore, FaComments, FaUsers } from "react-icons/fa";
+import { LuArrowRight, LuZap } from "react-icons/lu";
 import Container from "../../../shared/Container";
 import { Link } from "react-router-dom";
 
 const features = [
   {
     icon: <FaUsers className="text-xl" />,
-    title: "Social Networking",
+    title: "Ecommerce Social Networking",
     description:
       "Connect, chat, and engage with friends and communities on Sosay.",
   },
   {
     icon: <FaComments className="text-xl" />,
-    title: "Content Creation",
-    description: "Share videos, stories, and live streams with your audience.",
+    title: "Product Focused Content",
+    description:
+      "Create product videos, reviews, and promotional posts to boost your store visibility.",
   },
   {
     icon: <FaStore className="text-xl" />,
@@ -37,22 +32,21 @@ const features = [
 
 const SosayPromo = () => {
   return (
-    <div className="bg-[#020617] py-10 text-white md:py-20">
+    <div className="py-10 md:py-20">
       <Container>
         <div className="mb-16 text-center">
           {/* Badge */}
-          <div className="text-center">
-            <div className="mx-auto mb-4 inline-flex items-center gap-1 rounded-full border border-secondary/10 bg-white/5 px-4 py-2 text-sm font-medium text-secondary backdrop-blur-sm">
-              <div className="items-center justify-center rounded-full bg-white/10 p-1">
-                <LuGift className="size-4" />
-              </div>
-              <p>Social Commerce</p>
+          <div className="mx-auto mb-4 inline-flex items-center gap-1 rounded-full border border-gray-200/50 bg-background px-4 py-2 text-sm font-medium backdrop-blur-sm">
+            <div className="items-center justify-center rounded-full bg-dark/85 p-1">
+              <LuZap className="size-4 text-secondary" />
             </div>
+            <p>Social Commerce</p>
           </div>
 
           {/* Title */}
           <h2 className="text-center font-sora text-3xl font-bold md:text-4xl">
-            Amplify Your Reach with Sosay
+            Amplify Your Reach with{" "}
+            <span className="text-[#F44336]">Sosay</span>
           </h2>
           <p className="mx-auto mt-2 max-w-3xl text-balance text-gray-600">
             Transform your store&apos;s visibility by leveraging our integrated
@@ -62,13 +56,13 @@ const SosayPromo = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           {features.map((item, index) => (
             <div
               key={index}
-              className={`rounded-xl border border-secondary/10 bg-white/10 p-4 text-center shadow-sm transition-all hover:shadow-md`}
+              className={`rounded-xl border border-secondary/10 bg-white/10 p-4 text-center shadow-sm transition-all hover:shadow`}
             >
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-secondary">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                 {item.icon}
               </div>
               <h3 className="mt-4 text-balance text-lg font-semibold">

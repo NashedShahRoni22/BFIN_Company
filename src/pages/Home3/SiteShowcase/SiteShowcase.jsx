@@ -3,6 +3,7 @@ import img2 from "../../../assets/home-3/slider-2.png";
 import img3 from "../../../assets/home-3/slider-3.png";
 import img4 from "../../../assets/home-3/slider-4.png";
 import img5 from "../../../assets/home-3/slider-5.png";
+import Container from "../../../shared/Container";
 
 const showcaseItems = [
   {
@@ -39,8 +40,8 @@ const showcaseItems = [
 
 export default function SiteShowCase() {
   return (
-    <section className="w-full bg-[#020617] px-4 py-16 text-white md:px-8">
-      <div className="mx-auto max-w-screen-xl">
+    <section className="w-full bg-[#020617] py-10 text-white md:py-20">
+      <Container>
         <h2 className="text-center text-3xl font-bold md:text-4xl">
           Sell here, there, and everywhere
         </h2>
@@ -95,7 +96,7 @@ export default function SiteShowCase() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -32,21 +32,24 @@ const giftItems = [
 
 export default function FreeGift() {
   return (
-    <section id="free-tools" className="w-full py-10 md:py-20">
+    <section
+      id="free-tools"
+      className="w-full bg-[#020617] py-10 text-white md:py-20"
+    >
       <Container>
         <div className="mb-16 text-center">
           {/* badge */}
           <div className="text-center">
-            <div className="mx-auto mb-4 inline-flex items-center gap-1 rounded-full border border-gray-200 bg-background px-4 py-2 text-sm font-medium backdrop-blur-sm">
+            <div className="mx-auto mb-4 inline-flex items-center gap-1 rounded-full border border-gray-200 bg-background px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm">
               <div className="items-center justify-center rounded-full bg-dark/85 p-1">
-                <LuGift className="size-4 text-secondary" />
+                <LuGift className="size-4" />
               </div>
               <p>Bonus Bundle - worth $416.75/year</p>
             </div>
           </div>
 
           {/* title */}
-          <h2 className="text-center font-sora text-3xl font-bold text-dark md:text-4xl">
+          <h2 className="text-center font-sora text-3xl font-bold md:text-4xl">
             Essential Business Tools - Included for Free
           </h2>
 
@@ -62,7 +65,7 @@ export default function FreeGift() {
           {giftItems.map((gift, i) => (
             <div
               key={i}
-              className={`border-t border-[#2900291c] p-10 ${i % 2 === 0 && "border-r pl-0"}`}
+              className={`border-t border-white/15 p-10 ${i % 2 === 0 && "border-r pl-0"}`}
             >
               {/* Icon */}
               <div className="w-fit rounded-md border bg-gray-50 p-1.5">

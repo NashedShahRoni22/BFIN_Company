@@ -9,7 +9,7 @@ import omadaLogo from "../../../assets/logo/omada.png";
 import ifgaapLogo from "../../../assets/logo/ifgaap-accounting.png";
 import bobosohoLogo from "../../../assets/logo/bobosoho.jpg";
 
-const freeGifts = [
+export const freeGifts = [
   {
     title: "Omada HR Payroll",
     logo: omadaLogo,
@@ -33,24 +33,13 @@ export default function Pricing({ pricingSection }) {
     <section ref={pricingSection} className="py-10 md:py-20">
       <Container>
         {/* section title container */}
-        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <div>
-            <h2 className="font-sora text-3xl font-bold text-dark/50 md:text-4xl">
-              Pricing
-            </h2>
-            <h2 className="mt-1 font-sora text-3xl font-bold text-dark md:text-4xl">
-              Plans that grow with you
-            </h2>
-          </div>
-
-          {isHome && (
-            <Link
-              to="/bfinit-ecomerce-platform"
-              className="w-fit rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:text-primary"
-            >
-              View All Pack
-            </Link>
-          )}
+        <div className="text-center">
+          <h2 className="font-sora text-3xl font-bold text-dark/50 md:text-4xl">
+            Ecommerce Pricing
+          </h2>
+          <h2 className="mt-1 text-center font-sora text-3xl font-bold text-dark md:text-4xl">
+            Plans that grow with your business from small to medium to large
+          </h2>
         </div>
 
         {/* tab button */}
@@ -71,7 +60,7 @@ export default function Pricing({ pricingSection }) {
           </div>
         </div>
 
-        <p className="mt-2.5 text-center text-lg text-gray-600">
+        {/* <p className="mt-2.5 text-center text-lg text-gray-600">
           Each pack includes exclusive{" "}
           <a
             href="#free-tools"
@@ -95,7 +84,7 @@ export default function Pricing({ pricingSection }) {
               <p>{gift.title}</p>
             </div>
           ))}
-        </div>
+        </div> */}
 
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
           {ecompricingPlan.slice(0, 4).map((plan) => (
