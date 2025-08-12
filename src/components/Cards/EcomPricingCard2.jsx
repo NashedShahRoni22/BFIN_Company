@@ -6,15 +6,18 @@ import { FiGift } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 export default function EcomPricingCard2({ plan, activeTab = 0 }) {
+  const parsedDescriptions = JSON.parse(plan.descriptions);
   const [showAll, setShowAll] = useState(false);
   const initialFeaturesCount = 5;
 
   const featuresToShow = showAll
-    ? plan.features
-    : plan.features.slice(0, initialFeaturesCount);
+    ? parsedDescriptions
+    : parsedDescriptions.slice(0, initialFeaturesCount);
 
   const isPopular =
-    plan.label === "Most Popular" || plan.label === "Best Value";
+    plan.package_label === "Most Popular" ||
+    plan.package_label === "best value";
+
   const isEnterprise = plan.id === "enterprise";
 
   return (
@@ -26,47 +29,51 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
       {/* Popular Badge */}
       {isPopular && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <div className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">
-            {plan.label}
+          <div className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium capitalize text-white">
+            {plan.package_label}
           </div>
         </div>
       )}
 
       {/* Label */}
       <div
-        className={`inline-flex rounded-md px-3 py-1 text-xs font-medium text-gray-600 ${!isPopular && "bg-gray-50"}`}
+        className={`inline-flex rounded-md px-3 py-1 text-xs font-medium capitalize text-gray-600 ${!isPopular && "bg-gray-50"}`}
       >
-        {isPopular ? "" : plan.label}
+        {isPopular ? "" : plan.package_label}
       </div>
 
       {/* Plan Name */}
       <h3 className="mt-4 text-xl font-semibold">{plan.name}</h3>
 
       {/* Details */}
-      <p className="mt-1 text-sm text-gray-600">{plan.detail}</p>
+      <p className="mt-1 text-sm text-gray-600">{plan.sort_description}</p>
 
       {/* Price */}
       <div className="mt-6">
         {activeTab === 0 ? (
           <div className="flex items-baseline gap-1">
             <span className="text-3xl font-bold">
-              {plan.monthly || "Custom"}
+              USD ${plan.defaultStorage.price.toFixed(2) || "Custom"}
             </span>
-            {plan.monthly && (
+            {plan.defaultStorage.price && (
               <span className="text-sm text-gray-600">/month</span>
             )}
           </div>
         ) : (
           <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold">{plan.price || "Custom"}</span>
-            {plan.price && <span className="text-sm text-gray-600">/year</span>}
+            <span className="text-3xl font-bold">
+              USD ${plan.defaultStorage.price * 12 || "Custom"}
+            </span>
+            {plan.defaultStorage.price && (
+              <span className="text-sm text-gray-600">/year</span>
+            )}
           </div>
         )}
       </div>
 
       {/* CTA Button */}
       <Link
-        to={plan?.url ? plan.url : "/"}
+        to={`https://hpanel.bfinit.com/checkout?productId=30&packageType=server&ram=4GB%20DDR4%20ECC%20RAM&storage=100GB%20SSD&timePeriod=12&currency=USD&currencyRate=1&storageVariantId=&order_type=ecommerce&ecommerce_package_id=${plan.id}`}
         target="_blank"
         className={`mt-6 inline-block w-full rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-200 ease-linear hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${
           isPopular
@@ -101,14 +108,28 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
           </li>
         ))}
 
-        {!showAll && plan.features.length > initialFeaturesCount && (
+        {showAll && (
+          <>
+            <li className="flex items-start gap-3 text-sm text-gray-700">
+              <LuCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600" />
+              <span>{plan.defaultStorage.ram}</span>
+            </li>
+            <li className="flex items-start gap-3 text-sm text-gray-700">
+              <LuCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600" />
+              <span>{plan.defaultStorage.storage}</span>
+            </li>
+          </>
+        )}
+
+        {!showAll && parsedDescriptions.length > initialFeaturesCount && (
           <li>
             <button
               onClick={() => setShowAll(true)}
               className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 focus:outline-none"
             >
               <span>
-                Show {plan.features.length - initialFeaturesCount} more features
+                Show {parsedDescriptions.length - initialFeaturesCount} more
+                features
               </span>
               <LuChevronDown className="h-4 w-4" />
             </button>

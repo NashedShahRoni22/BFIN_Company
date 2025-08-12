@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ecompricingPlan } from "../../../data/ecomPricingPlan";
 import Container from "../../../shared/Container";
 import EcomPricingCard2 from "../../../components/Cards/EcomPricingCard2";
@@ -25,9 +25,33 @@ export const freeGifts = [
 ];
 
 export default function Pricing({ pricingSection }) {
-  const { pathname } = useLocation();
   const [activeTab, setActiveTab] = useState(0);
-  const isHome = pathname === "/";
+  const [packages, setPackages] = useState([]);
+
+  useEffect(() => {
+    const fetchStoreData = async () => {
+      try {
+        // setIsLoading(true);
+        const response = await fetch(
+          "https://hpanel.bfinit.com/api/ecommerce/product/list",
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setPackages(data.data);
+      } catch (error) {
+        console.error("Error fetching store data:", error);
+        // setError(error.message || 'Failed to fetch store data');
+      } finally {
+        // setIsLoading(false);
+      }
+    };
+
+    fetchStoreData();
+  }, []);
 
   return (
     <section ref={pricingSection} className="py-10 md:py-20">
@@ -87,9 +111,21 @@ export default function Pricing({ pricingSection }) {
         </div> */}
 
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
-          {ecompricingPlan.slice(0, 4).map((plan) => (
+          {/* {ecompricingPlan.slice(0, 4).map((plan) => (
             <EcomPricingCard2 key={plan.id} plan={plan} activeTab={activeTab} />
-          ))}
+          ))} */}
+
+          {packages &&
+            packages.length > 0 &&
+            packages
+              .slice(0, 4)
+              .map((plan) => (
+                <EcomPricingCard2
+                  key={plan.id}
+                  plan={plan}
+                  activeTab={activeTab}
+                />
+              ))}
         </div>
       </Container>
     </section>
