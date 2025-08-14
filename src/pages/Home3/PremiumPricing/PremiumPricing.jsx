@@ -197,7 +197,7 @@ const PremiumPricing = () => {
                   <div className="flex gap-1.5 text-primary">
                     <LuGift className="mt-0.5 text-base" />
                     <span className="text-sm font-semibold">
-                      {/* {plan.freeProductsIncluded} */}
+                      Choose free products during checkout.
                     </span>
                   </div>
                 </div>
@@ -207,7 +207,7 @@ const PremiumPricing = () => {
                   plan.
                 </p>
 
-                <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
+                {/* <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
                   <h5 className="mb-2.5 text-xs font-medium uppercase tracking-wide text-gray-700">
                     Available Products:
                   </h5>
@@ -217,7 +217,6 @@ const PremiumPricing = () => {
                         key={idx}
                         className="group flex items-center gap-2.5"
                       >
-                        {/* Logo and check */}
                         <div className="flex items-center gap-2">
                           <img
                             src={item.logo}
@@ -226,7 +225,6 @@ const PremiumPricing = () => {
                           />
                         </div>
 
-                        {/* Product details */}
                         <div className="flex min-w-0 flex-1 items-center justify-between">
                           <div className="min-w-0 flex-1">
                             <span className="block truncate text-sm font-medium text-gray-900">
@@ -244,7 +242,7 @@ const PremiumPricing = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -341,7 +339,6 @@ const PremiumPricing = () => {
                   {/* CTA Button */}
                   <Link
                     to={plan?.url ? plan.url : "/"}
-                    target="_blank"
                     className={`mt-6 inline-block w-full rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-200 ease-linear hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                       plan.id === "enterprise"
                         ? "bg-primary text-white hover:bg-blue-700 focus:ring-blue-500"
@@ -412,7 +409,7 @@ const PremiumPricing = () => {
                       e-commerce plan.
                     </p>
 
-                    <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
+                    {/* <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
                       <h5 className="mb-2.5 text-xs font-medium uppercase tracking-wide text-gray-700">
                         Available Products:
                       </h5>
@@ -425,7 +422,6 @@ const PremiumPricing = () => {
                             key={idx}
                             className="group flex items-center gap-2.5"
                           >
-                            {/* Logo and check */}
                             <div className="flex items-center gap-2">
                               <img
                                 src={item.logo}
@@ -434,7 +430,6 @@ const PremiumPricing = () => {
                               />
                             </div>
 
-                            {/* Product details */}
                             <div className="flex min-w-0 flex-1 items-center justify-between">
                               <div className="min-w-0 flex-1">
                                 <span className="block truncate text-sm font-medium text-gray-900">
@@ -452,7 +447,7 @@ const PremiumPricing = () => {
                           </div>
                         ))}
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

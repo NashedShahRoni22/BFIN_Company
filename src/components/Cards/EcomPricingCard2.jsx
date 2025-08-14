@@ -159,7 +159,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
             <div className="flex gap-1.5 text-primary">
               <FiGift className="mt-1 text-base" />
               <span className="text-sm font-semibold">
-                {plan.freeProductsIncluded}
+                Choose free products during checkout.
               </span>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
           </p>
 
           {/* Products list */}
-          <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
+          {/* <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
             <h4 className="mb-2.5 text-xs font-medium uppercase tracking-wide text-gray-700">
               Available products:
             </h4>
@@ -180,7 +180,6 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
                 : bonusProducts
               ).map((item, index) => (
                 <div key={index} className="group flex items-center gap-2.5">
-                  {/* Logo and check */}
                   <div className="flex items-center gap-2">
                     <img
                       src={item.logo}
@@ -189,7 +188,6 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
                     />
                   </div>
 
-                  {/* Product details */}
                   <div className="flex min-w-0 flex-1 items-center justify-between">
                     <div className="min-w-0 flex-1">
                       <span className="block truncate text-sm font-medium text-gray-900">
@@ -207,7 +205,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </div>
