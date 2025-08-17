@@ -13,6 +13,7 @@ import Container from "../../../shared/Container";
 import bonusProducts from "../../../data/bonusProduct";
 import { ecompricingPlan } from "../../../data/ecomPricingPlan";
 import { Link } from "react-router-dom";
+import formatPrice from "../../../utils/formatPrice";
 
 const PremiumPricing = () => {
   const [expandedPlanId, setExpandedPlanId] = useState(null);
@@ -112,12 +113,15 @@ const PremiumPricing = () => {
                 <div className="mt-6">
                   <div className="mb-2">
                     <span className="text-3xl font-bold">
-                      USD ${premiumPlan?.defaultStorage?.price * 12}
+                      USD $
+                      {formatPrice(premiumPlan?.defaultStorage?.price * 12)}
                     </span>
                     <span className="text-sm text-gray-600"> /year</span>
                   </div>
                   <p className="text-sm text-gray-600">
-                    USD ${premiumPlan?.defaultStorage?.price.toFixed(2)} /month
+                    USD $
+                    {formatPrice(premiumPlan?.defaultStorage?.price.toFixed(2))}{" "}
+                    /month
                   </p>
                 </div>
               </div>
@@ -197,7 +201,7 @@ const PremiumPricing = () => {
                   <div className="flex gap-1.5 text-primary">
                     <LuGift className="mt-0.5 text-base" />
                     <span className="text-sm font-semibold">
-                      Choose free products during checkout.
+                      Choose 5 free products during checkout.
                     </span>
                   </div>
                 </div>
@@ -207,12 +211,12 @@ const PremiumPricing = () => {
                   plan.
                 </p>
 
-                {/* <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
+                <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
                   <h5 className="mb-2.5 text-xs font-medium uppercase tracking-wide text-gray-700">
                     Available Products:
                   </h5>
                   <div className="space-y-2">
-                    {bonusProducts.slice(0, 5).map((item, idx) => (
+                    {bonusProducts.map((item, idx) => (
                       <div
                         key={idx}
                         className="group flex items-center gap-2.5"
@@ -242,7 +246,7 @@ const PremiumPricing = () => {
                       </div>
                     ))}
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
@@ -409,7 +413,7 @@ const PremiumPricing = () => {
                       e-commerce plan.
                     </p>
 
-                    {/* <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
+                    <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
                       <h5 className="mb-2.5 text-xs font-medium uppercase tracking-wide text-gray-700">
                         Available Products:
                       </h5>
@@ -447,7 +451,7 @@ const PremiumPricing = () => {
                           </div>
                         ))}
                       </div>
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </div>

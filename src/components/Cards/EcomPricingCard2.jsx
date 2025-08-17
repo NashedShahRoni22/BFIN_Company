@@ -4,8 +4,11 @@ import bonusProducts from "../../data/bonusProduct";
 import { FaCheck } from "react-icons/fa";
 import { FiGift } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { ecompricingPlan } from "../../data/ecomPricingPlan";
+import formatPrice from "../../utils/formatPrice";
 
 export default function EcomPricingCard2({ plan, activeTab = 0 }) {
+  const localPlan = ecompricingPlan.find((local) => plan.id === local.id);
   const parsedDescriptions = JSON.parse(plan.descriptions);
   const [showAll, setShowAll] = useState(false);
   const initialFeaturesCount = 5;
@@ -19,6 +22,8 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
     plan.package_label === "best value";
 
   const isEnterprise = plan.id === "enterprise";
+
+  console.log(localPlan);
 
   return (
     <div
@@ -53,7 +58,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
         {activeTab === 0 ? (
           <div className="flex items-baseline gap-1">
             <span className="text-3xl font-bold">
-              USD ${plan.defaultStorage.price.toFixed(2) || "Custom"}
+              USD ${formatPrice(plan.defaultStorage.price) || "Custom"}
             </span>
             {plan.defaultStorage.price && (
               <span className="text-sm text-gray-600">/month</span>
@@ -62,7 +67,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
         ) : (
           <div className="flex items-baseline gap-1">
             <span className="text-3xl font-bold">
-              USD ${plan.defaultStorage.price * 12 || "Custom"}
+              USD ${formatPrice(plan.defaultStorage.price * 12) || "Custom"}
             </span>
             {plan.defaultStorage.price && (
               <span className="text-sm text-gray-600">/year</span>
@@ -159,7 +164,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
             <div className="flex gap-1.5 text-primary">
               <FiGift className="mt-1 text-base" />
               <span className="text-sm font-semibold">
-                Choose free products during checkout.
+                {localPlan?.freeProductsIncluded}
               </span>
             </div>
           </div>
@@ -169,7 +174,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
           </p>
 
           {/* Products list */}
-          {/* <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
+          <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-3">
             <h4 className="mb-2.5 text-xs font-medium uppercase tracking-wide text-gray-700">
               Available products:
             </h4>
@@ -205,7 +210,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
                 </div>
               ))}
             </div>
-          </div> */}
+          </div>
         </div>
       )}
     </div>

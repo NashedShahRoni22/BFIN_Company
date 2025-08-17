@@ -34,13 +34,13 @@ const bonusProducts = [
     logo: omadaLogo,
     description: "Quickly generate payslips with professional formatting.",
   },
-  {
-    name: "IFGAAP Mobile Invoicing",
-    price: "€4.99",
-    logo: ifgaapLogo,
-    description:
-      "Send unlimited invoices on the go — completely free with our mobile-first invoicing app.",
-  },
+  // {
+  //   name: "IFGAAP Mobile Invoicing",
+  //   price: "€4.99",
+  //   logo: ifgaapLogo,
+  //   description:
+  //     "Send unlimited invoices on the go — completely free with our mobile-first invoicing app.",
+  // },
 ];
 
 export default bonusProducts;

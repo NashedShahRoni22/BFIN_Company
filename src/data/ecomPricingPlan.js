@@ -1,6 +1,6 @@
 export const ecompricingPlan = [
   {
-    id: "micro",
+    id: 2,
     name: "Starter Pack",
     label: "Upgrade",
     price: "USD $12",
@@ -36,7 +36,7 @@ export const ecompricingPlan = [
     ],
   },
   {
-    id: "basic",
+    id: 3,
     name: "Basic Plan",
     label: "Entry",
     price: "USD $126",
@@ -73,7 +73,7 @@ export const ecompricingPlan = [
     ],
   },
   {
-    id: "standard",
+    id: 4,
     name: "Standard Plan",
     label: "Best Value",
     price: "USD $186",
@@ -110,7 +110,7 @@ export const ecompricingPlan = [
     ],
   },
   {
-    id: "professional",
+    id: 5,
     name: "Professional Plan",
     label: "Growth",
     price: "USD $342",
@@ -148,7 +148,7 @@ export const ecompricingPlan = [
     ],
   },
   // {
-  //   id: "premium",
+  //   id: 5,
   //   name: "Premium Plan",
   //   label: "High Capacity",
   //   price: "USD $594",
