@@ -128,7 +128,7 @@ const PremiumPricing = () => {
 
               {/* CTA Button */}
               <Link
-                to={`https://hpanel.bfinit.com/checkout?productId=${premiumPlan?.server_id}&packageType=server&ram=${premiumPlan?.defaultStorage?.ram}&storage=${premiumPlan?.defaultStorage?.storage}&timePeriod=12&currency=USD&currencyRate=1&storageVariantId=&order_type=ecommerce&ecommerce_package_id=${premiumPlan?.id}`}
+                to={`https://hpanel.bfinit.com/checkout?productId=${premiumPlan?.server_id}&packageType=server&ram=${premiumPlan?.defaultStorage?.ram}&storage=${premiumPlan?.defaultStorage?.storage}&timePeriod=12&currency=USD&currencyRate=1&storageVariantId=&order_type=ecommerce&ecommerce_package_id=${premiumPlan?.id}&ecommerce_package_name=${premiumPlan.name?.split(" ")[0].toLowerCase()}`}
                 target="_blank"
                 className={`mt-6 inline-block w-full rounded-lg bg-gray-900 px-4 py-3 text-sm font-semibold text-white transition-all duration-200 ease-linear hover:bg-gray-800 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2`}
               >

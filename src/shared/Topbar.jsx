@@ -4,7 +4,7 @@ import { CgClose } from "react-icons/cg";
 import { FaBars } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
-import logo from "../assets/logo/e-bfinit.png";
+import logo from "../assets/logo/e-bfinit-new-3.png";
 import { menuItems } from "../data/menuItems";
 import Container from "./Container";
 
@@ -115,11 +115,11 @@ export default function Topbar() {
     >
       <Container>
         <section
-          className={`relative flex items-center justify-between py-2.5 text-black`}
+          className={`relative flex items-center justify-between py-4 text-black`}
         >
           {/* logo here  */}
           <Link onClick={toggleSubMenu} to={"/"}>
-            <img src={logo} className="h-12" alt="" loading="lazy" />
+            <img src={logo} className="h-5 md:h-7" alt="" loading="lazy" />
           </Link>
           {/* desktop view  */}
           <div className="hidden lg:flex lg:items-center lg:gap-8">
