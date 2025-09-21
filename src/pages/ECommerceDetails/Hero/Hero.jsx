@@ -1,5 +1,4 @@
 import { MdOutlineArrowDownward } from "react-icons/md";
-import ecommerce from "../../../assets/ecommerce/banner.webp";
 import { Link } from "react-router-dom";
 import { HiOutlineEye } from "react-icons/hi";
 
@@ -34,11 +33,12 @@ export default function Hero({ handleScrollToSection }) {
         </div>
       </div>
       <div className="h-[220px] w-full md:h-[440px] md:w-1/2">
-        <img
-          src={ecommerce}
-          alt="bfinit reseller program"
-          loading="lazy"
-          className="h-[228px] w-full rounded-lg object-cover md:h-full"
+        <iframe
+          src="https://www.youtube.com/embed/2SL7_FNubrw?si=cJ6ehWuFNORcqZXP"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="h-full w-full rounded-lg"
         />
       </div>
     </section>
