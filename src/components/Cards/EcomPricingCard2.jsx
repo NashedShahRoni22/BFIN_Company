@@ -23,8 +23,6 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
 
   const isEnterprise = plan.id === "enterprise";
 
-  console.log(localPlan);
-
   return (
     <div
       className={`relative rounded-xl border p-6 ${
@@ -58,7 +56,7 @@ export default function EcomPricingCard2({ plan, activeTab = 0 }) {
         {activeTab === 0 ? (
           <div className="flex items-baseline gap-1">
             <span className="text-3xl font-bold">
-              USD ${formatPrice(plan.defaultStorage.price) || "Custom"}
+              EUR €{formatPrice(plan.defaultStorage.price) || "Custom"}
             </span>
             {plan.defaultStorage.price && (
               <span className="text-sm text-gray-600">/month</span>

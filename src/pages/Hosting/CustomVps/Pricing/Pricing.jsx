@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Pricing({sectionRef}) {
+export default function Pricing({ sectionRef }) {
   const cores = [1, 2, 4, 6];
   const rams = [
     "4 GB RAM DDR4 ECC",
@@ -78,7 +78,10 @@ export default function Pricing({sectionRef}) {
   }, [core]);
 
   return (
-    <div ref={sectionRef} className="mx-5 py-5 md:flex md:justify-center md:py-10">
+    <div
+      ref={sectionRef}
+      className="mx-5 py-5 md:flex md:justify-center md:py-10"
+    >
       <div className="rounded p-5 shadow-lg md:w-1/2 lg:w-1/3">
         <h5 className="text-center text-2xl font-semibold">
           Build your own VPS!
@@ -138,7 +141,7 @@ export default function Pricing({sectionRef}) {
             <div className="my-4 text-center text-lg font-semibold">
               <p>
                 Total Price:{" "}
-                <span className="text-royal-blue">${price.toFixed(2)}</span>{" "}
+                <span className="text-royal-blue">€{price.toFixed(2)}</span>{" "}
                 <span className="text-xs">/ Per month</span>
               </p>
             </div>
@@ -149,7 +152,7 @@ export default function Pricing({sectionRef}) {
           <Link
             to={`https://hpanel.bfinit.com/checkout?productId=${productId}&packageType=server&ram=${ram}&storage=${storage}&timePeriod=1&currency=USD&currencyRate=1&storageVariantId=`}
             target="_blank"
-            className="bg-royal-blue inline-block w-full rounded-full px-4 py-2 text-center text-white bg-primary"
+            className="bg-royal-blue inline-block w-full rounded-full bg-primary px-4 py-2 text-center text-white"
           >
             Order Now
           </Link>

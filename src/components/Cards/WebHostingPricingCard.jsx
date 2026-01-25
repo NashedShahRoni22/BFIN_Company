@@ -10,7 +10,7 @@ export default function HostingPricingCard({ product }) {
   const [storages, setStorages] = useState([]);
   const [exchangeRates, setExchangeRates] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(1);
-  const [currencyCode, setCurrencyCode] = useState("USD");
+  const [currencyCode, setCurrencyCode] = useState("EUR");
 
   // Initialize with default values
   const [serverId, setServerId] = useState(product.id);
