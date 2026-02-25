@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 import { LuArrowRight, LuZap } from "react-icons/lu";
-import { TbTriangleInvertedFilled } from "react-icons/tb";
 import Container from "../../../shared/Container";
-import bitssLogo from "../../../assets/logo/bitss.png";
-import omadaLogo from "../../../assets/logo/omada.png";
-import ifgaapLogo from "../../../assets/logo/ifgaap-accounting.png";
-import bobosohoLogo from "../../../assets/logo/bobosoho.jpg";
 
 export default function HeroWithNavbar() {
   return (
@@ -70,71 +65,6 @@ export default function HeroWithNavbar() {
             </Link>
           </div>
         </div>
-
-        {/* <p className="mt-10 flex items-center justify-center gap-2.5 text-sm text-gray-700">
-          Enjoy powerful tools & features free with your each E-commerce pack.{" "}
-          <a
-            href="#free-tools"
-            className="group flex items-center gap-0.5 font-semibold hover:text-primary"
-          >
-            See all{" "}
-            <LuArrowRight className="transition-all duration-200 ease-linear group-hover:translate-x-0.5" />
-          </a>
-        </p>
-
-        <div className="flex items-center justify-center gap-6">
-          <div className="group relative w-10">
-            <img
-              src={bitssLogo}
-              className="w-full grayscale transition-all duration-200 ease-linear group-hover:grayscale-0"
-            />
-            <div className="absolute bottom-[115%] left-1/2 -translate-x-1/2 scale-0 text-nowrap rounded-lg bg-accent p-1 text-xs opacity-0 transition-opacity duration-200 ease-linear group-hover:scale-100 group-hover:opacity-100">
-              <div className="relative">
-                Bitss Cyber Security
-                <TbTriangleInvertedFilled className="absolute left-1/2 -translate-x-1/2 text-accent" />
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative w-10">
-            <img
-              src={omadaLogo}
-              className="w-full grayscale transition-all duration-200 ease-linear group-hover:grayscale-0"
-            />
-            <div className="absolute bottom-[115%] left-1/2 -translate-x-1/2 scale-0 text-nowrap rounded-lg bg-accent p-1 text-xs opacity-0 transition-opacity duration-200 ease-linear group-hover:scale-100 group-hover:opacity-100">
-              <div className="relative">
-                Omada Payroll
-                <TbTriangleInvertedFilled className="absolute left-1/2 -translate-x-1/2 text-accent" />
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative w-20">
-            <img
-              src={ifgaapLogo}
-              className="w-full grayscale transition-all duration-200 ease-linear group-hover:grayscale-0"
-            />
-            <div className="absolute bottom-[115%] left-1/2 -translate-x-1/2 scale-0 text-nowrap rounded-lg bg-accent p-1 text-xs opacity-0 transition-opacity duration-200 ease-linear group-hover:scale-100 group-hover:opacity-100">
-              <div className="relative">
-                IFGaap Invoicing
-                <TbTriangleInvertedFilled className="absolute left-1/2 -translate-x-1/2 text-accent" />
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative w-24">
-            <img
-              src={bobosohoLogo}
-              className="w-full grayscale transition-all duration-200 ease-linear group-hover:grayscale-0"
-            />
-            <div className="absolute bottom-[115%] left-1/2 -translate-x-1/2 scale-0 text-nowrap rounded-lg bg-accent p-1 text-xs opacity-0 transition-opacity duration-200 ease-linear group-hover:scale-100 group-hover:opacity-100">
-              <div className="relative">
-                Bobosoho Mail
-                <TbTriangleInvertedFilled className="absolute left-1/2 -translate-x-1/2 text-accent" />
-              </div>
-            </div>
-          </div>
-        </div> */}
       </Container>
     </section>
   );

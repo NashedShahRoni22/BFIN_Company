@@ -37,6 +37,7 @@ import StarterWebPack from "../pages/StarterWebPack/StarterWebPack";
 import Hardwares from "../pages/Hardwares/Hardwares";
 import Home3 from "../pages/Home3/Home3";
 import EcomEnterprisePack from "../pages/EcomEnterprisePack/EcomEnterprisePack";
+import ScottyPumpkinPage from "../pages/Home3/Scottypumpkin/Scottypumpkinpage";
 
 export const router = createBrowserRouter([
   {
@@ -167,6 +168,10 @@ export const router = createBrowserRouter([
       {
         path: "/hardwares",
         element: <Hardwares />,
+      },
+      {
+        path: "/scotty-pumpkin",
+        element: <ScottyPumpkinPage />,
       },
     ],
   },
