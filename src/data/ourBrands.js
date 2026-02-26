@@ -18,7 +18,7 @@ export const ourBrands = [
     title: "Bitss WAP Login Protection for Website",
     details: "Secure login, blacklist IPs and prevent hacking or data theft.",
     youtubeUrl: "https://youtu.be/C9XBLzhUk3Q?si=2Lb3C4vQb1IkF2xf",
-    websiteUrl: "https://bitss.one/products/wap-website-protection/wp",
+    websiteUrl: "https://bitss.one/products",
     icon: wap,
   },
   {
@@ -26,7 +26,7 @@ export const ourBrands = [
     details:
       "Spam-free contact forms with real-time protection and user-friendly CAPTCHA.",
     youtubeUrl: "https://youtu.be/UTI0Hf5q_1w?si=AQER-_fORwoLSNBB",
-    websiteUrl: "https://bitss.one/products/c-contact-form/wp",
+    websiteUrl: "https://bitss.one/products",
     icon: cContactForm,
   },
   {
@@ -35,7 +35,7 @@ export const ourBrands = [
       "Real-time malware detection, neutralization and detailed modification tracking.",
     youtubeUrl:
       "https://www.youtube.com/playlist?list=PLF-ORj4TJbANj5Wws5m2FS1sB2FdJmMQX",
-    websiteUrl: "https://bitss.one/products/vwar-frontline/software",
+    websiteUrl: "https://bitss.one/products",
     icon: vWar,
   },
   {
